@@ -1,0 +1,99 @@
+{
+  "engine": {
+    "engine_version": "2.2.3-protect-enhanced",
+    "mode": "PROTECT"
+  },
+  "session": {
+    "session_start_utc": "2026-02-27T00:52:58Z"
+  },
+  "scans": [
+    {
+      "timestamp_utc": "2026-02-27T00:53:21Z",
+      "url_sha256": "51bc7aa6cd9fcd3faf5c96bd530ca8930b3e780a8bc2a4020abd5b65bd010122",
+      "url": {
+        "raw": "dubug on",
+        "normalized": "http://dubug on",
+        "decoded": "http://dubug on",
+        "host": "dubug on",
+        "registrable_domain": "",
+        "effective_suffix": "",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "LOW RISK",
+        "risk_percent": 10,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "Medium"
+      },
+      "engine": {
+        "decision_by": "fusion_offline_online",
+        "score": 0.1,
+        "p1": 0.30401099795387454,
+        "p2": 0.4298794204552432
+      },
+      "reasons": [
+        "Google Safe Browsing: no threats found (clean).",
+        "Models disagree: GSB validation prevents false positive.",
+        "Reputation and URL patterns suggest safety; capping risk score.",
+        "TLS certificate check failed (risky host / misconfig).",
+        "Google Safe Browsing validation prevents false positive."
+      ],
+      "analysis_time_ms": 2192.0273999994606,
+      "scan_id": 1
+    },
+    {
+      "timestamp_utc": "2026-02-27T00:53:27Z",
+      "url_sha256": "c6f32aad49126f79e60d45243daf52d57441323055e80555d4319e7856f52c7a",
+      "url": {
+        "raw": "https://lityn.sbs",
+        "normalized": "https://lityn.sbs",
+        "decoded": "https://lityn.sbs",
+        "host": "lityn.sbs",
+        "registrable_domain": "lityn.sbs",
+        "effective_suffix": "sbs",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 0,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "fusion_offline_online",
+        "score": 0.0,
+        "p1": 0.8842366512830885,
+        "p2": 0.8200371139350587
+      },
+      "reasons": [
+        "Google Safe Browsing: no threats found (clean).",
+        "Valid TLS certificate detected (good sign).",
+        "GSB + TLS validation: site verified as safe.",
+        "Domain 'lityn.sbs' auto-added to trusted allowlist.",
+        "Valid TLS certificate detected (good sign).",
+        "GSB + TLS validation: site verified as safe."
+      ],
+      "analysis_time_ms": 4293.269400000099,
+      "whois": {
+        "creation_date": "2025-10-13",
+        "expiration_date": "2026-10-13",
+        "updated_date": "2026-01-30",
+        "registrar": "HOSTINGER operations, UAB",
+        "registrant_org": null,
+        "registrant_country": null,
+        "nameservers": [
+          "ns2.dns-parking.com",
+          "ns1.dns-parking.com"
+        ],
+        "status": [
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 2
+    }
+  ]
+}

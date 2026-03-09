@@ -1,0 +1,2220 @@
+{
+  "_meta": {
+    "updated_utc": "2026-03-09T22:49:28Z"
+  },
+  "items": {
+    "redir:21b525d374355f04010d802d7d235c791efbb9f099b5d73139f0261e33cd4acd": {
+      "ts": 1767996566.2798326,
+      "val": {
+        "ok": true,
+        "final_url": "https://www.uop.edu.jo/ar/pages/default.aspx",
+        "chain": [
+          "http://www.uop.edu.jo/",
+          "https://www.uop.edu.jo:443/",
+          "https://www.uop.edu.jo/ar/pages/default.aspx"
+        ],
+        "status": 200,
+        "redirects": 2
+      }
+    },
+    "tls:1c34d4fb5f73801b45fa68efbb27f61fd440f1a49a85fa8626a21eafa8b1d24c": {
+      "ts": 1773088298.928936,
+      "val": {
+        "ok": true,
+        "notAfter": "Aug  3 08:22:17 2026 GMT",
+        "days_left": 146
+      }
+    },
+    "rdap:1c34d4fb5f73801b45fa68efbb27f61fd440f1a49a85fa8626a21eafa8b1d24c": {
+      "ts": 1767996567.2412653,
+      "val": {
+        "ok": false,
+        "error": "rdap HTTP 404"
+      }
+    },
+    "html:21b525d374355f04010d802d7d235c791efbb9f099b5d73139f0261e33cd4acd": {
+      "ts": 1767996567.6555908,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://www.uop.edu.jo/ar/pages/default.aspx",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": true,
+          "has_password": false,
+          "has_login_words": true,
+          "has_otp": true,
+          "external_form_action": false,
+          "action_host": null
+        }
+      }
+    },
+    "redir:b065085b6945ccd4c2386f2a4afdb1c1af1db1c4cba135f096fb57e0aa83a84b": {
+      "ts": 1767996715.7159846,
+      "val": {
+        "ok": true,
+        "final_url": "https://example.com/?redirect=https://evil.com",
+        "chain": [
+          "https://example.com/?redirect=https://evil.com"
+        ],
+        "status": 200,
+        "redirects": 0
+      }
+    },
+    "tls:a379a6f6eeafb9a55e378c118034e2751e682fab9f2d30ab13d2125586ce1947": {
+      "ts": 1768263883.3979259,
+      "val": {
+        "ok": true,
+        "notAfter": "Mar 16 18:32:44 2026 GMT",
+        "days_left": 62
+      }
+    },
+    "rdap:a379a6f6eeafb9a55e378c118034e2751e682fab9f2d30ab13d2125586ce1947": {
+      "ts": 1767996717.0833595,
+      "val": {
+        "ok": true,
+        "created": "1995-08-14T04:00:00Z",
+        "age_days": 11106
+      }
+    },
+    "gsb:b065085b6945ccd4c2386f2a4afdb1c1af1db1c4cba135f096fb57e0aa83a84b": {
+      "ts": 1767996717.5414505,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "vt:b065085b6945ccd4c2386f2a4afdb1c1af1db1c4cba135f096fb57e0aa83a84b": {
+      "ts": 1767996718.2201264,
+      "val": {
+        "hit": false,
+        "error": "VT HTTP 401"
+      }
+    },
+    "html:b065085b6945ccd4c2386f2a4afdb1c1af1db1c4cba135f096fb57e0aa83a84b": {
+      "ts": 1767996718.6294382,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://example.com/?redirect=https://evil.com",
+        "content_type": "text/html",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "has_otp": false,
+          "external_form_action": false,
+          "action_host": null
+        }
+      }
+    },
+    "gsb:21b525d374355f04010d802d7d235c791efbb9f099b5d73139f0261e33cd4acd": {
+      "ts": 1768264381.274583,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "vt:21b525d374355f04010d802d7d235c791efbb9f099b5d73139f0261e33cd4acd": {
+      "ts": 1767996728.6246238,
+      "val": {
+        "hit": false,
+        "error": "VT HTTP 401"
+      }
+    },
+    "redir:fa92a652dbfe59e8d2c8bdba284c7cfe5f59ec27f617d865980010e5bf1f0be2": {
+      "ts": 1768005083.4347785,
+      "val": {
+        "ok": true,
+        "final_url": "https://uop.edu.jo/ar/pages/default.aspx",
+        "chain": [
+          "https://uop.edu.jo/",
+          "https://uop.edu.jo/ar/pages/default.aspx"
+        ],
+        "status": 200,
+        "redirects": 1
+      }
+    },
+    "gsb:fa92a652dbfe59e8d2c8bdba284c7cfe5f59ec27f617d865980010e5bf1f0be2": {
+      "ts": 1768261604.4577081,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "redir:6bc84569b82bf6f80cda340b0e87debd8c46ccc93e005c61e3ffba7010b17dfa": {
+      "ts": 1768005091.367702,
+      "val": {
+        "ok": true,
+        "final_url": "https://uop.edu.jo/ar/pages/default.aspx",
+        "chain": [
+          "http://uop.edu.jo/",
+          "https://uop.edu.jo:443/",
+          "https://uop.edu.jo/ar/pages/default.aspx"
+        ],
+        "status": 200,
+        "redirects": 2
+      }
+    },
+    "gsb:6bc84569b82bf6f80cda340b0e87debd8c46ccc93e005c61e3ffba7010b17dfa": {
+      "ts": 1773088298.7697868,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "redir:7402a939674cc0f6aa148df4fb315e1733a0621b30ea0f12c796b48c93dce693": {
+      "ts": 1768005105.3546507,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "tls:82976e08e9db3d4f1981a6270a39fba0a145cc97026f816be1f7ee3eca149ce2": {
+      "ts": 1768005106.8805273,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "rdap:82976e08e9db3d4f1981a6270a39fba0a145cc97026f816be1f7ee3eca149ce2": {
+      "ts": 1768005107.52361,
+      "val": {
+        "ok": false,
+        "error": "rdap HTTP 404"
+      }
+    },
+    "gsb:7402a939674cc0f6aa148df4fb315e1733a0621b30ea0f12c796b48c93dce693": {
+      "ts": 1768005107.9527524,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "vt:7402a939674cc0f6aa148df4fb315e1733a0621b30ea0f12c796b48c93dce693": {
+      "ts": 1768005108.6594403,
+      "val": {
+        "hit": false,
+        "error": "VT HTTP 401"
+      }
+    },
+    "html:7402a939674cc0f6aa148df4fb315e1733a0621b30ea0f12c796b48c93dce693": {
+      "ts": 1768005108.6782644,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "redir:caeede61bb74a7f4b91208dbec19cc47de97c5bf7370a367733bb5e15bc19e53": {
+      "ts": 1768264264.0951521,
+      "val": {
+        "ok": true,
+        "final_url": "https://www.amman.jo/ar/eservices/login.aspx?fnhw=300",
+        "chain": [
+          "https://www.amman.jo/ar/eservices/login.aspx?fnhw=300"
+        ],
+        "status": 200,
+        "redirects": 0
+      }
+    },
+    "tls:fde154828ccf959703ec80c533e8b57bf940a2dfcd43ed22bf54d2473dcd3013": {
+      "ts": 1768261593.1736002,
+      "val": {
+        "ok": true,
+        "notAfter": "Sep 22 23:59:59 2026 GMT",
+        "days_left": 253
+      }
+    },
+    "rdap:fde154828ccf959703ec80c533e8b57bf940a2dfcd43ed22bf54d2473dcd3013": {
+      "ts": 1768005158.3134944,
+      "val": {
+        "ok": false,
+        "error": "rdap HTTP 404"
+      }
+    },
+    "gsb:caeede61bb74a7f4b91208dbec19cc47de97c5bf7370a367733bb5e15bc19e53": {
+      "ts": 1768264263.7033277,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "vt:caeede61bb74a7f4b91208dbec19cc47de97c5bf7370a367733bb5e15bc19e53": {
+      "ts": 1768005159.5283048,
+      "val": {
+        "hit": false,
+        "error": "VT HTTP 401"
+      }
+    },
+    "html:caeede61bb74a7f4b91208dbec19cc47de97c5bf7370a367733bb5e15bc19e53": {
+      "ts": 1768264264.5404565,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://www.amman.jo/ar/eservices/login.aspx?fnhw=300",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": true,
+          "has_password": true,
+          "has_login_words": true,
+          "external_form_action": false,
+          "action_reg": "amman.jo",
+          "page_reg": "amman.jo"
+        }
+      }
+    },
+    "redir:2589ee188105818ba5d6aac427e0efdabc2614d33969219dce03b2a22dfd8d1f": {
+      "ts": 1768006473.9652853,
+      "val": {
+        "ok": true,
+        "final_url": "https://popcornmovies.org/home",
+        "chain": [
+          "https://popcornmovies.org/home"
+        ],
+        "status": 403,
+        "redirects": 0
+      }
+    },
+    "tls:265e12982679f079da447cc3640ef01d8c248b82975599ecfff9d389bbd27bb0": {
+      "ts": 1768136500.3618119,
+      "val": {
+        "ok": true,
+        "notAfter": "Mar  5 11:58:20 2026 GMT",
+        "days_left": 52
+      }
+    },
+    "rdap:265e12982679f079da447cc3640ef01d8c248b82975599ecfff9d389bbd27bb0": {
+      "ts": 1768006476.093171,
+      "val": {
+        "ok": true,
+        "created": "2025-06-03T10:35:42.616Z",
+        "age_days": 220
+      }
+    },
+    "gsb:2589ee188105818ba5d6aac427e0efdabc2614d33969219dce03b2a22dfd8d1f": {
+      "ts": 1768006476.611207,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "vt:2589ee188105818ba5d6aac427e0efdabc2614d33969219dce03b2a22dfd8d1f": {
+      "ts": 1768006477.2332935,
+      "val": {
+        "hit": false,
+        "error": "VT HTTP 401"
+      }
+    },
+    "html:2589ee188105818ba5d6aac427e0efdabc2614d33969219dce03b2a22dfd8d1f": {
+      "ts": 1768006477.7394366,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://popcornmovies.org/home",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_host": null,
+          "action_reg": null,
+          "page_reg": "popcornmovies.org"
+        }
+      }
+    },
+    "redir:538fdbf6f500d72e1e5d34a3582307a284f99bd8bb6a6a495555d64aee59858e": {
+      "ts": 1768006550.2906144,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "tls:796d562bae99eeeef9e55c58acd89229f223f732742585ff94bf8a130ed9203f": {
+      "ts": 1768006550.3261452,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "gsb:538fdbf6f500d72e1e5d34a3582307a284f99bd8bb6a6a495555d64aee59858e": {
+      "ts": 1768006550.7877252,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "vt:538fdbf6f500d72e1e5d34a3582307a284f99bd8bb6a6a495555d64aee59858e": {
+      "ts": 1768006551.3870006,
+      "val": {
+        "hit": false,
+        "error": "VT HTTP 401"
+      }
+    },
+    "html:538fdbf6f500d72e1e5d34a3582307a284f99bd8bb6a6a495555d64aee59858e": {
+      "ts": 1768006551.409582,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "redir:6ec1a9822920193f782abfee67199a5d28a6eb243c78c9068535e3e266a97942": {
+      "ts": 1768006579.0299354,
+      "val": {
+        "ok": true,
+        "final_url": "https://edugate.uop.edu.jo:443/student",
+        "chain": [
+          "http://edugate.uop.edu.jo/student",
+          "https://edugate.uop.edu.jo:443/student"
+        ],
+        "status": 200,
+        "redirects": 1
+      }
+    },
+    "tls:b934d3181d9ad7466b71579bbe8ef4a3ad8a61a6f11a2e8416f4811ba3694dbe": {
+      "ts": 1768091460.5064232,
+      "val": {
+        "ok": true,
+        "notAfter": "Aug  3 08:22:17 2026 GMT",
+        "days_left": 204
+      }
+    },
+    "gsb:6ec1a9822920193f782abfee67199a5d28a6eb243c78c9068535e3e266a97942": {
+      "ts": 1768006579.5824883,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "vt:6ec1a9822920193f782abfee67199a5d28a6eb243c78c9068535e3e266a97942": {
+      "ts": 1768006580.1473033,
+      "val": {
+        "hit": false,
+        "error": "VT HTTP 401"
+      }
+    },
+    "html:6ec1a9822920193f782abfee67199a5d28a6eb243c78c9068535e3e266a97942": {
+      "ts": 1768006580.4649496,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://edugate.uop.edu.jo:443/student",
+        "content_type": "text/html;charset=utf-8",
+        "signals": {
+          "has_form": true,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_host": "edugate.uop.edu.jo",
+          "action_reg": "uop.edu.jo",
+          "page_reg": "uop.edu.jo"
+        }
+      }
+    },
+    "redir:9d08d3ac53d64cf2588510823cdef87d455068d248d39d4023ed309aa0658075": {
+      "ts": 1768006653.480833,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "tls:de2abade832c8e350a1bdc98cfcdb1e202ac4749c5fc51a4a970d41736b6df5c": {
+      "ts": 1768006653.5167916,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "gsb:9d08d3ac53d64cf2588510823cdef87d455068d248d39d4023ed309aa0658075": {
+      "ts": 1768006654.0033822,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "vt:9d08d3ac53d64cf2588510823cdef87d455068d248d39d4023ed309aa0658075": {
+      "ts": 1768006654.6086876,
+      "val": {
+        "hit": false,
+        "error": "VT HTTP 401"
+      }
+    },
+    "html:9d08d3ac53d64cf2588510823cdef87d455068d248d39d4023ed309aa0658075": {
+      "ts": 1768006654.6129866,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "redir:8cb138c5ed3fd743a353271ec94e31e1cee35e74b686efb79680a4c1ae414d2f": {
+      "ts": 1768006654.6459892,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "tls:66ec018201fb03f10df19f1a56a1264beb2654e8f07c2f163f023ebd53a751e4": {
+      "ts": 1768006654.685668,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "gsb:8cb138c5ed3fd743a353271ec94e31e1cee35e74b686efb79680a4c1ae414d2f": {
+      "ts": 1768006655.1044362,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "vt:8cb138c5ed3fd743a353271ec94e31e1cee35e74b686efb79680a4c1ae414d2f": {
+      "ts": 1768006655.648495,
+      "val": {
+        "hit": false,
+        "error": "VT HTTP 401"
+      }
+    },
+    "html:8cb138c5ed3fd743a353271ec94e31e1cee35e74b686efb79680a4c1ae414d2f": {
+      "ts": 1768006655.6644683,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "redir:85dc3fd47a48885f1d39e62efdb89122c611c8ce5198e3e5d39526f1259e10c8": {
+      "ts": 1768006655.6964955,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "tls:ff3e4d4dcf7250cae8d622d77c9a6d69aefcf4ab04ef9920218fafe93c0f1991": {
+      "ts": 1768006655.725453,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "gsb:85dc3fd47a48885f1d39e62efdb89122c611c8ce5198e3e5d39526f1259e10c8": {
+      "ts": 1768006656.3440428,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "vt:85dc3fd47a48885f1d39e62efdb89122c611c8ce5198e3e5d39526f1259e10c8": {
+      "ts": 1768006657.0395906,
+      "val": {
+        "hit": false,
+        "error": "VT HTTP 401"
+      }
+    },
+    "html:85dc3fd47a48885f1d39e62efdb89122c611c8ce5198e3e5d39526f1259e10c8": {
+      "ts": 1768006657.0520663,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "redir:5071653cc7509514e98fa3b5409181fb4a3b622ce0d83d3a3b118911f3fbb6a0": {
+      "ts": 1768006657.080326,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "tls:b67c9ddef3e0c3715a3708ecfa296cc461a164bde94c8ba3fd112789b5bed926": {
+      "ts": 1768006657.107686,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "gsb:5071653cc7509514e98fa3b5409181fb4a3b622ce0d83d3a3b118911f3fbb6a0": {
+      "ts": 1768006657.6126127,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "redir:a461758d8f4e0782dfa6fe66b6cdd0023c6d6894d56b4866364795c211b780f0": {
+      "ts": 1768094543.6961935,
+      "val": {
+        "ok": true,
+        "final_url": "https://example.com/login",
+        "chain": [
+          "https://example.com/login"
+        ],
+        "status": 404,
+        "redirects": 0
+      }
+    },
+    "gsb:a461758d8f4e0782dfa6fe66b6cdd0023c6d6894d56b4866364795c211b780f0": {
+      "ts": 1768094544.1957035,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "html:a461758d8f4e0782dfa6fe66b6cdd0023c6d6894d56b4866364795c211b780f0": {
+      "ts": 1768094544.5459163,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://example.com/login",
+        "content_type": "text/html",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "example.com"
+        }
+      }
+    },
+    "gsb:de23f98eb3a2695c620e99ff86c966d967b909266f32c7a8d4374ce7e2d2ceb5": {
+      "ts": 1768091460.4164565,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "gsb:091418abae1c1a01524b6290fe3d8ef4da6c5d26793c209e6b6dd3d1d73b3fee": {
+      "ts": 1768008529.151724,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "redir:091418abae1c1a01524b6290fe3d8ef4da6c5d26793c209e6b6dd3d1d73b3fee": {
+      "ts": 1768008529.4794943,
+      "val": {
+        "ok": true,
+        "final_url": "https://www.amman.jo/.../login.aspx",
+        "chain": [
+          "https://www.amman.jo/.../login.aspx"
+        ],
+        "status": 404,
+        "redirects": 0
+      }
+    },
+    "html:091418abae1c1a01524b6290fe3d8ef4da6c5d26793c209e6b6dd3d1d73b3fee": {
+      "ts": 1768008529.8493752,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://www.amman.jo/.../login.aspx",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "amman.jo",
+          "action_missing_or_empty": true,
+          "looks_like_webforms": false
+        }
+      }
+    },
+    "redir:aa2239c17609b21eba034c564af878f3eec8ce83ed0f2768597d2bc2fd4e4da5": {
+      "ts": 1768133634.6001222,
+      "val": {
+        "ok": true,
+        "final_url": "http://www.google.com/",
+        "chain": [
+          "http://google.com/",
+          "http://www.google.com/"
+        ],
+        "status": 200,
+        "redirects": 1
+      }
+    },
+    "gsb:aa2239c17609b21eba034c564af878f3eec8ce83ed0f2768597d2bc2fd4e4da5": {
+      "ts": 1768133635.2156804,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:d4c9d9027326271a89ce51fcaf328ed673f17be33469ff979e8ab8dd501e664f": {
+      "ts": 1768133635.4212365,
+      "val": {
+        "ok": true,
+        "notAfter": "Feb 25 15:49:26 2026 GMT",
+        "days_left": 45
+      }
+    },
+    "html:aa2239c17609b21eba034c564af878f3eec8ce83ed0f2768597d2bc2fd4e4da5": {
+      "ts": 1768133636.047623,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "http://www.google.com/",
+        "content_type": "text/html; charset=iso-8859-1",
+        "signals": {
+          "has_form": true,
+          "has_password": false,
+          "has_login_words": true,
+          "external_form_action": false,
+          "action_reg": "google.com",
+          "page_reg": "google.com"
+        }
+      }
+    },
+    "redir:253d142703041dd25197550a0fc11d6ac03befc1e64a1320009f1edf400c39ad": {
+      "ts": 1768136147.9847355,
+      "val": {
+        "ok": true,
+        "final_url": "http://www.google.com/",
+        "chain": [
+          "http://www.google.com/"
+        ],
+        "status": 200,
+        "redirects": 0
+      }
+    },
+    "gsb:253d142703041dd25197550a0fc11d6ac03befc1e64a1320009f1edf400c39ad": {
+      "ts": 1768136148.4967923,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "html:253d142703041dd25197550a0fc11d6ac03befc1e64a1320009f1edf400c39ad": {
+      "ts": 1768136148.7914412,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "http://www.google.com/",
+        "content_type": "text/html; charset=iso-8859-1",
+        "signals": {
+          "has_form": true,
+          "has_password": false,
+          "has_login_words": true,
+          "external_form_action": false,
+          "action_reg": "google.com",
+          "page_reg": "google.com"
+        }
+      }
+    },
+    "gsb:29b709aa6be99a878c09caec41034773b1f01bbc3ed1e2d5254597d5bef880d5": {
+      "ts": 1770932103.6050632,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:ec2c2ff4da804f006c50c96d9592ab58f12d9e741cebd95ed875048f937095d0": {
+      "ts": 1770932103.7252653,
+      "val": {
+        "ok": true,
+        "notAfter": "Aug 18 23:59:59 2026 GMT",
+        "days_left": 187
+      }
+    },
+    "gsb:9f9da8487ede83a641e4d92859423efa2905c41c447bd0af156c3be8cadf09eb": {
+      "ts": 1768136216.5094538,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:a1084ceb46761eabd7fac880b155cdec76e09254e6ac52319d7b0369e991d36d": {
+      "ts": 1768136216.6524916,
+      "val": {
+        "ok": true,
+        "notAfter": "Jul 19 23:59:59 2026 GMT",
+        "days_left": 189
+      }
+    },
+    "gsb:f9fdb4d5098cfc3ecb3e363df88b304b3439e83d5ebd457c8a07176a084bbd6a": {
+      "ts": 1768136230.0464118,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:f98dd8774d95d1c80362c0139becc58b49e7e55ab58ad002c513f1956b400cf9": {
+      "ts": 1768136230.2066212,
+      "val": {
+        "ok": true,
+        "notAfter": "May 16 23:59:59 2026 GMT",
+        "days_left": 125
+      }
+    },
+    "redir:4e85dc0baead51ea0498fed128aad4fd66e5e1e156e09d08af647486fda9e695": {
+      "ts": 1768136464.3984954,
+      "val": {
+        "ok": true,
+        "final_url": "https://www.gamersfirst.com/",
+        "chain": [
+          "http://www.gamersfirst.com/",
+          "https://www.gamersfirst.com/"
+        ],
+        "status": 200,
+        "redirects": 1
+      }
+    },
+    "gsb:4e85dc0baead51ea0498fed128aad4fd66e5e1e156e09d08af647486fda9e695": {
+      "ts": 1768136464.8409467,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:a5b05e1ca7eeb728c7552676aca8991ea1253fafc990def15dd2824df063307c": {
+      "ts": 1768136465.048651,
+      "val": {
+        "ok": true,
+        "notAfter": "Mar 30 23:59:59 2026 GMT",
+        "days_left": 78
+      }
+    },
+    "html:4e85dc0baead51ea0498fed128aad4fd66e5e1e156e09d08af647486fda9e695": {
+      "ts": 1768136465.788085,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://www.gamersfirst.com/",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": true,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "gamersfirst.com"
+        }
+      }
+    },
+    "redir:1abc6a3266e0946ffc4669e42217d4844629165ebb1d3e18c18d133075ac7ea7": {
+      "ts": 1768136499.7591703,
+      "val": {
+        "ok": true,
+        "final_url": "https://popcornmovies.org/movie/the-pickup",
+        "chain": [
+          "https://popcornmovies.org/movie/the-pickup"
+        ],
+        "status": 403,
+        "redirects": 0
+      }
+    },
+    "gsb:1abc6a3266e0946ffc4669e42217d4844629165ebb1d3e18c18d133075ac7ea7": {
+      "ts": 1768136500.1818008,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "html:1abc6a3266e0946ffc4669e42217d4844629165ebb1d3e18c18d133075ac7ea7": {
+      "ts": 1768136500.7840014,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://popcornmovies.org/movie/the-pickup",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "popcornmovies.org"
+        }
+      }
+    },
+    "gsb:4bf2fa87e7e637eb5370026be9caeb44bd35ed957e5a92b8ec15d8deb86de82e": {
+      "ts": 1768136792.924395,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:5cb9e5881d5b6bb76a8e1d31a0f385a7a8ce79c71888dea5fb27e405ced13fcc": {
+      "ts": 1770930834.3339164,
+      "val": {
+        "ok": true,
+        "notAfter": "Jun 21 23:59:59 2026 GMT",
+        "days_left": 129
+      }
+    },
+    "gsb:126615757e93c4b650048cc6de1e4861b1e7d2012038f3812bc2921a0c4b618d": {
+      "ts": 1768218687.9622645,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:4116b1fe439655bced09fa995e568d5ee3889f4058ba76e4241e5c83a2f2664e": {
+      "ts": 1768218688.1360795,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "gsb:6edaae09b1ccde6359f4e1e1074ca0f5dc7c55ef50133b911d4ff854701dfdc5": {
+      "ts": 1768218723.1563375,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:5ba6ce313e6462ae8550d391d15a148326e409a37963d7fae8499dec5751a73d": {
+      "ts": 1768265055.8079765,
+      "val": {
+        "ok": true,
+        "notAfter": "Mar 11 10:18:12 2026 GMT",
+        "days_left": 57
+      }
+    },
+    "gsb:b3804f95b462eaa084a0f1df0466882b4050faedd929775ea63836e104f97ae9": {
+      "ts": 1768261592.7084267,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "redir:b3804f95b462eaa084a0f1df0466882b4050faedd929775ea63836e104f97ae9": {
+      "ts": 1768261594.5957246,
+      "val": {
+        "ok": true,
+        "final_url": "https://www.amman.jo/ar/eservices/login.aspx",
+        "chain": [
+          "https://www.amman.jo/ar/eservices/login.aspx"
+        ],
+        "status": 200,
+        "redirects": 0
+      }
+    },
+    "html:b3804f95b462eaa084a0f1df0466882b4050faedd929775ea63836e104f97ae9": {
+      "ts": 1768261595.164405,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://www.amman.jo/ar/eservices/login.aspx",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": true,
+          "has_password": true,
+          "has_login_words": true,
+          "external_form_action": false,
+          "action_reg": "amman.jo",
+          "page_reg": "amman.jo"
+        }
+      }
+    },
+    "redir:5ebd876acd6f22177f3eec57629b34441877a64996a031da28817d9f0f11a960": {
+      "ts": 1768261649.8460677,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "gsb:5ebd876acd6f22177f3eec57629b34441877a64996a031da28817d9f0f11a960": {
+      "ts": 1768261650.3307328,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:0bc726f14ed531cfe041b83256da3b8d2c47ded3773bae6aac4d1ba8f56f5ad0": {
+      "ts": 1768261650.3527353,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "html:5ebd876acd6f22177f3eec57629b34441877a64996a031da28817d9f0f11a960": {
+      "ts": 1768261650.3667364,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "redir:18cbc0402ac1b6748a2c958af3c6c8a0ef1ea080c339f35cbd66dc563ec8fa57": {
+      "ts": 1768261674.6256866,
+      "val": {
+        "ok": true,
+        "final_url": "http://testsafebrowsing.appspot.com/s/phishing.html",
+        "chain": [
+          "http://testsafebrowsing.appspot.com/s/phishing.html"
+        ],
+        "status": 200,
+        "redirects": 0
+      }
+    },
+    "gsb:18cbc0402ac1b6748a2c958af3c6c8a0ef1ea080c339f35cbd66dc563ec8fa57": {
+      "ts": 1768261675.1215982,
+      "val": {
+        "hit": true,
+        "threats": [
+          {
+            "threatType": "SOCIAL_ENGINEERING",
+            "platformType": "ANY_PLATFORM",
+            "threat": {
+              "url": "http://testsafebrowsing.appspot.com/s/phishing.html"
+            },
+            "cacheDuration": "300s",
+            "threatEntryType": "URL"
+          }
+        ]
+      }
+    },
+    "tls:d77d67d13634749b0776161b06f037b8a2bc27c062f0ad212fa3bd3e3f4c52b0": {
+      "ts": 1768261675.44798,
+      "val": {
+        "ok": true,
+        "notAfter": "Feb 25 15:48:45 2026 GMT",
+        "days_left": 43
+      }
+    },
+    "html:18cbc0402ac1b6748a2c958af3c6c8a0ef1ea080c339f35cbd66dc563ec8fa57": {
+      "ts": 1768261675.6514611,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "http://testsafebrowsing.appspot.com/s/phishing.html",
+        "content_type": "text/html",
+        "signals": {
+          "has_form": false,
+          "has_password": true,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "appspot.com"
+        }
+      }
+    },
+    "redir:4aa37f1e6929fcb183d1e7c30a4aa61fbab96f215a027c2542796f406365f82d": {
+      "ts": 1768261684.9192476,
+      "val": {
+        "ok": true,
+        "final_url": "http://testsafebrowsing.appspot.com/s/malware.html",
+        "chain": [
+          "http://testsafebrowsing.appspot.com/s/malware.html"
+        ],
+        "status": 200,
+        "redirects": 0
+      }
+    },
+    "gsb:4aa37f1e6929fcb183d1e7c30a4aa61fbab96f215a027c2542796f406365f82d": {
+      "ts": 1768261685.4848669,
+      "val": {
+        "hit": true,
+        "threats": [
+          {
+            "threatType": "MALWARE",
+            "platformType": "ANY_PLATFORM",
+            "threat": {
+              "url": "http://testsafebrowsing.appspot.com/s/malware.html"
+            },
+            "cacheDuration": "300s",
+            "threatEntryType": "URL"
+          }
+        ]
+      }
+    },
+    "html:4aa37f1e6929fcb183d1e7c30a4aa61fbab96f215a027c2542796f406365f82d": {
+      "ts": 1768261685.8901005,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "http://testsafebrowsing.appspot.com/s/malware.html",
+        "content_type": "text/html",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "appspot.com"
+        }
+      }
+    },
+    "redir:f0e6a6a97042a4f1f1c87f5f7d44315b2d852c2df5c7991cc66241bf7072d1c4": {
+      "ts": 1768263882.6407645,
+      "val": {
+        "ok": true,
+        "final_url": "http://example.com/",
+        "chain": [
+          "http://example.com/"
+        ],
+        "status": 200,
+        "redirects": 0
+      }
+    },
+    "gsb:f0e6a6a97042a4f1f1c87f5f7d44315b2d852c2df5c7991cc66241bf7072d1c4": {
+      "ts": 1768263883.1826408,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "html:f0e6a6a97042a4f1f1c87f5f7d44315b2d852c2df5c7991cc66241bf7072d1c4": {
+      "ts": 1768263883.5917377,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "http://example.com/",
+        "content_type": "text/html",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "example.com"
+        }
+      }
+    },
+    "gsb:6651beee61e186d83ff75e5efcb1bdb0b61ede7a229b4e7a5dfa73af4eb6929e": {
+      "ts": 1768263902.3904977,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:212edeefd721924491eb4ea75bc1e0faeca2f5ac4fe41405d492904a308a0fe4": {
+      "ts": 1770944521.8851411,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 27 10:13:59 2026 GMT",
+        "days_left": 73
+      }
+    },
+    "redir:73d5c8369c330eb1d13c7db11572f59a4025db57eddc9631774d42e193fe8233": {
+      "ts": 1768263913.9086487,
+      "val": {
+        "ok": true,
+        "final_url": "https://www.reddit.com/",
+        "chain": [
+          "http://reddit.com/",
+          "https://reddit.com/",
+          "https://www.reddit.com/"
+        ],
+        "status": 200,
+        "redirects": 2
+      }
+    },
+    "gsb:73d5c8369c330eb1d13c7db11572f59a4025db57eddc9631774d42e193fe8233": {
+      "ts": 1768263914.395253,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:90ce957778d13b453b7416c943e1720b3379d7c77814c6b70028cbbf7aecb644": {
+      "ts": 1768263914.5987942,
+      "val": {
+        "ok": true,
+        "notAfter": "May 22 23:59:59 2026 GMT",
+        "days_left": 129
+      }
+    },
+    "html:73d5c8369c330eb1d13c7db11572f59a4025db57eddc9631774d42e193fe8233": {
+      "ts": 1768263915.960794,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://www.reddit.com/",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "reddit.com"
+        }
+      }
+    },
+    "redir:22b38d1abb62addb0b87cc2aab1b7dfe2294f8b7d4ffe7c554ab5b4bf927737c": {
+      "ts": 1768264159.5751622,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "gsb:22b38d1abb62addb0b87cc2aab1b7dfe2294f8b7d4ffe7c554ab5b4bf927737c": {
+      "ts": 1768264160.1461885,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:e94ed3b96187c290acc80c4a8fb08a7d8eb70e46901917169fdde28993647262": {
+      "ts": 1768264160.1761413,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "html:22b38d1abb62addb0b87cc2aab1b7dfe2294f8b7d4ffe7c554ab5b4bf927737c": {
+      "ts": 1768264160.1917548,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "redir:48d86bc605c7d682541f4ec98519f930aa08ceec3bf943fe4c8e25b4edacd7ca": {
+      "ts": 1768264176.3316326,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "gsb:48d86bc605c7d682541f4ec98519f930aa08ceec3bf943fe4c8e25b4edacd7ca": {
+      "ts": 1768264176.8530185,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:d58334148b8449d827e8b6d02a1eb73d0129b64226f31eba33704b597dba98be": {
+      "ts": 1768264176.893418,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "html:48d86bc605c7d682541f4ec98519f930aa08ceec3bf943fe4c8e25b4edacd7ca": {
+      "ts": 1768264176.902913,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:830dc011044251ca2e6aef513da8b387d1427849bc77bd4ea40c09594d6bb647": {
+      "ts": 1768264848.459763,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:70db54bfc1e89589bc74f10da83c983f58dcd02861f50173bf40fa86238b1ebf": {
+      "ts": 1768264848.5501752,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "gsb:f93e3c7d25a2882f59e7c668d5031734a54f449af7579ed1b219131f1b59d9c3": {
+      "ts": 1768264859.0562418,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:15e2631a0a42dd5a91317421dab160ab4a15b42377f61ddc35311971ae067a62": {
+      "ts": 1768264859.3402743,
+      "val": {
+        "ok": false,
+        "error": "tls: SSLCertVerificationError"
+      }
+    },
+    "redir:f93e3c7d25a2882f59e7c668d5031734a54f449af7579ed1b219131f1b59d9c3": {
+      "ts": 1768264860.0995638,
+      "val": {
+        "ok": true,
+        "final_url": "https://my.gov.au/en/myaccount/dashboard",
+        "chain": [
+          "https://my.gov.au/LoginServices/main/login",
+          "https://my.gov.au/en/myaccount/dashboard"
+        ],
+        "status": 200,
+        "redirects": 1
+      }
+    },
+    "html:f93e3c7d25a2882f59e7c668d5031734a54f449af7579ed1b219131f1b59d9c3": {
+      "ts": 1768264860.8975852,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://my.gov.au/en/myaccount/dashboard",
+        "content_type": "text/html;charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": true,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "my.gov.au"
+        }
+      }
+    },
+    "gsb:a74976e907f5c7e797d996f24d4a1e3a3a47935a1d54ae0c69e37516a61f7cda": {
+      "ts": 1768264885.3415263,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:4a710b9e1382a3b8a2c7fba0673a6fcfdb3d420147ed7e3438d2f524b8c2c447": {
+      "ts": 1768264885.561756,
+      "val": {
+        "ok": true,
+        "notAfter": "Dec 28 22:06:14 2026 GMT",
+        "days_left": 349
+      }
+    },
+    "redir:a74976e907f5c7e797d996f24d4a1e3a3a47935a1d54ae0c69e37516a61f7cda": {
+      "ts": 1768264886.491944,
+      "val": {
+        "ok": true,
+        "final_url": "https://www.gov.uk/sign-in",
+        "chain": [
+          "https://www.gov.uk/sign-in"
+        ],
+        "status": 200,
+        "redirects": 0
+      }
+    },
+    "html:a74976e907f5c7e797d996f24d4a1e3a3a47935a1d54ae0c69e37516a61f7cda": {
+      "ts": 1768264886.981999,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://www.gov.uk/sign-in",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": true,
+          "has_password": false,
+          "has_login_words": true,
+          "external_form_action": false,
+          "action_reg": "",
+          "page_reg": ""
+        }
+      }
+    },
+    "redir:7a07be2c893251c2aa4b518acd641a13e908a3a38e95dd467cbada7c7395350a": {
+      "ts": 1768265000.8908634,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "gsb:7a07be2c893251c2aa4b518acd641a13e908a3a38e95dd467cbada7c7395350a": {
+      "ts": 1768265001.3822737,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:c74544db56caea0731cb09470e96a90f18cb66017d71af5bd2c82f0c46041ccf": {
+      "ts": 1768265001.4110212,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "html:7a07be2c893251c2aa4b518acd641a13e908a3a38e95dd467cbada7c7395350a": {
+      "ts": 1768265001.413027,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:f24c73f85710979f7ca87faa72918a8cca6c1ba3d059e5443eaf8f37607335d5": {
+      "ts": 1768265055.5352845,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "gsb:1228910e71df35653f1c396f94cb99fc0131af58937cb6422eba82adb0aa819a": {
+      "ts": 1768266423.7383757,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:cd0f894de4f4111ed294e985e227eb461cf00ec4af7d1e1a3b96aa2f0eb8e44f": {
+      "ts": 1768266423.9120746,
+      "val": {
+        "ok": true,
+        "notAfter": "Aug 18 23:59:59 2026 GMT",
+        "days_left": 217
+      }
+    },
+    "gsb:bd4affc2eab7ff11185827c0902bedbb56d20df945482f480067fc6f8268de0c": {
+      "ts": 1768266452.601362,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:1e0f796585245270ba22e3ba60feb74416080b774e69999954d2255dc8142e33": {
+      "ts": 1768266452.8746488,
+      "val": {
+        "ok": true,
+        "notAfter": "Aug 18 23:59:59 2026 GMT",
+        "days_left": 217
+      }
+    },
+    "gsb:70be23c6897c0e3c273dcf36ca5c2703f03aa070813bad691095af95a19c113a": {
+      "ts": 1768266461.9342508,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "redir:478649ea08f4d9cd21b3cdb670ed663f0ae12f22586d148b24bcb0dc8613ffe4": {
+      "ts": 1768304218.476503,
+      "val": {
+        "ok": true,
+        "final_url": "https://www.zoom.com",
+        "chain": [
+          "http://zoom.us/",
+          "https://www.zoom.com"
+        ],
+        "status": 200,
+        "redirects": 1
+      }
+    },
+    "gsb:478649ea08f4d9cd21b3cdb670ed663f0ae12f22586d148b24bcb0dc8613ffe4": {
+      "ts": 1768304219.0880024,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:caf3a7abc4ef8fff4b6383d6843ec31de3d0c8f226ecbabe441123756471cf39": {
+      "ts": 1768304219.3437626,
+      "val": {
+        "ok": true,
+        "notAfter": "Dec 29 23:59:59 2026 GMT",
+        "days_left": 350
+      }
+    },
+    "html:478649ea08f4d9cd21b3cdb670ed663f0ae12f22586d148b24bcb0dc8613ffe4": {
+      "ts": 1768304220.139926,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://www.zoom.com",
+        "content_type": "text/html",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "zoom.com"
+        }
+      }
+    },
+    "gsb:41a5e2ab5cbb9ef39ac629e72e7c33bbd724fca551e5e91eda103ad89dc9b067": {
+      "ts": 1768304234.0426648,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:d07d7693f3d08a9b40fe1d617087610f7227417ba2930e7f21a7b607d30b03c9": {
+      "ts": 1768304234.245339,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:b0e8d27841f8aefc3e48ee935b079877a7165442debc6583e96d0f39b9cc3073": {
+      "ts": 1768309814.545556,
+      "val": {
+        "ok": true,
+        "final_url": "https://www.americanexpress.com/",
+        "chain": [
+          "http://americanexpress.com/",
+          "https://www.americanexpress.com/"
+        ],
+        "status": 200,
+        "redirects": 1
+      }
+    },
+    "gsb:b0e8d27841f8aefc3e48ee935b079877a7165442debc6583e96d0f39b9cc3073": {
+      "ts": 1768309814.9956493,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:fb595600eeb4bb83444b90b0dc7973aa7804d72c4f56d3a21f6badafc7de0b1d": {
+      "ts": 1768309815.1725109,
+      "val": {
+        "ok": true,
+        "notAfter": "Sep 29 23:59:59 2026 GMT",
+        "days_left": 259
+      }
+    },
+    "html:b0e8d27841f8aefc3e48ee935b079877a7165442debc6583e96d0f39b9cc3073": {
+      "ts": 1768309820.6235251,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://www.americanexpress.com/",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "americanexpress.com"
+        }
+      }
+    },
+    "redir:aa35870c8706997d60e1ffb454140eb559a8f864f98780fc4616c0368323f4f1": {
+      "ts": 1768317199.7451608,
+      "val": {
+        "ok": true,
+        "final_url": "https://best.aliexpress.com/?aff_fcid=c28229f565a944d58e6a7c8bca60f0a3-1768317138060-00519-_okCdfOX&tt=CPS_NORMAL&aff_fsk=_okCdfOX&commercial_type=bestPage&hc_1214_tag=ByAffPage&aff_fcid=e11bfb1f827444a0a9accd0929cc66fd-1768317196222-03508-_pz9sEiR&aff_fsk=_pz9sEiR&aff_platform=portals-promotion&sk=_pz9sEiR&aff_trace_key=e11bfb1f827444a0a9accd0929cc66fd-1768317196222-03508-_pz9sEiR&terminal_id=b8d8134e1b5147159806fee3ed629b84",
+        "chain": [
+          "https://best.aliexpress.com/?aff_fcid=c28229f565a944d58e6a7c8bca60f0a3-1768317138060-00519-_okCdfOX&tt=CPS_NORMAL&aff_fsk=_okCdfOX&aff_platform=portals-tool&sk=_okCdfOX&aff_trace_key=c28229f565a944d58e6a7c8bca60f0a3-1768317138060-00519-_okCdfOX&terminal_id=60a1bdaa02514766bce93541078c39d0",
+          "https://s.click.aliexpress.com/deep_link.htm?aff_short_key=_pz9sEiR&dl_target_url=https%3A%2F%2Fbest.aliexpress.com%2F%3Faff_fcid%3Dc28229f565a944d58e6a7c8bca60f0a3-1768317138060-00519-_okCdfOX%26tt%3DCPS_NORMAL%26aff_fsk%3D_okCdfOX%26aff_platform%3Dportals-tool%26sk%3D_okCdfOX%26aff_trace_key%3Dc28229f565a944d58e6a7c8bca60f0a3-1768317138060-00519-_okCdfOX%26terminal_id%3D60a1bdaa02514766bce93541078c39d0%26aff_platform%3Ddefault%26commercial_type%3DbestPage%26hc_1214_tag%3DByAffPage",
+          "https://best.aliexpress.com/?aff_fcid=c28229f565a944d58e6a7c8bca60f0a3-1768317138060-00519-_okCdfOX&tt=CPS_NORMAL&aff_fsk=_okCdfOX&commercial_type=bestPage&hc_1214_tag=ByAffPage&aff_fcid=e11bfb1f827444a0a9accd0929cc66fd-1768317196222-03508-_pz9sEiR&aff_fsk=_pz9sEiR&aff_platform=portals-promotion&sk=_pz9sEiR&aff_trace_key=e11bfb1f827444a0a9accd0929cc66fd-1768317196222-03508-_pz9sEiR&terminal_id=b8d8134e1b5147159806fee3ed629b84"
+        ],
+        "status": 200,
+        "redirects": 2
+      }
+    },
+    "gsb:aa35870c8706997d60e1ffb454140eb559a8f864f98780fc4616c0368323f4f1": {
+      "ts": 1768317200.2072594,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:4bcd810f47f71965cc6b70362107cce08bb4204167bc58cf1c20da593efe5244": {
+      "ts": 1768317200.3075595,
+      "val": {
+        "ok": true,
+        "notAfter": "Mar 20 23:59:59 2026 GMT",
+        "days_left": 66
+      }
+    },
+    "html:aa35870c8706997d60e1ffb454140eb559a8f864f98780fc4616c0368323f4f1": {
+      "ts": 1768317201.5757003,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://best.aliexpress.com/?aff_fcid=c28229f565a944d58e6a7c8bca60f0a3-1768317138060-00519-_okCdfOX&tt=CPS_NORMAL&aff_fsk=_okCdfOX&commercial_type=bestPage&hc_1214_tag=ByAffPage&aff_fcid=cad215994f4e43e5b26fa62251b356c7-1768317198395-05394-_pz9sEiR&aff_fsk=_pz9sEiR&aff_platform=portals-promotion&sk=_pz9sEiR&aff_trace_key=cad215994f4e43e5b26fa62251b356c7-1768317198395-05394-_pz9sEiR&terminal_id=e27b725b82304e1db9b83cd7551685e8",
+        "content_type": "text/html;charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "aliexpress.com"
+        }
+      }
+    },
+    "gsb:c25037cc54a82151c513ec0ac928bf77a95a3bd30cda053e464490eea74b0b85": {
+      "ts": 1770126020.257489,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:03be4eeb121f13c18cb934acddb9ce12b5f9f4f6f0d194e648ff10760d5b3937": {
+      "ts": 1770126020.4234781,
+      "val": {
+        "ok": true,
+        "notAfter": "Jan  9 23:59:59 2027 GMT",
+        "days_left": 340
+      }
+    },
+    "redir:b18a6a10a3d5ead290af1f260716750a12fb0bc9b432822392acef1817ab2209": {
+      "ts": 1770126050.101004,
+      "val": {
+        "ok": true,
+        "final_url": "https://www.bankaletihad.com/en/",
+        "chain": [
+          "https://www.bankaletihad.com/en/"
+        ],
+        "status": 200,
+        "redirects": 0
+      }
+    },
+    "gsb:b18a6a10a3d5ead290af1f260716750a12fb0bc9b432822392acef1817ab2209": {
+      "ts": 1770126050.547122,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:53f610cd0da3ff3f25c07189ad82016dc4a4e346e816951e9cc71a56d04d9646": {
+      "ts": 1770126050.7627656,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 14 23:59:59 2026 GMT",
+        "days_left": 70
+      }
+    },
+    "redir:7b22b8cf2e3a63790ddc1102a6d4ba9153036ce8a6004ae1ff30c3a18b9249a3": {
+      "ts": 1770126067.8740413,
+      "val": {
+        "ok": true,
+        "final_url": "https://bankofjordan.com/",
+        "chain": [
+          "https://bankofjordan.com/"
+        ],
+        "status": 200,
+        "redirects": 0
+      }
+    },
+    "gsb:7b22b8cf2e3a63790ddc1102a6d4ba9153036ce8a6004ae1ff30c3a18b9249a3": {
+      "ts": 1770126068.343652,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:63b439ea7f9d9da5e814b3eb53d21d4a24ab6db6d6865ce4905aad527bda1d79": {
+      "ts": 1770126068.6209207,
+      "val": {
+        "ok": false,
+        "error": "tls: SSLCertVerificationError"
+      }
+    },
+    "gsb:9c40616efcb3dff07ef9c5fd23715d73598bfa937b6cc06118672ddfcc43b6e0": {
+      "ts": 1770126084.7665513,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:ba9b9c2cada326e658390e584773857e8badb475552a93383f0a9324aa86d5b2": {
+      "ts": 1770126084.8160121,
+      "val": {
+        "ok": true,
+        "notAfter": "Aug 30 23:59:59 2026 GMT",
+        "days_left": 208
+      }
+    },
+    "gsb:a0d0f1e5dce9849d181e9502ef01b858321d545847cbdfd28cdb66cab4f31285": {
+      "ts": 1770930779.1346982,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:743e483ae01f1fa262d2b2142bdd118d5289bf940191b1f5fcdf820ed3124eba": {
+      "ts": 1770930779.3091223,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 17 17:09:57 2026 GMT",
+        "days_left": 63
+      }
+    },
+    "gsb:c841e715efd6bfe2a9426b1ba0b890dcbdb6021dfe3aeb7bbde809e9f44fe7b6": {
+      "ts": 1773096567.2126398,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:c6240ca88eed5b237451d4ceab51a5df1e8bc3b0a4a0e099fbe4b9f0d5cf23a2": {
+      "ts": 1773096568.6109145,
+      "val": {
+        "ok": true,
+        "notAfter": "Jun  6 18:59:30 2026 GMT",
+        "days_left": 88
+      }
+    },
+    "gsb:ea1905b3cf0062f543d39fe3da5861bf98ce28a8479435e62a400cd8089f2787": {
+      "ts": 1770896318.27548,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:b056e1fa230f2b2d7be12f9790f4f82190c05c12c2880a0d2afedb5cff9153c9": {
+      "ts": 1770896318.3643112,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "gsb:8af0223da2c95166734a47cc80479a5f47dd6a1b01fb44baf16de731d41467b7": {
+      "ts": 1770896337.1231194,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:92237228a4ef39b860018c3820b27ae19e615cf849424412f6b5c8f6617daa49": {
+      "ts": 1770896337.1906106,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 15 17:46:15 2026 GMT",
+        "days_left": 62
+      }
+    },
+    "redir:8af0223da2c95166734a47cc80479a5f47dd6a1b01fb44baf16de731d41467b7": {
+      "ts": 1770896339.2270722,
+      "val": {
+        "ok": true,
+        "final_url": "https://genius.com/Lil-baby-gunna-and-drake-never-recover-lyrics",
+        "chain": [
+          "https://genius.com/Lil-baby-gunna-and-drake-never-recover-lyrics"
+        ],
+        "status": 200,
+        "redirects": 0
+      }
+    },
+    "html:8af0223da2c95166734a47cc80479a5f47dd6a1b01fb44baf16de731d41467b7": {
+      "ts": 1770896339.4951456,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://genius.com/Lil-baby-gunna-and-drake-never-recover-lyrics",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "genius.com"
+        }
+      }
+    },
+    "gsb:31c0d4affb60861eb87eaa507aff3902289e6c66a2c428d52087e5b3d0fe7c4d": {
+      "ts": 1770896400.6245334,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:fabbc38a1d85dbbb2735935d4d94b0f4fb0a4ceb45422a19c292ae7ff14972b7": {
+      "ts": 1770896401.374108,
+      "val": {
+        "ok": true,
+        "notAfter": "Sep 27 23:59:59 2026 GMT",
+        "days_left": 227
+      }
+    },
+    "gsb:1e19b6ee91816e18e22868fc1ebdcb7b36b7bc789e25760213601530323a7fa8": {
+      "ts": 1770896452.0230646,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "gsb:516c22c5dba9c1ba70ca5e7f223c5987527274aa6a88c96e8eddb77fc2e4fa5e": {
+      "ts": 1770897233.0147033,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "redir:ca870ce40b411f46dd427fc543b01bf4f7d5b74a510bf9b636e43a9d0dc67c3d": {
+      "ts": 1770898303.2421641,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "gsb:ca870ce40b411f46dd427fc543b01bf4f7d5b74a510bf9b636e43a9d0dc67c3d": {
+      "ts": 1770898303.7086492,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:4c508dee715339ae4640bd422e028235ae5f0aa67f8456962b5d8278e615301c": {
+      "ts": 1770930369.81936,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "html:ca870ce40b411f46dd427fc543b01bf4f7d5b74a510bf9b636e43a9d0dc67c3d": {
+      "ts": 1770898303.7475379,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:f96b1b86bc29156ad42ca9af0c54744b8ac2e61c4ea3a7cb4331955b6cf7a1dd": {
+      "ts": 1770898820.814738,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:7c4b4c8cdd8cff6b0872f704bfee5703337343c75224ac4019a1aeeb88f96206": {
+      "ts": 1770898820.972402,
+      "val": {
+        "ok": true,
+        "notAfter": "Mar 20 22:56:54 2026 GMT",
+        "days_left": 36
+      }
+    },
+    "gsb:9ababc9aff17ac87c7a2ab2d48f49e015b5edcb9294b568854b18e9a7e2c2a75": {
+      "ts": 1770898857.32153,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:1ffda32ad70e3cac6d6a04e2fbb00c062cc12d3a02796149e639c6d9a3e2774b": {
+      "ts": 1770898857.5858684,
+      "val": {
+        "ok": true,
+        "notAfter": "May 21 23:59:59 2026 GMT",
+        "days_left": 98
+      }
+    },
+    "gsb:7185b59c75c0f3803397035bea4715f37df17800474317c94b6a4ce1d2c5a70c": {
+      "ts": 1770898884.9955776,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:4609d127e39f7e8eef71cf16215484cf153ed5bc96d3bfd68b2e15fe8a719ba3": {
+      "ts": 1770898885.05357,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 12 20:40:01 2026 GMT",
+        "days_left": 59
+      }
+    },
+    "gsb:7e8cd63f43724161b5f4b35540a2d577e2da7a554de9f73a0ebcfe48290592e6": {
+      "ts": 1770930369.7887797,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "redir:7e8cd63f43724161b5f4b35540a2d577e2da7a554de9f73a0ebcfe48290592e6": {
+      "ts": 1770930369.8357134,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:7e8cd63f43724161b5f4b35540a2d577e2da7a554de9f73a0ebcfe48290592e6": {
+      "ts": 1770930369.8473346,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:f6813bfffba3c08e2bb0888c7c6f8a87f178a1434b5e26785a7a4ee6b49e0d3b": {
+      "ts": 1770930814.8281808,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:8d7bfc966ce6fce9251ba8b23a231a5c364df6cb2d7e3d8a6f19bbfc516384a9": {
+      "ts": 1770930814.9690068,
+      "val": {
+        "ok": true,
+        "notAfter": "Jul 26 23:59:59 2026 GMT",
+        "days_left": 164
+      }
+    },
+    "redir:f6813bfffba3c08e2bb0888c7c6f8a87f178a1434b5e26785a7a4ee6b49e0d3b": {
+      "ts": 1770930815.973981,
+      "val": {
+        "ok": true,
+        "final_url": "https://jo.shein.com/?onelink=10/4ivi7j3cevpg&requestId=olw-5gbci3o23294&url_from=affiliate_af_b_68_181_0&affiliateID=af_b_sub_13861&click_id=gx-row-shein-shein-sd&cdn_rsite=ak&ref=www&rep=dir&ret=ar",
+        "chain": [
+          "https://jo.shein.com/?onelink=10/4ivi7j3cevpg&requestId=olw-5gbci3o23294&url_from=affiliate_af_b_68_181_0&affiliateID=af_b_sub_13861&click_id=gx-row-shein-shein-sd&cdn_rsite=ak&ref=www&rep=dir&ret=ar"
+        ],
+        "status": 200,
+        "redirects": 0
+      }
+    },
+    "html:f6813bfffba3c08e2bb0888c7c6f8a87f178a1434b5e26785a7a4ee6b49e0d3b": {
+      "ts": 1770930816.908889,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://jo.shein.com/?onelink=10/4ivi7j3cevpg&requestId=olw-5gbci3o23294&url_from=affiliate_af_b_68_181_0&affiliateID=af_b_sub_13861&click_id=gx-row-shein-shein-sd&cdn_rsite=ak&ref=www&rep=dir&ret=ar",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "shein.com"
+        }
+      }
+    },
+    "gsb:cff95bbcf36bf9235e489502506477b8bd6f413dca16aabddee0a3a98b42dd43": {
+      "ts": 1770930834.0921533,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "gsb:380518900ca5d9b6f807acf8cdf262c82b5555b0cb39904242b0ea53fa10381e": {
+      "ts": 1770985337.6282375,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:83887c10f9f17570a88267cadcf03992d01e8d87606c9d0c94038bdbaf61f9d1": {
+      "ts": 1770985337.85279,
+      "val": {
+        "ok": true,
+        "notAfter": "Jul 16 23:59:59 2026 GMT",
+        "days_left": 153
+      }
+    },
+    "redir:380518900ca5d9b6f807acf8cdf262c82b5555b0cb39904242b0ea53fa10381e": {
+      "ts": 1770985339.4981027,
+      "val": {
+        "ok": true,
+        "final_url": "https://www.snapchat.com:443/",
+        "chain": [
+          "http://snapchat.com/",
+          "https://snapchat.com:443/",
+          "https://www.snapchat.com:443/"
+        ],
+        "status": 200,
+        "redirects": 2
+      }
+    },
+    "html:380518900ca5d9b6f807acf8cdf262c82b5555b0cb39904242b0ea53fa10381e": {
+      "ts": 1770985341.0812204,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://www.snapchat.com:443/",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "snapchat.com"
+        }
+      }
+    },
+    "gsb:9e46639a67b1261137dab22e0a17c2fe9611627dc50136d03d116080d8a83820": {
+      "ts": 1770944413.3809307,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "gsb:80a855a646b7b9478aa55645a0e7e8a81f931f9b902dacbbd49e6bc1bf15db83": {
+      "ts": 1770944503.8341317,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:66cd2a21d999bbfeda148a2242910abf81511aed5f7ee1495262184d96315020": {
+      "ts": 1770944503.9632342,
+      "val": {
+        "ok": true,
+        "notAfter": "Mar 19 17:44:28 2026 GMT",
+        "days_left": 34
+      }
+    },
+    "gsb:02e142a823d57217605c1ab33f6c2864cd3e64907ab9fb2f5651313c1378a604": {
+      "ts": 1770944521.6439867,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "gsb:fccd51074cf30ec7ac0324015852db7fa21389053c424c43e81ca996b5c90bcd": {
+      "ts": 1770985363.6181042,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:7f56e335688fe1b58aa77063d2c6320227486d95f6501312ee06cb6e41304545": {
+      "ts": 1770985363.895509,
+      "val": {
+        "ok": true,
+        "notAfter": "Mar 25 20:20:58 2026 GMT",
+        "days_left": 40
+      }
+    },
+    "redir:fccd51074cf30ec7ac0324015852db7fa21389053c424c43e81ca996b5c90bcd": {
+      "ts": 1770985365.4730966,
+      "val": {
+        "ok": true,
+        "final_url": "https://www.wikipedia.org/",
+        "chain": [
+          "http://wikipedia.com/",
+          "https://wikipedia.com/",
+          "https://www.wikipedia.org/"
+        ],
+        "status": 200,
+        "redirects": 2
+      }
+    },
+    "html:fccd51074cf30ec7ac0324015852db7fa21389053c424c43e81ca996b5c90bcd": {
+      "ts": 1770985367.0666683,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://www.wikipedia.org/",
+        "content_type": "text/html",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "wikipedia.org"
+        }
+      }
+    },
+    "gsb:d43a253dba0cd95e6b94a270263265e70b0e1540f24aa0f0f9caf8684a83cabd": {
+      "ts": 1770985675.1524644,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:de83e45acebda681f372f9066b30d83aa3a205d3c24e020b7e83a5f88f819ae7": {
+      "ts": 1770985675.3371923,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "gsb:51bc7aa6cd9fcd3faf5c96bd530ca8930b3e780a8bc2a4020abd5b65bd010122": {
+      "ts": 1772153601.7832952,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:a51337b236f6986d5d55f6c668f75818d5f11d719688f0d8d0ebb7a7695c084b": {
+      "ts": 1772153601.8132844,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:51bc7aa6cd9fcd3faf5c96bd530ca8930b3e780a8bc2a4020abd5b65bd010122": {
+      "ts": 1772153601.8302984,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:51bc7aa6cd9fcd3faf5c96bd530ca8930b3e780a8bc2a4020abd5b65bd010122": {
+      "ts": 1772153601.846299,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:c6f32aad49126f79e60d45243daf52d57441323055e80555d4319e7856f52c7a": {
+      "ts": 1772153604.1254385,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:cc3d2175ebb55e33780fd52bdd68fcfca988174e409f277e4b5228c8fdebe24e": {
+      "ts": 1772153604.321355,
+      "val": {
+        "ok": true,
+        "notAfter": "May 11 16:01:04 2026 GMT",
+        "days_left": 73
+      }
+    },
+    "gsb:ec068211160f46f76ecc099a839a64602073e854cb60c0a6554837dc8ab78655": {
+      "ts": 1773089041.7821302,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:9c1aa556240c5f4430ade66ab7e40c9ba5f83710a4565ec2c20f60a76efb7c4f": {
+      "ts": 1773089043.0694234,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:ec068211160f46f76ecc099a839a64602073e854cb60c0a6554837dc8ab78655": {
+      "ts": 1773089044.7581115,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:ec068211160f46f76ecc099a839a64602073e854cb60c0a6554837dc8ab78655": {
+      "ts": 1773089045.6031802,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:7fbc8231d188ac3d0867b7704a27d85b99260cfefcd8977a64f5853637878c9c": {
+      "ts": 1773089049.00489,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:0db19ee65a4acd5f0172b65e577cacc4716abe329ae0489e99c8dcf3a4d2c453": {
+      "ts": 1773089049.1399074,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:7fbc8231d188ac3d0867b7704a27d85b99260cfefcd8977a64f5853637878c9c": {
+      "ts": 1773089049.1586628,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:7fbc8231d188ac3d0867b7704a27d85b99260cfefcd8977a64f5853637878c9c": {
+      "ts": 1773089049.1719475,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:2cfcfc84e64c7204e8db7c0b7dd636469f5dfb53851042c628b031af41d6013e": {
+      "ts": 1773089154.0445452,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:aea87b73fce10bc91a36998349ee9bb40b81e2970021b6a6e4eed072722a6d44": {
+      "ts": 1773089155.3723927,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:2cfcfc84e64c7204e8db7c0b7dd636469f5dfb53851042c628b031af41d6013e": {
+      "ts": 1773089157.0886846,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:2cfcfc84e64c7204e8db7c0b7dd636469f5dfb53851042c628b031af41d6013e": {
+      "ts": 1773089157.9667149,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:730bab19958dc27e91afb0e5dc13b9f9521edc2dc3aa04ba17bfa28ac7b64922": {
+      "ts": 1773090955.2885733,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:86b9aa7928936288610334324f9ea42565ea008b2ca7bd316dd3ac398718d3cd": {
+      "ts": 1773090955.4470859,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:730bab19958dc27e91afb0e5dc13b9f9521edc2dc3aa04ba17bfa28ac7b64922": {
+      "ts": 1773090955.4844048,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:730bab19958dc27e91afb0e5dc13b9f9521edc2dc3aa04ba17bfa28ac7b64922": {
+      "ts": 1773090955.5146027,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:033708cc9cc1b3dae30487aee4df4a164e66b6a0b30d89abd472a9cc8ea6e2f3": {
+      "ts": 1773090957.608769,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:d2800481cf45d449b9c784a8522ef4ddda85bdbc8c04d44d598d4b86b0797db0": {
+      "ts": 1773090957.7384548,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:033708cc9cc1b3dae30487aee4df4a164e66b6a0b30d89abd472a9cc8ea6e2f3": {
+      "ts": 1773090957.760096,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:033708cc9cc1b3dae30487aee4df4a164e66b6a0b30d89abd472a9cc8ea6e2f3": {
+      "ts": 1773090957.7783313,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:51e027f9d12c114e3e4a6fa356e601228ac97b41692daf6c538667509c350fb3": {
+      "ts": 1773093104.0409234,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:34d4d109cdbbf982a662f38a5d4245a14b223f22fbbd0dae7d13b063505d5828": {
+      "ts": 1773093104.1703005,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:51e027f9d12c114e3e4a6fa356e601228ac97b41692daf6c538667509c350fb3": {
+      "ts": 1773093104.1957426,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:51e027f9d12c114e3e4a6fa356e601228ac97b41692daf6c538667509c350fb3": {
+      "ts": 1773093104.217765,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:5ad17689dcb3b2bc7ee151d551afe80bffac8fa2cabb51706ba9712b05fd929a": {
+      "ts": 1773093462.6345348,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:ceb4ca2cdc0001b440455df845c18fc19310a3d299f79802848334db55ba283a": {
+      "ts": 1773093462.8247175,
+      "val": {
+        "ok": true,
+        "notAfter": "Feb 14 13:03:45 2027 GMT",
+        "days_left": 341
+      }
+    }
+  }
+}

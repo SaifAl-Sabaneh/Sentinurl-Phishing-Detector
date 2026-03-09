@@ -1,0 +1,1547 @@
+{
+  "engine": {
+    "engine_version": "2.2.3-protect-enhanced",
+    "mode": "PROTECT"
+  },
+  "session": {
+    "session_start_utc": "2026-02-12T11:36:03Z"
+  },
+  "scans": [
+    {
+      "timestamp_utc": "2026-02-12T11:37:56Z",
+      "url_sha256": "c841e715efd6bfe2a9426b1ba0b890dcbdb6021dfe3aeb7bbde809e9f44fe7b6",
+      "url": {
+        "raw": "chatgpt.com",
+        "normalized": "http://chatgpt.com",
+        "decoded": "http://chatgpt.com",
+        "host": "chatgpt.com",
+        "registrable_domain": "chatgpt.com",
+        "effective_suffix": "com",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SUSPICIOUS_SAFE",
+        "risk_percent": 30,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "Medium"
+      },
+      "engine": {
+        "decision_by": "fusion_offline_online",
+        "score": 0.3,
+        "p1": 0.8060953954719863,
+        "p2": 0.665062972467846
+      },
+      "reasons": [
+        "Threat feed flagged domain (phishtank_domain), but Google Safe Browsing confirms SAFE.",
+        "Google Safe Browsing: no threats found (clean).",
+        "Valid TLS certificate detected (good sign).",
+        "Safe signals (GSB + Cert) override moderate model risk.",
+        "Valid TLS certificate detected (good sign).",
+        "GSB + TLS validation: site verified as safe."
+      ],
+      "analysis_time_ms": 4263.686899999925,
+      "whois": {
+        "creation_date": "2022-11-30",
+        "expiration_date": "2026-11-30",
+        "updated_date": "2024-10-17",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": "OpenAI",
+        "registrant_country": "US",
+        "nameservers": [
+          "hassan.ns.cloudflare.com",
+          "savanna.ns.cloudflare.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited",
+          "serverTransferProhibited https://icann.org/epp#serverTransferProhibited",
+          "serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)",
+          "serverUpdateProhibited (https://www.icann.org/epp#serverUpdateProhibited)",
+          "serverTransferProhibited (https://www.icann.org/epp#serverTransferProhibited)",
+          "serverDeleteProhibited (https://www.icann.org/epp#serverDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 1
+    },
+    {
+      "timestamp_utc": "2026-02-12T11:38:15Z",
+      "url_sha256": "6bc84569b82bf6f80cda340b0e87debd8c46ccc93e005c61e3ffba7010b17dfa",
+      "url": {
+        "raw": "uop.edu.jo",
+        "normalized": "http://uop.edu.jo",
+        "decoded": "http://uop.edu.jo",
+        "host": "uop.edu.jo",
+        "registrable_domain": "uop.edu.jo",
+        "effective_suffix": "edu.jo",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 2,
+        "category": "Trusted institution (edu/gov/mil/ac)",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "trusted_institution_gsb_clean_edu.jo",
+        "score": 0.02,
+        "p1": 0.5400597194356435,
+        "p2": 0.5696291445744307
+      },
+      "reasons": [
+        "Institutional suffix detected and Google Safe Browsing is clean."
+      ],
+      "analysis_time_ms": 1106.9894999999406,
+      "scan_id": 2
+    },
+    {
+      "timestamp_utc": "2026-02-12T11:38:38Z",
+      "url_sha256": "ea1905b3cf0062f543d39fe3da5861bf98ce28a8479435e62a400cd8089f2787",
+      "url": {
+        "raw": "amman.gov",
+        "normalized": "http://amman.gov",
+        "decoded": "http://amman.gov",
+        "host": "amman.gov",
+        "registrable_domain": "amman.gov",
+        "effective_suffix": "gov",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 2,
+        "category": "Trusted institution (edu/gov/mil/ac)",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "trusted_institution_gsb_clean_gov",
+        "score": 0.02,
+        "p1": 0.3999203493543028,
+        "p2": 0.5748045927782006
+      },
+      "reasons": [
+        "Institutional suffix detected and Google Safe Browsing is clean."
+      ],
+      "analysis_time_ms": 2316.818900000044,
+      "scan_id": 3
+    },
+    {
+      "timestamp_utc": "2026-02-12T11:38:59Z",
+      "url_sha256": "8af0223da2c95166734a47cc80479a5f47dd6a1b01fb44baf16de731d41467b7",
+      "url": {
+        "raw": "https://genius.com/Lil-baby-gunna-and-drake-never-recover-lyrics",
+        "normalized": "https://genius.com/Lil-baby-gunna-and-drake-never-recover-lyrics",
+        "decoded": "https://genius.com/Lil-baby-gunna-and-drake-never-recover-lyrics",
+        "host": "genius.com",
+        "registrable_domain": "genius.com",
+        "effective_suffix": "com",
+        "path": "/Lil-baby-gunna-and-drake-never-recover-lyrics",
+        "query": ""
+      },
+      "classification": {
+        "label": "SUSPICIOUS_SAFE",
+        "risk_percent": 30,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "Medium"
+      },
+      "engine": {
+        "decision_by": "fusion_offline_online",
+        "score": 0.3,
+        "p1": 0.3224068915863982,
+        "p2": 0.45328538437974436
+      },
+      "reasons": [
+        "Google Safe Browsing: no threats found (clean).",
+        "Valid TLS certificate detected (good sign).",
+        "Reputation and URL patterns suggest safety; capping risk score.",
+        "Valid TLS certificate detected (good sign).",
+        "GSB + TLS validation: site verified as safe."
+      ],
+      "analysis_time_ms": 4088.428699999895,
+      "whois": {
+        "creation_date": "1994-08-05",
+        "expiration_date": "2032-05-27",
+        "updated_date": "2022-12-06",
+        "registrar": "Amazon Registrar, Inc.",
+        "registrant_org": "Identity Protection Service",
+        "registrant_country": "GB",
+        "nameservers": [
+          "cody.ns.cloudflare.com",
+          "gail.ns.cloudflare.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 4
+    },
+    {
+      "timestamp_utc": "2026-02-12T11:39:20Z",
+      "url_sha256": "dbf0aa587688b58801ce1ca073109dab1fd099a0785ceca7a7c446587d5a0aba",
+      "url": {
+        "raw": "https://www.youtube.com/watch?v=KegFdRtwSPo",
+        "normalized": "https://www.youtube.com/watch?v=KegFdRtwSPo",
+        "decoded": "https://www.youtube.com/watch?v=KegFdRtwSPo",
+        "host": "youtube.com",
+        "registrable_domain": "youtube.com",
+        "effective_suffix": "com",
+        "path": "/watch",
+        "query": "v=KegFdRtwSPo"
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 0,
+        "category": "Trusted domain",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "allowlist_reg_domain",
+        "score": 0.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "reasons": [
+        "Registrable domain matches trusted allowlist."
+      ],
+      "analysis_time_ms": 2292.3728000000665,
+      "whois": {
+        "creation_date": "2005-02-15",
+        "expiration_date": "2027-02-15",
+        "updated_date": "2026-01-14",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": "Google LLC",
+        "registrant_country": "US",
+        "nameservers": [
+          "ns1.google.com",
+          "ns2.google.com",
+          "ns3.google.com",
+          "ns4.google.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited",
+          "serverTransferProhibited https://icann.org/epp#serverTransferProhibited",
+          "serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)",
+          "serverUpdateProhibited (https://www.icann.org/epp#serverUpdateProhibited)",
+          "serverTransferProhibited (https://www.icann.org/epp#serverTransferProhibited)",
+          "serverDeleteProhibited (https://www.icann.org/epp#serverDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 5
+    },
+    {
+      "timestamp_utc": "2026-02-12T11:39:45Z",
+      "url_sha256": "63e0627640b32fee55bb0e8678d7150ed9d5c31fac7f9438f81a22a5389b77df",
+      "url": {
+        "raw": "https://www.cloudflare.com/leagueofentropy/",
+        "normalized": "https://www.cloudflare.com/leagueofentropy/",
+        "decoded": "https://www.cloudflare.com/leagueofentropy/",
+        "host": "cloudflare.com",
+        "registrable_domain": "cloudflare.com",
+        "effective_suffix": "com",
+        "path": "/leagueofentropy/",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 0,
+        "category": "Trusted domain",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "allowlist_reg_domain",
+        "score": 0.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "reasons": [
+        "Registrable domain matches trusted allowlist."
+      ],
+      "analysis_time_ms": 897.0302999999831,
+      "whois": {
+        "creation_date": "2009-02-17",
+        "expiration_date": "2033-02-17",
+        "updated_date": "2024-01-09",
+        "registrar": "Cloudflare, Inc.",
+        "registrant_org": "DATA REDACTED",
+        "registrant_country": "US",
+        "nameservers": [
+          "ns3.cloudflare.com",
+          "ns4.cloudflare.com",
+          "ns5.cloudflare.com",
+          "ns6.cloudflare.com",
+          "ns7.cloudflare.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited",
+          "serverTransferProhibited https://icann.org/epp#serverTransferProhibited",
+          "serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 6
+    },
+    {
+      "timestamp_utc": "2026-02-12T11:40:01Z",
+      "url_sha256": "31c0d4affb60861eb87eaa507aff3902289e6c66a2c428d52087e5b3d0fe7c4d",
+      "url": {
+        "raw": "https://www.leagueoflegends.com/ar-ae/",
+        "normalized": "https://www.leagueoflegends.com/ar-ae/",
+        "decoded": "https://www.leagueoflegends.com/ar-ae/",
+        "host": "leagueoflegends.com",
+        "registrable_domain": "leagueoflegends.com",
+        "effective_suffix": "com",
+        "path": "/ar-ae/",
+        "query": ""
+      },
+      "classification": {
+        "label": "SUSPICIOUS_SAFE",
+        "risk_percent": 30,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "Medium"
+      },
+      "engine": {
+        "decision_by": "fusion_offline_online",
+        "score": 0.3,
+        "p1": 0.03229204127525878,
+        "p2": 0.7580319178036584
+      },
+      "reasons": [
+        "Valid certificate from trusted CA detected",
+        "Google Safe Browsing: no threats found (clean).",
+        "Valid TLS certificate detected (good sign).",
+        "URL-based model is highly confident of safety; discounting feature-based risk.",
+        "Valid TLS certificate detected (good sign).",
+        "Models disagree: URL analysis highly confident of safety; moderating feature-based concerns.",
+        "GSB + TLS validation: site verified as safe."
+      ],
+      "analysis_time_ms": 2649.3871000000127,
+      "whois": {
+        "creation_date": "2007-09-25",
+        "expiration_date": "2026-09-25",
+        "updated_date": "2025-08-24",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": "Riot Games, Inc.",
+        "registrant_country": "US",
+        "nameservers": [
+          "ns-1095.awsdns-08.org",
+          "ns-1809.awsdns-34.co.uk",
+          "ns-212.awsdns-26.com",
+          "ns-981.awsdns-58.net"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 7
+    },
+    {
+      "timestamp_utc": "2026-02-12T11:40:14Z",
+      "url_sha256": "a0d0f1e5dce9849d181e9502ef01b858321d545847cbdfd28cdb66cab4f31285",
+      "url": {
+        "raw": "https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8",
+        "normalized": "https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8",
+        "decoded": "https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8",
+        "host": "claude.ai",
+        "registrable_domain": "claude.ai",
+        "effective_suffix": "ai",
+        "path": "/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8",
+        "query": ""
+      },
+      "classification": {
+        "label": "SUSPICIOUS_SAFE",
+        "risk_percent": 30,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "Medium"
+      },
+      "engine": {
+        "decision_by": "fusion_offline_online",
+        "score": 0.3,
+        "p1": 0.7848811906885015,
+        "p2": 0.9968420935789549
+      },
+      "reasons": [
+        "Google Safe Browsing: no threats found (clean).",
+        "Valid TLS certificate detected (good sign).",
+        "Models disagree: GSB validation prevents false positive.",
+        "Valid TLS certificate detected (good sign).",
+        "GSB + TLS validation: site verified as safe."
+      ],
+      "analysis_time_ms": 2088.9788000000635,
+      "whois": {
+        "creation_date": "2018-08-04",
+        "expiration_date": "2029-08-04",
+        "updated_date": "2025-01-17",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": null,
+        "registrant_country": null,
+        "nameservers": [
+          "isla.ns.cloudflare.com",
+          "randy.ns.cloudflare.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 8
+    },
+    {
+      "timestamp_utc": "2026-02-12T11:40:52Z",
+      "url_sha256": "1e19b6ee91816e18e22868fc1ebdcb7b36b7bc789e25760213601530323a7fa8",
+      "url": {
+        "raw": "https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8\u0001",
+        "normalized": "https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8\u0001",
+        "decoded": "https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8\u0001",
+        "host": "claude.ai",
+        "registrable_domain": "claude.ai",
+        "effective_suffix": "ai",
+        "path": "/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8\u0001",
+        "query": ""
+      },
+      "classification": {
+        "label": "SUSPICIOUS_SAFE",
+        "risk_percent": 30,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "Medium"
+      },
+      "engine": {
+        "decision_by": "fusion_offline_online",
+        "score": 0.3,
+        "p1": 0.7859525450697783,
+        "p2": 0.9343022736082482
+      },
+      "reasons": [
+        "Google Safe Browsing: no threats found (clean).",
+        "Valid TLS certificate detected (good sign).",
+        "Models disagree: GSB validation prevents false positive.",
+        "Valid TLS certificate detected (good sign).",
+        "GSB + TLS validation: site verified as safe."
+      ],
+      "analysis_time_ms": 1655.0006999999596,
+      "whois": {
+        "creation_date": "2018-08-04",
+        "expiration_date": "2029-08-04",
+        "updated_date": "2025-01-17",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": null,
+        "registrant_country": null,
+        "nameservers": [
+          "isla.ns.cloudflare.com",
+          "randy.ns.cloudflare.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 9
+    },
+    {
+      "timestamp_utc": "2026-02-12T11:52:02Z",
+      "url_sha256": "a0d0f1e5dce9849d181e9502ef01b858321d545847cbdfd28cdb66cab4f31285",
+      "url": {
+        "raw": "https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8",
+        "normalized": "https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8",
+        "decoded": "https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8",
+        "host": "claude.ai",
+        "registrable_domain": "claude.ai",
+        "effective_suffix": "ai",
+        "path": "/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8",
+        "query": ""
+      },
+      "classification": {
+        "label": "SUSPICIOUS_SAFE",
+        "risk_percent": 5,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "fusion_offline_online",
+        "score": 0.05,
+        "p1": 0.7848811906885015,
+        "p2": 0.9968420935789549
+      },
+      "reasons": [
+        "Google Safe Browsing: no threats found (clean).",
+        "Valid TLS certificate detected (good sign).",
+        "Models disagree: GSB + TLS validation confirms safety.",
+        "Valid TLS certificate detected (good sign).",
+        "GSB + TLS validation: site verified as safe.",
+        "Site verified as SAFE; added to session allowlist."
+      ],
+      "analysis_time_ms": 7732.52720000005,
+      "whois": {
+        "creation_date": "2018-08-04",
+        "expiration_date": "2029-08-04",
+        "updated_date": "2025-01-17",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": null,
+        "registrant_country": null,
+        "nameservers": [
+          "isla.ns.cloudflare.com",
+          "randy.ns.cloudflare.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 10
+    },
+    {
+      "timestamp_utc": "2026-02-12T11:52:39Z",
+      "url_sha256": "a0d0f1e5dce9849d181e9502ef01b858321d545847cbdfd28cdb66cab4f31285",
+      "url": {
+        "raw": "https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8",
+        "normalized": "https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8",
+        "decoded": "https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8",
+        "host": "claude.ai",
+        "registrable_domain": "claude.ai",
+        "effective_suffix": "ai",
+        "path": "/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 0,
+        "category": "Trusted domain",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "allowlist_reg_domain",
+        "score": 0.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "reasons": [
+        "Registrable domain matches trusted allowlist."
+      ],
+      "analysis_time_ms": 1040.2152999999998,
+      "whois": {
+        "creation_date": "2018-08-04",
+        "expiration_date": "2029-08-04",
+        "updated_date": "2025-01-17",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": null,
+        "registrant_country": null,
+        "nameservers": [
+          "isla.ns.cloudflare.com",
+          "randy.ns.cloudflare.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 11
+    },
+    {
+      "timestamp_utc": "2026-02-12T11:53:01Z",
+      "url_sha256": "2387c8857ccde354707e1afe8dadfc51632e2aa7655307625785511e05645ace",
+      "url": {
+        "raw": "https://openai.com",
+        "normalized": "https://openai.com",
+        "decoded": "https://openai.com",
+        "host": "openai.com",
+        "registrable_domain": "openai.com",
+        "effective_suffix": "com",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 0,
+        "category": "Trusted domain",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "allowlist_reg_domain",
+        "score": 0.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "reasons": [
+        "Registrable domain matches trusted allowlist."
+      ],
+      "analysis_time_ms": 1322.938699999895,
+      "whois": {
+        "creation_date": "2007-01-19",
+        "expiration_date": "2029-01-19",
+        "updated_date": "2024-10-17",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": "OpenAI",
+        "registrant_country": "US",
+        "nameservers": [
+          "ns1-02.azure-dns.com",
+          "ns2-02.azure-dns.net",
+          "ns3-02.azure-dns.org",
+          "ns4-02.azure-dns.info"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited",
+          "serverTransferProhibited https://icann.org/epp#serverTransferProhibited",
+          "serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)",
+          "serverUpdateProhibited (https://www.icann.org/epp#serverUpdateProhibited)",
+          "serverTransferProhibited (https://www.icann.org/epp#serverTransferProhibited)",
+          "serverDeleteProhibited (https://www.icann.org/epp#serverDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 12
+    },
+    {
+      "timestamp_utc": "2026-02-12T11:53:53Z",
+      "url_sha256": "516c22c5dba9c1ba70ca5e7f223c5987527274aa6a88c96e8eddb77fc2e4fa5e",
+      "url": {
+        "raw": "https://chatgpt.com",
+        "normalized": "https://chatgpt.com",
+        "decoded": "https://chatgpt.com",
+        "host": "chatgpt.com",
+        "registrable_domain": "chatgpt.com",
+        "effective_suffix": "com",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SUSPICIOUS_SAFE",
+        "risk_percent": 5,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "fusion_offline_online",
+        "score": 0.05,
+        "p1": 0.9371093480152499,
+        "p2": 0.8800337051672531
+      },
+      "reasons": [
+        "Google Safe Browsing: no threats found (clean).",
+        "Valid TLS certificate detected (good sign).",
+        "Models disagree: GSB + TLS validation confirms safety.",
+        "Valid TLS certificate detected (good sign).",
+        "GSB + TLS validation: site verified as safe.",
+        "Site verified as SAFE; added to session allowlist."
+      ],
+      "analysis_time_ms": 1782.6841000000968,
+      "whois": {
+        "creation_date": "2022-11-30",
+        "expiration_date": "2026-11-30",
+        "updated_date": "2024-10-17",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": "OpenAI",
+        "registrant_country": "US",
+        "nameservers": [
+          "hassan.ns.cloudflare.com",
+          "savanna.ns.cloudflare.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited",
+          "serverTransferProhibited https://icann.org/epp#serverTransferProhibited",
+          "serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)",
+          "serverUpdateProhibited (https://www.icann.org/epp#serverUpdateProhibited)",
+          "serverTransferProhibited (https://www.icann.org/epp#serverTransferProhibited)",
+          "serverDeleteProhibited (https://www.icann.org/epp#serverDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 13
+    },
+    {
+      "timestamp_utc": "2026-02-12T12:10:47Z",
+      "url_sha256": "6bc84569b82bf6f80cda340b0e87debd8c46ccc93e005c61e3ffba7010b17dfa",
+      "url": {
+        "raw": "uop.edu.jo",
+        "normalized": "http://uop.edu.jo",
+        "decoded": "http://uop.edu.jo",
+        "host": "uop.edu.jo",
+        "registrable_domain": "uop.edu.jo",
+        "effective_suffix": "edu.jo",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 2,
+        "category": "Trusted institution (edu/gov/mil/ac)",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "trusted_institution_gsb_clean_edu.jo",
+        "score": 0.02,
+        "p1": 0.5400597194356435,
+        "p2": 0.5696291445744307
+      },
+      "reasons": [
+        "Institutional suffix detected and Google Safe Browsing is clean."
+      ],
+      "analysis_time_ms": 1713.781100000233,
+      "scan_id": 14
+    },
+    {
+      "timestamp_utc": "2026-02-12T12:10:55Z",
+      "url_sha256": "e21e4693fbd8b62489b0388fd53758217ce59bf9aad2a9ab33f7e776fbc38bed",
+      "url": {
+        "raw": "https://www.youtube.com/watch?v=8aSY_galqOg",
+        "normalized": "https://www.youtube.com/watch?v=8aSY_galqOg",
+        "decoded": "https://www.youtube.com/watch?v=8aSY_galqOg",
+        "host": "youtube.com",
+        "registrable_domain": "youtube.com",
+        "effective_suffix": "com",
+        "path": "/watch",
+        "query": "v=8aSY_galqOg"
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 0,
+        "category": "Trusted domain",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "allowlist_reg_domain",
+        "score": 0.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "reasons": [
+        "Registrable domain matches trusted allowlist."
+      ],
+      "analysis_time_ms": 1219.3503000003147,
+      "whois": {
+        "creation_date": "2005-02-15",
+        "expiration_date": "2027-02-15",
+        "updated_date": "2026-01-14",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": "Google LLC",
+        "registrant_country": "US",
+        "nameservers": [
+          "ns1.google.com",
+          "ns2.google.com",
+          "ns3.google.com",
+          "ns4.google.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited",
+          "serverTransferProhibited https://icann.org/epp#serverTransferProhibited",
+          "serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)",
+          "serverUpdateProhibited (https://www.icann.org/epp#serverUpdateProhibited)",
+          "serverTransferProhibited (https://www.icann.org/epp#serverTransferProhibited)",
+          "serverDeleteProhibited (https://www.icann.org/epp#serverDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 15
+    },
+    {
+      "timestamp_utc": "2026-02-12T12:11:07Z",
+      "url_sha256": "a0d0f1e5dce9849d181e9502ef01b858321d545847cbdfd28cdb66cab4f31285",
+      "url": {
+        "raw": "https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8",
+        "normalized": "https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8",
+        "decoded": "https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8",
+        "host": "claude.ai",
+        "registrable_domain": "claude.ai",
+        "effective_suffix": "ai",
+        "path": "/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8",
+        "query": ""
+      },
+      "classification": {
+        "label": "PHISHING",
+        "risk_percent": 95,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "Medium"
+      },
+      "engine": {
+        "decision_by": "fusion_offline_online",
+        "score": 0.9544499130008643,
+        "p1": 0.7848811906885015,
+        "p2": 0.9968420935789549
+      },
+      "reasons": [],
+      "analysis_time_ms": 1452.0132000002377,
+      "whois": {
+        "creation_date": "2018-08-04",
+        "expiration_date": "2029-08-04",
+        "updated_date": "2025-01-17",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": null,
+        "registrant_country": null,
+        "nameservers": [
+          "isla.ns.cloudflare.com",
+          "randy.ns.cloudflare.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 16
+    },
+    {
+      "timestamp_utc": "2026-02-12T12:11:21Z",
+      "url_sha256": "516c22c5dba9c1ba70ca5e7f223c5987527274aa6a88c96e8eddb77fc2e4fa5e",
+      "url": {
+        "raw": "https://chatgpt.com",
+        "normalized": "https://chatgpt.com",
+        "decoded": "https://chatgpt.com",
+        "host": "chatgpt.com",
+        "registrable_domain": "chatgpt.com",
+        "effective_suffix": "com",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "PHISHING",
+        "risk_percent": 92,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "Medium"
+      },
+      "engine": {
+        "decision_by": "fusion_offline_online",
+        "score": 0.9199866551608509,
+        "p1": 0.9371093480152499,
+        "p2": 0.8800337051672531
+      },
+      "reasons": [],
+      "analysis_time_ms": 1063.5247000000163,
+      "whois": {
+        "creation_date": "2022-11-30",
+        "expiration_date": "2026-11-30",
+        "updated_date": "2024-10-17",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": "OpenAI",
+        "registrant_country": "US",
+        "nameservers": [
+          "hassan.ns.cloudflare.com",
+          "savanna.ns.cloudflare.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited",
+          "serverTransferProhibited https://icann.org/epp#serverTransferProhibited",
+          "serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)",
+          "serverUpdateProhibited (https://www.icann.org/epp#serverUpdateProhibited)",
+          "serverTransferProhibited (https://www.icann.org/epp#serverTransferProhibited)",
+          "serverDeleteProhibited (https://www.icann.org/epp#serverDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 17
+    },
+    {
+      "timestamp_utc": "2026-02-12T12:11:43Z",
+      "url_sha256": "ca870ce40b411f46dd427fc543b01bf4f7d5b74a510bf9b636e43a9d0dc67c3d",
+      "url": {
+        "raw": "& C:/Users/Asus/AppData/Local/Programs/Python/Python311/python.exe \"c:/Users/Asus/Desktop/Graduation Project/PreTrained Models/bixah_ultimate.py\"",
+        "normalized": "http://& C:/Users/Asus/AppData/Local/Programs/Python/Python311/python.exe \"c:/Users/Asus/Desktop/Graduation Project/PreTrained Models/bixah_ultimate.py\"",
+        "decoded": "http://& C:/Users/Asus/AppData/Local/Programs/Python/Python311/python.exe \"c:/Users/Asus/Desktop/Graduation Project/PreTrained Models/bixah_ultimate.py\"",
+        "host": "& c",
+        "registrable_domain": "",
+        "effective_suffix": "",
+        "path": "/Users/Asus/AppData/Local/Programs/Python/Python311/python.exe \"c:/Users/Asus/Desktop/Graduation Project/PreTrained Models/bixah_ultimate.py\"",
+        "query": ""
+      },
+      "classification": {
+        "label": "SUSPICIOUS_PHISHING",
+        "risk_percent": 75,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "Medium"
+      },
+      "engine": {
+        "decision_by": "fusion_offline_online",
+        "score": 0.75,
+        "p1": 0.23612683237359636,
+        "p2": 0.46696231683741035
+      },
+      "reasons": [
+        "Google Safe Browsing: no threats found (clean).",
+        "Models disagree: GSB validation prevents false positive.",
+        "URL patterns strongly suggest legitimate site; capping risk score.",
+        "TLS certificate check failed (risky host / misconfig)."
+      ],
+      "analysis_time_ms": 523.0965000000651,
+      "scan_id": 18
+    },
+    {
+      "timestamp_utc": "2026-02-12T12:12:05Z",
+      "url_sha256": "516c22c5dba9c1ba70ca5e7f223c5987527274aa6a88c96e8eddb77fc2e4fa5e",
+      "url": {
+        "raw": "https://chatgpt.com",
+        "normalized": "https://chatgpt.com",
+        "decoded": "https://chatgpt.com",
+        "host": "chatgpt.com",
+        "registrable_domain": "chatgpt.com",
+        "effective_suffix": "com",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 0,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "fusion_offline_online",
+        "score": 0.0,
+        "p1": 0.9371093480152499,
+        "p2": 0.8800337051672531
+      },
+      "reasons": [
+        "Threat feed flagged domain (phishtank_domain), but Google Safe Browsing confirms SAFE.",
+        "Google Safe Browsing: no threats found (clean).",
+        "Valid TLS certificate detected (good sign).",
+        "GSB + TLS validation: site verified as safe.",
+        "Domain 'chatgpt.com' auto-added to trusted allowlist.",
+        "Valid TLS certificate detected (good sign).",
+        "GSB + TLS validation: site verified as safe."
+      ],
+      "analysis_time_ms": 2547.033000000283,
+      "whois": {
+        "creation_date": "2022-11-30",
+        "expiration_date": "2026-11-30",
+        "updated_date": "2024-10-17",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": "OpenAI",
+        "registrant_country": "US",
+        "nameservers": [
+          "hassan.ns.cloudflare.com",
+          "savanna.ns.cloudflare.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited",
+          "serverTransferProhibited https://icann.org/epp#serverTransferProhibited",
+          "serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)",
+          "serverUpdateProhibited (https://www.icann.org/epp#serverUpdateProhibited)",
+          "serverTransferProhibited (https://www.icann.org/epp#serverTransferProhibited)",
+          "serverDeleteProhibited (https://www.icann.org/epp#serverDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 19
+    },
+    {
+      "timestamp_utc": "2026-02-12T12:12:16Z",
+      "url_sha256": "a0d0f1e5dce9849d181e9502ef01b858321d545847cbdfd28cdb66cab4f31285",
+      "url": {
+        "raw": "https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8",
+        "normalized": "https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8",
+        "decoded": "https://claude.ai/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8",
+        "host": "claude.ai",
+        "registrable_domain": "claude.ai",
+        "effective_suffix": "ai",
+        "path": "/chat/ee36dd2b-377a-40da-9c9d-840e160cb8f8",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 0,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "fusion_offline_online",
+        "score": 0.0,
+        "p1": 0.7848811906885015,
+        "p2": 0.9968420935789549
+      },
+      "reasons": [
+        "Google Safe Browsing: no threats found (clean).",
+        "Valid TLS certificate detected (good sign).",
+        "GSB + TLS validation: site verified as safe.",
+        "Domain 'claude.ai' auto-added to trusted allowlist.",
+        "Valid TLS certificate detected (good sign).",
+        "GSB + TLS validation: site verified as safe."
+      ],
+      "analysis_time_ms": 1270.097000000078,
+      "whois": {
+        "creation_date": "2018-08-04",
+        "expiration_date": "2029-08-04",
+        "updated_date": "2025-01-17",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": null,
+        "registrant_country": null,
+        "nameservers": [
+          "isla.ns.cloudflare.com",
+          "randy.ns.cloudflare.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 20
+    },
+    {
+      "timestamp_utc": "2026-02-12T12:12:23Z",
+      "url_sha256": "6bc84569b82bf6f80cda340b0e87debd8c46ccc93e005c61e3ffba7010b17dfa",
+      "url": {
+        "raw": "uop.edu.jo",
+        "normalized": "http://uop.edu.jo",
+        "decoded": "http://uop.edu.jo",
+        "host": "uop.edu.jo",
+        "registrable_domain": "uop.edu.jo",
+        "effective_suffix": "edu.jo",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 2,
+        "category": "Trusted institution (edu/gov/mil/ac)",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "trusted_institution_gsb_clean_edu.jo",
+        "score": 0.02,
+        "p1": 0.5400597194356435,
+        "p2": 0.5696291445744307
+      },
+      "reasons": [
+        "Institutional suffix detected and Google Safe Browsing is clean."
+      ],
+      "analysis_time_ms": 507.77149999976245,
+      "scan_id": 21
+    },
+    {
+      "timestamp_utc": "2026-02-12T12:29:16Z",
+      "url_sha256": "ca870ce40b411f46dd427fc543b01bf4f7d5b74a510bf9b636e43a9d0dc67c3d",
+      "url": {
+        "raw": "& C:/Users/Asus/AppData/Local/Programs/Python/Python311/python.exe \"c:/Users/Asus/Desktop/Graduation Project/PreTrained Models/bixah_ultimate.py\"",
+        "normalized": "http://& C:/Users/Asus/AppData/Local/Programs/Python/Python311/python.exe \"c:/Users/Asus/Desktop/Graduation Project/PreTrained Models/bixah_ultimate.py\"",
+        "decoded": "http://& C:/Users/Asus/AppData/Local/Programs/Python/Python311/python.exe \"c:/Users/Asus/Desktop/Graduation Project/PreTrained Models/bixah_ultimate.py\"",
+        "host": "& c",
+        "registrable_domain": "",
+        "effective_suffix": "",
+        "path": "/Users/Asus/AppData/Local/Programs/Python/Python311/python.exe \"c:/Users/Asus/Desktop/Graduation Project/PreTrained Models/bixah_ultimate.py\"",
+        "query": ""
+      },
+      "classification": {
+        "label": "SUSPICIOUS_SAFE",
+        "risk_percent": 10,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "Medium"
+      },
+      "engine": {
+        "decision_by": "fusion_offline_online",
+        "score": 0.1,
+        "p1": 0.23612683237359636,
+        "p2": 0.46696231683741035
+      },
+      "reasons": [
+        "Google Safe Browsing: no threats found (clean).",
+        "Models disagree: GSB validation prevents false positive.",
+        "URL patterns strongly suggest legitimate site; capping risk score.",
+        "TLS certificate check failed (risky host / misconfig).",
+        "Google Safe Browsing validation prevents false positive."
+      ],
+      "analysis_time_ms": 37.08959999994477,
+      "scan_id": 22
+    },
+    {
+      "timestamp_utc": "2026-02-12T12:29:46Z",
+      "url_sha256": "aa2239c17609b21eba034c564af878f3eec8ce83ed0f2768597d2bc2fd4e4da5",
+      "url": {
+        "raw": "google.com",
+        "normalized": "http://google.com",
+        "decoded": "http://google.com",
+        "host": "google.com",
+        "registrable_domain": "google.com",
+        "effective_suffix": "com",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 0,
+        "category": "Trusted domain",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "allowlist_reg_domain",
+        "score": 0.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "reasons": [
+        "Registrable domain matches trusted allowlist."
+      ],
+      "analysis_time_ms": 2024.5629000000918,
+      "whois": {
+        "creation_date": "1997-09-15",
+        "expiration_date": "2028-09-14",
+        "updated_date": "2019-09-09",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": "Google LLC",
+        "registrant_country": "US",
+        "nameservers": [
+          "ns1.google.com",
+          "ns2.google.com",
+          "ns3.google.com",
+          "ns4.google.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited",
+          "serverTransferProhibited https://icann.org/epp#serverTransferProhibited",
+          "serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)",
+          "serverUpdateProhibited (https://www.icann.org/epp#serverUpdateProhibited)",
+          "serverTransferProhibited (https://www.icann.org/epp#serverTransferProhibited)",
+          "serverDeleteProhibited (https://www.icann.org/epp#serverDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 23
+    },
+    {
+      "timestamp_utc": "2026-02-12T12:30:04Z",
+      "url_sha256": "6bc84569b82bf6f80cda340b0e87debd8c46ccc93e005c61e3ffba7010b17dfa",
+      "url": {
+        "raw": "uop.edu.jo",
+        "normalized": "http://uop.edu.jo",
+        "decoded": "http://uop.edu.jo",
+        "host": "uop.edu.jo",
+        "registrable_domain": "uop.edu.jo",
+        "effective_suffix": "edu.jo",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 2,
+        "category": "Trusted institution (edu/gov/mil/ac)",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "trusted_institution_gsb_clean_edu.jo",
+        "score": 0.02,
+        "p1": 0.5400597194356435,
+        "p2": 0.5696291445744307
+      },
+      "reasons": [
+        "Institutional suffix detected and Google Safe Browsing is clean."
+      ],
+      "analysis_time_ms": 1726.3425000001007,
+      "scan_id": 24
+    },
+    {
+      "timestamp_utc": "2026-02-12T12:34:32Z",
+      "url_sha256": "6bc84569b82bf6f80cda340b0e87debd8c46ccc93e005c61e3ffba7010b17dfa",
+      "url": {
+        "raw": "uop.edu.jo",
+        "normalized": "http://uop.edu.jo",
+        "decoded": "http://uop.edu.jo",
+        "host": "uop.edu.jo",
+        "registrable_domain": "uop.edu.jo",
+        "effective_suffix": "edu.jo",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 0,
+        "category": "Trusted institution (edu/gov/mil/ac)",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "trusted_institution_gsb_clean_edu.jo",
+        "score": 0.0,
+        "p1": 0.5400597194356435,
+        "p2": 0.5696291445744307
+      },
+      "reasons": [
+        "Trusted institutional domain (.edu.jo) verified clean by Google Safe Browsing."
+      ],
+      "analysis_time_ms": 1893.8527999998769,
+      "scan_id": 25
+    },
+    {
+      "timestamp_utc": "2026-02-12T12:59:23Z",
+      "url_sha256": "ca870ce40b411f46dd427fc543b01bf4f7d5b74a510bf9b636e43a9d0dc67c3d",
+      "url": {
+        "raw": "& C:/Users/Asus/AppData/Local/Programs/Python/Python311/python.exe \"c:/Users/Asus/Desktop/Graduation Project/PreTrained Models/bixah_ultimate.py\"",
+        "normalized": "http://& C:/Users/Asus/AppData/Local/Programs/Python/Python311/python.exe \"c:/Users/Asus/Desktop/Graduation Project/PreTrained Models/bixah_ultimate.py\"",
+        "decoded": "http://& C:/Users/Asus/AppData/Local/Programs/Python/Python311/python.exe \"c:/Users/Asus/Desktop/Graduation Project/PreTrained Models/bixah_ultimate.py\"",
+        "host": "& c",
+        "registrable_domain": "",
+        "effective_suffix": "",
+        "path": "/Users/Asus/AppData/Local/Programs/Python/Python311/python.exe \"c:/Users/Asus/Desktop/Graduation Project/PreTrained Models/bixah_ultimate.py\"",
+        "query": ""
+      },
+      "classification": {
+        "label": "SUSPICIOUS_SAFE",
+        "risk_percent": 10,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "Medium"
+      },
+      "engine": {
+        "decision_by": "fusion_offline_online",
+        "score": 0.1,
+        "p1": 0.23612683237359636,
+        "p2": 0.46696231683741035
+      },
+      "reasons": [
+        "Google Safe Browsing: no threats found (clean).",
+        "Models disagree: GSB validation prevents false positive.",
+        "URL patterns strongly suggest legitimate site; capping risk score.",
+        "TLS certificate check failed (risky host / misconfig).",
+        "Google Safe Browsing validation prevents false positive."
+      ],
+      "analysis_time_ms": 36.18009999991045,
+      "scan_id": 26
+    },
+    {
+      "timestamp_utc": "2026-02-12T21:06:09Z",
+      "url_sha256": "7e8cd63f43724161b5f4b35540a2d577e2da7a554de9f73a0ebcfe48290592e6",
+      "url": {
+        "raw": "& C:/Users/Asus/AppData/Local/Programs/Python/Python311/python.exe \"c:/Users/Asus/Desktop/Graduation Project/PreTrained Models/web_app.py\"",
+        "normalized": "http://& C:/Users/Asus/AppData/Local/Programs/Python/Python311/python.exe \"c:/Users/Asus/Desktop/Graduation Project/PreTrained Models/web_app.py\"",
+        "decoded": "http://& C:/Users/Asus/AppData/Local/Programs/Python/Python311/python.exe \"c:/Users/Asus/Desktop/Graduation Project/PreTrained Models/web_app.py\"",
+        "host": "& c",
+        "registrable_domain": "",
+        "effective_suffix": "",
+        "path": "/Users/Asus/AppData/Local/Programs/Python/Python311/python.exe \"c:/Users/Asus/Desktop/Graduation Project/PreTrained Models/web_app.py\"",
+        "query": ""
+      },
+      "classification": {
+        "label": "SUSPICIOUS_SAFE",
+        "risk_percent": 10,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "Medium"
+      },
+      "engine": {
+        "decision_by": "fusion_offline_online",
+        "score": 0.1,
+        "p1": 0.28345831804241967,
+        "p2": 0.46696231683741035
+      },
+      "reasons": [
+        "Google Safe Browsing: no threats found (clean).",
+        "Models disagree: GSB validation prevents false positive.",
+        "URL patterns strongly suggest legitimate site; capping risk score.",
+        "TLS certificate check failed (risky host / misconfig).",
+        "Google Safe Browsing validation prevents false positive."
+      ],
+      "analysis_time_ms": 591.6148999967845,
+      "scan_id": 27
+    },
+    {
+      "timestamp_utc": "2026-02-12T21:15:34Z",
+      "url_sha256": "aa2239c17609b21eba034c564af878f3eec8ce83ed0f2768597d2bc2fd4e4da5",
+      "url": {
+        "raw": "google.com",
+        "normalized": "http://google.com",
+        "decoded": "http://google.com",
+        "host": "google.com",
+        "registrable_domain": "google.com",
+        "effective_suffix": "com",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 0,
+        "category": "Trusted domain",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "allowlist_reg_domain",
+        "score": 0.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "reasons": [
+        "Registrable domain matches trusted allowlist."
+      ],
+      "analysis_time_ms": 1236.6385999994236,
+      "whois": {
+        "creation_date": "1997-09-15",
+        "expiration_date": "2028-09-14",
+        "updated_date": "2019-09-09",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": "Google LLC",
+        "registrant_country": "US",
+        "nameservers": [
+          "ns1.google.com",
+          "ns2.google.com",
+          "ns3.google.com",
+          "ns4.google.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited",
+          "serverTransferProhibited https://icann.org/epp#serverTransferProhibited",
+          "serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)",
+          "serverUpdateProhibited (https://www.icann.org/epp#serverUpdateProhibited)",
+          "serverTransferProhibited (https://www.icann.org/epp#serverTransferProhibited)",
+          "serverDeleteProhibited (https://www.icann.org/epp#serverDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 28
+    },
+    {
+      "timestamp_utc": "2026-02-12T21:15:57Z",
+      "url_sha256": "6bc84569b82bf6f80cda340b0e87debd8c46ccc93e005c61e3ffba7010b17dfa",
+      "url": {
+        "raw": "uop.edu.jo",
+        "normalized": "http://uop.edu.jo",
+        "decoded": "http://uop.edu.jo",
+        "host": "uop.edu.jo",
+        "registrable_domain": "uop.edu.jo",
+        "effective_suffix": "edu.jo",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 0,
+        "category": "Trusted institution (edu/gov/mil/ac)",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "trusted_institution_gsb_clean_edu.jo",
+        "score": 0.0,
+        "p1": 0.5400597194356435,
+        "p2": 0.5696291445744307
+      },
+      "reasons": [
+        "Trusted institutional domain (.edu.jo) verified clean by Google Safe Browsing."
+      ],
+      "analysis_time_ms": 2114.6689000015613,
+      "scan_id": 29
+    },
+    {
+      "timestamp_utc": "2026-02-12T21:16:07Z",
+      "url_sha256": "c841e715efd6bfe2a9426b1ba0b890dcbdb6021dfe3aeb7bbde809e9f44fe7b6",
+      "url": {
+        "raw": "chatgpt.com",
+        "normalized": "http://chatgpt.com",
+        "decoded": "http://chatgpt.com",
+        "host": "chatgpt.com",
+        "registrable_domain": "chatgpt.com",
+        "effective_suffix": "com",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 0,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "fusion_offline_online",
+        "score": 0.0,
+        "p1": 0.8060953954719863,
+        "p2": 0.665062972467846
+      },
+      "reasons": [
+        "Google Safe Browsing: no threats found (clean).",
+        "Valid TLS certificate detected (good sign).",
+        "GSB + TLS validation: site verified as safe.",
+        "Domain 'chatgpt.com' auto-added to trusted allowlist.",
+        "Valid TLS certificate detected (good sign).",
+        "Content analysis: no phishing indicators found.",
+        "GSB + TLS validation: site verified as safe."
+      ],
+      "analysis_time_ms": 2286.9628999978886,
+      "whois": {
+        "creation_date": "2022-11-30",
+        "expiration_date": "2026-11-30",
+        "updated_date": "2024-10-17",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": "OpenAI",
+        "registrant_country": "US",
+        "nameservers": [
+          "hassan.ns.cloudflare.com",
+          "savanna.ns.cloudflare.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited",
+          "serverTransferProhibited https://icann.org/epp#serverTransferProhibited",
+          "serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)",
+          "serverUpdateProhibited (https://www.icann.org/epp#serverUpdateProhibited)",
+          "serverTransferProhibited (https://www.icann.org/epp#serverTransferProhibited)",
+          "serverDeleteProhibited (https://www.icann.org/epp#serverDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 30
+    },
+    {
+      "timestamp_utc": "2026-02-12T21:16:16Z",
+      "url_sha256": "811bdac2a89173eac7dde71c310d9fd9092be55c7700c8b0a8809c147a365557",
+      "url": {
+        "raw": "G00gle.com",
+        "normalized": "http://G00gle.com",
+        "decoded": "http://G00gle.com",
+        "host": "g00gle.com",
+        "registrable_domain": "g00gle.com",
+        "effective_suffix": "com",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "PHISHING",
+        "risk_percent": 100,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "Medium"
+      },
+      "engine": {
+        "decision_by": "advanced_brand_impersonation",
+        "score": 1.0,
+        "p1": null,
+        "p2": null
+      },
+      "reasons": [
+        "Visual impersonation of 'google' detected (typosquatting)"
+      ],
+      "analysis_time_ms": 1715.2926999988267,
+      "whois": {
+        "creation_date": "2001-06-01",
+        "expiration_date": "2026-06-01",
+        "updated_date": "2025-04-30",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": "Google LLC",
+        "registrant_country": "US",
+        "nameservers": [
+          "ns1.googledomains.com",
+          "ns2.googledomains.com",
+          "ns3.googledomains.com",
+          "ns4.googledomains.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 31
+    }
+  ]
+}

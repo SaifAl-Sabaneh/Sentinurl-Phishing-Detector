@@ -1,0 +1,122 @@
+{
+  "engine": {
+    "engine_version": "1.0.0",
+    "models": {
+      "stage1_tfidf": "tfidf.joblib",
+      "stage1_model": "calibrated_logreg.joblib",
+      "stage2_model": "stage2_hgb.joblib",
+      "stage2_schema": "stage2_feature_columns.joblib"
+    },
+    "policy": {
+      "SAFE_MAX": 0.00833931912441942,
+      "SUSP_SAFE_MAX": 0.5217621042094407,
+      "PHISH_MIN": 0.9253162426167922,
+      "w_stage1": 0.2,
+      "w_stage2": 0.8
+    },
+    "allowlist_reg_domains_count": 20
+  },
+  "session": {
+    "session_start_utc": "2026-01-03T23:07:18Z"
+  },
+  "scans": [
+    {
+      "timestamp_utc": "2026-01-03T23:07:26Z",
+      "url_sha256": "96b3aa2b8e8ef9e9a405e327b1a9747c6a7db9dc2036676928c8f30deecc8d18",
+      "input": {
+        "raw": "www.youtube.com",
+        "normalized": "http://www.youtube.com",
+        "decoded": "http://www.youtube.com"
+      },
+      "url_breakdown": {
+        "host": "youtube.com",
+        "registrable_domain": "youtube.com",
+        "domain_name": "youtube",
+        "tld": "com",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 0,
+        "risk_tier": "Very Low Risk",
+        "confidence": "High",
+        "category": "Trusted domain"
+      },
+      "explanation": {
+        "reasons": [
+          "Registrable domain matches trusted allowlist.",
+          "Domain checked is 'youtube.com' (effective registrable domain)."
+        ]
+      },
+      "engine": {
+        "decision_by": "allowlist_reg_domain",
+        "fusion_weights": {
+          "stage1": 0.2,
+          "stage2": 0.8
+        },
+        "thresholds": {
+          "SAFE_MAX": 0.00833931912441942,
+          "SUSP_SAFE_MAX": 0.5217621042094407,
+          "PHISH_MIN": 0.9253162426167922
+        },
+        "scores": {
+          "final": 0.0,
+          "stage1": null,
+          "stage2": null
+        },
+        "analysis_time_ms": 17.25359999909415
+      },
+      "scan_id": 1
+    },
+    {
+      "timestamp_utc": "2026-01-03T23:07:52Z",
+      "url_sha256": "7fcd5b73d483b7774e2c0adf093ae97c649ce7c15529c2f2b979f8e250185606",
+      "input": {
+        "raw": "gamersfirst.com",
+        "normalized": "http://gamersfirst.com",
+        "decoded": "http://gamersfirst.com"
+      },
+      "url_breakdown": {
+        "host": "gamersfirst.com",
+        "registrable_domain": "gamersfirst.com",
+        "domain_name": "gamersfirst",
+        "tld": "com",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SUSPICIOUS_PHISHING",
+        "risk_percent": 63,
+        "risk_tier": "High Risk",
+        "confidence": "High",
+        "category": "Risk analysis (AI + heuristics)"
+      },
+      "explanation": {
+        "reasons": [
+          "AI ensemble (Stage1 + Stage2) produced this risk score.",
+          "Domain checked is 'gamersfirst.com' (effective registrable domain)."
+        ]
+      },
+      "engine": {
+        "decision_by": "fusion",
+        "fusion_weights": {
+          "stage1": 0.2,
+          "stage2": 0.8
+        },
+        "thresholds": {
+          "SAFE_MAX": 0.00833931912441942,
+          "SUSP_SAFE_MAX": 0.5217621042094407,
+          "PHISH_MIN": 0.9253162426167922
+        },
+        "scores": {
+          "final": 0.6276818951470767,
+          "stage1": 0.583919093752202,
+          "stage2": 0.6386225954957954
+        },
+        "analysis_time_ms": 1761.1746000002313
+      },
+      "scan_id": 2
+    }
+  ]
+}
