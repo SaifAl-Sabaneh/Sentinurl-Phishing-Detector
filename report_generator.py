@@ -22,7 +22,9 @@ def generate_report_from_session(log_obj):
     
     for idx, scan in enumerate(scans):
         label = scan.get("classification", {}).get("label", "UNKNOWN").upper()
-        url = scan.get("url", {}).get("original", "Unknown")
+        # Fallback through expected url formats from bixah engine
+        url_dict = scan.get("url", {})
+        url = url_dict.get("raw", url_dict.get("normalized", "Unknown"))
         risk_pct = scan.get("classification", {}).get("risk_percent", 0.0)
         engine = scan.get("engine", {}).get("decision_by", "Unknown")
         reasons = scan.get("reasons", ["No specific reason logged."])
