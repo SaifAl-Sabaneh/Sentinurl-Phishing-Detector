@@ -1,0 +1,423 @@
+{
+  "engine": {
+    "engine_version": "2.2.3-protect-enhanced",
+    "mode": "PROTECT"
+  },
+  "session": {
+    "session_start_utc": "2026-03-10T19:15:48Z"
+  },
+  "scans": [
+    {
+      "timestamp_utc": "2026-03-10T19:16:03Z",
+      "url_sha256": "aa2239c17609b21eba034c564af878f3eec8ce83ed0f2768597d2bc2fd4e4da5",
+      "url": {
+        "raw": "google.com",
+        "normalized": "http://google.com",
+        "decoded": "http://google.com",
+        "host": "google.com",
+        "registrable_domain": "google.com",
+        "effective_suffix": "com",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 0,
+        "category": "Trusted domain",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "allowlist_reg_domain",
+        "score": 0.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "reasons": [
+        "Registrable domain matches trusted allowlist."
+      ],
+      "analysis_time_ms": 1454.4568000001163,
+      "whois": {
+        "creation_date": "1997-09-15",
+        "expiration_date": "2028-09-14",
+        "updated_date": "2019-09-09",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": "Google LLC",
+        "registrant_country": "US",
+        "nameservers": [
+          "ns1.google.com",
+          "ns2.google.com",
+          "ns3.google.com",
+          "ns4.google.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited",
+          "serverTransferProhibited https://icann.org/epp#serverTransferProhibited",
+          "serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)",
+          "serverUpdateProhibited (https://www.icann.org/epp#serverUpdateProhibited)",
+          "serverTransferProhibited (https://www.icann.org/epp#serverTransferProhibited)",
+          "serverDeleteProhibited (https://www.icann.org/epp#serverDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 1
+    },
+    {
+      "timestamp_utc": "2026-03-10T19:16:19Z",
+      "url_sha256": "6bc84569b82bf6f80cda340b0e87debd8c46ccc93e005c61e3ffba7010b17dfa",
+      "url": {
+        "raw": "uop.edu.jo",
+        "normalized": "http://uop.edu.jo",
+        "decoded": "http://uop.edu.jo",
+        "host": "uop.edu.jo",
+        "registrable_domain": "uop.edu.jo",
+        "effective_suffix": "edu.jo",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 0,
+        "category": "Trusted institution (edu/gov/mil/ac)",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "trusted_institution_gsb_clean_edu.jo",
+        "score": 0.0,
+        "p1": 0.5400597194356435,
+        "p2": 0.5696291445744307
+      },
+      "reasons": [
+        "Trusted institutional domain (.edu.jo) verified clean by Google Safe Browsing."
+      ],
+      "analysis_time_ms": 2944.212200000038,
+      "scan_id": 2
+    },
+    {
+      "timestamp_utc": "2026-03-10T19:19:19Z",
+      "url_sha256": "aa2239c17609b21eba034c564af878f3eec8ce83ed0f2768597d2bc2fd4e4da5",
+      "url": {
+        "raw": "google.com",
+        "normalized": "http://google.com",
+        "decoded": "http://google.com",
+        "host": "google.com",
+        "registrable_domain": "google.com",
+        "effective_suffix": "com",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 0,
+        "category": "Trusted domain",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "allowlist_reg_domain",
+        "score": 0.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "reasons": [
+        "Registrable domain matches trusted allowlist."
+      ],
+      "analysis_time_ms": 1216.0721999998714,
+      "whois": {
+        "creation_date": "1997-09-15",
+        "expiration_date": "2028-09-14",
+        "updated_date": "2019-09-09",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": "Google LLC",
+        "registrant_country": "US",
+        "nameservers": [
+          "ns1.google.com",
+          "ns2.google.com",
+          "ns3.google.com",
+          "ns4.google.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited",
+          "serverTransferProhibited https://icann.org/epp#serverTransferProhibited",
+          "serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)",
+          "serverUpdateProhibited (https://www.icann.org/epp#serverUpdateProhibited)",
+          "serverTransferProhibited (https://www.icann.org/epp#serverTransferProhibited)",
+          "serverDeleteProhibited (https://www.icann.org/epp#serverDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 3
+    },
+    {
+      "timestamp_utc": "2026-03-10T19:19:26Z",
+      "url_sha256": "7da6689498c186a32c71004d6020b8e426174abbc766ebc0830a493e7d8095ef",
+      "url": {
+        "raw": "youtube.com",
+        "normalized": "http://youtube.com",
+        "decoded": "http://youtube.com",
+        "host": "youtube.com",
+        "registrable_domain": "youtube.com",
+        "effective_suffix": "com",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 0,
+        "category": "Trusted domain",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "allowlist_reg_domain",
+        "score": 0.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "reasons": [
+        "Registrable domain matches trusted allowlist."
+      ],
+      "analysis_time_ms": 1348.2934999992722,
+      "whois": {
+        "creation_date": "2005-02-15",
+        "expiration_date": "2027-02-15",
+        "updated_date": "2026-01-14",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": "Google LLC",
+        "registrant_country": "US",
+        "nameservers": [
+          "ns1.google.com",
+          "ns2.google.com",
+          "ns3.google.com",
+          "ns4.google.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited",
+          "serverTransferProhibited https://icann.org/epp#serverTransferProhibited",
+          "serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)",
+          "serverUpdateProhibited (https://www.icann.org/epp#serverUpdateProhibited)",
+          "serverTransferProhibited (https://www.icann.org/epp#serverTransferProhibited)",
+          "serverDeleteProhibited (https://www.icann.org/epp#serverDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 4
+    },
+    {
+      "timestamp_utc": "2026-03-10T19:20:33Z",
+      "url_sha256": "aa2239c17609b21eba034c564af878f3eec8ce83ed0f2768597d2bc2fd4e4da5",
+      "url": {
+        "raw": "google.com",
+        "normalized": "http://google.com",
+        "decoded": "http://google.com",
+        "host": "google.com",
+        "registrable_domain": "google.com",
+        "effective_suffix": "com",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 0,
+        "category": "Trusted domain",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "allowlist_reg_domain",
+        "score": 0.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "reasons": [
+        "Registrable domain matches trusted allowlist."
+      ],
+      "analysis_time_ms": 1440.0802000000112,
+      "whois": {
+        "creation_date": "1997-09-15",
+        "expiration_date": "2028-09-14",
+        "updated_date": "2019-09-09",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": "Google LLC",
+        "registrant_country": "US",
+        "nameservers": [
+          "ns1.google.com",
+          "ns2.google.com",
+          "ns3.google.com",
+          "ns4.google.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited",
+          "serverTransferProhibited https://icann.org/epp#serverTransferProhibited",
+          "serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)",
+          "serverUpdateProhibited (https://www.icann.org/epp#serverUpdateProhibited)",
+          "serverTransferProhibited (https://www.icann.org/epp#serverTransferProhibited)",
+          "serverDeleteProhibited (https://www.icann.org/epp#serverDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 5
+    },
+    {
+      "timestamp_utc": "2026-03-10T19:20:42Z",
+      "url_sha256": "6bc84569b82bf6f80cda340b0e87debd8c46ccc93e005c61e3ffba7010b17dfa",
+      "url": {
+        "raw": "uop.edu.jo",
+        "normalized": "http://uop.edu.jo",
+        "decoded": "http://uop.edu.jo",
+        "host": "uop.edu.jo",
+        "registrable_domain": "uop.edu.jo",
+        "effective_suffix": "edu.jo",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "SAFE",
+        "risk_percent": 0,
+        "category": "Trusted institution (edu/gov/mil/ac)",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "trusted_institution_gsb_clean_edu.jo",
+        "score": 0.0,
+        "p1": 0.5400597194356435,
+        "p2": 0.5696291445744307
+      },
+      "reasons": [
+        "Trusted institutional domain (.edu.jo) verified clean by Google Safe Browsing."
+      ],
+      "analysis_time_ms": 1852.4938999998994,
+      "scan_id": 6
+    },
+    {
+      "timestamp_utc": "2026-03-10T19:20:48Z",
+      "url_sha256": "a357ed0fd0dd39501ef284c7a4d018f96505a9d7494e8e8d18bd2bd952c154ee",
+      "url": {
+        "raw": "g00gle.com",
+        "normalized": "http://g00gle.com",
+        "decoded": "http://g00gle.com",
+        "host": "g00gle.com",
+        "registrable_domain": "g00gle.com",
+        "effective_suffix": "com",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "PHISHING",
+        "risk_percent": 100,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "High"
+      },
+      "engine": {
+        "decision_by": "rule_typosquat",
+        "score": 1.0,
+        "p1": null,
+        "p2": null
+      },
+      "reasons": [
+        "Typosquatting detected: 'g00gle.com' resembles a known brand."
+      ],
+      "analysis_time_ms": 1125.3478999997242,
+      "whois": {
+        "creation_date": "2001-06-01",
+        "expiration_date": "2026-06-01",
+        "updated_date": "2025-04-30",
+        "registrar": "MarkMonitor, Inc.",
+        "registrant_org": "Google LLC",
+        "registrant_country": "US",
+        "nameservers": [
+          "ns1.googledomains.com",
+          "ns2.googledomains.com",
+          "ns3.googledomains.com",
+          "ns4.googledomains.com"
+        ],
+        "status": [
+          "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited",
+          "clientTransferProhibited https://icann.org/epp#clientTransferProhibited",
+          "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited",
+          "clientUpdateProhibited (https://www.icann.org/epp#clientUpdateProhibited)",
+          "clientTransferProhibited (https://www.icann.org/epp#clientTransferProhibited)",
+          "clientDeleteProhibited (https://www.icann.org/epp#clientDeleteProhibited)"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 7
+    },
+    {
+      "timestamp_utc": "2026-03-10T19:20:59Z",
+      "url_sha256": "f96887c70cb860659f13b2b395da90ba58104a96e3e4235718cae47bcdfbc128",
+      "url": {
+        "raw": "1.1.1.1.com",
+        "normalized": "http://1.1.1.1.com",
+        "decoded": "http://1.1.1.1.com",
+        "host": "1.1.1.1.com",
+        "registrable_domain": "1.com",
+        "effective_suffix": "com",
+        "path": "",
+        "query": ""
+      },
+      "classification": {
+        "label": "LOW RISK",
+        "risk_percent": 10,
+        "category": "Risk analysis (AI + online verification)",
+        "confidence": "Medium"
+      },
+      "engine": {
+        "decision_by": "fusion_offline_online",
+        "score": 0.1,
+        "p1": 0.7104553887889224,
+        "p2": 0.2817398571551801
+      },
+      "reasons": [
+        "Google Safe Browsing: no threats found (clean).",
+        "Models disagree: GSB validation prevents false positive.",
+        "TLS certificate check failed (risky host / misconfig).",
+        "Google Safe Browsing validation prevents false positive.",
+        "Site verified as SAFE; added to session allowlist."
+      ],
+      "analysis_time_ms": 2045.6608999993477,
+      "whois": {
+        "creation_date": "1993-12-01",
+        "expiration_date": "2026-12-08",
+        "updated_date": "2025-12-09",
+        "registrar": "RESERVED-Internet Assigned Numbers Authority",
+        "registrant_org": null,
+        "registrant_country": null,
+        "nameservers": [],
+        "status": [
+          "serverDeleteProhibited https://icann.org/epp#serverDeleteProhibited",
+          "serverTransferProhibited https://icann.org/epp#serverTransferProhibited",
+          "serverUpdateProhibited https://icann.org/epp#serverUpdateProhibited"
+        ],
+        "age_days": null,
+        "available": false
+      },
+      "scan_id": 8
+    }
+  ]
+}

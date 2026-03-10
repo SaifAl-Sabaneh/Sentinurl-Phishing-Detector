@@ -166,25 +166,79 @@ st.markdown("""
 # --- Top Level Tabs ---
 tab_scan, tab_batch, tab_stats = st.tabs(["🔍 Single URL Scan", "📁 Batch CSV Scanner", "📈 Global Statistics"])
 
+# --- Data Loading for Generator ---
+@st.cache_data
+def load_url_dataset():
+    # current_dir is defined at the top of the file
+    parent_dir = os.path.dirname(current_dir)
+    dataset_path = os.path.join(parent_dir, "Phishing Dataset.csv")
+    try:
+        if os.path.exists(dataset_path):
+            df = pd.read_csv(dataset_path)
+            if 'URL' in df.columns and 'Type' in df.columns:
+                return df
+    except Exception as e:
+        pass # Silently fail into fallback
+    return pd.DataFrame()
+
+def get_random_url_hybrid(url_type="Safe"):
+    # 1. Initialize session state for tracking used URLs
+    if "used_urls" not in st.session_state:
+        st.session_state.used_urls = set()
+        
+    df = load_url_dataset()
+    
+    # Fallback hardcoded lists if dataset fails
+    fallbacks = {
+        "Safe": [
+            "https://github.com", "https://stackoverflow.com", "https://wikipedia.org", "https://microsoft.com",
+            "https://www.apple.com", "https://www.python.org", "https://www.netflix.com", "https://aws.amazon.com",
+            "https://openai.com", "https://www.spotify.com", "https://news.ycombinator.com", "https://reddit.com"
+        ],
+        "Phishing": [
+            "http://1.1.1.1", "http://login-update-security-alert.xyz", "http://free-netflix-subscription.top", 
+            "http://verify-bank-account-now.com", "http://paypal-security-auth-check.net", "http://secure-login-amazon-update.org",
+            "http://apple-id-verification-suspended.com", "http://win-free-iphone-15-now.store", "http://admin-panel-login-portal.site",
+            "http://customer-support-refund-desk.info"
+        ]
+    }
+    
+    # 2. Try to get from dataset first
+    if not df.empty:
+        # Filter by type
+        type_df = df[df['Type'].str.lower() == url_type.lower()]
+        if not type_df.empty:
+            # Filter out already used URLs
+            available_urls = type_df[~type_df['URL'].isin(st.session_state.used_urls)]
+            
+            if not available_urls.empty:
+                # Pick a random one
+                chosen_url = available_urls.sample(n=1)['URL'].iloc[0]
+                st.session_state.used_urls.add(chosen_url)
+                return chosen_url
+            else:
+                st.toast(f"ℹ️ All {url_type} URLs from dataset have been shown. Resetting or using fallback.")
+                # We could reset the used list here, but let's fall through to fallbacks
+                
+    # 3. Fallback to hardcoded (also track these)
+    available_fallbacks = [u for u in fallbacks[url_type] if u not in st.session_state.used_urls]
+    if available_fallbacks:
+        chosen_url = random.choice(available_fallbacks)
+        st.session_state.used_urls.add(chosen_url)
+        return chosen_url
+    else:
+        # Total exhaustion of dataset and fallbacks: Reset the tracker
+        st.session_state.used_urls.clear()
+        chosen_url = random.choice(fallbacks[url_type])
+        st.session_state.used_urls.add(chosen_url)
+        return chosen_url
+
 # ==========================================
 # TAB 1: SINGLE URL SCAN
 # ==========================================
 with tab_scan:
     st.title("URL Threat Scanner")
     st.markdown("Enter a website URL below to analyze it for phishing indicators.")
-
-    # Presentation helpers
-    sample_safe_urls = [
-        "https://github.com", "https://stackoverflow.com", "https://wikipedia.org", "https://microsoft.com",
-        "https://www.apple.com", "https://www.python.org", "https://www.netflix.com", "https://aws.amazon.com",
-        "https://openai.com", "https://www.spotify.com", "https://news.ycombinator.com", "https://reddit.com"
-    ]
-    sample_phish_urls = [
-        "http://1.1.1.1", "http://login-update-security-alert.xyz", "http://free-netflix-subscription.top", 
-        "http://verify-bank-account-now.com", "http://paypal-security-auth-check.net", "http://secure-login-amazon-update.org",
-        "http://apple-id-verification-suspended.com", "http://win-free-iphone-15-now.store", "http://admin-panel-login-portal.site",
-        "http://customer-support-refund-desk.info"
-    ]
     
     if "demo_url" not in st.session_state:
         st.session_state.demo_url = ""
@@ -192,10 +246,12 @@ with tab_scan:
     col_btn1, col_btn2 = st.columns([1, 1])
     with col_btn1:
         if st.button("✅ Load Random Safe URL", use_container_width=True):
-            st.session_state.demo_url = random.choice(sample_safe_urls)
+            st.session_state.demo_url = get_random_url_hybrid("Safe")
+            st.rerun() # Force UI update immediately so the input box shows the new URL
     with col_btn2:
         if st.button("🚨 Load Random Phishing URL", use_container_width=True):
-            st.session_state.demo_url = random.choice(sample_phish_urls)
+            st.session_state.demo_url = get_random_url_hybrid("Phishing")
+            st.rerun() # Force UI update immediately
 
     with st.form(key='scan_form'):
         col1, col2 = st.columns([4, 1])
@@ -413,7 +469,16 @@ with tab_batch:
     uploaded_file = st.file_uploader("Upload CSV File", type="csv")
     if uploaded_file is not None:
         try:
-            df_upload = pd.read_csv(uploaded_file)
+            # Try robust reading for different encodings
+            try:
+                df_upload = pd.read_csv(uploaded_file, encoding='utf-8')
+            except UnicodeDecodeError:
+                try:
+                    uploaded_file.seek(0)
+                    df_upload = pd.read_csv(uploaded_file, encoding='ISO-8859-1')
+                except UnicodeDecodeError:
+                    uploaded_file.seek(0)
+                    df_upload = pd.read_csv(uploaded_file, encoding='utf-8', encoding_errors='ignore')
             
             # Find the URL column
             url_col = None
@@ -431,7 +496,12 @@ with tab_batch:
                     progress_text = st.empty()
                     progress_bar = st.progress(0)
                     
+                    # Create placeholder for Live View
+                    st.markdown("### 🔴 Live View (Latest 15 Scans)")
+                    live_table_placeholder = st.empty()
+                    
                     results_list = []
+                    live_scans = [] # Tracks the rolling window
                     
                     for i, row in df_upload.iterrows():
                         target_url = str(row[url_col])
@@ -447,41 +517,57 @@ with tab_batch:
                             
                             clean_decision_by = format_engine_name(decision_by)
                             
-                            results_list.append({
+                            scan_result = {
                                 "URL": target_url,
                                 "Status": "Phishing" if is_phishing else "Safe",
                                 "Risk Score (%)": int(safe_score * 100),
                                 "Engine": clean_decision_by
-                            })
+                            }
+                            
+                            results_list.append(scan_result)
+                            
+                            # Keep only top 15 for live view so it stays fast
+                            live_scans.insert(0, scan_result)
+                            if len(live_scans) > 15:
+                                live_scans.pop()
+                                
+                            # Update UI Live
+                            live_table_placeholder.dataframe(pd.DataFrame(live_scans), use_container_width=True)
                             
                             # Persist bulk scan items to history too!
                             save_history({
                                 "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                                 "domain": urlparse(target_url_fmt).netloc,
                                 "url": target_url_fmt,
-                                "status": "Phishing" if is_phishing else "Safe",
-                                "risk_score_percent": int(safe_score * 100),
+                                "status": scan_result["Status"],
+                                "risk_score_percent": scan_result["Risk Score (%)"],
                                 "decision_by": clean_decision_by
                             })
                             
                         except Exception as e:
-                            results_list.append({
+                            error_res = {
                                 "URL": target_url,
                                 "Status": "Error",
                                 "Risk Score (%)": 0,
                                 "Engine": str(e)
-                            })
+                            }
+                            results_list.append(error_res)
+                            
+                            live_scans.insert(0, error_res)
+                            if len(live_scans) > 15:
+                                live_scans.pop()
+                            live_table_placeholder.dataframe(pd.DataFrame(live_scans), use_container_width=True)
                             
                         progress_bar.progress((i + 1) / len(df_upload))
                         
                     progress_text.text("Scan Complete!")
                     
                     res_df = pd.DataFrame(results_list)
-                    st.write("### Bulk Scan Results")
+                    st.write("### 🏁 Final Bulk Scan Results")
                     st.dataframe(res_df, use_container_width=True)
                     
                     csv_export = res_df.to_csv(index=False).encode('utf-8')
-                    st.download_button("⬇️ Download Results as CSV", data=csv_export, file_name="bulk_scan_results.csv", mime="text/csv")
+                    st.download_button("⬇️ Download Full Results as CSV", data=csv_export, file_name="bulk_scan_results.csv", mime="text/csv")
                     
         except Exception as e:
             st.error(f"Error reading CSV: {e}")
