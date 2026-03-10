@@ -6,13 +6,22 @@ Version: 3.0.0-ultimate
 
 import os
 import sys
+import io
+
+# Force UTF-8 encoding for Windows terminals
+if sys.stdout.encoding.lower() != 'utf-8':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 # Add current directory and parent directories to path
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.insert(0, current_dir)
 sys.path.insert(0, parent_dir)
-from report_generator import generate_report_from_session
+try:
+    from report_generator import generate_report_from_session
+    REPORT_GENERATOR_AVAILABLE = True
+except ImportError:
+    REPORT_GENERATOR_AVAILABLE = False
 
 DEBUG_MODE = False
 
@@ -607,6 +616,10 @@ if __name__ == "__main__":
                     print("\n" + "═" * 68)
                     print("GENERATING SESSION REPORT...")
                     print("═" * 68)
+                    if not globals().get('REPORT_GENERATOR_AVAILABLE', False):
+                        print("✗ Report generator module not found (report_generator.py is missing).")
+                        print("═" * 68 + "\n")
+                        continue
                     try:
                         rpt_path = generate_report_from_session(log_obj)
                         print(f"✓ Report generated successfully!")
