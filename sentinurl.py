@@ -384,8 +384,8 @@ def predict_ultimate(url: str):
     domain_old = domain_age > 365  # > 1 year
     
     # Strongest combo: GSB + TLS + established domain → fully SAFE + auto-allowlist
-    # ONLY override if ML isn't highly confident it's a zero-day
-    if gsb_clean and tls_valid and domain_old and score < 0.75:
+    # ONLY override if ML isn't highly confident it's a zero-day (Now properly respects ML scores > 25%)
+    if gsb_clean and tls_valid and domain_old and score < 0.25:
         years = domain_age // 365
         fusion_reasons.append(f"Triple-verified safe: GSB clean + valid TLS + established domain ({years} yr{'s' if years > 1 else ''}).")
         score = 0.0
@@ -393,7 +393,7 @@ def predict_ultimate(url: str):
         if reg and reg not in ALLOW_REG:
             ALLOW_REG.add(reg)
             fusion_reasons.append(f"Domain '{reg}' auto-added to trusted allowlist.")
-    elif gsb_clean and tls_valid and score < 0.75:
+    elif gsb_clean and tls_valid and score < 0.25:
         # GSB + TLS both clean — very strong, even without age data
         fusion_reasons.append("GSB + TLS validation prevents false positive on borderline score.")
         score = 0.0
@@ -401,7 +401,7 @@ def predict_ultimate(url: str):
         if reg and reg not in ALLOW_REG:
             ALLOW_REG.add(reg)
             fusion_reasons.append(f"Domain '{reg}' auto-added to trusted allowlist.")
-    elif gsb_clean and domain_old and score < 0.75:
+    elif gsb_clean and domain_old and score < 0.25:
         # GSB clean + old domain
         fusion_reasons.append("GSB + established domain verified as safe.")
         score = 0.0
@@ -409,7 +409,7 @@ def predict_ultimate(url: str):
         if reg and reg not in ALLOW_REG:
             ALLOW_REG.add(reg)
             fusion_reasons.append(f"Domain '{reg}' auto-added to trusted allowlist.")
-    elif gsb_clean and score > 0.10 and score < 0.75:
+    elif gsb_clean and score > 0.10 and score < 0.25:
         # GSB alone — authoritative on borderline predictions
         fusion_reasons.append("Google Safe Browsing validation prevents false positive.")
         score = min(score, 0.10)

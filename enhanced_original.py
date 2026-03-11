@@ -1178,12 +1178,18 @@ def trusted_institution_guard(url: str, p_ml: float, p1: float, p2: float, onlin
         return None
 
     if isinstance(gsb, dict) and gsb.get("hit") is False:
-        return ("SAFE", 0.0, f"trusted_institution_gsb_clean_{suf}",
+        # Instead of 0.0, we cap the risk at 10% so a completely clean GSB scan 
+        # on a government/educational domain is verified, but not absolutely mathematically zero.
+        return ("SAFE", min(p_ml, 0.10), f"trusted_institution_gsb_clean_{suf}",
                 [f"Trusted institutional domain (.{suf}) verified clean by Google Safe Browsing."])
 
     if p_ml < 0.45 and p1 < 0.65 and p2 < 0.75:
-        return ("SAFE", 0.0, f"trusted_institution_low_ml_{suf}",
-                [f"Trusted institutional domain (.{suf}) with low ML risk."])
+        # Instead of explicitly 0.0, we just let the p_ml score pass through 
+        # or cap it at the top of the LOW RISK threshold (25%).
+        # This prevents hacked .ac.id domains from bypassing the system.
+        capped_ml = min(p_ml, 0.24) 
+        return ("LOW RISK" if capped_ml > 0.08 else "SAFE", capped_ml, f"trusted_institution_low_ml_{suf}",
+                [f"Trusted institutional domain (.{suf}) with low ML risk (Safe Cap Enforced)."])
 
     return None
 
