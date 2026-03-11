@@ -26,7 +26,7 @@ def create_proposal():
     # Subtitle/Meta
     p_meta = doc.add_paragraph()
     p_meta.add_run('Project Title: ').bold = True
-    p_meta.add_run('SentinURL Multi-Stage Phishing Detection System\n')
+    p_meta.add_run('SentinURL: Deep Semantic Inspection and Heuristic Triage for Web Security\n')
     p_meta.add_run('Student Name: ').bold = True
     p_meta.add_run('Saif Al-Sabaneh\n')
     p_meta.add_run('Submission Deadline: ').bold = True
