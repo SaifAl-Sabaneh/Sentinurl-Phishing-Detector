@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "updated_utc": "2026-03-11T18:01:02Z"
+    "updated_utc": "2026-03-11T19:48:54Z"
   },
   "items": {
     "gsb:4459aebacd7c78cf6ce5ccfc869803d1e5de1b3b774584dde35c2f49de43c813": {
@@ -1916,6 +1916,1039 @@
         "ok": true,
         "notAfter": "May 25 16:08:52 2026 GMT",
         "days_left": 74
+      }
+    },
+    "tls:1c34d4fb5f73801b45fa68efbb27f61fd440f1a49a85fa8626a21eafa8b1d24c": {
+      "ts": 1773258338.2532694,
+      "val": {
+        "ok": true,
+        "notAfter": "Aug  3 08:22:17 2026 GMT",
+        "days_left": 144
+      }
+    },
+    "tls:ceb4ca2cdc0001b440455df845c18fc19310a3d299f79802848334db55ba283a": {
+      "ts": 1773258374.7710958,
+      "val": {
+        "ok": true,
+        "notAfter": "Feb 14 13:03:45 2027 GMT",
+        "days_left": 339
+      }
+    },
+    "tls:7caff9e64d565c9c8cbb57969ecd58bf1b9bd528537b410dc45ae8f0736ff767": {
+      "ts": 1773258419.6959076,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 11 08:06:30 2026 GMT",
+        "days_left": 30
+      }
+    },
+    "redir:8c132669acb050f97048adf3494881a295d7d215e3038599b33a55a34ebd3db2": {
+      "ts": 1773258421.1264737,
+      "val": {
+        "ok": true,
+        "final_url": "https://news.ycombinator.com/",
+        "chain": [
+          "https://news.ycombinator.com/"
+        ],
+        "status": 405,
+        "redirects": 0
+      }
+    },
+    "html:8c132669acb050f97048adf3494881a295d7d215e3038599b33a55a34ebd3db2": {
+      "ts": 1773258422.573225,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://news.ycombinator.com/",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": true,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "ycombinator.com"
+        }
+      }
+    },
+    "tls:d94ea1889af82a7d28fa7a297889b568a4bc6b0deb16e669a6d0b4086dd382f1": {
+      "ts": 1773258498.0415099,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:3f412df89981032763d9bc0c3fac501fbbcce67c461f8face6fe1e2a46a30480": {
+      "ts": 1773258498.2367835,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:3f412df89981032763d9bc0c3fac501fbbcce67c461f8face6fe1e2a46a30480": {
+      "ts": 1773258498.3217568,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:63ce8786f1bb510638108c228e8fbfece0df3bdd7a580143870081e833f02298": {
+      "ts": 1773258498.6981275,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:4d21f0e6a1e1b443ff5f256682c0182f1b9000f3aec6d0c1fdeeb8534320776a": {
+      "ts": 1773258498.9028714,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:4d21f0e6a1e1b443ff5f256682c0182f1b9000f3aec6d0c1fdeeb8534320776a": {
+      "ts": 1773258498.9893909,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:43417c957c1d48b4a1dbf35983824464428f574467de0c31be8b6fa80d5697fc": {
+      "ts": 1773258499.170845,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:eb48636d386d46e1c3f8b3524c059eb1e0885f098b1447852b7cce5330d8ac19": {
+      "ts": 1773258499.3778207,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:eb48636d386d46e1c3f8b3524c059eb1e0885f098b1447852b7cce5330d8ac19": {
+      "ts": 1773258499.5182917,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:cc6c288d6364ee2088d9cf4e0bd389f90b95a4dee9232ed64f7dabc982f7bd5a": {
+      "ts": 1773258499.7905588,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:231e725fcf307933b3234751bee47f9183ee486bf213d532876bc88edbd83640": {
+      "ts": 1773258499.9611497,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:231e725fcf307933b3234751bee47f9183ee486bf213d532876bc88edbd83640": {
+      "ts": 1773258500.0432525,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:3966a6e03d9785b77617e1b15591b64a1b16e7bcb4a62ddeb990190777deff36": {
+      "ts": 1773258500.4129887,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:30afb1c11419eba5080f658f9686299607ae08c0f87762ba8b62d5729c8b79df": {
+      "ts": 1773258500.603199,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:30afb1c11419eba5080f658f9686299607ae08c0f87762ba8b62d5729c8b79df": {
+      "ts": 1773258500.7987149,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:52c34e8ac91849bd6901b8d2ee4003c28014ad7590c580f0c1a14061ae2959e1": {
+      "ts": 1773258501.0108075,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:2c7fadf89fd77572ed8cef463d55cea82a5006d572d5d41c7eb54bd755be32a1": {
+      "ts": 1773258501.361501,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:2c7fadf89fd77572ed8cef463d55cea82a5006d572d5d41c7eb54bd755be32a1": {
+      "ts": 1773258501.446714,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:5e552f75ee9bbce8a2acfec11a81a3583177b9799622b4518f6a1a0c71e4b481": {
+      "ts": 1773258501.7706084,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:f21faac58c7a891b822ab6ec748c832da6d02bd8435d66e7cea5b5d333256dea": {
+      "ts": 1773258502.235501,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:693f52caf109d357f8e537cac34708ec160dde249a3ae4655e6100cff7be2adc": {
+      "ts": 1773258502.3886049,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:693f52caf109d357f8e537cac34708ec160dde249a3ae4655e6100cff7be2adc": {
+      "ts": 1773258502.4694507,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:143aa39de5c5d9676612456ae01ad8f1240f8454e456833dcb41e2a42e47430f": {
+      "ts": 1773258502.7550132,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:2d3db0f94aca1a9751617d72238ffd4854145637133e7c384b39dfb09068d0d1": {
+      "ts": 1773258502.9057322,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:2d3db0f94aca1a9751617d72238ffd4854145637133e7c384b39dfb09068d0d1": {
+      "ts": 1773258503.0195012,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:b50572cc1f58c72f9a6897ea06d18cdfd9a7ea1a2ab00b263c9a37c485664d0f": {
+      "ts": 1773258503.2854924,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:9d8647a4586dbaff9871ccf197fbc8b0178d12a88cbe66696ffc8c9de2b0d63b": {
+      "ts": 1773258503.4853098,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:e8eed2a3fcc46fa5ea4e4e399fcf8c243d421a3d336f657a0853ee5989668529": {
+      "ts": 1773258503.677432,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:e03f7c4d8e5e599fdd8644d054e3b9bf5ebb0bd3b1935a050533785adc9e1c18": {
+      "ts": 1773258503.8843696,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:e03f7c4d8e5e599fdd8644d054e3b9bf5ebb0bd3b1935a050533785adc9e1c18": {
+      "ts": 1773258504.0228453,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:c4d4c72782a6ef9bd8c9c8467dfd0fee305dbbaf23f4b330eca42c4b4f939fd9": {
+      "ts": 1773258504.2906153,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:5c02b6092b657ca42a941e51df8de6f116f9a00108efb6a9b47f8b6ac0677b38": {
+      "ts": 1773258504.4979749,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:e907286b215e456183a500df713b501e9e950f3a84cc08c4ccd8f9b64456faaa": {
+      "ts": 1773258504.6997054,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:e907286b215e456183a500df713b501e9e950f3a84cc08c4ccd8f9b64456faaa": {
+      "ts": 1773258504.9055202,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:b9511fc3e7688d86cb91b74570d6fe4ca61339db8d6455ddba93393808115b7a": {
+      "ts": 1773258505.1385515,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:61e4137db5e5d5bb969e472656a1655fe6552d6441afada3488d8cbcf068cce6": {
+      "ts": 1773258505.4577434,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:f0230456f38502ca45a1a7746d83543c7d6747b18eb5de766359d472b4a2e290": {
+      "ts": 1773258505.7291973,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:f0230456f38502ca45a1a7746d83543c7d6747b18eb5de766359d472b4a2e290": {
+      "ts": 1773258505.923558,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:9a3aadbf60a6c83c8e2ddeec48acefb6872283082215b44348e0161960fac44e": {
+      "ts": 1773258506.1365757,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:d29bcb86fce18d66b87efbc449d6dfbff69aea7cd3bbe41512ad5491806be68a": {
+      "ts": 1773258506.366918,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:808ad81e01570acc02cae36899458cbe34d2d9e03e24ecafff9b9ac42af31fac": {
+      "ts": 1773258506.686684,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:808ad81e01570acc02cae36899458cbe34d2d9e03e24ecafff9b9ac42af31fac": {
+      "ts": 1773258506.889445,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:7f2eb9b497213e77794201d28526c3ff1f931f4ca79e63b6783966163fe00303": {
+      "ts": 1773258507.158859,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:8390c6d5291c16fa44e6b4b78654fd5939f5c07dd589e40158a37c5225c08f7d": {
+      "ts": 1773258507.365486,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:8390c6d5291c16fa44e6b4b78654fd5939f5c07dd589e40158a37c5225c08f7d": {
+      "ts": 1773258507.4544313,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:98c14198188b8e7b1f5f54e19ad9c58df6d4402dd769025dddf0f03f8b4b1a07": {
+      "ts": 1773258507.98017,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:cec22035b011c6628119e2d13387b7913d775e297f52322e8d17e7ccbddcf64a": {
+      "ts": 1773258508.2114735,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:a7e26d2b8087422228c1ecacf3fd22cbab4ebabb79a0bf0f0d921d3e834acfba": {
+      "ts": 1773258508.3726342,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:a7e26d2b8087422228c1ecacf3fd22cbab4ebabb79a0bf0f0d921d3e834acfba": {
+      "ts": 1773258508.4602778,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:4af3de510fbf31e3091f972cda3b326bde423c64c7fb827c1134b59a4eae7af3": {
+      "ts": 1773258508.7535748,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:ce2da3b8282594ca3bf85549609c24643c4a5102f71cfc9b066fc37d96126109": {
+      "ts": 1773258508.9431818,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:ce2da3b8282594ca3bf85549609c24643c4a5102f71cfc9b066fc37d96126109": {
+      "ts": 1773258509.1224809,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:2a6d9b40c6fb9746ebc66acb336cb421ef1db552a2187831992bc876c246a194": {
+      "ts": 1773258509.557459,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:88be1640ad5ede675ecbb46fa4600781a984c4d823218ca7809f465468dc5239": {
+      "ts": 1773258509.8261344,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:88be1640ad5ede675ecbb46fa4600781a984c4d823218ca7809f465468dc5239": {
+      "ts": 1773258510.02192,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:1d3f0e9cba61ebc3334a51e0eecd61f62edcb75a514f26f5b8bbdca852734eb1": {
+      "ts": 1773258510.2541296,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:176a31a8053b1095e801c161f1803fd8661f65b68e856d1756fd324fc2cc5130": {
+      "ts": 1773258510.5773299,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:176a31a8053b1095e801c161f1803fd8661f65b68e856d1756fd324fc2cc5130": {
+      "ts": 1773258510.673593,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "redir:e5576543039b6cca53e6b1223563a434140a681ce41fb844e3a196d09e8e1c9c": {
+      "ts": 1773258510.8928244,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:e5576543039b6cca53e6b1223563a434140a681ce41fb844e3a196d09e8e1c9c": {
+      "ts": 1773258510.9856813,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:b227f027f02e5655f24f77481a231b734a208ad2977ff2a7a2b103792247601f": {
+      "ts": 1773258511.2124422,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:3da641639a86723c371e55160e9868efbd548d09f834ec00820e312532f42b83": {
+      "ts": 1773258511.4315906,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:3da641639a86723c371e55160e9868efbd548d09f834ec00820e312532f42b83": {
+      "ts": 1773258511.5464258,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "redir:54a8c8584768544eed7cb3fc99581c8f45beb4b7879f5c689b313c0a9d50a1f0": {
+      "ts": 1773258511.8409402,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:54a8c8584768544eed7cb3fc99581c8f45beb4b7879f5c689b313c0a9d50a1f0": {
+      "ts": 1773258512.009965,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:416ef6dbb1e9b929dc9748197f4c3c8ffb3c7869c02b5303ab413cd1ac92fa26": {
+      "ts": 1773258512.4848485,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:d70d18d891eb0fa62221c492e759e183d368447e16e5e79138c5a81d33df2c5e": {
+      "ts": 1773258512.8290703,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:d70d18d891eb0fa62221c492e759e183d368447e16e5e79138c5a81d33df2c5e": {
+      "ts": 1773258513.0294356,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "redir:44aedfb89ed91fa892beb99beef2137611925ee4831c9427cc339b70a25b6d49": {
+      "ts": 1773258513.3070998,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:44aedfb89ed91fa892beb99beef2137611925ee4831c9427cc339b70a25b6d49": {
+      "ts": 1773258513.3963113,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:209bd2821e4dee350270e110dae04016f1573881f80c5e1bbe5bae01c0dc2b96": {
+      "ts": 1773258513.7724907,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:7e86e6a8ce031202477744eb21c3b62d9d36d796bc42fd93da14a607f9ffe997": {
+      "ts": 1773258513.959037,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:7e86e6a8ce031202477744eb21c3b62d9d36d796bc42fd93da14a607f9ffe997": {
+      "ts": 1773258514.0481613,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:935fd2ef372ba472205ba645ce93cce612fcf7941b78206c6dee1de2c7462d9b": {
+      "ts": 1773258514.3254158,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:56c3b2f77a97d663977c290a1897fe6009b303f5c77b984732ac19be5f1a82c9": {
+      "ts": 1773258514.6298568,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:ac931377a060fe043c2727337113b6dc3af1ddadcdb1b812d77f3a8ca7c773db": {
+      "ts": 1773258514.8291676,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:ac931377a060fe043c2727337113b6dc3af1ddadcdb1b812d77f3a8ca7c773db": {
+      "ts": 1773258514.9199212,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:d081c6f502d87334306cc92f4bf64156a7b2490d664e53af7a3fccbfe573078d": {
+      "ts": 1773258515.1651745,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:1bb6c337d93a9dc208da9790a9d13207b3fb6dd69f3c9c63f3223672cf84b83d": {
+      "ts": 1773258515.4928508,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:99211d8e1b92dcb50a126dde08efbf19b51b2b2c326ac1fc07f111e205b5c27d": {
+      "ts": 1773258515.7604003,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:99211d8e1b92dcb50a126dde08efbf19b51b2b2c326ac1fc07f111e205b5c27d": {
+      "ts": 1773258515.9591146,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:373b30aa42b2819ab8ea5b21ad93a73c933a852b40b0223878c0d97b854644c5": {
+      "ts": 1773258516.2518876,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:6c7e4379bb35c5570b8f7a3078b8659b7c74d42d5a025f2dd34ae66f66315d89": {
+      "ts": 1773258516.598214,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:6c7e4379bb35c5570b8f7a3078b8659b7c74d42d5a025f2dd34ae66f66315d89": {
+      "ts": 1773258516.7022367,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:ea4f001017df824e77f31dc0d8aba076628e51b8cbec0e0dac1340efb520de45": {
+      "ts": 1773258517.048262,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:6c41630adaf61ffd443e2840384cb840706aca06e2dfb873e870e86b27859a7f": {
+      "ts": 1773258517.5421977,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:6c41630adaf61ffd443e2840384cb840706aca06e2dfb873e870e86b27859a7f": {
+      "ts": 1773258517.745225,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:616c40bc023c454bc2d6dc06759ae2d219faeabebc11bf943887c2b1322f5e89": {
+      "ts": 1773258518.2175932,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:40441eabdfdcd17cc0b32c3b707f8bb95df06b433ae55536f59274efce0bfccc": {
+      "ts": 1773258518.489804,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:40441eabdfdcd17cc0b32c3b707f8bb95df06b433ae55536f59274efce0bfccc": {
+      "ts": 1773258518.5857828,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:769bda0db23f45ccb78615c43aae62cf446876dc3cb67545ec168b1094480bd9": {
+      "ts": 1773258518.9196503,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:fb38290c6817d557096bdf8f56c2542feed0824e5c3e4f7964bd087c8e2ae1c3": {
+      "ts": 1773258519.4800322,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:ca614566cedcf03051f7b06986f7be2e2df81e16daede1422b2bdd074e2f14c5": {
+      "ts": 1773258519.6533358,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:ca614566cedcf03051f7b06986f7be2e2df81e16daede1422b2bdd074e2f14c5": {
+      "ts": 1773258519.769661,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:29b7931d5b631148722bd1c5749d8d52c9f1a471fc942ec6e426ddc55294eb45": {
+      "ts": 1773258520.1623797,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:4ad989602e5228ba5f30381fc0eeef2dac88e3d47d1a0e1b22acb354e005551a": {
+      "ts": 1773258520.4083269,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:4ad989602e5228ba5f30381fc0eeef2dac88e3d47d1a0e1b22acb354e005551a": {
+      "ts": 1773258520.6162937,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "redir:b778ec810a5745eac2a27ec40562a9b35810e4d4ac007884a1b755fbf3f87ca2": {
+      "ts": 1773258521.226542,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:b778ec810a5745eac2a27ec40562a9b35810e4d4ac007884a1b755fbf3f87ca2": {
+      "ts": 1773258521.431773,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:00f52c55add6dccfbc2396940a919493a4ecc601f5681f2631be81f305fac24f": {
+      "ts": 1773258522.046572,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:41570551f8f7485bbb655a21928b869c093bfc88821a701940d5d3f910b7ce60": {
+      "ts": 1773258522.3252335,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:41570551f8f7485bbb655a21928b869c093bfc88821a701940d5d3f910b7ce60": {
+      "ts": 1773258522.5209837,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:12421ff2c1647fbcaf755974045dc369d87627b94a357f05b6e14a5ec0443255": {
+      "ts": 1773258522.9260323,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:12969a28d6e0beedfd4ce043b1caba62cb8ce49db8245b3109b383136650b3aa": {
+      "ts": 1773258523.2723806,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:12969a28d6e0beedfd4ce043b1caba62cb8ce49db8245b3109b383136650b3aa": {
+      "ts": 1773258523.4799478,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:b1fc41ed496d731fae43a4d11e2eebf3d91807a2734672b7f444d417b10a388a": {
+      "ts": 1773258523.9514675,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:35ed4db76c5d88bf4f415e0515b7eaa763a4afc9ccb4e33fee9d5430af004d28": {
+      "ts": 1773258524.2988343,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:35ed4db76c5d88bf4f415e0515b7eaa763a4afc9ccb4e33fee9d5430af004d28": {
+      "ts": 1773258524.408692,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "redir:2dc23fdca43fb3428a87bc52bc71794b916fe4983e0237d2ceba8b234a3ff557": {
+      "ts": 1773258525.0153131,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:2dc23fdca43fb3428a87bc52bc71794b916fe4983e0237d2ceba8b234a3ff557": {
+      "ts": 1773258525.1183856,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:c93e24935b78d42f08df2c0cb08be59a3fc2cd787fb9880a1b344f3561cd84d9": {
+      "ts": 1773258525.3600004,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:52c142319c5e55ba077095207db7292c35a6e131e5c0db48da313ccf8ab7e54c": {
+      "ts": 1773258525.818227,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:52c142319c5e55ba077095207db7292c35a6e131e5c0db48da313ccf8ab7e54c": {
+      "ts": 1773258525.9797666,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:8004ad5652da9615a873b9c762e66316ecc53f67b82bfcf81c18e7075e426d4b": {
+      "ts": 1773258526.360348,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:4b2bdfa02250c63928254c48cf16728657262c3f52862d61d61ee8a9c9c2a630": {
+      "ts": 1773258527.2299082,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:997c33cd08bef34cf4b75742263c2f6f9e3b0299b68b14f854b3f41718a5ab20": {
+      "ts": 1773258527.5718837,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:997c33cd08bef34cf4b75742263c2f6f9e3b0299b68b14f854b3f41718a5ab20": {
+      "ts": 1773258527.6789517,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:a40325357b1fb51289b0444f6e2dad481f6ee5463a8c15cf03b26c74e2be6b03": {
+      "ts": 1773258528.1507263,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:43cab0a920052f75132476bf69e8b67b1d5f009fb2bbf754703af01f7b2788a8": {
+      "ts": 1773258528.3386579,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:43cab0a920052f75132476bf69e8b67b1d5f009fb2bbf754703af01f7b2788a8": {
+      "ts": 1773258528.4297433,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:79ff1685ae7207e3c6b3ed069494e62e516793ca29ce54be141f639e3dd05f63": {
+      "ts": 1773258529.066331,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:940337e0123ddcbce7037c9a1657ebaa5ca7d5537cf83a60d2ca7870cc8e5aab": {
+      "ts": 1773258529.4187677,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:940337e0123ddcbce7037c9a1657ebaa5ca7d5537cf83a60d2ca7870cc8e5aab": {
+      "ts": 1773258529.5097368,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:227b5e84d886bc23c1e0be44b9d5214332330f442059cd7a74a218d23ab59f04": {
+      "ts": 1773258529.8889573,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:27dcaae30a3c1c0b20b5b9f5bdc23c33b98ee0c7aaf4370081031d911ffd6b40": {
+      "ts": 1773258530.236015,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:27dcaae30a3c1c0b20b5b9f5bdc23c33b98ee0c7aaf4370081031d911ffd6b40": {
+      "ts": 1773258530.3390212,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:61469a9359963f5579851f3de3fc31dfd1931c4c35179366936a044a07aa5ea4": {
+      "ts": 1773258530.7997537,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:0858a789619bdce7b3a9045426901285763145fde117331aec0b3a81788cc1f6": {
+      "ts": 1773258531.0088937,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:1c1e8c892c3c868857e81fff1018c8e75dec04fba077da14b30a81b241f92550": {
+      "ts": 1773258531.3221362,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:fd8e94e645e5cd84f719275d3a9de4589f7a40a0ef72e49c36d6763d3834fadc": {
+      "ts": 1773258531.628187,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:fd8e94e645e5cd84f719275d3a9de4589f7a40a0ef72e49c36d6763d3834fadc": {
+      "ts": 1773258531.72178,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:8ef6ecabfaa28c9247bc5df7f003ec9e42b84ae446ac97dbd20c7ce8821b5171": {
+      "ts": 1773258531.9194357,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:8aeead2197e80532a6a4c4207f13784e41b45a0168fb951f603938e2a6de9623": {
+      "ts": 1773258532.1671035,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:8aeead2197e80532a6a4c4207f13784e41b45a0168fb951f603938e2a6de9623": {
+      "ts": 1773258532.3517444,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:c3bf51f9158f43af20968400f24377869f3316e32b8883b55fbdfbcdeb13d385": {
+      "ts": 1773258532.7545562,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:67fa73c59e810e4d7dc6a4fce35f2589c76f8906c22a2956271e84e035033bb9": {
+      "ts": 1773258533.104351,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:67fa73c59e810e4d7dc6a4fce35f2589c76f8906c22a2956271e84e035033bb9": {
+      "ts": 1773258533.3095133,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:486749f7c4d47ce654be219c0f3337d2c276bad119b45db63a1acb39fffd4322": {
+      "ts": 1773258533.575829,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:3d0ae69faf602a0f83285d91bfc876191086a6868f6f2087d9b54c3cc84b1c64": {
+      "ts": 1773258533.9925468,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:3d0ae69faf602a0f83285d91bfc876191086a6868f6f2087d9b54c3cc84b1c64": {
+      "ts": 1773258534.190923,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
       }
     }
   }

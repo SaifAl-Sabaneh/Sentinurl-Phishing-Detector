@@ -276,10 +276,8 @@ train_df = df.iloc[idx_tr].reset_index(drop=True)
 test_df = df.iloc[idx_te].reset_index(drop=True)
 
 # Encode labels so that phishing = 1, safe = 0
-le = LabelEncoder()
-le.fit(["safe", "phishing"])  # force stable mapping
-y_train = le.transform(train_df["Type"].values)
-y_test = le.transform(test_df["Type"].values)
+y_train = np.where(train_df["Type"].values == "phishing", 1, 0)
+y_test = np.where(test_df["Type"].values == "phishing", 1, 0)
 
 # =========================================================
 # STAGE 1 — TF-IDF + LR (CALIBRATED)
