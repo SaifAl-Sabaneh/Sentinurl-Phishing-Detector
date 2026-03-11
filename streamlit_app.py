@@ -564,6 +564,23 @@ with tab_batch:
                     
                     res_df = pd.DataFrame(results_list)
                     st.write("### 🏁 Final Bulk Scan Results")
+                    
+                    # Compute statistics
+                    total_scanned = len(res_df)
+                    total_phishing = len(res_df[res_df["Status"] == "Phishing"])
+                    total_safe = len(res_df[res_df["Status"] == "Safe"])
+                    total_errors = len(res_df[res_df["Status"] == "Error"])
+                    
+                    # Display metrics dashboard
+                    st.markdown("#### 📊 Bulk Scan Analytics")
+                    m1, m2, m3, m4 = st.columns(4)
+                    m1.metric("Total URLs Scanned", total_scanned)
+                    m2.metric("Phishing Detected", total_phishing)
+                    m3.metric("Safe URLs", total_safe)
+                    m4.metric("Scan Errors", total_errors)
+                    
+                    st.markdown("---")
+                    
                     st.dataframe(res_df, use_container_width=True)
                     
                     csv_export = res_df.to_csv(index=False).encode('utf-8')
