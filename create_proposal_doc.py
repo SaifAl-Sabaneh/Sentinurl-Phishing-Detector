@@ -59,7 +59,7 @@ def create_proposal():
     p_conclusion.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
 
     # Save
-    file_path = os.path.join(r'c:\Users\Asus\Desktop\Graduation Project\PreTrained Models', 'Bixah_Ultimate_Project_Proposal.docx')
+    file_path = os.path.join(r'c:\Users\Asus\Desktop\Graduation Project\PreTrained Models', 'SentinURL_Project_Proposal.docx')
     doc.save(file_path)
     print(f"Document saved successfully to {file_path}")
 
