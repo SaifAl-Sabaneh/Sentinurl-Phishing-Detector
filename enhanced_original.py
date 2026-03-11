@@ -660,8 +660,32 @@ POLICY_ALLOW = set(_normalize_domain(x) for x in policy.get("known_good_domains"
 ALLOW_REG = set(_normalize_domain(x) for x in (BASE_ALLOW | POLICY_ALLOW))
 
 
-def is_allowlisted_reg_domain(reg: str) -> bool:
-    return _normalize_domain(reg) in ALLOW_REG
+def is_allowlisted_reg_domain(url: str) -> bool:
+    """
+    Checks if the domain is allowlisted, but explicitly EXCLUDES highly-abused free 
+    hosting / form subdomains (like docs.google.com) so they are forced through the AI.
+    """
+    u = unquote(str(url)).lower()
+    p = safe_urlparse(normalize_url(u))
+    host = (p.netloc.split(':')[0]) if p.netloc else ""
+    reg = registrable_domain(host)
+    
+    if not reg or _normalize_domain(reg) not in ALLOW_REG:
+        return False
+        
+    # If the domain is trusted (like google.com or amazon.com), we must ensure 
+    # it is not one of their free, unmoderated hosting tiers abused by hackers.
+    abused_subdomains = [
+        "docs.google.com", "sites.google.com", "drive.google.com", "forms.gle",
+        "s3.amazonaws.com", "storage.googleapis.com", "azurewebsites.net",
+        "cloudflare-ipfs.com", "workers.dev", "pages.dev", "surge.sh", "github.io"
+    ]
+    
+    for abused in abused_subdomains:
+        if abused in host:
+            return False  # Force it through the ML engine!
+            
+    return True
 
 
 # =========================================================

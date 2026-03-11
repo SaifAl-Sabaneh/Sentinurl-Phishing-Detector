@@ -1,955 +1,705 @@
 {
   "_meta": {
-    "updated_utc": "2026-03-11T19:48:54Z"
+    "updated_utc": "2026-03-11T20:30:35Z"
   },
   "items": {
-    "gsb:4459aebacd7c78cf6ce5ccfc869803d1e5de1b3b774584dde35c2f49de43c813": {
-      "ts": 1773224856.1992826,
+    "tls:fbace2e60e1709e3c01b9941c2c126370c2e2302a9c67ff8d17299c355697015": {
+      "ts": 1773260607.145398,
       "val": {
-        "hit": false,
-        "threats": []
+        "ok": false,
+        "error": "tls: gaierror"
       }
     },
-    "tls:5a65bc8b94ca5b99795f60e9e6a7017f263214edc2db322d69f12d1b26fe3bf0": {
-      "ts": 1773224856.5381942,
+    "html:4bc4164b5243f8e7b3e8f8e2fb10f987d9866f20bbe7506c3f2e9ee3187c0ff0": {
+      "ts": 1773260607.1962893,
       "val": {
         "ok": true,
-        "notAfter": "Jun  4 20:53:32 2026 GMT",
-        "days_left": 85
+        "html": false,
+        "content_type": "",
+        "signals": {}
       }
     },
-    "redir:4459aebacd7c78cf6ce5ccfc869803d1e5de1b3b774584dde35c2f49de43c813": {
-      "ts": 1773224857.948292,
+    "tls:9e04a0316ed849e79ac96a57cd4d9aaa35346aa637654de030d34f58c5431b30": {
+      "ts": 1773260607.2937112,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:9e75cb944bf024b4e190c8010e8bd426e0acc3006ed7fab9bf52d8d1ae728036": {
+      "ts": 1773260607.451261,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
-    "html:4459aebacd7c78cf6ce5ccfc869803d1e5de1b3b774584dde35c2f49de43c813": {
-      "ts": 1773224858.6115983,
+    "html:9e75cb944bf024b4e190c8010e8bd426e0acc3006ed7fab9bf52d8d1ae728036": {
+      "ts": 1773260607.6302488,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
-    "gsb:a48c5c805d76ef5c3c259d3da97579d6162640d74212508c9180a68a74481f94": {
-      "ts": 1773225417.077686,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:3539e7d4fe59758ac72cd36c587363b6bed46b3510c4f048ee6f31f03e96ad3c": {
-      "ts": 1773225417.1982062,
+    "tls:a0bb12aa7d1449ffaea6c8e7955a8a11039defb16147c6038187325eb651607c": {
+      "ts": 1773260608.137286,
       "val": {
         "ok": true,
-        "notAfter": "May  5 06:57:10 2026 GMT",
-        "days_left": 54
+        "notAfter": "Jun  2 02:26:21 2026 GMT",
+        "days_left": 82
       }
     },
-    "gsb:c19e9df2f1358601ed09b42cc35e6ad1621979119a516fc77dbf638049051e35": {
-      "ts": 1773225428.339553,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:ce995e622ce9027e3c0a894d256a3dfeb51a782d069d3b4010e36d54fcd96ed1": {
-      "ts": 1773225428.7544308,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 14 14:02:30 2026 GMT",
-        "days_left": 34
-      }
-    },
-    "gsb:b11b633c51e3d372c46419e419ce069b51936ff561ef6cc28084e1ecfeac83bf": {
-      "ts": 1773225430.465392,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:3aac1062650a0c48014093d4e3e7080694ffb7a62fbb19f1cbf7ffc453858026": {
-      "ts": 1773225430.5849235,
-      "val": {
-        "ok": true,
-        "notAfter": "May 11 01:55:47 2026 GMT",
-        "days_left": 60
-      }
-    },
-    "redir:b11b633c51e3d372c46419e419ce069b51936ff561ef6cc28084e1ecfeac83bf": {
-      "ts": 1773225431.5598435,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: SSLError"
-      }
-    },
-    "gsb:e30935c55221b7233d548ea7e51f81f9f8e61cfeadd85f318f19b1118ffec891": {
-      "ts": 1773225433.1783063,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:db0ba0163252f17a53a2f83e2688b63f2eddbf7f43eac37c2103834d202f1ddd": {
-      "ts": 1773225433.3190403,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 30 09:18:26 2026 GMT",
-        "days_left": 49
-      }
-    },
-    "gsb:718e12ff8f5d68bf69eab7b432aa25e5d68e5711285a48c2430282d141712e1b": {
-      "ts": 1773225435.5587707,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:d1e3333047cc59ff7a7e69e943f5ce55f4154bbc172b4e9f251dfebd0eb0e0bf": {
-      "ts": 1773225436.0899901,
-      "val": {
-        "ok": true,
-        "notAfter": "Jan  9 23:59:59 2027 GMT",
-        "days_left": 304
-      }
-    },
-    "gsb:188a5dcf81b0dc3bd1be2fdd5497b2887249fe6d7ae900c054000b7d2fa54a65": {
-      "ts": 1773225437.4465244,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:30d1c997594698c7ab6d25987da75f3f92d4a59007c5dad409117e4d447a1be1": {
-      "ts": 1773225437.5898578,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "gsb:94a6b139462c4dd700aadc617fe3600f15d394e25443df9d035ce269766aea17": {
-      "ts": 1773225439.0479865,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:1bb98a9063f845fd5873ac607ec3b0ca0e0c3c8a8cf0ed3078ec370ddd67546b": {
-      "ts": 1773225439.501995,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 27 05:07:34 2026 GMT",
-        "days_left": 46
-      }
-    },
-    "gsb:fcc2a875c5fca745c74da6ecb41595b433e83764889d73b81948e3854e38c081": {
-      "ts": 1773225441.5047295,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:9249b6b1ee8fd98139c7f10c3fd1c2453c8743f257099d4ae345daf10ec029f0": {
-      "ts": 1773225441.7885573,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 27 08:37:47 2026 GMT",
-        "days_left": 46
-      }
-    },
-    "gsb:3eb4778fe1e41d0aef6a25ac40754acd4e550c3ec3b2f72bdc6cbb356b0c979b": {
-      "ts": 1773225443.3404841,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:bc58631141a1847d84f71c3ecac4e8bdfde4ff4f0f43d26d662c27500cda9a1f": {
-      "ts": 1773225443.4987679,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 25 18:51:39 2026 GMT",
-        "days_left": 45
-      }
-    },
-    "gsb:1b8ae344bbbc43be405f2da2cb37e507b705d8b51ff21651b6a51dadb4c6dbb4": {
-      "ts": 1773225445.111848,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:d45d6b7b8eeb023f1ba4bc7aed08205d6b283747b25358bf79eae4e2680e9028": {
-      "ts": 1773225445.2615883,
-      "val": {
-        "ok": true,
-        "notAfter": "Jun  7 10:30:24 2026 GMT",
-        "days_left": 87
-      }
-    },
-    "gsb:91a797cb47ef702fbd596720b29517e586dbb8f63ffd05cd642adbc04904cab8": {
-      "ts": 1773225447.048555,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:231621c75f6f3bf68d92090c9357e43992ef226db75e691ab2b42404c97e7070": {
-      "ts": 1773225447.1784902,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:91a797cb47ef702fbd596720b29517e586dbb8f63ffd05cd642adbc04904cab8": {
-      "ts": 1773225447.3429134,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:91a797cb47ef702fbd596720b29517e586dbb8f63ffd05cd642adbc04904cab8": {
-      "ts": 1773225447.4123564,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:ee9edf19e2436420f4a771465fd9d8fdc75be2008ba57186d02228a7ace6635c": {
-      "ts": 1773225449.1996453,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:0b8b7ffed6e46a7b3c3c5c7bb04902764a0cccebcd2613b88bf18d1473184021": {
-      "ts": 1773225449.3275387,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "gsb:e7ed7c57bbebdbc76c79ff6fde1770067e2bdfe90caaf640d2ba92fd60ef64c7": {
-      "ts": 1773225450.6081278,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:ae3dad5db8917062f98dfd93541b79409d41f0efd3814ad52ccb291847ed4d45": {
-      "ts": 1773225450.7445507,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 12 21:28:33 2026 GMT",
-        "days_left": 32
-      }
-    },
-    "gsb:ec5952827a99e4a5b228f3897ae6db3c7356449c10fd9c4cd82224d0132278c7": {
-      "ts": 1773225452.4342754,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:cf5b44e180f96209aef6cc5979fb48d43175845ef588efcadd4361339585e5ce": {
-      "ts": 1773225453.2262003,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 25 05:53:20 2026 GMT",
-        "days_left": 44
-      }
-    },
-    "gsb:93420bfb0ff7a9c6840c1b463c2e80794a08d00a187ba9acdba792428d11461b": {
-      "ts": 1773225454.7896268,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:7a7103f2b5dc4f2a99c1e472bc50faaaeec12843ec362b0947aabe6c2441d4b2": {
-      "ts": 1773225455.1750698,
-      "val": {
-        "ok": true,
-        "notAfter": "Oct  3 23:59:59 2026 GMT",
-        "days_left": 206
-      }
-    },
-    "gsb:c21d3d387c461b8b6df2ed753dc3c1a1fce50d0597799b42f173a06b891a9851": {
-      "ts": 1773225457.428121,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:25d9bca1e4879b40d39a324f28f4857beec8cda507ad55b82102078013678a6d": {
-      "ts": 1773225457.9523215,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 20 05:22:37 2026 GMT",
-        "days_left": 39
-      }
-    },
-    "gsb:23cafa031da2adf100962aebbaf86d77da987aa7d781a89c824796e6284055de": {
-      "ts": 1773225459.848798,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:bb2b45ce742f0916a08cfaf4c3f8531c5c3b68a6e3653971dd49564a0bab84dd": {
-      "ts": 1773225460.0761018,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr  9 23:50:07 2026 GMT",
-        "days_left": 29
-      }
-    },
-    "gsb:75d0957cb4ed61a059fabbe2bf17257f2975084374dd555a6c33ecde41e2092a": {
-      "ts": 1773225463.0360146,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:c8609dce4d9efa3c7049e91f9bb415c13b583bf32b49c139a623e6d725986548": {
-      "ts": 1773225463.1983864,
-      "val": {
-        "ok": true,
-        "notAfter": "Aug  8 23:59:59 2026 GMT",
-        "days_left": 150
-      }
-    },
-    "gsb:9faecf8db040e5b724a398b6d51ea493d20eed14efa1bef0b8d9f3ae617c1561": {
-      "ts": 1773225467.3337097,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:9c410b103c3c4640a3fa10541e6d792259ea32fdaf397fdf56816d97336f033b": {
-      "ts": 1773225467.4428537,
-      "val": {
-        "ok": true,
-        "notAfter": "Jun  8 19:42:51 2026 GMT",
-        "days_left": 89
-      }
-    },
-    "gsb:195a7d7759f4c52546be7392ac8a65bcbac40e85ebdc4462f06d563a7e92f82b": {
-      "ts": 1773225469.2455041,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:3ee1ce625fef11c8043b22936790c1e6be30e1ba82f8ae8a95618b6f2dd8095b": {
-      "ts": 1773225469.3673084,
-      "val": {
-        "ok": true,
-        "notAfter": "May  4 02:10:26 2026 GMT",
-        "days_left": 53
-      }
-    },
-    "gsb:37e9b377f81934f417f3b072160fb625c643c262880c07090feb2a11cd9cb89c": {
-      "ts": 1773225470.708672,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:9e69cfd4b3ae295ca417e936cbecc8ffc316c8120396889e8ac137f213a55cc8": {
-      "ts": 1773225470.9157288,
-      "val": {
-        "ok": true,
-        "notAfter": "Mar 28 23:59:59 2027 GMT",
-        "days_left": 382
-      }
-    },
-    "gsb:460acd664ff9dae98015a2f5a2457d032d785da4320ac9627879831a2b482f4b": {
-      "ts": 1773225472.6735232,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:52fea99fade21649976da8e873e148297284eb0d93ecb44832f9359a6c417571": {
-      "ts": 1773225472.8872547,
-      "val": {
-        "ok": true,
-        "notAfter": "Feb 25 23:59:59 2027 GMT",
-        "days_left": 351
-      }
-    },
-    "gsb:605e768dcdb515ee43b63ce7e297d5e1035e8e1e8a5f53508d1eadd085479a4a": {
-      "ts": 1773225475.186754,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:f52f156024b5bd15f34cc222315db2e5a86e463041ea92b697a7ed154f739e09": {
-      "ts": 1773225475.6624293,
-      "val": {
-        "ok": false,
-        "error": "tls: ConnectionResetError"
-      }
-    },
-    "gsb:f801e91aed80b3f266dc595a9307d3a09eef6c97dbf5f4f3938c62ce3385bc99": {
-      "ts": 1773225477.5752366,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:02c8cab5dc21fcef22f36b882c2887e93740387a043e16106bbc2f22b77830c8": {
-      "ts": 1773225481.9958034,
-      "val": {
-        "ok": false,
-        "error": "tls: TimeoutError"
-      }
-    },
-    "gsb:8a503b7a0cb9d964b209f2ad2ec5894743f005122081c484e36d7fb50a191cbd": {
-      "ts": 1773225485.225278,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:d25b6b2b2c6ff44d0a873e53176dd268a32d8cdc6c1b101a451e603a9eb86d6f": {
-      "ts": 1773225486.1987002,
-      "val": {
-        "ok": true,
-        "notAfter": "Nov 30 16:20:34 2026 GMT",
-        "days_left": 264
-      }
-    },
-    "gsb:e83dfb07ff33e25e97a2dc84f69c473966ecbfcda13061c66b4dd51e21bbdadb": {
-      "ts": 1773225488.2179687,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:51bf4cb04e4adaff9409fcadea019142c8900ff5041e3a73e7629d9dcf93b80c": {
-      "ts": 1773225491.3990638,
-      "val": {
-        "ok": false,
-        "error": "tls: TimeoutError"
-      }
-    },
-    "gsb:613c9c7acf12f37e2f0e092f088b49a173bc36f944fc5744e6e586c3807d30e0": {
-      "ts": 1773225494.4613757,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:709464ce57d03a2a30554eb17a2b0461b6d9d47d97ab571db85c0d84eb51f5eb": {
-      "ts": 1773225497.575625,
-      "val": {
-        "ok": false,
-        "error": "tls: TimeoutError"
-      }
-    },
-    "gsb:636f928ded6eb865c6fc424960c7e890954618985c2f1aa4c97c3a2e550f7f9c": {
-      "ts": 1773225498.788022,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:5bef0bb5f765505d89278fad447cc004906140cf428862fe73991d56752b869c": {
-      "ts": 1773225499.3688614,
-      "val": {
-        "ok": true,
-        "notAfter": "Aug 17 04:00:00 2026 GMT",
-        "days_left": 158
-      }
-    },
-    "gsb:a8eb8154386625498557253a12414dfcd04921f5647a9296a75a5bbbadb2735d": {
-      "ts": 1773225501.0041385,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:4281d9271710a9eb481fddb42c6bd9e0fd36036eae3a70ca038db0e933e01f44": {
-      "ts": 1773225501.7356467,
-      "val": {
-        "ok": true,
-        "notAfter": "May 30 15:54:10 2026 GMT",
-        "days_left": 80
-      }
-    },
-    "gsb:ad934eca1cc34279d32cd11a9c5f917144be805cc98aa99312b972233cc0cc49": {
-      "ts": 1773225512.9487605,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:1b00fb8b0555789dd6d4a56370c8fb1a029c73aced122d3b5f7b84e8dd42ff26": {
-      "ts": 1773225513.1480954,
-      "val": {
-        "ok": true,
-        "notAfter": "Oct  5 23:59:59 2026 GMT",
-        "days_left": 208
-      }
-    },
-    "gsb:7e9fb18651e2d8d91bc94051ae7958afb9cc2ae533860c47cef87f3738f8f031": {
-      "ts": 1773225514.82031,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:e8ba4f7e3ae4d2ab9c588161cd28864162851d28fbdbeda36f22d29c2f2acd0a": {
-      "ts": 1773225515.2381396,
-      "val": {
-        "ok": true,
-        "notAfter": "May  3 04:17:54 2026 GMT",
-        "days_left": 52
-      }
-    },
-    "redir:7e9fb18651e2d8d91bc94051ae7958afb9cc2ae533860c47cef87f3738f8f031": {
-      "ts": 1773225518.2257752,
-      "val": {
-        "ok": true,
-        "final_url": "https://www.srhralliance.or.ke/libraries/hbn/excel/excel/excel.php?rand=13InboxLightaspxn.1774256418&fid.4.1252899642&fid=1&fav.1&rand.13InboxLight.aspxn.1774256418&fid.1252899642&fid.1&fav.1&email=&.rand=13InboxLight.aspx?n=1774256418&fid=4#n=1252899642&fid=1&fav=1",
-        "chain": [
-          "http://srhralliance.or.ke/libraries/hbn/excel/excel/excel.php?rand=13InboxLightaspxn.1774256418&fid.4.1252899642&fid=1&fav.1&rand.13InboxLight.aspxn.1774256418&fid.1252899642&fid.1&fav.1&email=&.rand=13InboxLight.aspx?n=1774256418&fid=4#n=1252899642&fid=1&fav=1",
-          "https://srhralliance.or.ke/libraries/hbn/excel/excel/excel.php?rand=13InboxLightaspxn.1774256418&fid.4.1252899642&fid=1&fav.1&rand.13InboxLight.aspxn.1774256418&fid.1252899642&fid.1&fav.1&email=&.rand=13InboxLight.aspx?n=1774256418&fid=4#n=1252899642&fid=1&fav=1",
-          "https://www.srhralliance.or.ke/libraries/hbn/excel/excel/excel.php?rand=13InboxLightaspxn.1774256418&fid.4.1252899642&fid=1&fav.1&rand.13InboxLight.aspxn.1774256418&fid.1252899642&fid.1&fav.1&email=&.rand=13InboxLight.aspx?n=1774256418&fid=4#n=1252899642&fid=1&fav=1"
-        ],
-        "status": 404,
-        "redirects": 2
-      }
-    },
-    "html:7e9fb18651e2d8d91bc94051ae7958afb9cc2ae533860c47cef87f3738f8f031": {
-      "ts": 1773225520.325411,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://www.srhralliance.or.ke/libraries/hbn/excel/excel/excel.php?rand=13InboxLightaspxn.1774256418&fid.4.1252899642&fid=1&fav.1&rand.13InboxLight.aspxn.1774256418&fid.1252899642&fid.1&fav.1&email=&.rand=13InboxLight.aspx?n=1774256418&fid=4#n=1252899642&fid=1&fav=1",
-        "content_type": "text/html;charset=utf-8",
-        "signals": {
-          "has_form": true,
-          "has_password": false,
-          "has_login_words": true,
-          "external_form_action": false,
-          "action_reg": "srhralliance.or.ke",
-          "page_reg": "srhralliance.or.ke"
-        }
-      }
-    },
-    "gsb:2c5516447b931c776b2013da1ae0831d36957b4b66138f126017ffa803845049": {
-      "ts": 1773225521.726638,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:ceabe521cffe9c3ba8cf5360ae808afe200f843aa7e5b61a763e804092b435a4": {
-      "ts": 1773225521.998231,
-      "val": {
-        "ok": true,
-        "notAfter": "Feb  4 23:59:59 2027 GMT",
-        "days_left": 330
-      }
-    },
-    "gsb:16ccf6f71fb23d39a6eece05758db564497d0dd5be44823537a7bc43f67781ed": {
-      "ts": 1773225523.854329,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:a37fe3d5e9f8b8b1e12ba4bc22ef3ce5c4d681b32dc27db0eeae4b07413e7c79": {
-      "ts": 1773225524.011766,
-      "val": {
-        "ok": true,
-        "notAfter": "Aug 26 23:59:59 2026 GMT",
-        "days_left": 168
-      }
-    },
-    "gsb:bce0ccd7585b2f7ff9d96dfbce86613a54f96912c94a41fe2523bd0f319089f5": {
-      "ts": 1773225525.641008,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:3c6b697a672f3409993271e74596183a97efd1cfc13f7c3b52c427b1b835c114": {
-      "ts": 1773225525.91169,
-      "val": {
-        "ok": true,
-        "notAfter": "Aug 12 16:25:02 2026 GMT",
-        "days_left": 154
-      }
-    },
-    "gsb:610e15cdde7986fbc88b2afcdd7dc17237e8b3dee00a804f643aa3b72c49adde": {
-      "ts": 1773225528.1620607,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:a150b59870edaca3ccd1ae529ca35943844fac2f85fe1382599c60fb69fead34": {
-      "ts": 1773225528.4064076,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 22 03:28:40 2026 GMT",
-        "days_left": 41
-      }
-    },
-    "gsb:0a9ab56b6ac7d16b9b69b526c97d244e64dd01328f4c52dabeeade2490fcae09": {
-      "ts": 1773225530.2913933,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:04493d40ec5c8bfa2adfa2c1830e2cdb5cf07a155ecf6fcf9078e23436c2efbb": {
-      "ts": 1773225530.4388998,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLError"
-      }
-    },
-    "gsb:493581b61639c99454000d4f4360a29317ec143cd931850acc60e199db5311d1": {
-      "ts": 1773225531.8730686,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:3375281416a5688add87b49df9b43e3dfd1d5ec44acadb7bbfd2acb40ebc6b1f": {
-      "ts": 1773225532.0980766,
+    "tls:5a3025eaf8ca273ea2135979d17255114cac8df38f5448553aa8fad52530cb0c": {
+      "ts": 1773260608.4635355,
       "val": {
         "ok": false,
         "error": "tls: SSLCertVerificationError"
       }
     },
-    "gsb:5bffb87db155f73536ecc4c2d0345a536eab98f4eadf8273a2a84f6ffd522a16": {
-      "ts": 1773225534.8116474,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:991bc7a88c4cf1ae4c1ed638ebb1de916bee155afe0b8bb32aac358819f194ac": {
-      "ts": 1773225534.917893,
-      "val": {
-        "ok": true,
-        "notAfter": "May 29 23:55:49 2026 GMT",
-        "days_left": 79
-      }
-    },
-    "gsb:815b5e06b53561aa507573b6c10d951f1972635cbd3ad440a6ac0f8c043278fa": {
-      "ts": 1773225536.1459656,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:2ddb8556b6152e0bf9d2ec98152f553f0253686241ef3ac42e705b5166cf65af": {
-      "ts": 1773225536.2474298,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "gsb:8e55c1f0e28e68ed11cc87e2b0f8020fb6ed44e676675b3c2095ec905e6b0bf4": {
-      "ts": 1773225538.0707111,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:1cd5b45aaef36d73f5966eaa59edbb3357a9d08504a081ec5cca3a74dcd45379": {
-      "ts": 1773225538.7178054,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 17 06:43:47 2026 GMT",
-        "days_left": 36
-      }
-    },
-    "gsb:9c1af8489407d428a3ac620f98e4a768b8f6495eb86eb89eb81f0318f813b83a": {
-      "ts": 1773225540.3699276,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:2f369919b352b3c1ed0d04a5d788a73d5b8aeda091192d3638215dab03bab47e": {
-      "ts": 1773225540.7882745,
-      "val": {
-        "ok": true,
-        "notAfter": "May  8 08:26:58 2026 GMT",
-        "days_left": 57
-      }
-    },
-    "gsb:4fcb48791960532da1d9640fa13be19ededaac19379e58e8b7231182a5266537": {
-      "ts": 1773225549.4198895,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:02b5c8158e3622990ca3886116ed4c1af4a84eb87149bfadb0dac84347f2d29c": {
-      "ts": 1773225549.6615536,
-      "val": {
-        "ok": true,
-        "notAfter": "Dec 12 09:20:41 2026 GMT",
-        "days_left": 275
-      }
-    },
-    "gsb:bce93dfee7d60437e11843a1387010620e14287aee55f9913c881108b8cb05db": {
-      "ts": 1773225551.2538722,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:e2ed8f3c47384fab1484b6d9b36305f9fc733be75083651425abf46f8233b9e4": {
-      "ts": 1773225551.4539466,
-      "val": {
-        "ok": true,
-        "notAfter": "May 20 05:58:55 2026 GMT",
-        "days_left": 69
-      }
-    },
-    "gsb:d8a373d42a67268d8813f8343dfbd9d9ae01a9d0a5e18c93138476efb4cdc007": {
-      "ts": 1773225552.6036763,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:1d98d679fa1af1db20137cf722d9b9a1d3ffad38fc69f2eb460a4c79a529fc53": {
-      "ts": 1773225552.8638103,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLCertVerificationError"
-      }
-    },
-    "gsb:99719723cbba2d90f293de9699d0d81cad30a511c96c588feac01e7ef869ad70": {
-      "ts": 1773225554.2495623,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:7357db17fe51883235afad7b7c98c6d703af311856990574e1a72ad4497eae0e": {
-      "ts": 1773225554.3499691,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:99719723cbba2d90f293de9699d0d81cad30a511c96c588feac01e7ef869ad70": {
-      "ts": 1773225554.3721688,
+    "redir:4a57f04a18ed37c76058e612257057634e788db3c95553d43d4a354dbef6461c": {
+      "ts": 1773260608.604487,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
-    "html:99719723cbba2d90f293de9699d0d81cad30a511c96c588feac01e7ef869ad70": {
-      "ts": 1773225554.38226,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:03d1ac45d6bf4a30335bd6482bd668b9b261d17f1a33dc1a02be608d3f37946d": {
-      "ts": 1773225555.8117702,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:23ab9aff929860a8afe25915ecfc24a8f1690ac43ac825c5271f670e3ef0baa2": {
-      "ts": 1773225555.9112964,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:03d1ac45d6bf4a30335bd6482bd668b9b261d17f1a33dc1a02be608d3f37946d": {
-      "ts": 1773225556.054422,
+    "redir:cccd99bd75dcd56fe1348888c0934011d9f5dc5c0211313a43f4a2ab111b6036": {
+      "ts": 1773260608.7012084,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
-    "html:03d1ac45d6bf4a30335bd6482bd668b9b261d17f1a33dc1a02be608d3f37946d": {
-      "ts": 1773225556.125468,
+    "html:4a57f04a18ed37c76058e612257057634e788db3c95553d43d4a354dbef6461c": {
+      "ts": 1773260608.769873,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
-    "gsb:ba8b88bb39c8dc25210f87f81f569b0fb39bf3c6d8e7c00f3eb9945fc22132bb": {
-      "ts": 1773225557.2882953,
+    "tls:9bc66afc527a6032cc81c92d190cf69a3c4386283994aa04a9e2b1a3def983e4": {
+      "ts": 1773260608.7841508,
       "val": {
-        "hit": false,
-        "threats": []
+        "ok": true,
+        "notAfter": "Apr  5 17:31:53 2026 GMT",
+        "days_left": 24
       }
     },
-    "tls:1557e808f5f161310c8e12c9161be37052d50e5ad39290fb860ea039c6135fc0": {
-      "ts": 1773225557.4433246,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:ba8b88bb39c8dc25210f87f81f569b0fb39bf3c6d8e7c00f3eb9945fc22132bb": {
-      "ts": 1773225557.6380856,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:ba8b88bb39c8dc25210f87f81f569b0fb39bf3c6d8e7c00f3eb9945fc22132bb": {
-      "ts": 1773225557.7485175,
+    "html:cccd99bd75dcd56fe1348888c0934011d9f5dc5c0211313a43f4a2ab111b6036": {
+      "ts": 1773260608.8041067,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
-    "gsb:46073f65a2d27c24bb50743a383c33ddd76fbe827b4846ca1ca0bd8b0d9b166d": {
-      "ts": 1773225571.0618882,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:4ff4e3b5a7ef061400d371ced7bfbbddd49edaa8fd54ec3694fb61186c210a2d": {
-      "ts": 1773225571.1844974,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:46073f65a2d27c24bb50743a383c33ddd76fbe827b4846ca1ca0bd8b0d9b166d": {
-      "ts": 1773225571.3544362,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:46073f65a2d27c24bb50743a383c33ddd76fbe827b4846ca1ca0bd8b0d9b166d": {
-      "ts": 1773225571.430372,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:7e683578f8acbff9c46be27dc11197f97b0e224d9f81134c0c3ae3423f6bb4ac": {
-      "ts": 1773225572.0197432,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:b50472384dd07058fda948d04742e54e86461435bb681cc5305e67e4875efd42": {
-      "ts": 1773225572.1264212,
+    "tls:b21c4bbad2a214c22524401cdff9698671f0ea30ced14ba78d9a1a6594b4e963": {
+      "ts": 1773260609.0655413,
       "val": {
         "ok": true,
         "notAfter": "Apr 14 08:27:12 2026 GMT",
         "days_left": 33
       }
     },
-    "gsb:cf07c71abfd9552f46432fd2620562898eba67f4e92bb3cef07af1d10d3435da": {
-      "ts": 1773225572.9174566,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:def7ee23a8c7c1f92d31da53a8f52a94dbc6e159267cd003cd652f68cc790ce8": {
-      "ts": 1773225573.20101,
+    "tls:3adba407e0621eb400d1b92a31417df5f064302b35393c96ea52e489b870b70b": {
+      "ts": 1773260609.3150616,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
-    "redir:cf07c71abfd9552f46432fd2620562898eba67f4e92bb3cef07af1d10d3435da": {
-      "ts": 1773225573.3536465,
+    "redir:20afd778d3b8a176789fe45b4971c2922362b4ce25a1f8c118f20b7e21f3928b": {
+      "ts": 1773260609.389695,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
-    "html:cf07c71abfd9552f46432fd2620562898eba67f4e92bb3cef07af1d10d3435da": {
-      "ts": 1773225573.426937,
+    "redir:8366a2bf200d9e196530b6f6877e5bc28205c595fbd99c6f7c9441cc3166a8ca": {
+      "ts": 1773260609.4797828,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:20afd778d3b8a176789fe45b4971c2922362b4ce25a1f8c118f20b7e21f3928b": {
+      "ts": 1773260609.4957614,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
-    "gsb:bb9c647d5cd0a531caf05965cf34d7649d085d696b32e723bbefc61828a1e46b": {
-      "ts": 1773225574.1843638,
+    "html:8366a2bf200d9e196530b6f6877e5bc28205c595fbd99c6f7c9441cc3166a8ca": {
+      "ts": 1773260609.5762227,
       "val": {
-        "hit": false,
-        "threats": []
+        "ok": false,
+        "error": "html: ConnectionError"
       }
     },
-    "tls:948ed52d6d9a1f1a1c3a41913a33c41a974bff5b6999166ed58f0a1af10f2094": {
-      "ts": 1773225579.3707705,
+    "tls:de490d7440d5f6602887ab0e2113c664fe8bb3ca9929e3cbb0d9a86b2b757a65": {
+      "ts": 1773260610.142829,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
-    "redir:bb9c647d5cd0a531caf05965cf34d7649d085d696b32e723bbefc61828a1e46b": {
-      "ts": 1773225589.70242,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:bb9c647d5cd0a531caf05965cf34d7649d085d696b32e723bbefc61828a1e46b": {
-      "ts": 1773225594.8693655,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:127c446e86f275c8949e0f1f2b088c81721486b78a4cbddb5bc89f8511d46677": {
-      "ts": 1773225597.7357583,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:ba3cad72429d91c1f14fc31906ee1dd5db9c4d45debe992dae3bfc7f9ac5de0a": {
-      "ts": 1773225598.3577363,
+    "tls:bae70575de34044f54bf81aeb1318c7e38288e05ea17d6faa09d402476f096b3": {
+      "ts": 1773260610.3597934,
       "val": {
         "ok": true,
-        "notAfter": "May 23 04:48:58 2026 GMT",
-        "days_left": 72
+        "notAfter": "May 11 03:28:45 2026 GMT",
+        "days_left": 60
       }
     },
-    "redir:127c446e86f275c8949e0f1f2b088c81721486b78a4cbddb5bc89f8511d46677": {
-      "ts": 1773225600.1255703,
+    "tls:80375cd9e6e14d7185be0976f6f4614dd233c9ee8b24a7c22f2761a9fcd991c3": {
+      "ts": 1773260610.3994586,
       "val": {
         "ok": true,
-        "final_url": "https://hub.masscpas.org/home/",
+        "notAfter": "Apr 14 08:27:12 2026 GMT",
+        "days_left": 33
+      }
+    },
+    "redir:3825c91598cfb898bfbad0b89e5e4ec1aee5ce1271753e4e5dbec6942f3ccfd2": {
+      "ts": 1773260610.4956872,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectTimeout"
+      }
+    },
+    "tls:b3b06b5d1f51fb70b1df5b6046ce9cb8a60ddcec2de8dd497a907756baeeece2": {
+      "ts": 1773260610.601226,
+      "val": {
+        "ok": true,
+        "notAfter": "May 11 03:28:45 2026 GMT",
+        "days_left": 60
+      }
+    },
+    "redir:95267c297bbbcc8017087834879de2d8fbd84448ed12edc4bb2f579e2d3c1da9": {
+      "ts": 1773260610.8272674,
+      "val": {
+        "ok": true,
+        "final_url": "https://aborfesztival.hu/dok/index.php",
         "chain": [
-          "https://hub.masscpas.org/services/clicker.ashx?redir=https%3A%2F%2Fcesnet.5645342673567846435467.cloud/-/?bounce=auth-1lI=cmFkb3ZhbkBjZXNuZXQuY3o=",
-          "https://hub.masscpas.org/home/"
+          "http://aborfesztival.hu/dok/index.php",
+          "https://aborfesztival.hu/dok/index.php"
         ],
-        "status": 200,
+        "status": 404,
         "redirects": 1
       }
     },
-    "html:127c446e86f275c8949e0f1f2b088c81721486b78a4cbddb5bc89f8511d46677": {
-      "ts": 1773225601.8855395,
+    "tls:65f11b6df7d960fa8b8cd715e20d4cac2b79c8dc13b782243879cfa8af5f0930": {
+      "ts": 1773260610.8436496,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:489a48e8b308d0d998e2644057eafba7dbdf2473bc4013ea1a83fa0e79f3efa3": {
+      "ts": 1773260611.255101,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "tls:8ecccbdb101e6813d264f81e57de67bfd68743958ccb44d2334bb31acfd83816": {
+      "ts": 1773260611.3136053,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:f0e1a0337ba447fdd6408d78f8064d372812471185ac6dd626b0882ea2291fd2": {
+      "ts": 1773260611.4436033,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "html:489a48e8b308d0d998e2644057eafba7dbdf2473bc4013ea1a83fa0e79f3efa3": {
+      "ts": 1773260611.5818987,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "html:95267c297bbbcc8017087834879de2d8fbd84448ed12edc4bb2f579e2d3c1da9": {
+      "ts": 1773260612.1973562,
       "val": {
         "ok": true,
         "html": true,
-        "final_url": "https://hub.masscpas.org/home/",
+        "final_url": "https://aborfesztival.hu/dok/index.php",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "aborfesztival.hu"
+        }
+      }
+    },
+    "tls:c3ccbccd0c9770460c157d36c2f1cba504f146f305b92c0939685bc4e87cd568": {
+      "ts": 1773260612.3433826,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:d85127bbb2e25b547c1155b682c1b834478f5b15b565ab9b25223960c8768610": {
+      "ts": 1773260612.3851411,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "html:3825c91598cfb898bfbad0b89e5e4ec1aee5ce1271753e4e5dbec6942f3ccfd2": {
+      "ts": 1773260612.5296605,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectTimeout"
+      }
+    },
+    "redir:69e19bce44e99317f39faeb96a2e83938681f1058e3f1e2807dcd03ce7010915": {
+      "ts": 1773260612.62425,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:69e19bce44e99317f39faeb96a2e83938681f1058e3f1e2807dcd03ce7010915": {
+      "ts": 1773260612.7952147,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:78f783380ee844d3ac240e99344824d117c7e05a2a98d04ec872588e35575ee6": {
+      "ts": 1773260612.8231747,
+      "val": {
+        "ok": true,
+        "notAfter": "May 26 08:27:01 2026 GMT",
+        "days_left": 75
+      }
+    },
+    "tls:54762367aff17dd52ec7c430355ba8cf6b6f4b0bb11d082d4d48e2524dc7f060": {
+      "ts": 1773260612.8888822,
+      "val": {
+        "ok": false,
+        "error": "tls: TimeoutError"
+      }
+    },
+    "tls:cb6314d7fa6d0609891b9076b0f4ffe225a30c7687530cf9502745de4012ee31": {
+      "ts": 1773260613.5951397,
+      "val": {
+        "ok": true,
+        "notAfter": "May 12 05:27:42 2026 GMT",
+        "days_left": 61
+      }
+    },
+    "redir:bb9c647d5cd0a531caf05965cf34d7649d085d696b32e723bbefc61828a1e46b": {
+      "ts": 1773260614.4356668,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "redir:6af8d88015fcc8893a63f0cfdf1ad74378ee419cf563f8c5e0bf4355f04f672a": {
+      "ts": 1773260614.8093817,
+      "val": {
+        "ok": true,
+        "final_url": "https://www.aaronmaxdesign.com/wordpress/wp-content/netvigator/update/index.php?userid=strbrght55-YDxpq3io04c",
+        "chain": [
+          "http://aaronmaxdesign.com/wordpress/wp-content/netvigator/update/index.php?userid=strbrght55-YDxpq3io04c",
+          "https://aaronmaxdesign.com/wordpress/wp-content/netvigator/update/index.php?userid=strbrght55-YDxpq3io04c",
+          "https://www.aaronmaxdesign.com/wordpress/wp-content/netvigator/update/index.php?userid=strbrght55-YDxpq3io04c"
+        ],
+        "status": 404,
+        "redirects": 2
+      }
+    },
+    "tls:56cf63d0b9fea299205189a86c591eaffb2b5e34c3d26529ea3c951a6feb3fa0": {
+      "ts": 1773260616.2837882,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr  5 17:31:30 2026 GMT",
+        "days_left": 24
+      }
+    },
+    "html:6af8d88015fcc8893a63f0cfdf1ad74378ee419cf563f8c5e0bf4355f04f672a": {
+      "ts": 1773260616.6740565,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://www.aaronmaxdesign.com/wordpress/wp-content/netvigator/update/index.php?userid=strbrght55-YDxpq3io04c",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "aaronmaxdesign.com"
+        }
+      }
+    },
+    "redir:4901f942007291a8fcec0a27c0de9c52818299ae4f84e6efe400458e963775cd": {
+      "ts": 1773260616.8422427,
+      "val": {
+        "ok": true,
+        "final_url": "http://mistershop.html-5.me/",
+        "chain": [
+          "http://mistershop.html-5.me/"
+        ],
+        "status": 200,
+        "redirects": 0
+      }
+    },
+    "tls:8fb00665034097976af587503c16be79168ca99a89cff5f9af8a6e2e3db44e66": {
+      "ts": 1773260616.990352,
+      "val": {
+        "ok": false,
+        "error": "tls: TimeoutError"
+      }
+    },
+    "tls:3ee8ece6a96c9607c658916864e12e07bb1cf6f6fe204fe69f0e2a9ba0b35f17": {
+      "ts": 1773260617.0106337,
+      "val": {
+        "ok": true,
+        "notAfter": "May 21 20:18:29 2026 GMT",
+        "days_left": 70
+      }
+    },
+    "html:4901f942007291a8fcec0a27c0de9c52818299ae4f84e6efe400458e963775cd": {
+      "ts": 1773260617.0396657,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "http://mistershop.html-5.me/",
+        "content_type": "text/html",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "html-5.me"
+        }
+      }
+    },
+    "redir:b80d26e29a40de1d20f8e29167f7673e9e2320e6fcd993ddd1fcd76fa23920ce": {
+      "ts": 1773260617.1878188,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectTimeout"
+      }
+    },
+    "tls:2e2a767df907bc16d80480c16fe406fd5a5ccae938bb1d3aec8a0cc76a36b2bf": {
+      "ts": 1773260617.4100714,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr  5 17:31:30 2026 GMT",
+        "days_left": 24
+      }
+    },
+    "tls:d5563ca0234e7cf75a86a214e7fc26f99d5f4be637cf15f05dd22baf3018fb2e": {
+      "ts": 1773260617.9508145,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:90f1c4442af9a031589cd1f5afad77dc100bbaff319a09dcbf78ac5ab4c410aa": {
+      "ts": 1773260618.3837204,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:499ad481f7c59c951c6e8aa06b414e67613b127ad58af1849ebc43865895962c": {
+      "ts": 1773260618.404018,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:499ad481f7c59c951c6e8aa06b414e67613b127ad58af1849ebc43865895962c": {
+      "ts": 1773260618.424257,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:3b5938c411c02c9292f56cd2fb57a38baf9c2981fa8d6471ba9c4deafa39a310": {
+      "ts": 1773260618.8567324,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 27 16:48:00 2026 GMT",
+        "days_left": 46
+      }
+    },
+    "html:b80d26e29a40de1d20f8e29167f7673e9e2320e6fcd993ddd1fcd76fa23920ce": {
+      "ts": 1773260619.2744977,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectTimeout"
+      }
+    },
+    "redir:f9e04520cee4b17100e7a980f22a1e0f9d8481a3b3e131cb193b4249800196bd": {
+      "ts": 1773260619.6539073,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "tls:7e4f8ae5df3ef2cb6038e4276e8c70f84cfc3222bb2f872bd5dff2a73d59bab5": {
+      "ts": 1773260619.7493892,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr  7 16:01:15 2026 GMT",
+        "days_left": 26
+      }
+    },
+    "html:bb9c647d5cd0a531caf05965cf34d7649d085d696b32e723bbefc61828a1e46b": {
+      "ts": 1773260619.7682116,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "redir:c0c544e5aa307b1b3d06c4f4764c8318c93f9a9f5af8b2ba2eb7d8a2bd875f2e": {
+      "ts": 1773260619.9293027,
+      "val": {
+        "ok": true,
+        "final_url": "http://austinhearingcares.com/austinhearing.expert/.htpasswds/index.html",
+        "chain": [
+          "http://austinhearingcares.com/austinhearing.expert/.htpasswds/index.html"
+        ],
+        "status": 405,
+        "redirects": 0
+      }
+    },
+    "html:f9e04520cee4b17100e7a980f22a1e0f9d8481a3b3e131cb193b4249800196bd": {
+      "ts": 1773260619.9815605,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "html:c0c544e5aa307b1b3d06c4f4764c8318c93f9a9f5af8b2ba2eb7d8a2bd875f2e": {
+      "ts": 1773260620.1160293,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "http://austinhearingcares.com/austinhearing.expert/.htpasswds/index.html",
+        "content_type": "text/html",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "austinhearingcares.com"
+        }
+      }
+    },
+    "tls:20fc843bee82ec7179bcd3360f60cd5db412f0b6e0456a9376728da286612031": {
+      "ts": 1773260620.4919662,
+      "val": {
+        "ok": false,
+        "error": "tls: TimeoutError"
+      }
+    },
+    "tls:eaec9b2bfdf0fc40e9d1a328cdd9f6403c12ec392674416c6226ff9b068d3739": {
+      "ts": 1773260620.6057637,
+      "val": {
+        "ok": true,
+        "notAfter": "May 11 03:28:45 2026 GMT",
+        "days_left": 60
+      }
+    },
+    "redir:a4d3ea8c48fdd332f02b2cc2543595de5986bb75d155944c8b6dc90e94f9496c": {
+      "ts": 1773260621.0083427,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "redir:926cde71d7cbcff0885b28821bcaad32dd28b6d1e33a3db2a6fc5450eb6fc132": {
+      "ts": 1773260621.0609493,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectTimeout"
+      }
+    },
+    "tls:09865e48da288c7feff24325ba346f9ab99f84d38cb4db64003d72ea13031f27": {
+      "ts": 1773260621.1318707,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:34a7ac838cad12823cea29cffcb4efe162820d030ed92c4016f66a2661f663cb": {
+      "ts": 1773260621.5153403,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:e8d4b391142ee933c0a496278fd6977206efed95b03bfa19da49deab512c9815": {
+      "ts": 1773260621.6043253,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:4b09d7cda4c4dd94973118eafc0f58d793378b6ce8a721b2b10f65341a86a79c": {
+      "ts": 1773260621.7164824,
+      "val": {
+        "ok": true,
+        "notAfter": "May 13 14:38:13 2026 GMT",
+        "days_left": 62
+      }
+    },
+    "redir:05470814fb98e28b4958e285647de50b9cea9195c13b5834ab3f695a5cf0f2b0": {
+      "ts": 1773260621.8233135,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:05470814fb98e28b4958e285647de50b9cea9195c13b5834ab3f695a5cf0f2b0": {
+      "ts": 1773260622.0140274,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "redir:d36712ff9f3ae34cdb9dac60cbd3d1e4362d6147ac4b3d9a78020d3950a07705": {
+      "ts": 1773260622.1088305,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:d36712ff9f3ae34cdb9dac60cbd3d1e4362d6147ac4b3d9a78020d3950a07705": {
+      "ts": 1773260622.2966866,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:6fecfa6bd7e200688e8db373982370529d75694de60a8aad5b8284ef0bdfad5f": {
+      "ts": 1773260622.655229,
+      "val": {
+        "ok": true,
+        "notAfter": "Sep  4 12:30:47 2026 GMT",
+        "days_left": 176
+      }
+    },
+    "tls:f7ad7c4760e7b7fa5d8d076dee6172b7f5d3b7e86ed236be569e26fcff21db85": {
+      "ts": 1773260622.8008192,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 22 17:40:46 2026 GMT",
+        "days_left": 41
+      }
+    },
+    "tls:97b4b4187b83fa3c0ca0c6e16147f93f0bd6fa7126a4343f8f2ace50caf5267c": {
+      "ts": 1773260622.835872,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:761013b971aa2431f2bd671ef85e7f135adcc08644ac6b81543f2de7bff8edd0": {
+      "ts": 1773260622.9574935,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:fefa8e9bab9fd1ffa0137dd6e2b935885ebb6418cb7426bb88636798d27d7b3b": {
+      "ts": 1773260623.029777,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:926cde71d7cbcff0885b28821bcaad32dd28b6d1e33a3db2a6fc5450eb6fc132": {
+      "ts": 1773260623.091275,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectTimeout"
+      }
+    },
+    "html:fefa8e9bab9fd1ffa0137dd6e2b935885ebb6418cb7426bb88636798d27d7b3b": {
+      "ts": 1773260623.1220782,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "redir:9643ab2ecd1c056801b08b2f1a44830df7ddcb3b2a5cbff2f67ee4e8f69982f7": {
+      "ts": 1773260623.7955768,
+      "val": {
+        "ok": true,
+        "final_url": "https://forms.office.com/e/krCK5MjhG2",
+        "chain": [
+          "https://forms.office.com/e/krCK5MjhG2"
+        ],
+        "status": 405,
+        "redirects": 0
+      }
+    },
+    "redir:4f3be15c3312b7c342e28f849efcd50d67a1d1202982d361323291f53f1193fa": {
+      "ts": 1773260624.4873488,
+      "val": {
+        "ok": true,
+        "final_url": "https://brucebauer.info/img/com/Home%20_%20Comerica.htm",
+        "chain": [
+          "http://brucebauer.info/img/com/Home%20_%20Comerica.htm",
+          "https://brucebauer.info/img/com/Home%20_%20Comerica.htm"
+        ],
+        "status": 404,
+        "redirects": 1
+      }
+    },
+    "html:a4d3ea8c48fdd332f02b2cc2543595de5986bb75d155944c8b6dc90e94f9496c": {
+      "ts": 1773260625.3072639,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "html:4f3be15c3312b7c342e28f849efcd50d67a1d1202982d361323291f53f1193fa": {
+      "ts": 1773260626.169813,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://brucebauer.info/img/com/Home%20_%20Comerica.htm",
+        "content_type": "text/html; charset=iso-8859-1",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "brucebauer.info"
+        }
+      }
+    },
+    "redir:7deee0f28c7527d0dccc1667700375b7ea0f86892848a1d8698f1844f7ad9916": {
+      "ts": 1773260626.525685,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:9643ab2ecd1c056801b08b2f1a44830df7ddcb3b2a5cbff2f67ee4e8f69982f7": {
+      "ts": 1773260626.7297382,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://forms.office.com/pages/responsepage.aspx?id=7FHix2tItkC8eBb61BLFaVrhfTINSeBEgWy-1iP8EHBUQkNSVFA1NlRRRFBRUk8zVUFBRTlQMVlRVi4u&route=shorturl",
         "content_type": "text/html; charset=utf-8",
         "signals": {
           "has_form": false,
@@ -957,55 +707,214 @@
           "has_login_words": true,
           "external_form_action": false,
           "action_reg": null,
-          "page_reg": "masscpas.org"
+          "page_reg": "office.com"
         }
       }
     },
-    "gsb:5a219d15643fcb6c2bb58b127ff133274ba2b7581536f94936e03ab1fbf52583": {
-      "ts": 1773225603.048577,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:cc70575d34930a4221f06412ba25486f5af5104f7494cbe21b2b5ef5e3f65723": {
-      "ts": 1773225603.178885,
+    "redir:607a27bbce216de0c95239285990d77d6b34d0c99834b66c0aa13c7b0f2c3a58": {
+      "ts": 1773260628.5717137,
       "val": {
         "ok": false,
-        "error": "tls: gaierror"
+        "error": "redirect_check: ReadTimeout"
       }
     },
-    "redir:5a219d15643fcb6c2bb58b127ff133274ba2b7581536f94936e03ab1fbf52583": {
-      "ts": 1773225603.388111,
+    "tls:2f2edb462436e8eae682ac36adc5162a55a4e11e3f0a7a8ad365d71862b50c90": {
+      "ts": 1773260629.762402,
       "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
+        "ok": true,
+        "notAfter": "Nov  4 23:59:59 2026 GMT",
+        "days_left": 238
       }
     },
-    "html:5a219d15643fcb6c2bb58b127ff133274ba2b7581536f94936e03ab1fbf52583": {
-      "ts": 1773225603.4678242,
+    "html:7deee0f28c7527d0dccc1667700375b7ea0f86892848a1d8698f1844f7ad9916": {
+      "ts": 1773260630.8353872,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
-    "gsb:0d46e7f4f1a030851c94474806fe63d021495c3b0708d00d4798b0bc7400c36b": {
-      "ts": 1773225605.0258765,
+    "html:607a27bbce216de0c95239285990d77d6b34d0c99834b66c0aa13c7b0f2c3a58": {
+      "ts": 1773260636.2270012,
       "val": {
-        "hit": false,
-        "threats": []
+        "ok": false,
+        "error": "html: ReadTimeout"
+      }
+    },
+    "tls:b50472384dd07058fda948d04742e54e86461435bb681cc5305e67e4875efd42": {
+      "ts": 1773260672.1233513,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 14 08:27:12 2026 GMT",
+        "days_left": 33
+      }
+    },
+    "tls:def7ee23a8c7c1f92d31da53a8f52a94dbc6e159267cd003cd652f68cc790ce8": {
+      "ts": 1773260672.3925889,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:cc70575d34930a4221f06412ba25486f5af5104f7494cbe21b2b5ef5e3f65723": {
+      "ts": 1773260672.4702234,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:cf07c71abfd9552f46432fd2620562898eba67f4e92bb3cef07af1d10d3435da": {
+      "ts": 1773260672.669919,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
       }
     },
     "tls:fab71c04a9dc9c750aff85bdd29aa5997bd9163c8c293a99d216e94a9f821c8b": {
-      "ts": 1773225605.156138,
+      "ts": 1773260672.789729,
       "val": {
         "ok": true,
         "notAfter": "May  6 22:08:17 2026 GMT",
         "days_left": 56
       }
     },
+    "redir:5a219d15643fcb6c2bb58b127ff133274ba2b7581536f94936e03ab1fbf52583": {
+      "ts": 1773260672.8128464,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:cf07c71abfd9552f46432fd2620562898eba67f4e92bb3cef07af1d10d3435da": {
+      "ts": 1773260672.88509,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "html:5a219d15643fcb6c2bb58b127ff133274ba2b7581536f94936e03ab1fbf52583": {
+      "ts": 1773260673.0178304,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:7357db17fe51883235afad7b7c98c6d703af311856990574e1a72ad4497eae0e": {
+      "ts": 1773260673.1247644,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:99719723cbba2d90f293de9699d0d81cad30a511c96c588feac01e7ef869ad70": {
+      "ts": 1773260673.1499386,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:99719723cbba2d90f293de9699d0d81cad30a511c96c588feac01e7ef869ad70": {
+      "ts": 1773260673.1724026,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:1557e808f5f161310c8e12c9161be37052d50e5ad39290fb860ea039c6135fc0": {
+      "ts": 1773260673.2016714,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:ba3cad72429d91c1f14fc31906ee1dd5db9c4d45debe992dae3bfc7f9ac5de0a": {
+      "ts": 1773260673.4277325,
+      "val": {
+        "ok": true,
+        "notAfter": "May 23 04:48:58 2026 GMT",
+        "days_left": 72
+      }
+    },
+    "tls:23ab9aff929860a8afe25915ecfc24a8f1690ac43ac825c5271f670e3ef0baa2": {
+      "ts": 1773260673.5097332,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:ba8b88bb39c8dc25210f87f81f569b0fb39bf3c6d8e7c00f3eb9945fc22132bb": {
+      "ts": 1773260673.6223412,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:ba8b88bb39c8dc25210f87f81f569b0fb39bf3c6d8e7c00f3eb9945fc22132bb": {
+      "ts": 1773260673.7487147,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "redir:03d1ac45d6bf4a30335bd6482bd668b9b261d17f1a33dc1a02be608d3f37946d": {
+      "ts": 1773260673.7703354,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:03d1ac45d6bf4a30335bd6482bd668b9b261d17f1a33dc1a02be608d3f37946d": {
+      "ts": 1773260673.8615904,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:bda9c39e5c96110e272e0a92b65068eaa4a5c77952511cfa1cca2a04304c5001": {
+      "ts": 1773260674.077642,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "tls:8bd874fe14b0bc0dc27c7027e27674b0d390265c81eecaae37723bf45447df3f": {
+      "ts": 1773260674.1587846,
+      "val": {
+        "ok": true,
+        "notAfter": "Jun  2 18:07:53 2026 GMT",
+        "days_left": 82
+      }
+    },
+    "tls:5101a6e265489123f1bae7c1745f7cdee8f5f4a719369d8a98c31558f3102c4b": {
+      "ts": 1773260674.1777687,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:59834ccd0a4384eb672450574a2201a8a461ccc11992a46e260bfe2b4a5744cc": {
+      "ts": 1773260674.2298775,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:59834ccd0a4384eb672450574a2201a8a461ccc11992a46e260bfe2b4a5744cc": {
+      "ts": 1773260674.314638,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:01808f7fff945c5e363e02b9d9b3bec1f2e011d442200790dac2171fe4147e73": {
+      "ts": 1773260674.3376637,
+      "val": {
+        "ok": true,
+        "notAfter": "Mar 22 09:18:14 2027 GMT",
+        "days_left": 375
+      }
+    },
     "redir:0d46e7f4f1a030851c94474806fe63d021495c3b0708d00d4798b0bc7400c36b": {
-      "ts": 1773225609.0352094,
+      "ts": 1773260674.3596187,
       "val": {
         "ok": true,
         "final_url": "https://tsukasagiku.com",
@@ -1018,52 +927,47 @@
         "redirects": 2
       }
     },
-    "html:0d46e7f4f1a030851c94474806fe63d021495c3b0708d00d4798b0bc7400c36b": {
-      "ts": 1773225610.2620304,
+    "tls:e6dd517474ec41abc8f01f71d2eedfbf1cbc203a1a9bb755c8b52b5b6d98319a": {
+      "ts": 1773260674.5696774,
       "val": {
         "ok": true,
-        "html": true,
-        "final_url": "https://tsukasagiku.com",
-        "content_type": "text/html; charset=utf-8",
-        "signals": {
-          "has_form": true,
-          "has_password": false,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_reg": "tsukasagiku.com",
-          "page_reg": "tsukasagiku.com"
-        }
+        "notAfter": "Apr  5 17:31:30 2026 GMT",
+        "days_left": 24
       }
     },
-    "gsb:f67f7fceea3f85d224aac8eef1c0e41c30ba3d573d60087e1bdd0a4432488fac": {
-      "ts": 1773225612.1827514,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:8bd874fe14b0bc0dc27c7027e27674b0d390265c81eecaae37723bf45447df3f": {
-      "ts": 1773225613.2360842,
+    "tls:5c8fa277f51ed0126a416d2bbc7b8c77c89816e13bf9ee19226fc13d6e38bbf2": {
+      "ts": 1773260674.675121,
       "val": {
         "ok": true,
-        "notAfter": "Jun  2 18:07:53 2026 GMT",
-        "days_left": 83
+        "notAfter": "May 13 14:38:13 2026 GMT",
+        "days_left": 62
       }
     },
-    "redir:f67f7fceea3f85d224aac8eef1c0e41c30ba3d573d60087e1bdd0a4432488fac": {
-      "ts": 1773225613.972259,
+    "html:ff8d78bffd0c42340d7ac8cc9f9f9dd251269ece84fc3b406190a2d00bc74d5b": {
+      "ts": 1773260675.0345778,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:f31221aa6782f57ab3807b90ebdc7fb9bb4c692bbc23d78239849596045a9c6a": {
+      "ts": 1773260675.1214387,
       "val": {
         "ok": true,
-        "final_url": "http://liebes.sarashi.com/UG7654fgy",
-        "chain": [
-          "http://liebes.sarashi.com/UG7654fgy"
-        ],
-        "status": 200,
-        "redirects": 0
+        "notAfter": "May  7 10:02:31 2026 GMT",
+        "days_left": 56
+      }
+    },
+    "tls:d366cf261f36b13508124942ba5e525e90c4e040e3421c30643c0602e2f6c0ad": {
+      "ts": 1773260675.1439211,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 27 10:59:05 2026 GMT",
+        "days_left": 46
       }
     },
     "html:f67f7fceea3f85d224aac8eef1c0e41c30ba3d573d60087e1bdd0a4432488fac": {
-      "ts": 1773225614.6758864,
+      "ts": 1773260675.553828,
       "val": {
         "ok": true,
         "html": false,
@@ -1071,93 +975,21 @@
         "signals": {}
       }
     },
-    "gsb:ff8d78bffd0c42340d7ac8cc9f9f9dd251269ece84fc3b406190a2d00bc74d5b": {
-      "ts": 1773225616.3537705,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:5101a6e265489123f1bae7c1745f7cdee8f5f4a719369d8a98c31558f3102c4b": {
-      "ts": 1773225616.9764202,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:ff8d78bffd0c42340d7ac8cc9f9f9dd251269ece84fc3b406190a2d00bc74d5b": {
-      "ts": 1773225617.2623377,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:ff8d78bffd0c42340d7ac8cc9f9f9dd251269ece84fc3b406190a2d00bc74d5b": {
-      "ts": 1773225617.363457,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:59834ccd0a4384eb672450574a2201a8a461ccc11992a46e260bfe2b4a5744cc": {
-      "ts": 1773225618.7996044,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:bda9c39e5c96110e272e0a92b65068eaa4a5c77952511cfa1cca2a04304c5001": {
-      "ts": 1773225618.9452512,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:59834ccd0a4384eb672450574a2201a8a461ccc11992a46e260bfe2b4a5744cc": {
-      "ts": 1773225619.121087,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:59834ccd0a4384eb672450574a2201a8a461ccc11992a46e260bfe2b4a5744cc": {
-      "ts": 1773225619.2019749,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:d95ff6521551af7ce261c217d66d5987544b20ab4cdd73e2d6ea28533b11b22b": {
-      "ts": 1773225620.5410068,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:8ecccbdb101e6813d264f81e57de67bfd68743958ccb44d2334bb31acfd83816": {
-      "ts": 1773225620.632553,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "gsb:7fa34ac1c4fefb13cf428adc393e007fd94784525087573cdbbaabaa8b01a892": {
-      "ts": 1773225624.0675025,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:f31221aa6782f57ab3807b90ebdc7fb9bb4c692bbc23d78239849596045a9c6a": {
-      "ts": 1773225624.7539415,
+    "redir:1c05c281b28153a0dffd95f12b8556c2ec01e82d6e884031cf405b96e990de3c": {
+      "ts": 1773260675.5897462,
       "val": {
         "ok": true,
-        "notAfter": "May  7 10:02:31 2026 GMT",
-        "days_left": 56
+        "final_url": "https://tutsvet.by/",
+        "chain": [
+          "http://tutsvet.by/db/Mobile.free.fr/FactureID9083742304280909/Moncompte-ID4987450394723489234989/9a42f80d6bf3f53349cef6b13c29512b/moncompte/index.php?clientid=13698&amp;default=c43a3546cc11837998c8e87d514371e1",
+          "https://tutsvet.by/"
+        ],
+        "status": 200,
+        "redirects": 1
       }
     },
     "redir:7fa34ac1c4fefb13cf428adc393e007fd94784525087573cdbbaabaa8b01a892": {
-      "ts": 1773225625.4056764,
+      "ts": 1773260675.7298813,
       "val": {
         "ok": true,
         "final_url": "http://livingeclection.com/lib/PEAR/formtomail.php",
@@ -1168,8 +1000,44 @@
         "redirects": 0
       }
     },
+    "tls:107fab3c702fcf8ea25b32ab834643b38b6e4eda6000636aa89f91776a647175": {
+      "ts": 1773260675.8248057,
+      "val": {
+        "ok": true,
+        "notAfter": "May  2 19:06:32 2026 GMT",
+        "days_left": 51
+      }
+    },
+    "tls:5a1c1e62083781d454e23330880a87c61c0f458cf3395171caa086f7d2eb6b04": {
+      "ts": 1773260675.902098,
+      "val": {
+        "ok": true,
+        "notAfter": "May  4 04:20:14 2026 GMT",
+        "days_left": 53
+      }
+    },
+    "tls:114d6254b425d351e75c206413b6e9bcf09c8c2362f2c46fae7111f6f973a5a1": {
+      "ts": 1773260676.0194829,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 14 08:27:12 2026 GMT",
+        "days_left": 33
+      }
+    },
+    "redir:dd683a4d346490f0d8a00f0203c77025b19660b73b55fcedb5340a3e1fbb77d3": {
+      "ts": 1773260676.090622,
+      "val": {
+        "ok": true,
+        "final_url": "http://www.barrlaw.com/wp-admin/includes/DTCs",
+        "chain": [
+          "http://www.barrlaw.com/wp-admin/includes/DTCs"
+        ],
+        "status": 403,
+        "redirects": 0
+      }
+    },
     "html:7fa34ac1c4fefb13cf428adc393e007fd94784525087573cdbbaabaa8b01a892": {
-      "ts": 1773225625.8481011,
+      "ts": 1773260676.2298548,
       "val": {
         "ok": true,
         "html": true,
@@ -1185,127 +1053,8 @@
         }
       }
     },
-    "gsb:da835c46caa869209bba1b35a795aa56e88adf563157ac696246c58e711be9f6": {
-      "ts": 1773225627.2462933,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:5c8fa277f51ed0126a416d2bbc7b8c77c89816e13bf9ee19226fc13d6e38bbf2": {
-      "ts": 1773225627.4668891,
-      "val": {
-        "ok": true,
-        "notAfter": "May 13 14:38:13 2026 GMT",
-        "days_left": 63
-      }
-    },
-    "redir:da835c46caa869209bba1b35a795aa56e88adf563157ac696246c58e711be9f6": {
-      "ts": 1773225628.348035,
-      "val": {
-        "ok": true,
-        "final_url": "https://wertyert.weebly.com/",
-        "chain": [
-          "https://wertyert.weebly.com/"
-        ],
-        "status": 404,
-        "redirects": 0
-      }
-    },
-    "html:da835c46caa869209bba1b35a795aa56e88adf563157ac696246c58e711be9f6": {
-      "ts": 1773225629.2787294,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://wertyert.weebly.com/",
-        "content_type": "text/html; charset=utf-8",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_reg": null,
-          "page_reg": "weebly.com"
-        }
-      }
-    },
-    "gsb:1c05c281b28153a0dffd95f12b8556c2ec01e82d6e884031cf405b96e990de3c": {
-      "ts": 1773225630.1439426,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:01808f7fff945c5e363e02b9d9b3bec1f2e011d442200790dac2171fe4147e73": {
-      "ts": 1773225630.4983609,
-      "val": {
-        "ok": true,
-        "notAfter": "Mar 22 09:18:14 2027 GMT",
-        "days_left": 375
-      }
-    },
-    "redir:1c05c281b28153a0dffd95f12b8556c2ec01e82d6e884031cf405b96e990de3c": {
-      "ts": 1773225631.2672312,
-      "val": {
-        "ok": true,
-        "final_url": "https://tutsvet.by/",
-        "chain": [
-          "http://tutsvet.by/db/Mobile.free.fr/FactureID9083742304280909/Moncompte-ID4987450394723489234989/9a42f80d6bf3f53349cef6b13c29512b/moncompte/index.php?clientid=13698&amp;default=c43a3546cc11837998c8e87d514371e1",
-          "https://tutsvet.by/"
-        ],
-        "status": 200,
-        "redirects": 1
-      }
-    },
-    "html:1c05c281b28153a0dffd95f12b8556c2ec01e82d6e884031cf405b96e990de3c": {
-      "ts": 1773225632.049803,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://tutsvet.by/",
-        "content_type": "text/html; charset=utf-8",
-        "signals": {
-          "has_form": true,
-          "has_password": false,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_reg": "tutsvet.by",
-          "page_reg": "tutsvet.by"
-        }
-      }
-    },
-    "gsb:076ba556888bb7da3369aef5afdccde3d149c00357531a52cece04dc68866e42": {
-      "ts": 1773225632.651767,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:e6dd517474ec41abc8f01f71d2eedfbf1cbc203a1a9bb755c8b52b5b6d98319a": {
-      "ts": 1773225632.849186,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr  5 17:31:30 2026 GMT",
-        "days_left": 25
-      }
-    },
-    "gsb:3cec9e596604abedc2f12242aa6ceaf68aa3fd9a3ce1ede745e0d384039aa931": {
-      "ts": 1773225633.9176462,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:d366cf261f36b13508124942ba5e525e90c4e040e3421c30643c0602e2f6c0ad": {
-      "ts": 1773225634.0559762,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 27 10:59:05 2026 GMT",
-        "days_left": 47
-      }
-    },
     "redir:3cec9e596604abedc2f12242aa6ceaf68aa3fd9a3ce1ede745e0d384039aa931": {
-      "ts": 1773225634.7954874,
+      "ts": 1773260676.2518663,
       "val": {
         "ok": true,
         "final_url": "https://winstontowers.info/the/casts",
@@ -1317,52 +1066,15 @@
         "redirects": 1
       }
     },
-    "html:3cec9e596604abedc2f12242aa6ceaf68aa3fd9a3ce1ede745e0d384039aa931": {
-      "ts": 1773225635.2202153,
+    "tls:44a2cb0f733a2fc655359dd4aece5d96314e02cd1df308906e96425606c71faa": {
+      "ts": 1773260676.278694,
       "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://winstontowers.info/the/casts",
-        "content_type": "text/html; charset=iso-8859-1",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_reg": null,
-          "page_reg": "winstontowers.info"
-        }
-      }
-    },
-    "gsb:dd683a4d346490f0d8a00f0203c77025b19660b73b55fcedb5340a3e1fbb77d3": {
-      "ts": 1773225637.0699344,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:5a1c1e62083781d454e23330880a87c61c0f458cf3395171caa086f7d2eb6b04": {
-      "ts": 1773225637.3603072,
-      "val": {
-        "ok": true,
-        "notAfter": "May  4 04:20:14 2026 GMT",
-        "days_left": 53
-      }
-    },
-    "redir:dd683a4d346490f0d8a00f0203c77025b19660b73b55fcedb5340a3e1fbb77d3": {
-      "ts": 1773225637.6117847,
-      "val": {
-        "ok": true,
-        "final_url": "http://www.barrlaw.com/wp-admin/includes/DTCs",
-        "chain": [
-          "http://www.barrlaw.com/wp-admin/includes/DTCs"
-        ],
-        "status": 403,
-        "redirects": 0
+        "ok": false,
+        "error": "tls: gaierror"
       }
     },
     "html:dd683a4d346490f0d8a00f0203c77025b19660b73b55fcedb5340a3e1fbb77d3": {
-      "ts": 1773225637.7640471,
+      "ts": 1773260676.3097413,
       "val": {
         "ok": true,
         "html": true,
@@ -1378,22 +1090,65 @@
         }
       }
     },
-    "gsb:c3bf1257520e70ace5788ddfaefc24ad375cb7108e628d8aea30fe685baba519": {
-      "ts": 1773225639.5502136,
+    "tls:41adf6a1cecd58232e1d2f997a97aa689299f7288345ab1dd11ba2a7cfb30a4e": {
+      "ts": 1773260676.669225,
       "val": {
-        "hit": false,
-        "threats": []
+        "ok": true,
+        "notAfter": "Apr 29 12:01:10 2026 GMT",
+        "days_left": 48
       }
     },
     "tls:f047e8078ba8bede725072f0ac38571bd703875cdad3c237f8f759310a046fc8": {
-      "ts": 1773225640.061849,
+      "ts": 1773260676.8027673,
       "val": {
         "ok": false,
         "error": "tls: SSLCertVerificationError"
       }
     },
+    "html:1c05c281b28153a0dffd95f12b8556c2ec01e82d6e884031cf405b96e990de3c": {
+      "ts": 1773260676.8391232,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://tutsvet.by/",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": true,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": "tutsvet.by",
+          "page_reg": "tutsvet.by"
+        }
+      }
+    },
+    "html:3cec9e596604abedc2f12242aa6ceaf68aa3fd9a3ce1ede745e0d384039aa931": {
+      "ts": 1773260677.0866294,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://winstontowers.info/the/casts",
+        "content_type": "text/html; charset=iso-8859-1",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "winstontowers.info"
+        }
+      }
+    },
+    "tls:927859acc28e9110c715c07554580a6fef4af255cf392f4de3da631eebda3edf": {
+      "ts": 1773260677.143595,
+      "val": {
+        "ok": true,
+        "notAfter": "May 11 03:28:45 2026 GMT",
+        "days_left": 60
+      }
+    },
     "redir:c3bf1257520e70ace5788ddfaefc24ad375cb7108e628d8aea30fe685baba519": {
-      "ts": 1773225640.4674263,
+      "ts": 1773260677.2054675,
       "val": {
         "ok": true,
         "final_url": "http://mail.mazdame.net/~masseri/invoice/Ed/Ed/...",
@@ -1404,8 +1159,15 @@
         "redirects": 0
       }
     },
+    "tls:1696eeda14518ce121fa50ddad534c290828628f1da90f8c64cfb31f970a97ce": {
+      "ts": 1773260677.4287944,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
     "html:c3bf1257520e70ace5788ddfaefc24ad375cb7108e628d8aea30fe685baba519": {
-      "ts": 1773225640.868361,
+      "ts": 1773260677.6247406,
       "val": {
         "ok": true,
         "html": true,
@@ -1421,202 +1183,68 @@
         }
       }
     },
-    "gsb:3b216044729340c456dcfaa9638f14ad2d915981fef46e1980e52563237b20b4": {
-      "ts": 1773225642.0091891,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:44a2cb0f733a2fc655359dd4aece5d96314e02cd1df308906e96425606c71faa": {
-      "ts": 1773225642.1171932,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "gsb:ac660d53961acd4a12629d54567f3b470b80862cd2e01d199644a3f9f5e3619f": {
-      "ts": 1773225642.7114232,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:107fab3c702fcf8ea25b32ab834643b38b6e4eda6000636aa89f91776a647175": {
-      "ts": 1773225642.825857,
-      "val": {
-        "ok": true,
-        "notAfter": "May  2 19:06:32 2026 GMT",
-        "days_left": 52
-      }
-    },
-    "gsb:184fbd5385034975074ff124194a54bac76fdc99415ac54098cc1c9b60f3b930": {
-      "ts": 1773225644.332015,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:41adf6a1cecd58232e1d2f997a97aa689299f7288345ab1dd11ba2a7cfb30a4e": {
-      "ts": 1773225644.4617634,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 29 12:01:10 2026 GMT",
-        "days_left": 49
-      }
-    },
-    "redir:184fbd5385034975074ff124194a54bac76fdc99415ac54098cc1c9b60f3b930": {
-      "ts": 1773225644.567145,
-      "val": {
-        "ok": true,
-        "final_url": "http://www.im-creator.com/free/microvalid/bt_mail",
-        "chain": [
-          "http://www.im-creator.com/free/microvalid/bt_mail"
-        ],
-        "status": 403,
-        "redirects": 0
-      }
-    },
-    "html:184fbd5385034975074ff124194a54bac76fdc99415ac54098cc1c9b60f3b930": {
-      "ts": 1773225644.6109118,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "http://www.im-creator.com/free/microvalid/bt_mail",
-        "content_type": "text/html; charset=utf-8",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_reg": null,
-          "page_reg": "im-creator.com"
-        }
-      }
-    },
-    "gsb:000e5f74afb6ec47a5927a8a564e4201f790307b399992e68870cc8505bc1f9c": {
-      "ts": 1773225646.1488051,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:927859acc28e9110c715c07554580a6fef4af255cf392f4de3da631eebda3edf": {
-      "ts": 1773225646.388039,
-      "val": {
-        "ok": true,
-        "notAfter": "May 11 03:28:45 2026 GMT",
-        "days_left": 60
-      }
-    },
-    "gsb:a7aa77119bd874e2bbfaa08c14dfcac1722b7125f21edc14b250162957be0522": {
-      "ts": 1773225648.481368,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:1696eeda14518ce121fa50ddad534c290828628f1da90f8c64cfb31f970a97ce": {
-      "ts": 1773225648.5963738,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
     "redir:a7aa77119bd874e2bbfaa08c14dfcac1722b7125f21edc14b250162957be0522": {
-      "ts": 1773225648.9380403,
+      "ts": 1773260677.6797516,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:a7aa77119bd874e2bbfaa08c14dfcac1722b7125f21edc14b250162957be0522": {
-      "ts": 1773225649.1171844,
+      "ts": 1773260677.90191,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
-    "gsb:3825c91598cfb898bfbad0b89e5e4ec1aee5ce1271753e4e5dbec6942f3ccfd2": {
-      "ts": 1773225650.5176857,
+    "tls:8d919552ece24e483eead0c7b09e9ff3049fc3b1664a6cd22e2cecf2b6fed792": {
+      "ts": 1773260678.097616,
       "val": {
-        "hit": false,
-        "threats": []
+        "ok": true,
+        "notAfter": "May 10 10:40:33 2026 GMT",
+        "days_left": 59
       }
     },
-    "tls:2f8d2c620d2da0c0ff205983a76a7256970be4b05936dfa10f0aabdb1bf3df08": {
-      "ts": 1773225653.6314764,
+    "tls:7b9c9e5f9bb41246065f1c4f738e35078e6b1c0eef7813d0d1221df0591cd4bc": {
+      "ts": 1773260678.7809436,
       "val": {
-        "ok": false,
-        "error": "tls: TimeoutError"
+        "ok": true,
+        "notAfter": "Apr  5 17:31:53 2026 GMT",
+        "days_left": 24
       }
     },
-    "redir:3825c91598cfb898bfbad0b89e5e4ec1aee5ce1271753e4e5dbec6942f3ccfd2": {
-      "ts": 1773225657.6517084,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectTimeout"
-      }
-    },
-    "html:3825c91598cfb898bfbad0b89e5e4ec1aee5ce1271753e4e5dbec6942f3ccfd2": {
-      "ts": 1773225659.676114,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectTimeout"
-      }
-    },
-    "gsb:9e75cb944bf024b4e190c8010e8bd426e0acc3006ed7fab9bf52d8d1ae728036": {
-      "ts": 1773225662.6253371,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:fbace2e60e1709e3c01b9941c2c126370c2e2302a9c67ff8d17299c355697015": {
-      "ts": 1773225662.7385356,
+    "tls:bcd946b521c1d90444f385ad3a8c3d64bb7adfa7ef2f8c8da8357007ec67070f": {
+      "ts": 1773260678.8535693,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
-    "redir:9e75cb944bf024b4e190c8010e8bd426e0acc3006ed7fab9bf52d8d1ae728036": {
-      "ts": 1773225662.8891065,
+    "tls:dac5c383dc5dfbbaef0f2bd427767741e6aeca0a97d892a0fd691a75dd37ec22": {
+      "ts": 1773260678.8819478,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr  5 17:31:53 2026 GMT",
+        "days_left": 24
+      }
+    },
+    "tls:322196dc6c2bede16bd007668af30f235e04883e76eb566e212894eae9ac832e": {
+      "ts": 1773260678.987819,
+      "val": {
+        "ok": true,
+        "notAfter": "May 11 03:28:45 2026 GMT",
+        "days_left": 60
+      }
+    },
+    "redir:f7ac959136115273a444dcf5ac8e2bc804c59bc601620674a0f1b897f525b530": {
+      "ts": 1773260679.1694708,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
-    "html:9e75cb944bf024b4e190c8010e8bd426e0acc3006ed7fab9bf52d8d1ae728036": {
-      "ts": 1773225662.9680343,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:10c58f09b5650d97d71c393240e48befa8e292c022a49a07efbb4308d39043f7": {
-      "ts": 1773225664.7988892,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:7b9c9e5f9bb41246065f1c4f738e35078e6b1c0eef7813d0d1221df0591cd4bc": {
-      "ts": 1773225665.0019147,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr  5 17:31:53 2026 GMT",
-        "days_left": 25
-      }
-    },
-    "gsb:58f44e5448dee68d0d3aa701398949e02d0616c5ae4f1b96611e77b583a8038f": {
-      "ts": 1773225667.7382684,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
     "tls:052b5aae023f99cef97e9a19465977a59580655f86f46119bf2fc32ff578ed04": {
-      "ts": 1773225667.8669915,
+      "ts": 1773260679.18958,
       "val": {
         "ok": true,
         "notAfter": "May  9 08:41:12 2026 GMT",
@@ -1624,7 +1252,7 @@
       }
     },
     "redir:58f44e5448dee68d0d3aa701398949e02d0616c5ae4f1b96611e77b583a8038f": {
-      "ts": 1773225667.9671662,
+      "ts": 1773260679.310136,
       "val": {
         "ok": true,
         "final_url": "http://brandappz.com/knby545",
@@ -1635,8 +1263,23 @@
         "redirects": 0
       }
     },
+    "html:f7ac959136115273a444dcf5ac8e2bc804c59bc601620674a0f1b897f525b530": {
+      "ts": 1773260679.3572893,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:d6faa5f5d850757e5a013918a59c0be377f4067aec861a45f7cfd566aa676804": {
+      "ts": 1773260679.389566,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 27 16:03:19 2026 GMT",
+        "days_left": 46
+      }
+    },
     "html:58f44e5448dee68d0d3aa701398949e02d0616c5ae4f1b96611e77b583a8038f": {
-      "ts": 1773225668.0752213,
+      "ts": 1773260679.439906,
       "val": {
         "ok": true,
         "html": true,
@@ -1652,230 +1295,30 @@
         }
       }
     },
-    "gsb:c01c426bbb71cd2e2c86f03e6800748d5f72435bbe09943a0da719c58a5b2791": {
-      "ts": 1773225669.0384207,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:1da38d0c4d1668dbf3b728fe6e4bdd137c4100378dd5e6fc87df15ddeb6109f9": {
-      "ts": 1773225672.131619,
+    "tls:2f8d2c620d2da0c0ff205983a76a7256970be4b05936dfa10f0aabdb1bf3df08": {
+      "ts": 1773260680.1913662,
       "val": {
         "ok": false,
         "error": "tls: TimeoutError"
       }
     },
-    "gsb:f7ac959136115273a444dcf5ac8e2bc804c59bc601620674a0f1b897f525b530": {
-      "ts": 1773225674.6363232,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:bcd946b521c1d90444f385ad3a8c3d64bb7adfa7ef2f8c8da8357007ec67070f": {
-      "ts": 1773225674.7384732,
+    "tls:419499d485605a8f96ea85a5b3027bca4a44c4954b48979f5bd4206dd9274d9e": {
+      "ts": 1773260680.229365,
       "val": {
         "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:f7ac959136115273a444dcf5ac8e2bc804c59bc601620674a0f1b897f525b530": {
-      "ts": 1773225674.9356942,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:f7ac959136115273a444dcf5ac8e2bc804c59bc601620674a0f1b897f525b530": {
-      "ts": 1773225675.0257888,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:8ffc9d3b46bafe2491843f63c3b6b7764104af029057bd9edbe868359749fc30": {
-      "ts": 1773225677.255533,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:02b00c4f284b897a4fd035e607f6b4e3b79662791a336bf149c79645fcafaf8f": {
-      "ts": 1773225677.3950765,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 29 02:10:15 2026 GMT",
-        "days_left": 48
-      }
-    },
-    "redir:8ffc9d3b46bafe2491843f63c3b6b7764104af029057bd9edbe868359749fc30": {
-      "ts": 1773225678.0693026,
-      "val": {
-        "ok": true,
-        "final_url": "https://rocchiusa.webflow.io/",
-        "chain": [
-          "https://rocchiusa.webflow.io/"
-        ],
-        "status": 404,
-        "redirects": 0
-      }
-    },
-    "html:8ffc9d3b46bafe2491843f63c3b6b7764104af029057bd9edbe868359749fc30": {
-      "ts": 1773225678.3482049,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://rocchiusa.webflow.io/",
-        "content_type": "text/html; charset=utf-8",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_reg": null,
-          "page_reg": "webflow.io"
-        }
-      }
-    },
-    "gsb:44b2524048d008d20805a43b77e76a02d948b5e949134428ebbd9aa7c1f30f9c": {
-      "ts": 1773225678.8612602,
-      "val": {
-        "error": "GSB HTTP 400"
-      }
-    },
-    "gsb:bd4b2572dafe6ad5e201016d08ebdf04cd1d95e5a115d100b92dbb24e8e7c8a8": {
-      "ts": 1773225680.5064723,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:8d919552ece24e483eead0c7b09e9ff3049fc3b1664a6cd22e2cecf2b6fed792": {
-      "ts": 1773225680.6178563,
-      "val": {
-        "ok": true,
-        "notAfter": "May 10 10:40:33 2026 GMT",
-        "days_left": 59
-      }
-    },
-    "gsb:9bc9fc62b49258f6a8ad9c8a08059f6e6667c780aea9c378dff2207ed04bc124": {
-      "ts": 1773225682.2539985,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:d6faa5f5d850757e5a013918a59c0be377f4067aec861a45f7cfd566aa676804": {
-      "ts": 1773225682.476227,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 27 16:03:19 2026 GMT",
-        "days_left": 47
-      }
-    },
-    "gsb:b5ba79bfd852bd30e64bae8ef14ab5bb114f0f33c12a1169fa56e791ef2125a1": {
-      "ts": 1773225685.7891152,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:a0bb12aa7d1449ffaea6c8e7955a8a11039defb16147c6038187325eb651607c": {
-      "ts": 1773225686.0387106,
-      "val": {
-        "ok": true,
-        "notAfter": "Jun  2 02:26:21 2026 GMT",
-        "days_left": 82
-      }
-    },
-    "redir:b5ba79bfd852bd30e64bae8ef14ab5bb114f0f33c12a1169fa56e791ef2125a1": {
-      "ts": 1773225686.4626427,
-      "val": {
-        "ok": true,
-        "final_url": "https://sikeikseeee.company.site/",
-        "chain": [
-          "https://sikeikseeee.company.site/"
-        ],
-        "status": 200,
-        "redirects": 0
-      }
-    },
-    "html:b5ba79bfd852bd30e64bae8ef14ab5bb114f0f33c12a1169fa56e791ef2125a1": {
-      "ts": 1773225686.8758645,
-      "val": {
-        "ok": true,
-        "html": false,
-        "content_type": "",
-        "signals": {}
-      }
-    },
-    "gsb:7e4ecc3af76c79c645987c0facbeb086a40c05b4b3dc258e82defd75bd351a67": {
-      "ts": 1773225688.4980614,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:9e04a0316ed849e79ac96a57cd4d9aaa35346aa637654de030d34f58c5431b30": {
-      "ts": 1773225688.8956988,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "gsb:4bc4164b5243f8e7b3e8f8e2fb10f987d9866f20bbe7506c3f2e9ee3187c0ff0": {
-      "ts": 1773225690.434428,
-      "val": {
-        "hit": false,
-        "threats": []
+        "error": "tls: SSLError"
       }
     },
     "tls:181d03516d58abdafa1232ff973c548596a1746085dc512a3fb34907742b5cdf": {
-      "ts": 1773225690.6993537,
+      "ts": 1773260680.2794602,
       "val": {
         "ok": true,
         "notAfter": "Apr 25 01:17:06 2026 GMT",
         "days_left": 44
       }
     },
-    "redir:4bc4164b5243f8e7b3e8f8e2fb10f987d9866f20bbe7506c3f2e9ee3187c0ff0": {
-      "ts": 1773225690.8753247,
-      "val": {
-        "ok": true,
-        "final_url": "http://www.bobcareyphoto.com/gwutoday/wordpress/domain2/webmail/WebMail.php?rand=13InboxLightaspxn.1774256418&amp",
-        "chain": [
-          "http://www.bobcareyphoto.com/gwutoday/wordpress/domain2/webmail/WebMail.php?rand=13InboxLightaspxn.1774256418&amp"
-        ],
-        "status": 404,
-        "redirects": 0
-      }
-    },
-    "html:4bc4164b5243f8e7b3e8f8e2fb10f987d9866f20bbe7506c3f2e9ee3187c0ff0": {
-      "ts": 1773225690.9771063,
-      "val": {
-        "ok": true,
-        "html": false,
-        "content_type": "",
-        "signals": {}
-      }
-    },
-    "gsb:d8ceffec4cf5931a94053ff53d366535e83d3ae07c6567def27981351a94f300": {
-      "ts": 1773225693.3194776,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:419499d485605a8f96ea85a5b3027bca4a44c4954b48979f5bd4206dd9274d9e": {
-      "ts": 1773225693.607937,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLError"
-      }
-    },
     "redir:d8ceffec4cf5931a94053ff53d366535e83d3ae07c6567def27981351a94f300": {
-      "ts": 1773225693.7676451,
+      "ts": 1773260680.4224336,
       "val": {
         "ok": true,
         "final_url": "http://arcziuuucity.y0.pl/987nkjh8",
@@ -1886,8 +1329,28 @@
         "redirects": 0
       }
     },
+    "redir:4bc4164b5243f8e7b3e8f8e2fb10f987d9866f20bbe7506c3f2e9ee3187c0ff0": {
+      "ts": 1773260680.4478197,
+      "val": {
+        "ok": true,
+        "final_url": "http://www.bobcareyphoto.com/gwutoday/wordpress/domain2/webmail/WebMail.php?rand=13InboxLightaspxn.1774256418&amp",
+        "chain": [
+          "http://www.bobcareyphoto.com/gwutoday/wordpress/domain2/webmail/WebMail.php?rand=13InboxLightaspxn.1774256418&amp"
+        ],
+        "status": 404,
+        "redirects": 0
+      }
+    },
+    "tls:786aaa6c693cf5f3840bb8fd153b2a4959147fe9052eabb656c4efe01591a9b8": {
+      "ts": 1773260680.4800024,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr  5 17:31:53 2026 GMT",
+        "days_left": 24
+      }
+    },
     "html:d8ceffec4cf5931a94053ff53d366535e83d3ae07c6567def27981351a94f300": {
-      "ts": 1773225693.9240243,
+      "ts": 1773260680.6186423,
       "val": {
         "ok": true,
         "html": true,
@@ -1903,1052 +1366,1019 @@
         }
       }
     },
-    "gsb:22f1b4a1e9615e7dc6a4f96a79c29b951919d47215ee68807f8b7994da532d05": {
-      "ts": 1773252062.5109258,
+    "tls:1da38d0c4d1668dbf3b728fe6e4bdd137c4100378dd5e6fc87df15ddeb6109f9": {
+      "ts": 1773260680.8038173,
       "val": {
-        "hit": false,
-        "threats": []
+        "ok": false,
+        "error": "tls: TimeoutError"
       }
     },
-    "tls:b1fcdbf1ee4a49b138abb903dde3191ec8cc4e92da28b554ec022be9a227befe": {
-      "ts": 1773252062.676238,
+    "tls:21713f2bd8f8fa09cb99ae072f9bfe18dc1ebbcd1433385e6bdb2af8f5098d4a": {
+      "ts": 1773260681.215552,
       "val": {
-        "ok": true,
-        "notAfter": "May 25 16:08:52 2026 GMT",
-        "days_left": 74
+        "ok": false,
+        "error": "tls: gaierror"
       }
     },
-    "tls:1c34d4fb5f73801b45fa68efbb27f61fd440f1a49a85fa8626a21eafa8b1d24c": {
-      "ts": 1773258338.2532694,
+    "tls:fef85afb69d2de1fba87e118b03cc61f1406b4c819495baa3363492e61272fe7": {
+      "ts": 1773260681.4283113,
       "val": {
-        "ok": true,
-        "notAfter": "Aug  3 08:22:17 2026 GMT",
-        "days_left": 144
+        "ok": false,
+        "error": "tls: gaierror"
       }
     },
-    "tls:ceb4ca2cdc0001b440455df845c18fc19310a3d299f79802848334db55ba283a": {
-      "ts": 1773258374.7710958,
+    "tls:2c2c75ed7f7615cfac4e377039a12610cccc60c5e1dcc2f802ac9cc333513088": {
+      "ts": 1773260681.4924293,
       "val": {
-        "ok": true,
-        "notAfter": "Feb 14 13:03:45 2027 GMT",
-        "days_left": 339
+        "ok": false,
+        "error": "tls: gaierror"
       }
     },
-    "tls:7caff9e64d565c9c8cbb57969ecd58bf1b9bd528537b410dc45ae8f0736ff767": {
-      "ts": 1773258419.6959076,
+    "tls:b9af7d881b9f4222dae28a7108cdcbf28605e9b3e19314699e0b5112fcebd682": {
+      "ts": 1773260681.802347,
       "val": {
         "ok": true,
-        "notAfter": "Apr 11 08:06:30 2026 GMT",
-        "days_left": 30
+        "notAfter": "Jun  8 15:51:31 2026 GMT",
+        "days_left": 88
       }
     },
-    "redir:8c132669acb050f97048adf3494881a295d7d215e3038599b33a55a34ebd3db2": {
-      "ts": 1773258421.1264737,
+    "tls:4ff4e3b5a7ef061400d371ced7bfbbddd49edaa8fd54ec3694fb61186c210a2d": {
+      "ts": 1773260682.7415435,
       "val": {
-        "ok": true,
-        "final_url": "https://news.ycombinator.com/",
-        "chain": [
-          "https://news.ycombinator.com/"
-        ],
-        "status": 405,
-        "redirects": 0
+        "ok": false,
+        "error": "tls: gaierror"
       }
     },
-    "html:8c132669acb050f97048adf3494881a295d7d215e3038599b33a55a34ebd3db2": {
-      "ts": 1773258422.573225,
+    "redir:46073f65a2d27c24bb50743a383c33ddd76fbe827b4846ca1ca0bd8b0d9b166d": {
+      "ts": 1773260682.9520156,
       "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://news.ycombinator.com/",
-        "content_type": "text/html; charset=utf-8",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": true,
-          "external_form_action": false,
-          "action_reg": null,
-          "page_reg": "ycombinator.com"
-        }
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:46073f65a2d27c24bb50743a383c33ddd76fbe827b4846ca1ca0bd8b0d9b166d": {
+      "ts": 1773260683.0585034,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:6ed9b3e75f475ca78581a1f56672af15a551b123bc0f1643ee6a7762f7b1e2b0": {
+      "ts": 1773260694.9841244,
+      "val": {
+        "ok": false,
+        "error": "tls: SSLCertVerificationError"
       }
     },
     "tls:d94ea1889af82a7d28fa7a297889b568a4bc6b0deb16e669a6d0b4086dd382f1": {
-      "ts": 1773258498.0415099,
+      "ts": 1773260931.2615044,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:3f412df89981032763d9bc0c3fac501fbbcce67c461f8face6fe1e2a46a30480": {
-      "ts": 1773258498.2367835,
+      "ts": 1773260931.4167266,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:3f412df89981032763d9bc0c3fac501fbbcce67c461f8face6fe1e2a46a30480": {
-      "ts": 1773258498.3217568,
+      "ts": 1773260931.5005043,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:63ce8786f1bb510638108c228e8fbfece0df3bdd7a580143870081e833f02298": {
-      "ts": 1773258498.6981275,
+      "ts": 1773260931.8026214,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:4d21f0e6a1e1b443ff5f256682c0182f1b9000f3aec6d0c1fdeeb8534320776a": {
-      "ts": 1773258498.9028714,
+      "ts": 1773260931.9546552,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:4d21f0e6a1e1b443ff5f256682c0182f1b9000f3aec6d0c1fdeeb8534320776a": {
-      "ts": 1773258498.9893909,
+      "ts": 1773260932.0392609,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:43417c957c1d48b4a1dbf35983824464428f574467de0c31be8b6fa80d5697fc": {
-      "ts": 1773258499.170845,
+      "ts": 1773260932.2069826,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:eb48636d386d46e1c3f8b3524c059eb1e0885f098b1447852b7cce5330d8ac19": {
-      "ts": 1773258499.3778207,
+      "ts": 1773260932.3602076,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:eb48636d386d46e1c3f8b3524c059eb1e0885f098b1447852b7cce5330d8ac19": {
-      "ts": 1773258499.5182917,
+      "ts": 1773260932.4447045,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:cc6c288d6364ee2088d9cf4e0bd389f90b95a4dee9232ed64f7dabc982f7bd5a": {
-      "ts": 1773258499.7905588,
+      "ts": 1773260932.6888227,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:231e725fcf307933b3234751bee47f9183ee486bf213d532876bc88edbd83640": {
-      "ts": 1773258499.9611497,
+      "ts": 1773260932.8939755,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:231e725fcf307933b3234751bee47f9183ee486bf213d532876bc88edbd83640": {
-      "ts": 1773258500.0432525,
+      "ts": 1773260932.9808953,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:3966a6e03d9785b77617e1b15591b64a1b16e7bcb4a62ddeb990190777deff36": {
-      "ts": 1773258500.4129887,
+      "ts": 1773260933.3372035,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:30afb1c11419eba5080f658f9686299607ae08c0f87762ba8b62d5729c8b79df": {
-      "ts": 1773258500.603199,
+      "ts": 1773260933.5928655,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:30afb1c11419eba5080f658f9686299607ae08c0f87762ba8b62d5729c8b79df": {
-      "ts": 1773258500.7987149,
+      "ts": 1773260933.7787664,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:52c34e8ac91849bd6901b8d2ee4003c28014ad7590c580f0c1a14061ae2959e1": {
-      "ts": 1773258501.0108075,
+      "ts": 1773260933.9849303,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:2c7fadf89fd77572ed8cef463d55cea82a5006d572d5d41c7eb54bd755be32a1": {
-      "ts": 1773258501.361501,
+      "ts": 1773260934.1981812,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:2c7fadf89fd77572ed8cef463d55cea82a5006d572d5d41c7eb54bd755be32a1": {
-      "ts": 1773258501.446714,
+      "ts": 1773260934.3916633,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:5e552f75ee9bbce8a2acfec11a81a3583177b9799622b4518f6a1a0c71e4b481": {
-      "ts": 1773258501.7706084,
+      "ts": 1773260934.7979503,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "tls:f21faac58c7a891b822ab6ec748c832da6d02bd8435d66e7cea5b5d333256dea": {
-      "ts": 1773258502.235501,
+      "ts": 1773260935.2869043,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:693f52caf109d357f8e537cac34708ec160dde249a3ae4655e6100cff7be2adc": {
-      "ts": 1773258502.3886049,
+      "ts": 1773260935.4929645,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:693f52caf109d357f8e537cac34708ec160dde249a3ae4655e6100cff7be2adc": {
-      "ts": 1773258502.4694507,
+      "ts": 1773260935.5969687,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:143aa39de5c5d9676612456ae01ad8f1240f8454e456833dcb41e2a42e47430f": {
-      "ts": 1773258502.7550132,
+      "ts": 1773260935.9683218,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
-    "redir:2d3db0f94aca1a9751617d72238ffd4854145637133e7c384b39dfb09068d0d1": {
-      "ts": 1773258502.9057322,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:2d3db0f94aca1a9751617d72238ffd4854145637133e7c384b39dfb09068d0d1": {
-      "ts": 1773258503.0195012,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
     "tls:b50572cc1f58c72f9a6897ea06d18cdfd9a7ea1a2ab00b263c9a37c485664d0f": {
-      "ts": 1773258503.2854924,
+      "ts": 1773260936.241837,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "tls:9d8647a4586dbaff9871ccf197fbc8b0178d12a88cbe66696ffc8c9de2b0d63b": {
-      "ts": 1773258503.4853098,
+      "ts": 1773260936.4410956,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "tls:e8eed2a3fcc46fa5ea4e4e399fcf8c243d421a3d336f657a0853ee5989668529": {
-      "ts": 1773258503.677432,
+      "ts": 1773260936.6512873,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:e03f7c4d8e5e599fdd8644d054e3b9bf5ebb0bd3b1935a050533785adc9e1c18": {
-      "ts": 1773258503.8843696,
+      "ts": 1773260936.9921792,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:e03f7c4d8e5e599fdd8644d054e3b9bf5ebb0bd3b1935a050533785adc9e1c18": {
-      "ts": 1773258504.0228453,
+      "ts": 1773260937.0781097,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:c4d4c72782a6ef9bd8c9c8467dfd0fee305dbbaf23f4b330eca42c4b4f939fd9": {
-      "ts": 1773258504.2906153,
+      "ts": 1773260937.4004037,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "tls:5c02b6092b657ca42a941e51df8de6f116f9a00108efb6a9b47f8b6ac0677b38": {
-      "ts": 1773258504.4979749,
+      "ts": 1773260937.666176,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:e907286b215e456183a500df713b501e9e950f3a84cc08c4ccd8f9b64456faaa": {
-      "ts": 1773258504.6997054,
+      "ts": 1773260937.8197846,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:e907286b215e456183a500df713b501e9e950f3a84cc08c4ccd8f9b64456faaa": {
-      "ts": 1773258504.9055202,
+      "ts": 1773260937.9065766,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:b9511fc3e7688d86cb91b74570d6fe4ca61339db8d6455ddba93393808115b7a": {
-      "ts": 1773258505.1385515,
+      "ts": 1773260938.2185104,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "tls:61e4137db5e5d5bb969e472656a1655fe6552d6441afada3488d8cbcf068cce6": {
-      "ts": 1773258505.4577434,
+      "ts": 1773260938.5099154,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
-    "redir:f0230456f38502ca45a1a7746d83543c7d6747b18eb5de766359d472b4a2e290": {
-      "ts": 1773258505.7291973,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:f0230456f38502ca45a1a7746d83543c7d6747b18eb5de766359d472b4a2e290": {
-      "ts": 1773258505.923558,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
     "tls:9a3aadbf60a6c83c8e2ddeec48acefb6872283082215b44348e0161960fac44e": {
-      "ts": 1773258506.1365757,
+      "ts": 1773260938.7822642,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "tls:d29bcb86fce18d66b87efbc449d6dfbff69aea7cd3bbe41512ad5491806be68a": {
-      "ts": 1773258506.366918,
+      "ts": 1773260939.1246684,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:808ad81e01570acc02cae36899458cbe34d2d9e03e24ecafff9b9ac42af31fac": {
-      "ts": 1773258506.686684,
+      "ts": 1773260939.4497287,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:808ad81e01570acc02cae36899458cbe34d2d9e03e24ecafff9b9ac42af31fac": {
-      "ts": 1773258506.889445,
+      "ts": 1773260939.6544566,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:7f2eb9b497213e77794201d28526c3ff1f931f4ca79e63b6783966163fe00303": {
-      "ts": 1773258507.158859,
+      "ts": 1773260939.9259734,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:8390c6d5291c16fa44e6b4b78654fd5939f5c07dd589e40158a37c5225c08f7d": {
-      "ts": 1773258507.365486,
+      "ts": 1773260940.2684782,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:8390c6d5291c16fa44e6b4b78654fd5939f5c07dd589e40158a37c5225c08f7d": {
-      "ts": 1773258507.4544313,
+      "ts": 1773260940.357279,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:98c14198188b8e7b1f5f54e19ad9c58df6d4402dd769025dddf0f03f8b4b1a07": {
-      "ts": 1773258507.98017,
+      "ts": 1773260940.9480994,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "tls:cec22035b011c6628119e2d13387b7913d775e297f52322e8d17e7ccbddcf64a": {
-      "ts": 1773258508.2114735,
+      "ts": 1773260941.210099,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:a7e26d2b8087422228c1ecacf3fd22cbab4ebabb79a0bf0f0d921d3e834acfba": {
-      "ts": 1773258508.3726342,
+      "ts": 1773260941.4806912,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:a7e26d2b8087422228c1ecacf3fd22cbab4ebabb79a0bf0f0d921d3e834acfba": {
-      "ts": 1773258508.4602778,
+      "ts": 1773260941.6218479,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:4af3de510fbf31e3091f972cda3b326bde423c64c7fb827c1134b59a4eae7af3": {
-      "ts": 1773258508.7535748,
+      "ts": 1773260941.9065223,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
-    "redir:ce2da3b8282594ca3bf85549609c24643c4a5102f71cfc9b066fc37d96126109": {
-      "ts": 1773258508.9431818,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:ce2da3b8282594ca3bf85549609c24643c4a5102f71cfc9b066fc37d96126109": {
-      "ts": 1773258509.1224809,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
     "tls:2a6d9b40c6fb9746ebc66acb336cb421ef1db552a2187831992bc876c246a194": {
-      "ts": 1773258509.557459,
+      "ts": 1773260942.379553,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:88be1640ad5ede675ecbb46fa4600781a984c4d823218ca7809f465468dc5239": {
-      "ts": 1773258509.8261344,
+      "ts": 1773260942.5904703,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:88be1640ad5ede675ecbb46fa4600781a984c4d823218ca7809f465468dc5239": {
-      "ts": 1773258510.02192,
+      "ts": 1773260942.7888358,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:1d3f0e9cba61ebc3334a51e0eecd61f62edcb75a514f26f5b8bbdca852734eb1": {
-      "ts": 1773258510.2541296,
+      "ts": 1773260943.0207458,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:176a31a8053b1095e801c161f1803fd8661f65b68e856d1756fd324fc2cc5130": {
-      "ts": 1773258510.5773299,
+      "ts": 1773260943.3404799,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:176a31a8053b1095e801c161f1803fd8661f65b68e856d1756fd324fc2cc5130": {
-      "ts": 1773258510.673593,
+      "ts": 1773260943.5452282,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "redir:e5576543039b6cca53e6b1223563a434140a681ce41fb844e3a196d09e8e1c9c": {
-      "ts": 1773258510.8928244,
+      "ts": 1773260943.9547493,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:e5576543039b6cca53e6b1223563a434140a681ce41fb844e3a196d09e8e1c9c": {
-      "ts": 1773258510.9856813,
+      "ts": 1773260944.0419528,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:b227f027f02e5655f24f77481a231b734a208ad2977ff2a7a2b103792247601f": {
-      "ts": 1773258511.2124422,
+      "ts": 1773260944.3640213,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
-    "redir:3da641639a86723c371e55160e9868efbd548d09f834ec00820e312532f42b83": {
-      "ts": 1773258511.4315906,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:3da641639a86723c371e55160e9868efbd548d09f834ec00820e312532f42b83": {
-      "ts": 1773258511.5464258,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
     "redir:54a8c8584768544eed7cb3fc99581c8f45beb4b7879f5c689b313c0a9d50a1f0": {
-      "ts": 1773258511.8409402,
+      "ts": 1773260944.7736075,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:54a8c8584768544eed7cb3fc99581c8f45beb4b7879f5c689b313c0a9d50a1f0": {
-      "ts": 1773258512.009965,
+      "ts": 1773260944.8618217,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:416ef6dbb1e9b929dc9748197f4c3c8ffb3c7869c02b5303ab413cd1ac92fa26": {
-      "ts": 1773258512.4848485,
+      "ts": 1773260945.387827,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
-    "redir:d70d18d891eb0fa62221c492e759e183d368447e16e5e79138c5a81d33df2c5e": {
-      "ts": 1773258512.8290703,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:d70d18d891eb0fa62221c492e759e183d368447e16e5e79138c5a81d33df2c5e": {
-      "ts": 1773258513.0294356,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
     "redir:44aedfb89ed91fa892beb99beef2137611925ee4831c9427cc339b70a25b6d49": {
-      "ts": 1773258513.3070998,
+      "ts": 1773260945.7223728,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:44aedfb89ed91fa892beb99beef2137611925ee4831c9427cc339b70a25b6d49": {
-      "ts": 1773258513.3963113,
+      "ts": 1773260945.8139067,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:209bd2821e4dee350270e110dae04016f1573881f80c5e1bbe5bae01c0dc2b96": {
-      "ts": 1773258513.7724907,
+      "ts": 1773260946.2063527,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:7e86e6a8ce031202477744eb21c3b62d9d36d796bc42fd93da14a607f9ffe997": {
-      "ts": 1773258513.959037,
+      "ts": 1773260946.4212785,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:7e86e6a8ce031202477744eb21c3b62d9d36d796bc42fd93da14a607f9ffe997": {
-      "ts": 1773258514.0481613,
+      "ts": 1773260946.6155367,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:935fd2ef372ba472205ba645ce93cce612fcf7941b78206c6dee1de2c7462d9b": {
-      "ts": 1773258514.3254158,
+      "ts": 1773260946.868128,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "tls:56c3b2f77a97d663977c290a1897fe6009b303f5c77b984732ac19be5f1a82c9": {
-      "ts": 1773258514.6298568,
+      "ts": 1773260947.2480676,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
-    "redir:ac931377a060fe043c2727337113b6dc3af1ddadcdb1b812d77f3a8ca7c773db": {
-      "ts": 1773258514.8291676,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:ac931377a060fe043c2727337113b6dc3af1ddadcdb1b812d77f3a8ca7c773db": {
-      "ts": 1773258514.9199212,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
     "tls:d081c6f502d87334306cc92f4bf64156a7b2490d664e53af7a3fccbfe573078d": {
-      "ts": 1773258515.1651745,
+      "ts": 1773260947.5011072,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "tls:1bb6c337d93a9dc208da9790a9d13207b3fb6dd69f3c9c63f3223672cf84b83d": {
-      "ts": 1773258515.4928508,
+      "ts": 1773260947.7315373,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:99211d8e1b92dcb50a126dde08efbf19b51b2b2c326ac1fc07f111e205b5c27d": {
-      "ts": 1773258515.7604003,
+      "ts": 1773260948.0507107,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:99211d8e1b92dcb50a126dde08efbf19b51b2b2c326ac1fc07f111e205b5c27d": {
-      "ts": 1773258515.9591146,
+      "ts": 1773260948.1377878,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:373b30aa42b2819ab8ea5b21ad93a73c933a852b40b0223878c0d97b854644c5": {
-      "ts": 1773258516.2518876,
+      "ts": 1773260948.4597313,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:6c7e4379bb35c5570b8f7a3078b8659b7c74d42d5a025f2dd34ae66f66315d89": {
-      "ts": 1773258516.598214,
+      "ts": 1773260948.7314942,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:6c7e4379bb35c5570b8f7a3078b8659b7c74d42d5a025f2dd34ae66f66315d89": {
-      "ts": 1773258516.7022367,
+      "ts": 1773260948.9320238,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:ea4f001017df824e77f31dc0d8aba076628e51b8cbec0e0dac1340efb520de45": {
-      "ts": 1773258517.048262,
+      "ts": 1773260949.149423,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
-    "redir:6c41630adaf61ffd443e2840384cb840706aca06e2dfb873e870e86b27859a7f": {
-      "ts": 1773258517.5421977,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:6c41630adaf61ffd443e2840384cb840706aca06e2dfb873e870e86b27859a7f": {
-      "ts": 1773258517.745225,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
     "tls:616c40bc023c454bc2d6dc06759ae2d219faeabebc11bf943887c2b1322f5e89": {
-      "ts": 1773258518.2175932,
+      "ts": 1773260949.7786734,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:40441eabdfdcd17cc0b32c3b707f8bb95df06b433ae55536f59274efce0bfccc": {
-      "ts": 1773258518.489804,
+      "ts": 1773260950.0989661,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:40441eabdfdcd17cc0b32c3b707f8bb95df06b433ae55536f59274efce0bfccc": {
-      "ts": 1773258518.5857828,
+      "ts": 1773260950.3026733,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:769bda0db23f45ccb78615c43aae62cf446876dc3cb67545ec168b1094480bd9": {
-      "ts": 1773258518.9196503,
+      "ts": 1773260950.572123,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "tls:fb38290c6817d557096bdf8f56c2542feed0824e5c3e4f7964bd087c8e2ae1c3": {
-      "ts": 1773258519.4800322,
+      "ts": 1773260950.9812346,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:ca614566cedcf03051f7b06986f7be2e2df81e16daede1422b2bdd074e2f14c5": {
-      "ts": 1773258519.6533358,
+      "ts": 1773260951.1909745,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:ca614566cedcf03051f7b06986f7be2e2df81e16daede1422b2bdd074e2f14c5": {
-      "ts": 1773258519.769661,
+      "ts": 1773260951.3280137,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:29b7931d5b631148722bd1c5749d8d52c9f1a471fc942ec6e426ddc55294eb45": {
-      "ts": 1773258520.1623797,
+      "ts": 1773260951.6574454,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:4ad989602e5228ba5f30381fc0eeef2dac88e3d47d1a0e1b22acb354e005551a": {
-      "ts": 1773258520.4083269,
+      "ts": 1773260951.8131983,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:4ad989602e5228ba5f30381fc0eeef2dac88e3d47d1a0e1b22acb354e005551a": {
-      "ts": 1773258520.6162937,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "redir:b778ec810a5745eac2a27ec40562a9b35810e4d4ac007884a1b755fbf3f87ca2": {
-      "ts": 1773258521.226542,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:b778ec810a5745eac2a27ec40562a9b35810e4d4ac007884a1b755fbf3f87ca2": {
-      "ts": 1773258521.431773,
+      "ts": 1773260952.0036235,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:00f52c55add6dccfbc2396940a919493a4ecc601f5681f2631be81f305fac24f": {
-      "ts": 1773258522.046572,
+      "ts": 1773260952.7759702,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:41570551f8f7485bbb655a21928b869c093bfc88821a701940d5d3f910b7ce60": {
-      "ts": 1773258522.3252335,
+      "ts": 1773260953.035414,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:41570551f8f7485bbb655a21928b869c093bfc88821a701940d5d3f910b7ce60": {
-      "ts": 1773258522.5209837,
+      "ts": 1773260953.2362368,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:12421ff2c1647fbcaf755974045dc369d87627b94a357f05b6e14a5ec0443255": {
-      "ts": 1773258522.9260323,
+      "ts": 1773260953.5771236,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:12969a28d6e0beedfd4ce043b1caba62cb8ce49db8245b3109b383136650b3aa": {
-      "ts": 1773258523.2723806,
+      "ts": 1773260953.785744,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:12969a28d6e0beedfd4ce043b1caba62cb8ce49db8245b3109b383136650b3aa": {
-      "ts": 1773258523.4799478,
+      "ts": 1773260953.9886482,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:b1fc41ed496d731fae43a4d11e2eebf3d91807a2734672b7f444d417b10a388a": {
-      "ts": 1773258523.9514675,
+      "ts": 1773260954.2684119,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:35ed4db76c5d88bf4f415e0515b7eaa763a4afc9ccb4e33fee9d5430af004d28": {
-      "ts": 1773258524.2988343,
+      "ts": 1773260954.4239204,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:35ed4db76c5d88bf4f415e0515b7eaa763a4afc9ccb4e33fee9d5430af004d28": {
-      "ts": 1773258524.408692,
+      "ts": 1773260954.5065536,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "redir:2dc23fdca43fb3428a87bc52bc71794b916fe4983e0237d2ceba8b234a3ff557": {
-      "ts": 1773258525.0153131,
+      "ts": 1773260955.13589,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:2dc23fdca43fb3428a87bc52bc71794b916fe4983e0237d2ceba8b234a3ff557": {
-      "ts": 1773258525.1183856,
+      "ts": 1773260955.423771,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:c93e24935b78d42f08df2c0cb08be59a3fc2cd787fb9880a1b344f3561cd84d9": {
-      "ts": 1773258525.3600004,
+      "ts": 1773260955.685951,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
-    "redir:52c142319c5e55ba077095207db7292c35a6e131e5c0db48da313ccf8ab7e54c": {
-      "ts": 1773258525.818227,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:52c142319c5e55ba077095207db7292c35a6e131e5c0db48da313ccf8ab7e54c": {
-      "ts": 1773258525.9797666,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
     "tls:8004ad5652da9615a873b9c762e66316ecc53f67b82bfcf81c18e7075e426d4b": {
-      "ts": 1773258526.360348,
+      "ts": 1773260956.0997102,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "tls:4b2bdfa02250c63928254c48cf16728657262c3f52862d61d61ee8a9c9c2a630": {
-      "ts": 1773258527.2299082,
+      "ts": 1773260956.8055892,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:997c33cd08bef34cf4b75742263c2f6f9e3b0299b68b14f854b3f41718a5ab20": {
-      "ts": 1773258527.5718837,
+      "ts": 1773260956.9656348,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:997c33cd08bef34cf4b75742263c2f6f9e3b0299b68b14f854b3f41718a5ab20": {
-      "ts": 1773258527.6789517,
+      "ts": 1773260957.0585885,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:a40325357b1fb51289b0444f6e2dad481f6ee5463a8c15cf03b26c74e2be6b03": {
-      "ts": 1773258528.1507263,
+      "ts": 1773260957.4534364,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:43cab0a920052f75132476bf69e8b67b1d5f009fb2bbf754703af01f7b2788a8": {
-      "ts": 1773258528.3386579,
+      "ts": 1773260957.6504974,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:43cab0a920052f75132476bf69e8b67b1d5f009fb2bbf754703af01f7b2788a8": {
-      "ts": 1773258528.4297433,
+      "ts": 1773260957.7576625,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:79ff1685ae7207e3c6b3ed069494e62e516793ca29ce54be141f639e3dd05f63": {
-      "ts": 1773258529.066331,
+      "ts": 1773260958.1622365,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:940337e0123ddcbce7037c9a1657ebaa5ca7d5537cf83a60d2ca7870cc8e5aab": {
-      "ts": 1773258529.4187677,
+      "ts": 1773260958.4943886,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:940337e0123ddcbce7037c9a1657ebaa5ca7d5537cf83a60d2ca7870cc8e5aab": {
-      "ts": 1773258529.5097368,
+      "ts": 1773260958.6998043,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:227b5e84d886bc23c1e0be44b9d5214332330f442059cd7a74a218d23ab59f04": {
-      "ts": 1773258529.8889573,
+      "ts": 1773260959.1692386,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:27dcaae30a3c1c0b20b5b9f5bdc23c33b98ee0c7aaf4370081031d911ffd6b40": {
-      "ts": 1773258530.236015,
+      "ts": 1773260959.3802338,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:27dcaae30a3c1c0b20b5b9f5bdc23c33b98ee0c7aaf4370081031d911ffd6b40": {
-      "ts": 1773258530.3390212,
+      "ts": 1773260959.5802414,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:61469a9359963f5579851f3de3fc31dfd1931c4c35179366936a044a07aa5ea4": {
-      "ts": 1773258530.7997537,
+      "ts": 1773260960.1345627,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "tls:0858a789619bdce7b3a9045426901285763145fde117331aec0b3a81788cc1f6": {
-      "ts": 1773258531.0088937,
+      "ts": 1773260960.4017613,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "tls:1c1e8c892c3c868857e81fff1018c8e75dec04fba077da14b30a81b241f92550": {
-      "ts": 1773258531.3221362,
+      "ts": 1773260960.7477412,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:fd8e94e645e5cd84f719275d3a9de4589f7a40a0ef72e49c36d6763d3834fadc": {
-      "ts": 1773258531.628187,
+      "ts": 1773260961.0254006,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:fd8e94e645e5cd84f719275d3a9de4589f7a40a0ef72e49c36d6763d3834fadc": {
-      "ts": 1773258531.72178,
+      "ts": 1773260961.2208574,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:8ef6ecabfaa28c9247bc5df7f003ec9e42b84ae446ac97dbd20c7ce8821b5171": {
-      "ts": 1773258531.9194357,
+      "ts": 1773260961.4373965,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:8aeead2197e80532a6a4c4207f13784e41b45a0168fb951f603938e2a6de9623": {
-      "ts": 1773258532.1671035,
+      "ts": 1773260961.7723715,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:8aeead2197e80532a6a4c4207f13784e41b45a0168fb951f603938e2a6de9623": {
-      "ts": 1773258532.3517444,
+      "ts": 1773260961.97619,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:c3bf51f9158f43af20968400f24377869f3316e32b8883b55fbdfbcdeb13d385": {
-      "ts": 1773258532.7545562,
+      "ts": 1773260962.450454,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
     "redir:67fa73c59e810e4d7dc6a4fce35f2589c76f8906c22a2956271e84e035033bb9": {
-      "ts": 1773258533.104351,
+      "ts": 1773260962.6097953,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
     "html:67fa73c59e810e4d7dc6a4fce35f2589c76f8906c22a2956271e84e035033bb9": {
-      "ts": 1773258533.3095133,
+      "ts": 1773260962.6962397,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
     "tls:486749f7c4d47ce654be219c0f3337d2c276bad119b45db63a1acb39fffd4322": {
-      "ts": 1773258533.575829,
+      "ts": 1773260963.0232441,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
-    "redir:3d0ae69faf602a0f83285d91bfc876191086a6868f6f2087d9b54c3cc84b1c64": {
-      "ts": 1773258533.9925468,
+    "tls:451ebbe1c8f95384bd1b076cb98f737936946559303dabc6072e8518f6c18367": {
+      "ts": 1773261025.4306958,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 27 08:36:41 2026 GMT",
+        "days_left": 46
+      }
+    },
+    "redir:ff8d78bffd0c42340d7ac8cc9f9f9dd251269ece84fc3b406190a2d00bc74d5b": {
+      "ts": 1773261026.4217482,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
-    "html:3d0ae69faf602a0f83285d91bfc876191086a6868f6f2087d9b54c3cc84b1c64": {
-      "ts": 1773258534.190923,
+    "redir:f67f7fceea3f85d224aac8eef1c0e41c30ba3d573d60087e1bdd0a4432488fac": {
+      "ts": 1773261026.846976,
+      "val": {
+        "ok": true,
+        "final_url": "http://liebes.sarashi.com/UG7654fgy",
+        "chain": [
+          "http://liebes.sarashi.com/UG7654fgy"
+        ],
+        "status": 200,
+        "redirects": 0
+      }
+    },
+    "redir:032d8953e931eb48310211b662e9d45db465dc777972b91da1521cfcc1466509": {
+      "ts": 1773261027.1104121,
+      "val": {
+        "ok": true,
+        "final_url": "https://docs.google.com/presentation/d/e/2PACX-1vSTmjEddmo_LgeBL1hv8BhoXeKmfBTO2jttcQHOOYz5hj9M8oF5Gz9VTAqrwmgBbNoA6SXsiqtGuQ6E/pub?start=Phishing&amp;loop=Phishing&amp;delayms=60000",
+        "chain": [
+          "https://docs.google.com/presentation/d/e/2PACX-1vSTmjEddmo_LgeBL1hv8BhoXeKmfBTO2jttcQHOOYz5hj9M8oF5Gz9VTAqrwmgBbNoA6SXsiqtGuQ6E/pub?start=Phishing&amp;loop=Phishing&amp;delayms=60000"
+        ],
+        "status": 400,
+        "redirects": 0
+      }
+    },
+    "html:0d46e7f4f1a030851c94474806fe63d021495c3b0708d00d4798b0bc7400c36b": {
+      "ts": 1773261027.656454,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://tsukasagiku.com",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": true,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": "tsukasagiku.com",
+          "page_reg": "tsukasagiku.com"
+        }
+      }
+    },
+    "tls:36c36c96c65ae08520d50ddeb1d5be344ad2ea33bd405c4e62625a2821129b02": {
+      "ts": 1773261028.6105266,
+      "val": {
+        "ok": true,
+        "notAfter": "May 11 03:28:45 2026 GMT",
+        "days_left": 60
+      }
+    },
+    "tls:02b00c4f284b897a4fd035e607f6b4e3b79662791a336bf149c79645fcafaf8f": {
+      "ts": 1773261029.1826112,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 29 02:10:15 2026 GMT",
+        "days_left": 48
+      }
+    },
+    "tls:af5622b10a7e2cd28d99760a99954186837a47b672483c76d6b1a43998631e3b": {
+      "ts": 1773261029.5241666,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr  5 17:31:30 2026 GMT",
+        "days_left": 24
+      }
+    },
+    "tls:948ed52d6d9a1f1a1c3a41913a33c41a974bff5b6999166ed58f0a1af10f2094": {
+      "ts": 1773261029.5733886,
       "val": {
         "ok": false,
-        "error": "html: ConnectionError"
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:5937c91b238f053e300a61fb104704317fd14dc3c7972e2222965371312635e3": {
+      "ts": 1773261031.8459659,
+      "val": {
+        "ok": true,
+        "final_url": "https://docs.google.com/presentation/d/e/2PACX-1vRjjFOeqoRcsWI6V6cwmbHc5XFBOmOz-XW7We7lm8ng1R1EORGSe248BFlSzB3ZbbrOq1EAo7kre-Ez/pub?start=false&amp;loop=false&amp;delayms=3000",
+        "chain": [
+          "https://docs.google.com/presentation/d/e/2PACX-1vRjjFOeqoRcsWI6V6cwmbHc5XFBOmOz-XW7We7lm8ng1R1EORGSe248BFlSzB3ZbbrOq1EAo7kre-Ez/pub?start=false&amp;loop=false&amp;delayms=3000"
+        ],
+        "status": 200,
+        "redirects": 0
+      }
+    },
+    "redir:eb334d352ecacc649da2ba6108968c5287bf570592c5b4d91e396237733a8ae6": {
+      "ts": 1773261035.7639391,
+      "val": {
+        "ok": true,
+        "final_url": "https://docs.google.com/presentation/d/e/2PACX-1vReXxLbzoX2OZ24pvBnODTDCGoCcYNQ8sX7rKAfdKgbPVJ8Ry97ovQUpB51lfsYqABDL2A7FoOm-NyS/pub?start=false&amp;loop=false&amp;delayms=3000",
+        "chain": [
+          "https://docs.google.com/presentation/d/e/2PACX-1vReXxLbzoX2OZ24pvBnODTDCGoCcYNQ8sX7rKAfdKgbPVJ8Ry97ovQUpB51lfsYqABDL2A7FoOm-NyS/pub?start=false&amp;loop=false&amp;delayms=3000"
+        ],
+        "status": 200,
+        "redirects": 0
       }
     }
   }

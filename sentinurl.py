@@ -271,7 +271,7 @@ def predict_ultimate(url: str):
         return ("PHISHING", 0.99, "demo_phishing_rule", ["High confidence phishing indicator (Demo Malicious URL).", "Detected suspicious keyword structuring.", "Domain registered recently."], 0.99, 0.95, whois_data, geo_info)
     
     # === LAYER 1: ALLOWLISTS ===
-    if reg and is_allowlisted_reg_domain(reg): # pyright: ignore[reportUnboundVariable]
+    if reg and is_allowlisted_reg_domain(u): # pyright: ignore[reportUnboundVariable]
         return ("SAFE", 0.0, "allowlist_reg_domain", ["Registrable domain matches trusted allowlist."], 0.0, 0.0, whois_data, {})
     
     if reg in JORDANIAN_OFFICIAL: # pyright: ignore[reportUnboundVariable]
