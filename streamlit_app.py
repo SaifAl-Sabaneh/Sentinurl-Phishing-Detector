@@ -513,7 +513,7 @@ with tab_batch:
                             lbl, score_prob, decision_by, _, _, _, _, _ = predict_ultimate(target_url_fmt)
                             
                             safe_score = score_prob if score_prob is not None else 0.0
-                            is_phishing = str(lbl).lower() in ["phishing", "bad"]
+                            is_phishing = str(lbl).lower() in ["phishing", "bad", "high risk", "suspicious"]
                             
                             clean_decision_by = format_engine_name(decision_by)
                             
