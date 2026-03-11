@@ -1,1970 +1,1179 @@
 {
   "_meta": {
-    "updated_utc": "2026-03-10T19:46:07Z"
+    "updated_utc": "2026-03-11T18:01:02Z"
   },
   "items": {
-    "redir:21b525d374355f04010d802d7d235c791efbb9f099b5d73139f0261e33cd4acd": {
-      "ts": 1767996566.2798326,
-      "val": {
-        "ok": true,
-        "final_url": "https://www.uop.edu.jo/ar/pages/default.aspx",
-        "chain": [
-          "http://www.uop.edu.jo/",
-          "https://www.uop.edu.jo:443/",
-          "https://www.uop.edu.jo/ar/pages/default.aspx"
-        ],
-        "status": 200,
-        "redirects": 2
-      }
-    },
-    "tls:1c34d4fb5f73801b45fa68efbb27f61fd440f1a49a85fa8626a21eafa8b1d24c": {
-      "ts": 1773170178.9971244,
-      "val": {
-        "ok": true,
-        "notAfter": "Aug  3 08:22:17 2026 GMT",
-        "days_left": 145
-      }
-    },
-    "rdap:1c34d4fb5f73801b45fa68efbb27f61fd440f1a49a85fa8626a21eafa8b1d24c": {
-      "ts": 1767996567.2412653,
-      "val": {
-        "ok": false,
-        "error": "rdap HTTP 404"
-      }
-    },
-    "html:21b525d374355f04010d802d7d235c791efbb9f099b5d73139f0261e33cd4acd": {
-      "ts": 1767996567.6555908,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://www.uop.edu.jo/ar/pages/default.aspx",
-        "content_type": "text/html; charset=utf-8",
-        "signals": {
-          "has_form": true,
-          "has_password": false,
-          "has_login_words": true,
-          "has_otp": true,
-          "external_form_action": false,
-          "action_host": null
-        }
-      }
-    },
-    "redir:b065085b6945ccd4c2386f2a4afdb1c1af1db1c4cba135f096fb57e0aa83a84b": {
-      "ts": 1767996715.7159846,
-      "val": {
-        "ok": true,
-        "final_url": "https://example.com/?redirect=https://evil.com",
-        "chain": [
-          "https://example.com/?redirect=https://evil.com"
-        ],
-        "status": 200,
-        "redirects": 0
-      }
-    },
-    "tls:a379a6f6eeafb9a55e378c118034e2751e682fab9f2d30ab13d2125586ce1947": {
-      "ts": 1768263883.3979259,
-      "val": {
-        "ok": true,
-        "notAfter": "Mar 16 18:32:44 2026 GMT",
-        "days_left": 62
-      }
-    },
-    "rdap:a379a6f6eeafb9a55e378c118034e2751e682fab9f2d30ab13d2125586ce1947": {
-      "ts": 1767996717.0833595,
-      "val": {
-        "ok": true,
-        "created": "1995-08-14T04:00:00Z",
-        "age_days": 11106
-      }
-    },
-    "gsb:b065085b6945ccd4c2386f2a4afdb1c1af1db1c4cba135f096fb57e0aa83a84b": {
-      "ts": 1767996717.5414505,
+    "gsb:4459aebacd7c78cf6ce5ccfc869803d1e5de1b3b774584dde35c2f49de43c813": {
+      "ts": 1773224856.1992826,
       "val": {
         "hit": false,
         "threats": []
       }
     },
-    "vt:b065085b6945ccd4c2386f2a4afdb1c1af1db1c4cba135f096fb57e0aa83a84b": {
-      "ts": 1767996718.2201264,
-      "val": {
-        "hit": false,
-        "error": "VT HTTP 401"
-      }
-    },
-    "html:b065085b6945ccd4c2386f2a4afdb1c1af1db1c4cba135f096fb57e0aa83a84b": {
-      "ts": 1767996718.6294382,
+    "tls:5a65bc8b94ca5b99795f60e9e6a7017f263214edc2db322d69f12d1b26fe3bf0": {
+      "ts": 1773224856.5381942,
       "val": {
         "ok": true,
-        "html": true,
-        "final_url": "https://example.com/?redirect=https://evil.com",
-        "content_type": "text/html",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": false,
-          "has_otp": false,
-          "external_form_action": false,
-          "action_host": null
-        }
+        "notAfter": "Jun  4 20:53:32 2026 GMT",
+        "days_left": 85
       }
     },
-    "gsb:21b525d374355f04010d802d7d235c791efbb9f099b5d73139f0261e33cd4acd": {
-      "ts": 1768264381.274583,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "vt:21b525d374355f04010d802d7d235c791efbb9f099b5d73139f0261e33cd4acd": {
-      "ts": 1767996728.6246238,
-      "val": {
-        "hit": false,
-        "error": "VT HTTP 401"
-      }
-    },
-    "redir:fa92a652dbfe59e8d2c8bdba284c7cfe5f59ec27f617d865980010e5bf1f0be2": {
-      "ts": 1768005083.4347785,
-      "val": {
-        "ok": true,
-        "final_url": "https://uop.edu.jo/ar/pages/default.aspx",
-        "chain": [
-          "https://uop.edu.jo/",
-          "https://uop.edu.jo/ar/pages/default.aspx"
-        ],
-        "status": 200,
-        "redirects": 1
-      }
-    },
-    "gsb:fa92a652dbfe59e8d2c8bdba284c7cfe5f59ec27f617d865980010e5bf1f0be2": {
-      "ts": 1768261604.4577081,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "redir:6bc84569b82bf6f80cda340b0e87debd8c46ccc93e005c61e3ffba7010b17dfa": {
-      "ts": 1768005091.367702,
-      "val": {
-        "ok": true,
-        "final_url": "https://uop.edu.jo/ar/pages/default.aspx",
-        "chain": [
-          "http://uop.edu.jo/",
-          "https://uop.edu.jo:443/",
-          "https://uop.edu.jo/ar/pages/default.aspx"
-        ],
-        "status": 200,
-        "redirects": 2
-      }
-    },
-    "gsb:6bc84569b82bf6f80cda340b0e87debd8c46ccc93e005c61e3ffba7010b17dfa": {
-      "ts": 1773170178.8186533,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "redir:7402a939674cc0f6aa148df4fb315e1733a0621b30ea0f12c796b48c93dce693": {
-      "ts": 1768005105.3546507,
+    "redir:4459aebacd7c78cf6ce5ccfc869803d1e5de1b3b774584dde35c2f49de43c813": {
+      "ts": 1773224857.948292,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
-    "tls:82976e08e9db3d4f1981a6270a39fba0a145cc97026f816be1f7ee3eca149ce2": {
-      "ts": 1768005106.8805273,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "rdap:82976e08e9db3d4f1981a6270a39fba0a145cc97026f816be1f7ee3eca149ce2": {
-      "ts": 1768005107.52361,
-      "val": {
-        "ok": false,
-        "error": "rdap HTTP 404"
-      }
-    },
-    "gsb:7402a939674cc0f6aa148df4fb315e1733a0621b30ea0f12c796b48c93dce693": {
-      "ts": 1768005107.9527524,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "vt:7402a939674cc0f6aa148df4fb315e1733a0621b30ea0f12c796b48c93dce693": {
-      "ts": 1768005108.6594403,
-      "val": {
-        "hit": false,
-        "error": "VT HTTP 401"
-      }
-    },
-    "html:7402a939674cc0f6aa148df4fb315e1733a0621b30ea0f12c796b48c93dce693": {
-      "ts": 1768005108.6782644,
+    "html:4459aebacd7c78cf6ce5ccfc869803d1e5de1b3b774584dde35c2f49de43c813": {
+      "ts": 1773224858.6115983,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
-    "redir:caeede61bb74a7f4b91208dbec19cc47de97c5bf7370a367733bb5e15bc19e53": {
-      "ts": 1768264264.0951521,
-      "val": {
-        "ok": true,
-        "final_url": "https://www.amman.jo/ar/eservices/login.aspx?fnhw=300",
-        "chain": [
-          "https://www.amman.jo/ar/eservices/login.aspx?fnhw=300"
-        ],
-        "status": 200,
-        "redirects": 0
-      }
-    },
-    "tls:fde154828ccf959703ec80c533e8b57bf940a2dfcd43ed22bf54d2473dcd3013": {
-      "ts": 1768261593.1736002,
-      "val": {
-        "ok": true,
-        "notAfter": "Sep 22 23:59:59 2026 GMT",
-        "days_left": 253
-      }
-    },
-    "rdap:fde154828ccf959703ec80c533e8b57bf940a2dfcd43ed22bf54d2473dcd3013": {
-      "ts": 1768005158.3134944,
-      "val": {
-        "ok": false,
-        "error": "rdap HTTP 404"
-      }
-    },
-    "gsb:caeede61bb74a7f4b91208dbec19cc47de97c5bf7370a367733bb5e15bc19e53": {
-      "ts": 1768264263.7033277,
+    "gsb:a48c5c805d76ef5c3c259d3da97579d6162640d74212508c9180a68a74481f94": {
+      "ts": 1773225417.077686,
       "val": {
         "hit": false,
         "threats": []
       }
     },
-    "vt:caeede61bb74a7f4b91208dbec19cc47de97c5bf7370a367733bb5e15bc19e53": {
-      "ts": 1768005159.5283048,
-      "val": {
-        "hit": false,
-        "error": "VT HTTP 401"
-      }
-    },
-    "html:caeede61bb74a7f4b91208dbec19cc47de97c5bf7370a367733bb5e15bc19e53": {
-      "ts": 1768264264.5404565,
+    "tls:3539e7d4fe59758ac72cd36c587363b6bed46b3510c4f048ee6f31f03e96ad3c": {
+      "ts": 1773225417.1982062,
       "val": {
         "ok": true,
-        "html": true,
-        "final_url": "https://www.amman.jo/ar/eservices/login.aspx?fnhw=300",
-        "content_type": "text/html; charset=utf-8",
-        "signals": {
-          "has_form": true,
-          "has_password": true,
-          "has_login_words": true,
-          "external_form_action": false,
-          "action_reg": "amman.jo",
-          "page_reg": "amman.jo"
-        }
+        "notAfter": "May  5 06:57:10 2026 GMT",
+        "days_left": 54
       }
     },
-    "redir:2589ee188105818ba5d6aac427e0efdabc2614d33969219dce03b2a22dfd8d1f": {
-      "ts": 1768006473.9652853,
-      "val": {
-        "ok": true,
-        "final_url": "https://popcornmovies.org/home",
-        "chain": [
-          "https://popcornmovies.org/home"
-        ],
-        "status": 403,
-        "redirects": 0
-      }
-    },
-    "tls:265e12982679f079da447cc3640ef01d8c248b82975599ecfff9d389bbd27bb0": {
-      "ts": 1768136500.3618119,
-      "val": {
-        "ok": true,
-        "notAfter": "Mar  5 11:58:20 2026 GMT",
-        "days_left": 52
-      }
-    },
-    "rdap:265e12982679f079da447cc3640ef01d8c248b82975599ecfff9d389bbd27bb0": {
-      "ts": 1768006476.093171,
-      "val": {
-        "ok": true,
-        "created": "2025-06-03T10:35:42.616Z",
-        "age_days": 220
-      }
-    },
-    "gsb:2589ee188105818ba5d6aac427e0efdabc2614d33969219dce03b2a22dfd8d1f": {
-      "ts": 1768006476.611207,
+    "gsb:c19e9df2f1358601ed09b42cc35e6ad1621979119a516fc77dbf638049051e35": {
+      "ts": 1773225428.339553,
       "val": {
         "hit": false,
         "threats": []
       }
     },
-    "vt:2589ee188105818ba5d6aac427e0efdabc2614d33969219dce03b2a22dfd8d1f": {
-      "ts": 1768006477.2332935,
+    "tls:ce995e622ce9027e3c0a894d256a3dfeb51a782d069d3b4010e36d54fcd96ed1": {
+      "ts": 1773225428.7544308,
       "val": {
-        "hit": false,
-        "error": "VT HTTP 401"
-      }
-    },
-    "html:2589ee188105818ba5d6aac427e0efdabc2614d33969219dce03b2a22dfd8d1f": {
-      "ts": 1768006477.7394366,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://popcornmovies.org/home",
-        "content_type": "text/html; charset=utf-8",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_host": null,
-          "action_reg": null,
-          "page_reg": "popcornmovies.org"
-        }
-      }
-    },
-    "redir:538fdbf6f500d72e1e5d34a3582307a284f99bd8bb6a6a495555d64aee59858e": {
-      "ts": 1768006550.2906144,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "tls:796d562bae99eeeef9e55c58acd89229f223f732742585ff94bf8a130ed9203f": {
-      "ts": 1768006550.3261452,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "gsb:538fdbf6f500d72e1e5d34a3582307a284f99bd8bb6a6a495555d64aee59858e": {
-      "ts": 1768006550.7877252,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "vt:538fdbf6f500d72e1e5d34a3582307a284f99bd8bb6a6a495555d64aee59858e": {
-      "ts": 1768006551.3870006,
-      "val": {
-        "hit": false,
-        "error": "VT HTTP 401"
-      }
-    },
-    "html:538fdbf6f500d72e1e5d34a3582307a284f99bd8bb6a6a495555d64aee59858e": {
-      "ts": 1768006551.409582,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "redir:6ec1a9822920193f782abfee67199a5d28a6eb243c78c9068535e3e266a97942": {
-      "ts": 1768006579.0299354,
-      "val": {
-        "ok": true,
-        "final_url": "https://edugate.uop.edu.jo:443/student",
-        "chain": [
-          "http://edugate.uop.edu.jo/student",
-          "https://edugate.uop.edu.jo:443/student"
-        ],
-        "status": 200,
-        "redirects": 1
-      }
-    },
-    "tls:b934d3181d9ad7466b71579bbe8ef4a3ad8a61a6f11a2e8416f4811ba3694dbe": {
-      "ts": 1768091460.5064232,
-      "val": {
-        "ok": true,
-        "notAfter": "Aug  3 08:22:17 2026 GMT",
-        "days_left": 204
-      }
-    },
-    "gsb:6ec1a9822920193f782abfee67199a5d28a6eb243c78c9068535e3e266a97942": {
-      "ts": 1768006579.5824883,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "vt:6ec1a9822920193f782abfee67199a5d28a6eb243c78c9068535e3e266a97942": {
-      "ts": 1768006580.1473033,
-      "val": {
-        "hit": false,
-        "error": "VT HTTP 401"
-      }
-    },
-    "html:6ec1a9822920193f782abfee67199a5d28a6eb243c78c9068535e3e266a97942": {
-      "ts": 1768006580.4649496,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://edugate.uop.edu.jo:443/student",
-        "content_type": "text/html;charset=utf-8",
-        "signals": {
-          "has_form": true,
-          "has_password": false,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_host": "edugate.uop.edu.jo",
-          "action_reg": "uop.edu.jo",
-          "page_reg": "uop.edu.jo"
-        }
-      }
-    },
-    "redir:9d08d3ac53d64cf2588510823cdef87d455068d248d39d4023ed309aa0658075": {
-      "ts": 1768006653.480833,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "tls:de2abade832c8e350a1bdc98cfcdb1e202ac4749c5fc51a4a970d41736b6df5c": {
-      "ts": 1768006653.5167916,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "gsb:9d08d3ac53d64cf2588510823cdef87d455068d248d39d4023ed309aa0658075": {
-      "ts": 1768006654.0033822,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "vt:9d08d3ac53d64cf2588510823cdef87d455068d248d39d4023ed309aa0658075": {
-      "ts": 1768006654.6086876,
-      "val": {
-        "hit": false,
-        "error": "VT HTTP 401"
-      }
-    },
-    "html:9d08d3ac53d64cf2588510823cdef87d455068d248d39d4023ed309aa0658075": {
-      "ts": 1768006654.6129866,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "redir:8cb138c5ed3fd743a353271ec94e31e1cee35e74b686efb79680a4c1ae414d2f": {
-      "ts": 1768006654.6459892,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "tls:66ec018201fb03f10df19f1a56a1264beb2654e8f07c2f163f023ebd53a751e4": {
-      "ts": 1768006654.685668,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "gsb:8cb138c5ed3fd743a353271ec94e31e1cee35e74b686efb79680a4c1ae414d2f": {
-      "ts": 1768006655.1044362,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "vt:8cb138c5ed3fd743a353271ec94e31e1cee35e74b686efb79680a4c1ae414d2f": {
-      "ts": 1768006655.648495,
-      "val": {
-        "hit": false,
-        "error": "VT HTTP 401"
-      }
-    },
-    "html:8cb138c5ed3fd743a353271ec94e31e1cee35e74b686efb79680a4c1ae414d2f": {
-      "ts": 1768006655.6644683,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "redir:85dc3fd47a48885f1d39e62efdb89122c611c8ce5198e3e5d39526f1259e10c8": {
-      "ts": 1768006655.6964955,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "tls:ff3e4d4dcf7250cae8d622d77c9a6d69aefcf4ab04ef9920218fafe93c0f1991": {
-      "ts": 1768006655.725453,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "gsb:85dc3fd47a48885f1d39e62efdb89122c611c8ce5198e3e5d39526f1259e10c8": {
-      "ts": 1768006656.3440428,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "vt:85dc3fd47a48885f1d39e62efdb89122c611c8ce5198e3e5d39526f1259e10c8": {
-      "ts": 1768006657.0395906,
-      "val": {
-        "hit": false,
-        "error": "VT HTTP 401"
-      }
-    },
-    "html:85dc3fd47a48885f1d39e62efdb89122c611c8ce5198e3e5d39526f1259e10c8": {
-      "ts": 1768006657.0520663,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "redir:5071653cc7509514e98fa3b5409181fb4a3b622ce0d83d3a3b118911f3fbb6a0": {
-      "ts": 1768006657.080326,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "tls:b67c9ddef3e0c3715a3708ecfa296cc461a164bde94c8ba3fd112789b5bed926": {
-      "ts": 1768006657.107686,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "gsb:5071653cc7509514e98fa3b5409181fb4a3b622ce0d83d3a3b118911f3fbb6a0": {
-      "ts": 1768006657.6126127,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "redir:a461758d8f4e0782dfa6fe66b6cdd0023c6d6894d56b4866364795c211b780f0": {
-      "ts": 1768094543.6961935,
-      "val": {
-        "ok": true,
-        "final_url": "https://example.com/login",
-        "chain": [
-          "https://example.com/login"
-        ],
-        "status": 404,
-        "redirects": 0
-      }
-    },
-    "gsb:a461758d8f4e0782dfa6fe66b6cdd0023c6d6894d56b4866364795c211b780f0": {
-      "ts": 1768094544.1957035,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "html:a461758d8f4e0782dfa6fe66b6cdd0023c6d6894d56b4866364795c211b780f0": {
-      "ts": 1768094544.5459163,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://example.com/login",
-        "content_type": "text/html",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_reg": null,
-          "page_reg": "example.com"
-        }
-      }
-    },
-    "gsb:de23f98eb3a2695c620e99ff86c966d967b909266f32c7a8d4374ce7e2d2ceb5": {
-      "ts": 1768091460.4164565,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "gsb:091418abae1c1a01524b6290fe3d8ef4da6c5d26793c209e6b6dd3d1d73b3fee": {
-      "ts": 1768008529.151724,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "redir:091418abae1c1a01524b6290fe3d8ef4da6c5d26793c209e6b6dd3d1d73b3fee": {
-      "ts": 1768008529.4794943,
-      "val": {
-        "ok": true,
-        "final_url": "https://www.amman.jo/.../login.aspx",
-        "chain": [
-          "https://www.amman.jo/.../login.aspx"
-        ],
-        "status": 404,
-        "redirects": 0
-      }
-    },
-    "html:091418abae1c1a01524b6290fe3d8ef4da6c5d26793c209e6b6dd3d1d73b3fee": {
-      "ts": 1768008529.8493752,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://www.amman.jo/.../login.aspx",
-        "content_type": "text/html; charset=utf-8",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_reg": null,
-          "page_reg": "amman.jo",
-          "action_missing_or_empty": true,
-          "looks_like_webforms": false
-        }
-      }
-    },
-    "redir:aa2239c17609b21eba034c564af878f3eec8ce83ed0f2768597d2bc2fd4e4da5": {
-      "ts": 1768133634.6001222,
-      "val": {
-        "ok": true,
-        "final_url": "http://www.google.com/",
-        "chain": [
-          "http://google.com/",
-          "http://www.google.com/"
-        ],
-        "status": 200,
-        "redirects": 1
-      }
-    },
-    "gsb:aa2239c17609b21eba034c564af878f3eec8ce83ed0f2768597d2bc2fd4e4da5": {
-      "ts": 1768133635.2156804,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:d4c9d9027326271a89ce51fcaf328ed673f17be33469ff979e8ab8dd501e664f": {
-      "ts": 1768133635.4212365,
-      "val": {
-        "ok": true,
-        "notAfter": "Feb 25 15:49:26 2026 GMT",
-        "days_left": 45
-      }
-    },
-    "html:aa2239c17609b21eba034c564af878f3eec8ce83ed0f2768597d2bc2fd4e4da5": {
-      "ts": 1768133636.047623,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "http://www.google.com/",
-        "content_type": "text/html; charset=iso-8859-1",
-        "signals": {
-          "has_form": true,
-          "has_password": false,
-          "has_login_words": true,
-          "external_form_action": false,
-          "action_reg": "google.com",
-          "page_reg": "google.com"
-        }
-      }
-    },
-    "redir:253d142703041dd25197550a0fc11d6ac03befc1e64a1320009f1edf400c39ad": {
-      "ts": 1768136147.9847355,
-      "val": {
-        "ok": true,
-        "final_url": "http://www.google.com/",
-        "chain": [
-          "http://www.google.com/"
-        ],
-        "status": 200,
-        "redirects": 0
-      }
-    },
-    "gsb:253d142703041dd25197550a0fc11d6ac03befc1e64a1320009f1edf400c39ad": {
-      "ts": 1768136148.4967923,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "html:253d142703041dd25197550a0fc11d6ac03befc1e64a1320009f1edf400c39ad": {
-      "ts": 1768136148.7914412,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "http://www.google.com/",
-        "content_type": "text/html; charset=iso-8859-1",
-        "signals": {
-          "has_form": true,
-          "has_password": false,
-          "has_login_words": true,
-          "external_form_action": false,
-          "action_reg": "google.com",
-          "page_reg": "google.com"
-        }
-      }
-    },
-    "gsb:29b709aa6be99a878c09caec41034773b1f01bbc3ed1e2d5254597d5bef880d5": {
-      "ts": 1770932103.6050632,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:ec2c2ff4da804f006c50c96d9592ab58f12d9e741cebd95ed875048f937095d0": {
-      "ts": 1770932103.7252653,
-      "val": {
-        "ok": true,
-        "notAfter": "Aug 18 23:59:59 2026 GMT",
-        "days_left": 187
-      }
-    },
-    "gsb:9f9da8487ede83a641e4d92859423efa2905c41c447bd0af156c3be8cadf09eb": {
-      "ts": 1768136216.5094538,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:a1084ceb46761eabd7fac880b155cdec76e09254e6ac52319d7b0369e991d36d": {
-      "ts": 1768136216.6524916,
-      "val": {
-        "ok": true,
-        "notAfter": "Jul 19 23:59:59 2026 GMT",
-        "days_left": 189
-      }
-    },
-    "gsb:f9fdb4d5098cfc3ecb3e363df88b304b3439e83d5ebd457c8a07176a084bbd6a": {
-      "ts": 1768136230.0464118,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:f98dd8774d95d1c80362c0139becc58b49e7e55ab58ad002c513f1956b400cf9": {
-      "ts": 1768136230.2066212,
-      "val": {
-        "ok": true,
-        "notAfter": "May 16 23:59:59 2026 GMT",
-        "days_left": 125
-      }
-    },
-    "redir:4e85dc0baead51ea0498fed128aad4fd66e5e1e156e09d08af647486fda9e695": {
-      "ts": 1768136464.3984954,
-      "val": {
-        "ok": true,
-        "final_url": "https://www.gamersfirst.com/",
-        "chain": [
-          "http://www.gamersfirst.com/",
-          "https://www.gamersfirst.com/"
-        ],
-        "status": 200,
-        "redirects": 1
-      }
-    },
-    "gsb:4e85dc0baead51ea0498fed128aad4fd66e5e1e156e09d08af647486fda9e695": {
-      "ts": 1768136464.8409467,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:a5b05e1ca7eeb728c7552676aca8991ea1253fafc990def15dd2824df063307c": {
-      "ts": 1768136465.048651,
-      "val": {
-        "ok": true,
-        "notAfter": "Mar 30 23:59:59 2026 GMT",
-        "days_left": 78
-      }
-    },
-    "html:4e85dc0baead51ea0498fed128aad4fd66e5e1e156e09d08af647486fda9e695": {
-      "ts": 1768136465.788085,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://www.gamersfirst.com/",
-        "content_type": "text/html; charset=utf-8",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": true,
-          "external_form_action": false,
-          "action_reg": null,
-          "page_reg": "gamersfirst.com"
-        }
-      }
-    },
-    "redir:1abc6a3266e0946ffc4669e42217d4844629165ebb1d3e18c18d133075ac7ea7": {
-      "ts": 1768136499.7591703,
-      "val": {
-        "ok": true,
-        "final_url": "https://popcornmovies.org/movie/the-pickup",
-        "chain": [
-          "https://popcornmovies.org/movie/the-pickup"
-        ],
-        "status": 403,
-        "redirects": 0
-      }
-    },
-    "gsb:1abc6a3266e0946ffc4669e42217d4844629165ebb1d3e18c18d133075ac7ea7": {
-      "ts": 1768136500.1818008,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "html:1abc6a3266e0946ffc4669e42217d4844629165ebb1d3e18c18d133075ac7ea7": {
-      "ts": 1768136500.7840014,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://popcornmovies.org/movie/the-pickup",
-        "content_type": "text/html; charset=utf-8",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_reg": null,
-          "page_reg": "popcornmovies.org"
-        }
-      }
-    },
-    "gsb:4bf2fa87e7e637eb5370026be9caeb44bd35ed957e5a92b8ec15d8deb86de82e": {
-      "ts": 1768136792.924395,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:5cb9e5881d5b6bb76a8e1d31a0f385a7a8ce79c71888dea5fb27e405ced13fcc": {
-      "ts": 1770930834.3339164,
-      "val": {
-        "ok": true,
-        "notAfter": "Jun 21 23:59:59 2026 GMT",
-        "days_left": 129
-      }
-    },
-    "gsb:126615757e93c4b650048cc6de1e4861b1e7d2012038f3812bc2921a0c4b618d": {
-      "ts": 1768218687.9622645,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:4116b1fe439655bced09fa995e568d5ee3889f4058ba76e4241e5c83a2f2664e": {
-      "ts": 1768218688.1360795,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "gsb:6edaae09b1ccde6359f4e1e1074ca0f5dc7c55ef50133b911d4ff854701dfdc5": {
-      "ts": 1768218723.1563375,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:5ba6ce313e6462ae8550d391d15a148326e409a37963d7fae8499dec5751a73d": {
-      "ts": 1768265055.8079765,
-      "val": {
-        "ok": true,
-        "notAfter": "Mar 11 10:18:12 2026 GMT",
-        "days_left": 57
-      }
-    },
-    "gsb:b3804f95b462eaa084a0f1df0466882b4050faedd929775ea63836e104f97ae9": {
-      "ts": 1768261592.7084267,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "redir:b3804f95b462eaa084a0f1df0466882b4050faedd929775ea63836e104f97ae9": {
-      "ts": 1768261594.5957246,
-      "val": {
-        "ok": true,
-        "final_url": "https://www.amman.jo/ar/eservices/login.aspx",
-        "chain": [
-          "https://www.amman.jo/ar/eservices/login.aspx"
-        ],
-        "status": 200,
-        "redirects": 0
-      }
-    },
-    "html:b3804f95b462eaa084a0f1df0466882b4050faedd929775ea63836e104f97ae9": {
-      "ts": 1768261595.164405,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://www.amman.jo/ar/eservices/login.aspx",
-        "content_type": "text/html; charset=utf-8",
-        "signals": {
-          "has_form": true,
-          "has_password": true,
-          "has_login_words": true,
-          "external_form_action": false,
-          "action_reg": "amman.jo",
-          "page_reg": "amman.jo"
-        }
-      }
-    },
-    "redir:5ebd876acd6f22177f3eec57629b34441877a64996a031da28817d9f0f11a960": {
-      "ts": 1768261649.8460677,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "gsb:5ebd876acd6f22177f3eec57629b34441877a64996a031da28817d9f0f11a960": {
-      "ts": 1768261650.3307328,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:0bc726f14ed531cfe041b83256da3b8d2c47ded3773bae6aac4d1ba8f56f5ad0": {
-      "ts": 1768261650.3527353,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "html:5ebd876acd6f22177f3eec57629b34441877a64996a031da28817d9f0f11a960": {
-      "ts": 1768261650.3667364,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "redir:18cbc0402ac1b6748a2c958af3c6c8a0ef1ea080c339f35cbd66dc563ec8fa57": {
-      "ts": 1768261674.6256866,
-      "val": {
-        "ok": true,
-        "final_url": "http://testsafebrowsing.appspot.com/s/phishing.html",
-        "chain": [
-          "http://testsafebrowsing.appspot.com/s/phishing.html"
-        ],
-        "status": 200,
-        "redirects": 0
-      }
-    },
-    "gsb:18cbc0402ac1b6748a2c958af3c6c8a0ef1ea080c339f35cbd66dc563ec8fa57": {
-      "ts": 1768261675.1215982,
-      "val": {
-        "hit": true,
-        "threats": [
-          {
-            "threatType": "SOCIAL_ENGINEERING",
-            "platformType": "ANY_PLATFORM",
-            "threat": {
-              "url": "http://testsafebrowsing.appspot.com/s/phishing.html"
-            },
-            "cacheDuration": "300s",
-            "threatEntryType": "URL"
-          }
-        ]
-      }
-    },
-    "tls:d77d67d13634749b0776161b06f037b8a2bc27c062f0ad212fa3bd3e3f4c52b0": {
-      "ts": 1768261675.44798,
-      "val": {
-        "ok": true,
-        "notAfter": "Feb 25 15:48:45 2026 GMT",
-        "days_left": 43
-      }
-    },
-    "html:18cbc0402ac1b6748a2c958af3c6c8a0ef1ea080c339f35cbd66dc563ec8fa57": {
-      "ts": 1768261675.6514611,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "http://testsafebrowsing.appspot.com/s/phishing.html",
-        "content_type": "text/html",
-        "signals": {
-          "has_form": false,
-          "has_password": true,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_reg": null,
-          "page_reg": "appspot.com"
-        }
-      }
-    },
-    "redir:4aa37f1e6929fcb183d1e7c30a4aa61fbab96f215a027c2542796f406365f82d": {
-      "ts": 1768261684.9192476,
-      "val": {
-        "ok": true,
-        "final_url": "http://testsafebrowsing.appspot.com/s/malware.html",
-        "chain": [
-          "http://testsafebrowsing.appspot.com/s/malware.html"
-        ],
-        "status": 200,
-        "redirects": 0
-      }
-    },
-    "gsb:4aa37f1e6929fcb183d1e7c30a4aa61fbab96f215a027c2542796f406365f82d": {
-      "ts": 1768261685.4848669,
-      "val": {
-        "hit": true,
-        "threats": [
-          {
-            "threatType": "MALWARE",
-            "platformType": "ANY_PLATFORM",
-            "threat": {
-              "url": "http://testsafebrowsing.appspot.com/s/malware.html"
-            },
-            "cacheDuration": "300s",
-            "threatEntryType": "URL"
-          }
-        ]
-      }
-    },
-    "html:4aa37f1e6929fcb183d1e7c30a4aa61fbab96f215a027c2542796f406365f82d": {
-      "ts": 1768261685.8901005,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "http://testsafebrowsing.appspot.com/s/malware.html",
-        "content_type": "text/html",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_reg": null,
-          "page_reg": "appspot.com"
-        }
-      }
-    },
-    "redir:f0e6a6a97042a4f1f1c87f5f7d44315b2d852c2df5c7991cc66241bf7072d1c4": {
-      "ts": 1768263882.6407645,
-      "val": {
-        "ok": true,
-        "final_url": "http://example.com/",
-        "chain": [
-          "http://example.com/"
-        ],
-        "status": 200,
-        "redirects": 0
-      }
-    },
-    "gsb:f0e6a6a97042a4f1f1c87f5f7d44315b2d852c2df5c7991cc66241bf7072d1c4": {
-      "ts": 1768263883.1826408,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "html:f0e6a6a97042a4f1f1c87f5f7d44315b2d852c2df5c7991cc66241bf7072d1c4": {
-      "ts": 1768263883.5917377,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "http://example.com/",
-        "content_type": "text/html",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_reg": null,
-          "page_reg": "example.com"
-        }
-      }
-    },
-    "gsb:6651beee61e186d83ff75e5efcb1bdb0b61ede7a229b4e7a5dfa73af4eb6929e": {
-      "ts": 1768263902.3904977,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:212edeefd721924491eb4ea75bc1e0faeca2f5ac4fe41405d492904a308a0fe4": {
-      "ts": 1770944521.8851411,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 27 10:13:59 2026 GMT",
-        "days_left": 73
-      }
-    },
-    "redir:73d5c8369c330eb1d13c7db11572f59a4025db57eddc9631774d42e193fe8233": {
-      "ts": 1768263913.9086487,
-      "val": {
-        "ok": true,
-        "final_url": "https://www.reddit.com/",
-        "chain": [
-          "http://reddit.com/",
-          "https://reddit.com/",
-          "https://www.reddit.com/"
-        ],
-        "status": 200,
-        "redirects": 2
-      }
-    },
-    "gsb:73d5c8369c330eb1d13c7db11572f59a4025db57eddc9631774d42e193fe8233": {
-      "ts": 1768263914.395253,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:90ce957778d13b453b7416c943e1720b3379d7c77814c6b70028cbbf7aecb644": {
-      "ts": 1768263914.5987942,
-      "val": {
-        "ok": true,
-        "notAfter": "May 22 23:59:59 2026 GMT",
-        "days_left": 129
-      }
-    },
-    "html:73d5c8369c330eb1d13c7db11572f59a4025db57eddc9631774d42e193fe8233": {
-      "ts": 1768263915.960794,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://www.reddit.com/",
-        "content_type": "text/html; charset=utf-8",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_reg": null,
-          "page_reg": "reddit.com"
-        }
-      }
-    },
-    "redir:22b38d1abb62addb0b87cc2aab1b7dfe2294f8b7d4ffe7c554ab5b4bf927737c": {
-      "ts": 1768264159.5751622,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "gsb:22b38d1abb62addb0b87cc2aab1b7dfe2294f8b7d4ffe7c554ab5b4bf927737c": {
-      "ts": 1768264160.1461885,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:e94ed3b96187c290acc80c4a8fb08a7d8eb70e46901917169fdde28993647262": {
-      "ts": 1768264160.1761413,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "html:22b38d1abb62addb0b87cc2aab1b7dfe2294f8b7d4ffe7c554ab5b4bf927737c": {
-      "ts": 1768264160.1917548,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "redir:48d86bc605c7d682541f4ec98519f930aa08ceec3bf943fe4c8e25b4edacd7ca": {
-      "ts": 1768264176.3316326,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "gsb:48d86bc605c7d682541f4ec98519f930aa08ceec3bf943fe4c8e25b4edacd7ca": {
-      "ts": 1768264176.8530185,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:d58334148b8449d827e8b6d02a1eb73d0129b64226f31eba33704b597dba98be": {
-      "ts": 1768264176.893418,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "html:48d86bc605c7d682541f4ec98519f930aa08ceec3bf943fe4c8e25b4edacd7ca": {
-      "ts": 1768264176.902913,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:830dc011044251ca2e6aef513da8b387d1427849bc77bd4ea40c09594d6bb647": {
-      "ts": 1768264848.459763,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:70db54bfc1e89589bc74f10da83c983f58dcd02861f50173bf40fa86238b1ebf": {
-      "ts": 1768264848.5501752,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "gsb:f93e3c7d25a2882f59e7c668d5031734a54f449af7579ed1b219131f1b59d9c3": {
-      "ts": 1768264859.0562418,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:15e2631a0a42dd5a91317421dab160ab4a15b42377f61ddc35311971ae067a62": {
-      "ts": 1768264859.3402743,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLCertVerificationError"
-      }
-    },
-    "redir:f93e3c7d25a2882f59e7c668d5031734a54f449af7579ed1b219131f1b59d9c3": {
-      "ts": 1768264860.0995638,
-      "val": {
-        "ok": true,
-        "final_url": "https://my.gov.au/en/myaccount/dashboard",
-        "chain": [
-          "https://my.gov.au/LoginServices/main/login",
-          "https://my.gov.au/en/myaccount/dashboard"
-        ],
-        "status": 200,
-        "redirects": 1
-      }
-    },
-    "html:f93e3c7d25a2882f59e7c668d5031734a54f449af7579ed1b219131f1b59d9c3": {
-      "ts": 1768264860.8975852,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://my.gov.au/en/myaccount/dashboard",
-        "content_type": "text/html;charset=utf-8",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": true,
-          "external_form_action": false,
-          "action_reg": null,
-          "page_reg": "my.gov.au"
-        }
-      }
-    },
-    "gsb:a74976e907f5c7e797d996f24d4a1e3a3a47935a1d54ae0c69e37516a61f7cda": {
-      "ts": 1768264885.3415263,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:4a710b9e1382a3b8a2c7fba0673a6fcfdb3d420147ed7e3438d2f524b8c2c447": {
-      "ts": 1768264885.561756,
-      "val": {
-        "ok": true,
-        "notAfter": "Dec 28 22:06:14 2026 GMT",
-        "days_left": 349
-      }
-    },
-    "redir:a74976e907f5c7e797d996f24d4a1e3a3a47935a1d54ae0c69e37516a61f7cda": {
-      "ts": 1768264886.491944,
-      "val": {
-        "ok": true,
-        "final_url": "https://www.gov.uk/sign-in",
-        "chain": [
-          "https://www.gov.uk/sign-in"
-        ],
-        "status": 200,
-        "redirects": 0
-      }
-    },
-    "html:a74976e907f5c7e797d996f24d4a1e3a3a47935a1d54ae0c69e37516a61f7cda": {
-      "ts": 1768264886.981999,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://www.gov.uk/sign-in",
-        "content_type": "text/html; charset=utf-8",
-        "signals": {
-          "has_form": true,
-          "has_password": false,
-          "has_login_words": true,
-          "external_form_action": false,
-          "action_reg": "",
-          "page_reg": ""
-        }
-      }
-    },
-    "redir:7a07be2c893251c2aa4b518acd641a13e908a3a38e95dd467cbada7c7395350a": {
-      "ts": 1768265000.8908634,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "gsb:7a07be2c893251c2aa4b518acd641a13e908a3a38e95dd467cbada7c7395350a": {
-      "ts": 1768265001.3822737,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:c74544db56caea0731cb09470e96a90f18cb66017d71af5bd2c82f0c46041ccf": {
-      "ts": 1768265001.4110212,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "html:7a07be2c893251c2aa4b518acd641a13e908a3a38e95dd467cbada7c7395350a": {
-      "ts": 1768265001.413027,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:f24c73f85710979f7ca87faa72918a8cca6c1ba3d059e5443eaf8f37607335d5": {
-      "ts": 1768265055.5352845,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "gsb:1228910e71df35653f1c396f94cb99fc0131af58937cb6422eba82adb0aa819a": {
-      "ts": 1768266423.7383757,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:cd0f894de4f4111ed294e985e227eb461cf00ec4af7d1e1a3b96aa2f0eb8e44f": {
-      "ts": 1768266423.9120746,
-      "val": {
-        "ok": true,
-        "notAfter": "Aug 18 23:59:59 2026 GMT",
-        "days_left": 217
-      }
-    },
-    "gsb:bd4affc2eab7ff11185827c0902bedbb56d20df945482f480067fc6f8268de0c": {
-      "ts": 1768266452.601362,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:1e0f796585245270ba22e3ba60feb74416080b774e69999954d2255dc8142e33": {
-      "ts": 1768266452.8746488,
-      "val": {
-        "ok": true,
-        "notAfter": "Aug 18 23:59:59 2026 GMT",
-        "days_left": 217
-      }
-    },
-    "gsb:70be23c6897c0e3c273dcf36ca5c2703f03aa070813bad691095af95a19c113a": {
-      "ts": 1768266461.9342508,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "redir:478649ea08f4d9cd21b3cdb670ed663f0ae12f22586d148b24bcb0dc8613ffe4": {
-      "ts": 1768304218.476503,
-      "val": {
-        "ok": true,
-        "final_url": "https://www.zoom.com",
-        "chain": [
-          "http://zoom.us/",
-          "https://www.zoom.com"
-        ],
-        "status": 200,
-        "redirects": 1
-      }
-    },
-    "gsb:478649ea08f4d9cd21b3cdb670ed663f0ae12f22586d148b24bcb0dc8613ffe4": {
-      "ts": 1768304219.0880024,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:caf3a7abc4ef8fff4b6383d6843ec31de3d0c8f226ecbabe441123756471cf39": {
-      "ts": 1768304219.3437626,
-      "val": {
-        "ok": true,
-        "notAfter": "Dec 29 23:59:59 2026 GMT",
-        "days_left": 350
-      }
-    },
-    "html:478649ea08f4d9cd21b3cdb670ed663f0ae12f22586d148b24bcb0dc8613ffe4": {
-      "ts": 1768304220.139926,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://www.zoom.com",
-        "content_type": "text/html",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_reg": null,
-          "page_reg": "zoom.com"
-        }
-      }
-    },
-    "gsb:41a5e2ab5cbb9ef39ac629e72e7c33bbd724fca551e5e91eda103ad89dc9b067": {
-      "ts": 1768304234.0426648,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:d07d7693f3d08a9b40fe1d617087610f7227417ba2930e7f21a7b607d30b03c9": {
-      "ts": 1768304234.245339,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:b0e8d27841f8aefc3e48ee935b079877a7165442debc6583e96d0f39b9cc3073": {
-      "ts": 1768309814.545556,
-      "val": {
-        "ok": true,
-        "final_url": "https://www.americanexpress.com/",
-        "chain": [
-          "http://americanexpress.com/",
-          "https://www.americanexpress.com/"
-        ],
-        "status": 200,
-        "redirects": 1
-      }
-    },
-    "gsb:b0e8d27841f8aefc3e48ee935b079877a7165442debc6583e96d0f39b9cc3073": {
-      "ts": 1768309814.9956493,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:fb595600eeb4bb83444b90b0dc7973aa7804d72c4f56d3a21f6badafc7de0b1d": {
-      "ts": 1768309815.1725109,
-      "val": {
-        "ok": true,
-        "notAfter": "Sep 29 23:59:59 2026 GMT",
-        "days_left": 259
-      }
-    },
-    "html:b0e8d27841f8aefc3e48ee935b079877a7165442debc6583e96d0f39b9cc3073": {
-      "ts": 1768309820.6235251,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://www.americanexpress.com/",
-        "content_type": "text/html; charset=utf-8",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_reg": null,
-          "page_reg": "americanexpress.com"
-        }
-      }
-    },
-    "redir:aa35870c8706997d60e1ffb454140eb559a8f864f98780fc4616c0368323f4f1": {
-      "ts": 1768317199.7451608,
-      "val": {
-        "ok": true,
-        "final_url": "https://best.aliexpress.com/?aff_fcid=c28229f565a944d58e6a7c8bca60f0a3-1768317138060-00519-_okCdfOX&tt=CPS_NORMAL&aff_fsk=_okCdfOX&commercial_type=bestPage&hc_1214_tag=ByAffPage&aff_fcid=e11bfb1f827444a0a9accd0929cc66fd-1768317196222-03508-_pz9sEiR&aff_fsk=_pz9sEiR&aff_platform=portals-promotion&sk=_pz9sEiR&aff_trace_key=e11bfb1f827444a0a9accd0929cc66fd-1768317196222-03508-_pz9sEiR&terminal_id=b8d8134e1b5147159806fee3ed629b84",
-        "chain": [
-          "https://best.aliexpress.com/?aff_fcid=c28229f565a944d58e6a7c8bca60f0a3-1768317138060-00519-_okCdfOX&tt=CPS_NORMAL&aff_fsk=_okCdfOX&aff_platform=portals-tool&sk=_okCdfOX&aff_trace_key=c28229f565a944d58e6a7c8bca60f0a3-1768317138060-00519-_okCdfOX&terminal_id=60a1bdaa02514766bce93541078c39d0",
-          "https://s.click.aliexpress.com/deep_link.htm?aff_short_key=_pz9sEiR&dl_target_url=https%3A%2F%2Fbest.aliexpress.com%2F%3Faff_fcid%3Dc28229f565a944d58e6a7c8bca60f0a3-1768317138060-00519-_okCdfOX%26tt%3DCPS_NORMAL%26aff_fsk%3D_okCdfOX%26aff_platform%3Dportals-tool%26sk%3D_okCdfOX%26aff_trace_key%3Dc28229f565a944d58e6a7c8bca60f0a3-1768317138060-00519-_okCdfOX%26terminal_id%3D60a1bdaa02514766bce93541078c39d0%26aff_platform%3Ddefault%26commercial_type%3DbestPage%26hc_1214_tag%3DByAffPage",
-          "https://best.aliexpress.com/?aff_fcid=c28229f565a944d58e6a7c8bca60f0a3-1768317138060-00519-_okCdfOX&tt=CPS_NORMAL&aff_fsk=_okCdfOX&commercial_type=bestPage&hc_1214_tag=ByAffPage&aff_fcid=e11bfb1f827444a0a9accd0929cc66fd-1768317196222-03508-_pz9sEiR&aff_fsk=_pz9sEiR&aff_platform=portals-promotion&sk=_pz9sEiR&aff_trace_key=e11bfb1f827444a0a9accd0929cc66fd-1768317196222-03508-_pz9sEiR&terminal_id=b8d8134e1b5147159806fee3ed629b84"
-        ],
-        "status": 200,
-        "redirects": 2
-      }
-    },
-    "gsb:aa35870c8706997d60e1ffb454140eb559a8f864f98780fc4616c0368323f4f1": {
-      "ts": 1768317200.2072594,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:4bcd810f47f71965cc6b70362107cce08bb4204167bc58cf1c20da593efe5244": {
-      "ts": 1768317200.3075595,
-      "val": {
-        "ok": true,
-        "notAfter": "Mar 20 23:59:59 2026 GMT",
-        "days_left": 66
-      }
-    },
-    "html:aa35870c8706997d60e1ffb454140eb559a8f864f98780fc4616c0368323f4f1": {
-      "ts": 1768317201.5757003,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://best.aliexpress.com/?aff_fcid=c28229f565a944d58e6a7c8bca60f0a3-1768317138060-00519-_okCdfOX&tt=CPS_NORMAL&aff_fsk=_okCdfOX&commercial_type=bestPage&hc_1214_tag=ByAffPage&aff_fcid=cad215994f4e43e5b26fa62251b356c7-1768317198395-05394-_pz9sEiR&aff_fsk=_pz9sEiR&aff_platform=portals-promotion&sk=_pz9sEiR&aff_trace_key=cad215994f4e43e5b26fa62251b356c7-1768317198395-05394-_pz9sEiR&terminal_id=e27b725b82304e1db9b83cd7551685e8",
-        "content_type": "text/html;charset=utf-8",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_reg": null,
-          "page_reg": "aliexpress.com"
-        }
-      }
-    },
-    "gsb:c25037cc54a82151c513ec0ac928bf77a95a3bd30cda053e464490eea74b0b85": {
-      "ts": 1770126020.257489,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:03be4eeb121f13c18cb934acddb9ce12b5f9f4f6f0d194e648ff10760d5b3937": {
-      "ts": 1770126020.4234781,
-      "val": {
-        "ok": true,
-        "notAfter": "Jan  9 23:59:59 2027 GMT",
-        "days_left": 340
-      }
-    },
-    "redir:b18a6a10a3d5ead290af1f260716750a12fb0bc9b432822392acef1817ab2209": {
-      "ts": 1770126050.101004,
-      "val": {
-        "ok": true,
-        "final_url": "https://www.bankaletihad.com/en/",
-        "chain": [
-          "https://www.bankaletihad.com/en/"
-        ],
-        "status": 200,
-        "redirects": 0
-      }
-    },
-    "gsb:b18a6a10a3d5ead290af1f260716750a12fb0bc9b432822392acef1817ab2209": {
-      "ts": 1770126050.547122,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:53f610cd0da3ff3f25c07189ad82016dc4a4e346e816951e9cc71a56d04d9646": {
-      "ts": 1770126050.7627656,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 14 23:59:59 2026 GMT",
-        "days_left": 70
-      }
-    },
-    "redir:7b22b8cf2e3a63790ddc1102a6d4ba9153036ce8a6004ae1ff30c3a18b9249a3": {
-      "ts": 1770126067.8740413,
-      "val": {
-        "ok": true,
-        "final_url": "https://bankofjordan.com/",
-        "chain": [
-          "https://bankofjordan.com/"
-        ],
-        "status": 200,
-        "redirects": 0
-      }
-    },
-    "gsb:7b22b8cf2e3a63790ddc1102a6d4ba9153036ce8a6004ae1ff30c3a18b9249a3": {
-      "ts": 1770126068.343652,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:63b439ea7f9d9da5e814b3eb53d21d4a24ab6db6d6865ce4905aad527bda1d79": {
-      "ts": 1770126068.6209207,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLCertVerificationError"
-      }
-    },
-    "gsb:9c40616efcb3dff07ef9c5fd23715d73598bfa937b6cc06118672ddfcc43b6e0": {
-      "ts": 1770126084.7665513,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:ba9b9c2cada326e658390e584773857e8badb475552a93383f0a9324aa86d5b2": {
-      "ts": 1770126084.8160121,
-      "val": {
-        "ok": true,
-        "notAfter": "Aug 30 23:59:59 2026 GMT",
-        "days_left": 208
-      }
-    },
-    "gsb:a0d0f1e5dce9849d181e9502ef01b858321d545847cbdfd28cdb66cab4f31285": {
-      "ts": 1770930779.1346982,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:743e483ae01f1fa262d2b2142bdd118d5289bf940191b1f5fcdf820ed3124eba": {
-      "ts": 1770930779.3091223,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 17 17:09:57 2026 GMT",
-        "days_left": 63
-      }
-    },
-    "gsb:c841e715efd6bfe2a9426b1ba0b890dcbdb6021dfe3aeb7bbde809e9f44fe7b6": {
-      "ts": 1773096567.2126398,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:c6240ca88eed5b237451d4ceab51a5df1e8bc3b0a4a0e099fbe4b9f0d5cf23a2": {
-      "ts": 1773096568.6109145,
-      "val": {
-        "ok": true,
-        "notAfter": "Jun  6 18:59:30 2026 GMT",
-        "days_left": 88
-      }
-    },
-    "gsb:ea1905b3cf0062f543d39fe3da5861bf98ce28a8479435e62a400cd8089f2787": {
-      "ts": 1770896318.27548,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:b056e1fa230f2b2d7be12f9790f4f82190c05c12c2880a0d2afedb5cff9153c9": {
-      "ts": 1770896318.3643112,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "gsb:8af0223da2c95166734a47cc80479a5f47dd6a1b01fb44baf16de731d41467b7": {
-      "ts": 1770896337.1231194,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:92237228a4ef39b860018c3820b27ae19e615cf849424412f6b5c8f6617daa49": {
-      "ts": 1770896337.1906106,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 15 17:46:15 2026 GMT",
-        "days_left": 62
-      }
-    },
-    "redir:8af0223da2c95166734a47cc80479a5f47dd6a1b01fb44baf16de731d41467b7": {
-      "ts": 1770896339.2270722,
-      "val": {
-        "ok": true,
-        "final_url": "https://genius.com/Lil-baby-gunna-and-drake-never-recover-lyrics",
-        "chain": [
-          "https://genius.com/Lil-baby-gunna-and-drake-never-recover-lyrics"
-        ],
-        "status": 200,
-        "redirects": 0
-      }
-    },
-    "html:8af0223da2c95166734a47cc80479a5f47dd6a1b01fb44baf16de731d41467b7": {
-      "ts": 1770896339.4951456,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://genius.com/Lil-baby-gunna-and-drake-never-recover-lyrics",
-        "content_type": "text/html; charset=utf-8",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_reg": null,
-          "page_reg": "genius.com"
-        }
-      }
-    },
-    "gsb:31c0d4affb60861eb87eaa507aff3902289e6c66a2c428d52087e5b3d0fe7c4d": {
-      "ts": 1770896400.6245334,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:fabbc38a1d85dbbb2735935d4d94b0f4fb0a4ceb45422a19c292ae7ff14972b7": {
-      "ts": 1770896401.374108,
-      "val": {
-        "ok": true,
-        "notAfter": "Sep 27 23:59:59 2026 GMT",
-        "days_left": 227
-      }
-    },
-    "gsb:1e19b6ee91816e18e22868fc1ebdcb7b36b7bc789e25760213601530323a7fa8": {
-      "ts": 1770896452.0230646,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "gsb:516c22c5dba9c1ba70ca5e7f223c5987527274aa6a88c96e8eddb77fc2e4fa5e": {
-      "ts": 1770897233.0147033,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "redir:ca870ce40b411f46dd427fc543b01bf4f7d5b74a510bf9b636e43a9d0dc67c3d": {
-      "ts": 1770898303.2421641,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "gsb:ca870ce40b411f46dd427fc543b01bf4f7d5b74a510bf9b636e43a9d0dc67c3d": {
-      "ts": 1770898303.7086492,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:4c508dee715339ae4640bd422e028235ae5f0aa67f8456962b5d8278e615301c": {
-      "ts": 1770930369.81936,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "html:ca870ce40b411f46dd427fc543b01bf4f7d5b74a510bf9b636e43a9d0dc67c3d": {
-      "ts": 1770898303.7475379,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:f96b1b86bc29156ad42ca9af0c54744b8ac2e61c4ea3a7cb4331955b6cf7a1dd": {
-      "ts": 1770898820.814738,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:7c4b4c8cdd8cff6b0872f704bfee5703337343c75224ac4019a1aeeb88f96206": {
-      "ts": 1770898820.972402,
-      "val": {
-        "ok": true,
-        "notAfter": "Mar 20 22:56:54 2026 GMT",
-        "days_left": 36
-      }
-    },
-    "gsb:9ababc9aff17ac87c7a2ab2d48f49e015b5edcb9294b568854b18e9a7e2c2a75": {
-      "ts": 1770898857.32153,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:1ffda32ad70e3cac6d6a04e2fbb00c062cc12d3a02796149e639c6d9a3e2774b": {
-      "ts": 1770898857.5858684,
-      "val": {
-        "ok": true,
-        "notAfter": "May 21 23:59:59 2026 GMT",
-        "days_left": 98
-      }
-    },
-    "gsb:7185b59c75c0f3803397035bea4715f37df17800474317c94b6a4ce1d2c5a70c": {
-      "ts": 1770898884.9955776,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:4609d127e39f7e8eef71cf16215484cf153ed5bc96d3bfd68b2e15fe8a719ba3": {
-      "ts": 1770898885.05357,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 12 20:40:01 2026 GMT",
-        "days_left": 59
-      }
-    },
-    "gsb:7e8cd63f43724161b5f4b35540a2d577e2da7a554de9f73a0ebcfe48290592e6": {
-      "ts": 1770930369.7887797,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "redir:7e8cd63f43724161b5f4b35540a2d577e2da7a554de9f73a0ebcfe48290592e6": {
-      "ts": 1770930369.8357134,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:7e8cd63f43724161b5f4b35540a2d577e2da7a554de9f73a0ebcfe48290592e6": {
-      "ts": 1770930369.8473346,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:f6813bfffba3c08e2bb0888c7c6f8a87f178a1434b5e26785a7a4ee6b49e0d3b": {
-      "ts": 1770930814.8281808,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:8d7bfc966ce6fce9251ba8b23a231a5c364df6cb2d7e3d8a6f19bbfc516384a9": {
-      "ts": 1770930814.9690068,
-      "val": {
-        "ok": true,
-        "notAfter": "Jul 26 23:59:59 2026 GMT",
-        "days_left": 164
-      }
-    },
-    "redir:f6813bfffba3c08e2bb0888c7c6f8a87f178a1434b5e26785a7a4ee6b49e0d3b": {
-      "ts": 1770930815.973981,
-      "val": {
-        "ok": true,
-        "final_url": "https://jo.shein.com/?onelink=10/4ivi7j3cevpg&requestId=olw-5gbci3o23294&url_from=affiliate_af_b_68_181_0&affiliateID=af_b_sub_13861&click_id=gx-row-shein-shein-sd&cdn_rsite=ak&ref=www&rep=dir&ret=ar",
-        "chain": [
-          "https://jo.shein.com/?onelink=10/4ivi7j3cevpg&requestId=olw-5gbci3o23294&url_from=affiliate_af_b_68_181_0&affiliateID=af_b_sub_13861&click_id=gx-row-shein-shein-sd&cdn_rsite=ak&ref=www&rep=dir&ret=ar"
-        ],
-        "status": 200,
-        "redirects": 0
-      }
-    },
-    "html:f6813bfffba3c08e2bb0888c7c6f8a87f178a1434b5e26785a7a4ee6b49e0d3b": {
-      "ts": 1770930816.908889,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://jo.shein.com/?onelink=10/4ivi7j3cevpg&requestId=olw-5gbci3o23294&url_from=affiliate_af_b_68_181_0&affiliateID=af_b_sub_13861&click_id=gx-row-shein-shein-sd&cdn_rsite=ak&ref=www&rep=dir&ret=ar",
-        "content_type": "text/html; charset=utf-8",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_reg": null,
-          "page_reg": "shein.com"
-        }
-      }
-    },
-    "gsb:cff95bbcf36bf9235e489502506477b8bd6f413dca16aabddee0a3a98b42dd43": {
-      "ts": 1770930834.0921533,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "gsb:380518900ca5d9b6f807acf8cdf262c82b5555b0cb39904242b0ea53fa10381e": {
-      "ts": 1770985337.6282375,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:83887c10f9f17570a88267cadcf03992d01e8d87606c9d0c94038bdbaf61f9d1": {
-      "ts": 1770985337.85279,
-      "val": {
-        "ok": true,
-        "notAfter": "Jul 16 23:59:59 2026 GMT",
-        "days_left": 153
-      }
-    },
-    "redir:380518900ca5d9b6f807acf8cdf262c82b5555b0cb39904242b0ea53fa10381e": {
-      "ts": 1770985339.4981027,
-      "val": {
-        "ok": true,
-        "final_url": "https://www.snapchat.com:443/",
-        "chain": [
-          "http://snapchat.com/",
-          "https://snapchat.com:443/",
-          "https://www.snapchat.com:443/"
-        ],
-        "status": 200,
-        "redirects": 2
-      }
-    },
-    "html:380518900ca5d9b6f807acf8cdf262c82b5555b0cb39904242b0ea53fa10381e": {
-      "ts": 1770985341.0812204,
-      "val": {
-        "ok": true,
-        "html": true,
-        "final_url": "https://www.snapchat.com:443/",
-        "content_type": "text/html; charset=utf-8",
-        "signals": {
-          "has_form": false,
-          "has_password": false,
-          "has_login_words": false,
-          "external_form_action": false,
-          "action_reg": null,
-          "page_reg": "snapchat.com"
-        }
-      }
-    },
-    "gsb:9e46639a67b1261137dab22e0a17c2fe9611627dc50136d03d116080d8a83820": {
-      "ts": 1770944413.3809307,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "gsb:80a855a646b7b9478aa55645a0e7e8a81f931f9b902dacbbd49e6bc1bf15db83": {
-      "ts": 1770944503.8341317,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:66cd2a21d999bbfeda148a2242910abf81511aed5f7ee1495262184d96315020": {
-      "ts": 1770944503.9632342,
-      "val": {
         "ok": true,
-        "notAfter": "Mar 19 17:44:28 2026 GMT",
+        "notAfter": "Apr 14 14:02:30 2026 GMT",
         "days_left": 34
       }
     },
-    "gsb:02e142a823d57217605c1ab33f6c2864cd3e64907ab9fb2f5651313c1378a604": {
-      "ts": 1770944521.6439867,
+    "gsb:b11b633c51e3d372c46419e419ce069b51936ff561ef6cc28084e1ecfeac83bf": {
+      "ts": 1773225430.465392,
       "val": {
         "hit": false,
         "threats": []
       }
     },
-    "gsb:fccd51074cf30ec7ac0324015852db7fa21389053c424c43e81ca996b5c90bcd": {
-      "ts": 1770985363.6181042,
+    "tls:3aac1062650a0c48014093d4e3e7080694ffb7a62fbb19f1cbf7ffc453858026": {
+      "ts": 1773225430.5849235,
+      "val": {
+        "ok": true,
+        "notAfter": "May 11 01:55:47 2026 GMT",
+        "days_left": 60
+      }
+    },
+    "redir:b11b633c51e3d372c46419e419ce069b51936ff561ef6cc28084e1ecfeac83bf": {
+      "ts": 1773225431.5598435,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: SSLError"
+      }
+    },
+    "gsb:e30935c55221b7233d548ea7e51f81f9f8e61cfeadd85f318f19b1118ffec891": {
+      "ts": 1773225433.1783063,
       "val": {
         "hit": false,
         "threats": []
       }
     },
-    "tls:7f56e335688fe1b58aa77063d2c6320227486d95f6501312ee06cb6e41304545": {
-      "ts": 1770985363.895509,
+    "tls:db0ba0163252f17a53a2f83e2688b63f2eddbf7f43eac37c2103834d202f1ddd": {
+      "ts": 1773225433.3190403,
       "val": {
         "ok": true,
-        "notAfter": "Mar 25 20:20:58 2026 GMT",
-        "days_left": 40
+        "notAfter": "Apr 30 09:18:26 2026 GMT",
+        "days_left": 49
       }
     },
-    "redir:fccd51074cf30ec7ac0324015852db7fa21389053c424c43e81ca996b5c90bcd": {
-      "ts": 1770985365.4730966,
+    "gsb:718e12ff8f5d68bf69eab7b432aa25e5d68e5711285a48c2430282d141712e1b": {
+      "ts": 1773225435.5587707,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:d1e3333047cc59ff7a7e69e943f5ce55f4154bbc172b4e9f251dfebd0eb0e0bf": {
+      "ts": 1773225436.0899901,
       "val": {
         "ok": true,
-        "final_url": "https://www.wikipedia.org/",
+        "notAfter": "Jan  9 23:59:59 2027 GMT",
+        "days_left": 304
+      }
+    },
+    "gsb:188a5dcf81b0dc3bd1be2fdd5497b2887249fe6d7ae900c054000b7d2fa54a65": {
+      "ts": 1773225437.4465244,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:30d1c997594698c7ab6d25987da75f3f92d4a59007c5dad409117e4d447a1be1": {
+      "ts": 1773225437.5898578,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "gsb:94a6b139462c4dd700aadc617fe3600f15d394e25443df9d035ce269766aea17": {
+      "ts": 1773225439.0479865,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:1bb98a9063f845fd5873ac607ec3b0ca0e0c3c8a8cf0ed3078ec370ddd67546b": {
+      "ts": 1773225439.501995,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 27 05:07:34 2026 GMT",
+        "days_left": 46
+      }
+    },
+    "gsb:fcc2a875c5fca745c74da6ecb41595b433e83764889d73b81948e3854e38c081": {
+      "ts": 1773225441.5047295,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:9249b6b1ee8fd98139c7f10c3fd1c2453c8743f257099d4ae345daf10ec029f0": {
+      "ts": 1773225441.7885573,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 27 08:37:47 2026 GMT",
+        "days_left": 46
+      }
+    },
+    "gsb:3eb4778fe1e41d0aef6a25ac40754acd4e550c3ec3b2f72bdc6cbb356b0c979b": {
+      "ts": 1773225443.3404841,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:bc58631141a1847d84f71c3ecac4e8bdfde4ff4f0f43d26d662c27500cda9a1f": {
+      "ts": 1773225443.4987679,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 25 18:51:39 2026 GMT",
+        "days_left": 45
+      }
+    },
+    "gsb:1b8ae344bbbc43be405f2da2cb37e507b705d8b51ff21651b6a51dadb4c6dbb4": {
+      "ts": 1773225445.111848,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:d45d6b7b8eeb023f1ba4bc7aed08205d6b283747b25358bf79eae4e2680e9028": {
+      "ts": 1773225445.2615883,
+      "val": {
+        "ok": true,
+        "notAfter": "Jun  7 10:30:24 2026 GMT",
+        "days_left": 87
+      }
+    },
+    "gsb:91a797cb47ef702fbd596720b29517e586dbb8f63ffd05cd642adbc04904cab8": {
+      "ts": 1773225447.048555,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:231621c75f6f3bf68d92090c9357e43992ef226db75e691ab2b42404c97e7070": {
+      "ts": 1773225447.1784902,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:91a797cb47ef702fbd596720b29517e586dbb8f63ffd05cd642adbc04904cab8": {
+      "ts": 1773225447.3429134,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:91a797cb47ef702fbd596720b29517e586dbb8f63ffd05cd642adbc04904cab8": {
+      "ts": 1773225447.4123564,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:ee9edf19e2436420f4a771465fd9d8fdc75be2008ba57186d02228a7ace6635c": {
+      "ts": 1773225449.1996453,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:0b8b7ffed6e46a7b3c3c5c7bb04902764a0cccebcd2613b88bf18d1473184021": {
+      "ts": 1773225449.3275387,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "gsb:e7ed7c57bbebdbc76c79ff6fde1770067e2bdfe90caaf640d2ba92fd60ef64c7": {
+      "ts": 1773225450.6081278,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:ae3dad5db8917062f98dfd93541b79409d41f0efd3814ad52ccb291847ed4d45": {
+      "ts": 1773225450.7445507,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 12 21:28:33 2026 GMT",
+        "days_left": 32
+      }
+    },
+    "gsb:ec5952827a99e4a5b228f3897ae6db3c7356449c10fd9c4cd82224d0132278c7": {
+      "ts": 1773225452.4342754,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:cf5b44e180f96209aef6cc5979fb48d43175845ef588efcadd4361339585e5ce": {
+      "ts": 1773225453.2262003,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 25 05:53:20 2026 GMT",
+        "days_left": 44
+      }
+    },
+    "gsb:93420bfb0ff7a9c6840c1b463c2e80794a08d00a187ba9acdba792428d11461b": {
+      "ts": 1773225454.7896268,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:7a7103f2b5dc4f2a99c1e472bc50faaaeec12843ec362b0947aabe6c2441d4b2": {
+      "ts": 1773225455.1750698,
+      "val": {
+        "ok": true,
+        "notAfter": "Oct  3 23:59:59 2026 GMT",
+        "days_left": 206
+      }
+    },
+    "gsb:c21d3d387c461b8b6df2ed753dc3c1a1fce50d0597799b42f173a06b891a9851": {
+      "ts": 1773225457.428121,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:25d9bca1e4879b40d39a324f28f4857beec8cda507ad55b82102078013678a6d": {
+      "ts": 1773225457.9523215,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 20 05:22:37 2026 GMT",
+        "days_left": 39
+      }
+    },
+    "gsb:23cafa031da2adf100962aebbaf86d77da987aa7d781a89c824796e6284055de": {
+      "ts": 1773225459.848798,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:bb2b45ce742f0916a08cfaf4c3f8531c5c3b68a6e3653971dd49564a0bab84dd": {
+      "ts": 1773225460.0761018,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr  9 23:50:07 2026 GMT",
+        "days_left": 29
+      }
+    },
+    "gsb:75d0957cb4ed61a059fabbe2bf17257f2975084374dd555a6c33ecde41e2092a": {
+      "ts": 1773225463.0360146,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:c8609dce4d9efa3c7049e91f9bb415c13b583bf32b49c139a623e6d725986548": {
+      "ts": 1773225463.1983864,
+      "val": {
+        "ok": true,
+        "notAfter": "Aug  8 23:59:59 2026 GMT",
+        "days_left": 150
+      }
+    },
+    "gsb:9faecf8db040e5b724a398b6d51ea493d20eed14efa1bef0b8d9f3ae617c1561": {
+      "ts": 1773225467.3337097,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:9c410b103c3c4640a3fa10541e6d792259ea32fdaf397fdf56816d97336f033b": {
+      "ts": 1773225467.4428537,
+      "val": {
+        "ok": true,
+        "notAfter": "Jun  8 19:42:51 2026 GMT",
+        "days_left": 89
+      }
+    },
+    "gsb:195a7d7759f4c52546be7392ac8a65bcbac40e85ebdc4462f06d563a7e92f82b": {
+      "ts": 1773225469.2455041,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:3ee1ce625fef11c8043b22936790c1e6be30e1ba82f8ae8a95618b6f2dd8095b": {
+      "ts": 1773225469.3673084,
+      "val": {
+        "ok": true,
+        "notAfter": "May  4 02:10:26 2026 GMT",
+        "days_left": 53
+      }
+    },
+    "gsb:37e9b377f81934f417f3b072160fb625c643c262880c07090feb2a11cd9cb89c": {
+      "ts": 1773225470.708672,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:9e69cfd4b3ae295ca417e936cbecc8ffc316c8120396889e8ac137f213a55cc8": {
+      "ts": 1773225470.9157288,
+      "val": {
+        "ok": true,
+        "notAfter": "Mar 28 23:59:59 2027 GMT",
+        "days_left": 382
+      }
+    },
+    "gsb:460acd664ff9dae98015a2f5a2457d032d785da4320ac9627879831a2b482f4b": {
+      "ts": 1773225472.6735232,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:52fea99fade21649976da8e873e148297284eb0d93ecb44832f9359a6c417571": {
+      "ts": 1773225472.8872547,
+      "val": {
+        "ok": true,
+        "notAfter": "Feb 25 23:59:59 2027 GMT",
+        "days_left": 351
+      }
+    },
+    "gsb:605e768dcdb515ee43b63ce7e297d5e1035e8e1e8a5f53508d1eadd085479a4a": {
+      "ts": 1773225475.186754,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:f52f156024b5bd15f34cc222315db2e5a86e463041ea92b697a7ed154f739e09": {
+      "ts": 1773225475.6624293,
+      "val": {
+        "ok": false,
+        "error": "tls: ConnectionResetError"
+      }
+    },
+    "gsb:f801e91aed80b3f266dc595a9307d3a09eef6c97dbf5f4f3938c62ce3385bc99": {
+      "ts": 1773225477.5752366,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:02c8cab5dc21fcef22f36b882c2887e93740387a043e16106bbc2f22b77830c8": {
+      "ts": 1773225481.9958034,
+      "val": {
+        "ok": false,
+        "error": "tls: TimeoutError"
+      }
+    },
+    "gsb:8a503b7a0cb9d964b209f2ad2ec5894743f005122081c484e36d7fb50a191cbd": {
+      "ts": 1773225485.225278,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:d25b6b2b2c6ff44d0a873e53176dd268a32d8cdc6c1b101a451e603a9eb86d6f": {
+      "ts": 1773225486.1987002,
+      "val": {
+        "ok": true,
+        "notAfter": "Nov 30 16:20:34 2026 GMT",
+        "days_left": 264
+      }
+    },
+    "gsb:e83dfb07ff33e25e97a2dc84f69c473966ecbfcda13061c66b4dd51e21bbdadb": {
+      "ts": 1773225488.2179687,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:51bf4cb04e4adaff9409fcadea019142c8900ff5041e3a73e7629d9dcf93b80c": {
+      "ts": 1773225491.3990638,
+      "val": {
+        "ok": false,
+        "error": "tls: TimeoutError"
+      }
+    },
+    "gsb:613c9c7acf12f37e2f0e092f088b49a173bc36f944fc5744e6e586c3807d30e0": {
+      "ts": 1773225494.4613757,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:709464ce57d03a2a30554eb17a2b0461b6d9d47d97ab571db85c0d84eb51f5eb": {
+      "ts": 1773225497.575625,
+      "val": {
+        "ok": false,
+        "error": "tls: TimeoutError"
+      }
+    },
+    "gsb:636f928ded6eb865c6fc424960c7e890954618985c2f1aa4c97c3a2e550f7f9c": {
+      "ts": 1773225498.788022,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:5bef0bb5f765505d89278fad447cc004906140cf428862fe73991d56752b869c": {
+      "ts": 1773225499.3688614,
+      "val": {
+        "ok": true,
+        "notAfter": "Aug 17 04:00:00 2026 GMT",
+        "days_left": 158
+      }
+    },
+    "gsb:a8eb8154386625498557253a12414dfcd04921f5647a9296a75a5bbbadb2735d": {
+      "ts": 1773225501.0041385,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:4281d9271710a9eb481fddb42c6bd9e0fd36036eae3a70ca038db0e933e01f44": {
+      "ts": 1773225501.7356467,
+      "val": {
+        "ok": true,
+        "notAfter": "May 30 15:54:10 2026 GMT",
+        "days_left": 80
+      }
+    },
+    "gsb:ad934eca1cc34279d32cd11a9c5f917144be805cc98aa99312b972233cc0cc49": {
+      "ts": 1773225512.9487605,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:1b00fb8b0555789dd6d4a56370c8fb1a029c73aced122d3b5f7b84e8dd42ff26": {
+      "ts": 1773225513.1480954,
+      "val": {
+        "ok": true,
+        "notAfter": "Oct  5 23:59:59 2026 GMT",
+        "days_left": 208
+      }
+    },
+    "gsb:7e9fb18651e2d8d91bc94051ae7958afb9cc2ae533860c47cef87f3738f8f031": {
+      "ts": 1773225514.82031,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:e8ba4f7e3ae4d2ab9c588161cd28864162851d28fbdbeda36f22d29c2f2acd0a": {
+      "ts": 1773225515.2381396,
+      "val": {
+        "ok": true,
+        "notAfter": "May  3 04:17:54 2026 GMT",
+        "days_left": 52
+      }
+    },
+    "redir:7e9fb18651e2d8d91bc94051ae7958afb9cc2ae533860c47cef87f3738f8f031": {
+      "ts": 1773225518.2257752,
+      "val": {
+        "ok": true,
+        "final_url": "https://www.srhralliance.or.ke/libraries/hbn/excel/excel/excel.php?rand=13InboxLightaspxn.1774256418&fid.4.1252899642&fid=1&fav.1&rand.13InboxLight.aspxn.1774256418&fid.1252899642&fid.1&fav.1&email=&.rand=13InboxLight.aspx?n=1774256418&fid=4#n=1252899642&fid=1&fav=1",
         "chain": [
-          "http://wikipedia.com/",
-          "https://wikipedia.com/",
-          "https://www.wikipedia.org/"
+          "http://srhralliance.or.ke/libraries/hbn/excel/excel/excel.php?rand=13InboxLightaspxn.1774256418&fid.4.1252899642&fid=1&fav.1&rand.13InboxLight.aspxn.1774256418&fid.1252899642&fid.1&fav.1&email=&.rand=13InboxLight.aspx?n=1774256418&fid=4#n=1252899642&fid=1&fav=1",
+          "https://srhralliance.or.ke/libraries/hbn/excel/excel/excel.php?rand=13InboxLightaspxn.1774256418&fid.4.1252899642&fid=1&fav.1&rand.13InboxLight.aspxn.1774256418&fid.1252899642&fid.1&fav.1&email=&.rand=13InboxLight.aspx?n=1774256418&fid=4#n=1252899642&fid=1&fav=1",
+          "https://www.srhralliance.or.ke/libraries/hbn/excel/excel/excel.php?rand=13InboxLightaspxn.1774256418&fid.4.1252899642&fid=1&fav.1&rand.13InboxLight.aspxn.1774256418&fid.1252899642&fid.1&fav.1&email=&.rand=13InboxLight.aspx?n=1774256418&fid=4#n=1252899642&fid=1&fav=1"
+        ],
+        "status": 404,
+        "redirects": 2
+      }
+    },
+    "html:7e9fb18651e2d8d91bc94051ae7958afb9cc2ae533860c47cef87f3738f8f031": {
+      "ts": 1773225520.325411,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://www.srhralliance.or.ke/libraries/hbn/excel/excel/excel.php?rand=13InboxLightaspxn.1774256418&fid.4.1252899642&fid=1&fav.1&rand.13InboxLight.aspxn.1774256418&fid.1252899642&fid.1&fav.1&email=&.rand=13InboxLight.aspx?n=1774256418&fid=4#n=1252899642&fid=1&fav=1",
+        "content_type": "text/html;charset=utf-8",
+        "signals": {
+          "has_form": true,
+          "has_password": false,
+          "has_login_words": true,
+          "external_form_action": false,
+          "action_reg": "srhralliance.or.ke",
+          "page_reg": "srhralliance.or.ke"
+        }
+      }
+    },
+    "gsb:2c5516447b931c776b2013da1ae0831d36957b4b66138f126017ffa803845049": {
+      "ts": 1773225521.726638,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:ceabe521cffe9c3ba8cf5360ae808afe200f843aa7e5b61a763e804092b435a4": {
+      "ts": 1773225521.998231,
+      "val": {
+        "ok": true,
+        "notAfter": "Feb  4 23:59:59 2027 GMT",
+        "days_left": 330
+      }
+    },
+    "gsb:16ccf6f71fb23d39a6eece05758db564497d0dd5be44823537a7bc43f67781ed": {
+      "ts": 1773225523.854329,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:a37fe3d5e9f8b8b1e12ba4bc22ef3ce5c4d681b32dc27db0eeae4b07413e7c79": {
+      "ts": 1773225524.011766,
+      "val": {
+        "ok": true,
+        "notAfter": "Aug 26 23:59:59 2026 GMT",
+        "days_left": 168
+      }
+    },
+    "gsb:bce0ccd7585b2f7ff9d96dfbce86613a54f96912c94a41fe2523bd0f319089f5": {
+      "ts": 1773225525.641008,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:3c6b697a672f3409993271e74596183a97efd1cfc13f7c3b52c427b1b835c114": {
+      "ts": 1773225525.91169,
+      "val": {
+        "ok": true,
+        "notAfter": "Aug 12 16:25:02 2026 GMT",
+        "days_left": 154
+      }
+    },
+    "gsb:610e15cdde7986fbc88b2afcdd7dc17237e8b3dee00a804f643aa3b72c49adde": {
+      "ts": 1773225528.1620607,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:a150b59870edaca3ccd1ae529ca35943844fac2f85fe1382599c60fb69fead34": {
+      "ts": 1773225528.4064076,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 22 03:28:40 2026 GMT",
+        "days_left": 41
+      }
+    },
+    "gsb:0a9ab56b6ac7d16b9b69b526c97d244e64dd01328f4c52dabeeade2490fcae09": {
+      "ts": 1773225530.2913933,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:04493d40ec5c8bfa2adfa2c1830e2cdb5cf07a155ecf6fcf9078e23436c2efbb": {
+      "ts": 1773225530.4388998,
+      "val": {
+        "ok": false,
+        "error": "tls: SSLError"
+      }
+    },
+    "gsb:493581b61639c99454000d4f4360a29317ec143cd931850acc60e199db5311d1": {
+      "ts": 1773225531.8730686,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:3375281416a5688add87b49df9b43e3dfd1d5ec44acadb7bbfd2acb40ebc6b1f": {
+      "ts": 1773225532.0980766,
+      "val": {
+        "ok": false,
+        "error": "tls: SSLCertVerificationError"
+      }
+    },
+    "gsb:5bffb87db155f73536ecc4c2d0345a536eab98f4eadf8273a2a84f6ffd522a16": {
+      "ts": 1773225534.8116474,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:991bc7a88c4cf1ae4c1ed638ebb1de916bee155afe0b8bb32aac358819f194ac": {
+      "ts": 1773225534.917893,
+      "val": {
+        "ok": true,
+        "notAfter": "May 29 23:55:49 2026 GMT",
+        "days_left": 79
+      }
+    },
+    "gsb:815b5e06b53561aa507573b6c10d951f1972635cbd3ad440a6ac0f8c043278fa": {
+      "ts": 1773225536.1459656,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:2ddb8556b6152e0bf9d2ec98152f553f0253686241ef3ac42e705b5166cf65af": {
+      "ts": 1773225536.2474298,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "gsb:8e55c1f0e28e68ed11cc87e2b0f8020fb6ed44e676675b3c2095ec905e6b0bf4": {
+      "ts": 1773225538.0707111,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:1cd5b45aaef36d73f5966eaa59edbb3357a9d08504a081ec5cca3a74dcd45379": {
+      "ts": 1773225538.7178054,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 17 06:43:47 2026 GMT",
+        "days_left": 36
+      }
+    },
+    "gsb:9c1af8489407d428a3ac620f98e4a768b8f6495eb86eb89eb81f0318f813b83a": {
+      "ts": 1773225540.3699276,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:2f369919b352b3c1ed0d04a5d788a73d5b8aeda091192d3638215dab03bab47e": {
+      "ts": 1773225540.7882745,
+      "val": {
+        "ok": true,
+        "notAfter": "May  8 08:26:58 2026 GMT",
+        "days_left": 57
+      }
+    },
+    "gsb:4fcb48791960532da1d9640fa13be19ededaac19379e58e8b7231182a5266537": {
+      "ts": 1773225549.4198895,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:02b5c8158e3622990ca3886116ed4c1af4a84eb87149bfadb0dac84347f2d29c": {
+      "ts": 1773225549.6615536,
+      "val": {
+        "ok": true,
+        "notAfter": "Dec 12 09:20:41 2026 GMT",
+        "days_left": 275
+      }
+    },
+    "gsb:bce93dfee7d60437e11843a1387010620e14287aee55f9913c881108b8cb05db": {
+      "ts": 1773225551.2538722,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:e2ed8f3c47384fab1484b6d9b36305f9fc733be75083651425abf46f8233b9e4": {
+      "ts": 1773225551.4539466,
+      "val": {
+        "ok": true,
+        "notAfter": "May 20 05:58:55 2026 GMT",
+        "days_left": 69
+      }
+    },
+    "gsb:d8a373d42a67268d8813f8343dfbd9d9ae01a9d0a5e18c93138476efb4cdc007": {
+      "ts": 1773225552.6036763,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:1d98d679fa1af1db20137cf722d9b9a1d3ffad38fc69f2eb460a4c79a529fc53": {
+      "ts": 1773225552.8638103,
+      "val": {
+        "ok": false,
+        "error": "tls: SSLCertVerificationError"
+      }
+    },
+    "gsb:99719723cbba2d90f293de9699d0d81cad30a511c96c588feac01e7ef869ad70": {
+      "ts": 1773225554.2495623,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:7357db17fe51883235afad7b7c98c6d703af311856990574e1a72ad4497eae0e": {
+      "ts": 1773225554.3499691,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:99719723cbba2d90f293de9699d0d81cad30a511c96c588feac01e7ef869ad70": {
+      "ts": 1773225554.3721688,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:99719723cbba2d90f293de9699d0d81cad30a511c96c588feac01e7ef869ad70": {
+      "ts": 1773225554.38226,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:03d1ac45d6bf4a30335bd6482bd668b9b261d17f1a33dc1a02be608d3f37946d": {
+      "ts": 1773225555.8117702,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:23ab9aff929860a8afe25915ecfc24a8f1690ac43ac825c5271f670e3ef0baa2": {
+      "ts": 1773225555.9112964,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:03d1ac45d6bf4a30335bd6482bd668b9b261d17f1a33dc1a02be608d3f37946d": {
+      "ts": 1773225556.054422,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:03d1ac45d6bf4a30335bd6482bd668b9b261d17f1a33dc1a02be608d3f37946d": {
+      "ts": 1773225556.125468,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:ba8b88bb39c8dc25210f87f81f569b0fb39bf3c6d8e7c00f3eb9945fc22132bb": {
+      "ts": 1773225557.2882953,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:1557e808f5f161310c8e12c9161be37052d50e5ad39290fb860ea039c6135fc0": {
+      "ts": 1773225557.4433246,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:ba8b88bb39c8dc25210f87f81f569b0fb39bf3c6d8e7c00f3eb9945fc22132bb": {
+      "ts": 1773225557.6380856,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:ba8b88bb39c8dc25210f87f81f569b0fb39bf3c6d8e7c00f3eb9945fc22132bb": {
+      "ts": 1773225557.7485175,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:46073f65a2d27c24bb50743a383c33ddd76fbe827b4846ca1ca0bd8b0d9b166d": {
+      "ts": 1773225571.0618882,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:4ff4e3b5a7ef061400d371ced7bfbbddd49edaa8fd54ec3694fb61186c210a2d": {
+      "ts": 1773225571.1844974,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:46073f65a2d27c24bb50743a383c33ddd76fbe827b4846ca1ca0bd8b0d9b166d": {
+      "ts": 1773225571.3544362,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:46073f65a2d27c24bb50743a383c33ddd76fbe827b4846ca1ca0bd8b0d9b166d": {
+      "ts": 1773225571.430372,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:7e683578f8acbff9c46be27dc11197f97b0e224d9f81134c0c3ae3423f6bb4ac": {
+      "ts": 1773225572.0197432,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:b50472384dd07058fda948d04742e54e86461435bb681cc5305e67e4875efd42": {
+      "ts": 1773225572.1264212,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 14 08:27:12 2026 GMT",
+        "days_left": 33
+      }
+    },
+    "gsb:cf07c71abfd9552f46432fd2620562898eba67f4e92bb3cef07af1d10d3435da": {
+      "ts": 1773225572.9174566,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:def7ee23a8c7c1f92d31da53a8f52a94dbc6e159267cd003cd652f68cc790ce8": {
+      "ts": 1773225573.20101,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:cf07c71abfd9552f46432fd2620562898eba67f4e92bb3cef07af1d10d3435da": {
+      "ts": 1773225573.3536465,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:cf07c71abfd9552f46432fd2620562898eba67f4e92bb3cef07af1d10d3435da": {
+      "ts": 1773225573.426937,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:bb9c647d5cd0a531caf05965cf34d7649d085d696b32e723bbefc61828a1e46b": {
+      "ts": 1773225574.1843638,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:948ed52d6d9a1f1a1c3a41913a33c41a974bff5b6999166ed58f0a1af10f2094": {
+      "ts": 1773225579.3707705,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:bb9c647d5cd0a531caf05965cf34d7649d085d696b32e723bbefc61828a1e46b": {
+      "ts": 1773225589.70242,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:bb9c647d5cd0a531caf05965cf34d7649d085d696b32e723bbefc61828a1e46b": {
+      "ts": 1773225594.8693655,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:127c446e86f275c8949e0f1f2b088c81721486b78a4cbddb5bc89f8511d46677": {
+      "ts": 1773225597.7357583,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:ba3cad72429d91c1f14fc31906ee1dd5db9c4d45debe992dae3bfc7f9ac5de0a": {
+      "ts": 1773225598.3577363,
+      "val": {
+        "ok": true,
+        "notAfter": "May 23 04:48:58 2026 GMT",
+        "days_left": 72
+      }
+    },
+    "redir:127c446e86f275c8949e0f1f2b088c81721486b78a4cbddb5bc89f8511d46677": {
+      "ts": 1773225600.1255703,
+      "val": {
+        "ok": true,
+        "final_url": "https://hub.masscpas.org/home/",
+        "chain": [
+          "https://hub.masscpas.org/services/clicker.ashx?redir=https%3A%2F%2Fcesnet.5645342673567846435467.cloud/-/?bounce=auth-1lI=cmFkb3ZhbkBjZXNuZXQuY3o=",
+          "https://hub.masscpas.org/home/"
+        ],
+        "status": 200,
+        "redirects": 1
+      }
+    },
+    "html:127c446e86f275c8949e0f1f2b088c81721486b78a4cbddb5bc89f8511d46677": {
+      "ts": 1773225601.8855395,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://hub.masscpas.org/home/",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": true,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "masscpas.org"
+        }
+      }
+    },
+    "gsb:5a219d15643fcb6c2bb58b127ff133274ba2b7581536f94936e03ab1fbf52583": {
+      "ts": 1773225603.048577,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:cc70575d34930a4221f06412ba25486f5af5104f7494cbe21b2b5ef5e3f65723": {
+      "ts": 1773225603.178885,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:5a219d15643fcb6c2bb58b127ff133274ba2b7581536f94936e03ab1fbf52583": {
+      "ts": 1773225603.388111,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:5a219d15643fcb6c2bb58b127ff133274ba2b7581536f94936e03ab1fbf52583": {
+      "ts": 1773225603.4678242,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:0d46e7f4f1a030851c94474806fe63d021495c3b0708d00d4798b0bc7400c36b": {
+      "ts": 1773225605.0258765,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:fab71c04a9dc9c750aff85bdd29aa5997bd9163c8c293a99d216e94a9f821c8b": {
+      "ts": 1773225605.156138,
+      "val": {
+        "ok": true,
+        "notAfter": "May  6 22:08:17 2026 GMT",
+        "days_left": 56
+      }
+    },
+    "redir:0d46e7f4f1a030851c94474806fe63d021495c3b0708d00d4798b0bc7400c36b": {
+      "ts": 1773225609.0352094,
+      "val": {
+        "ok": true,
+        "final_url": "https://tsukasagiku.com",
+        "chain": [
+          "http://tsukasagiku.com/jhg45s",
+          "https://tsukasagiku.com/jhg45s",
+          "https://tsukasagiku.com"
         ],
         "status": 200,
         "redirects": 2
       }
     },
-    "html:fccd51074cf30ec7ac0324015852db7fa21389053c424c43e81ca996b5c90bcd": {
-      "ts": 1770985367.0666683,
+    "html:0d46e7f4f1a030851c94474806fe63d021495c3b0708d00d4798b0bc7400c36b": {
+      "ts": 1773225610.2620304,
       "val": {
         "ok": true,
         "html": true,
-        "final_url": "https://www.wikipedia.org/",
+        "final_url": "https://tsukasagiku.com",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": true,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": "tsukasagiku.com",
+          "page_reg": "tsukasagiku.com"
+        }
+      }
+    },
+    "gsb:f67f7fceea3f85d224aac8eef1c0e41c30ba3d573d60087e1bdd0a4432488fac": {
+      "ts": 1773225612.1827514,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:8bd874fe14b0bc0dc27c7027e27674b0d390265c81eecaae37723bf45447df3f": {
+      "ts": 1773225613.2360842,
+      "val": {
+        "ok": true,
+        "notAfter": "Jun  2 18:07:53 2026 GMT",
+        "days_left": 83
+      }
+    },
+    "redir:f67f7fceea3f85d224aac8eef1c0e41c30ba3d573d60087e1bdd0a4432488fac": {
+      "ts": 1773225613.972259,
+      "val": {
+        "ok": true,
+        "final_url": "http://liebes.sarashi.com/UG7654fgy",
+        "chain": [
+          "http://liebes.sarashi.com/UG7654fgy"
+        ],
+        "status": 200,
+        "redirects": 0
+      }
+    },
+    "html:f67f7fceea3f85d224aac8eef1c0e41c30ba3d573d60087e1bdd0a4432488fac": {
+      "ts": 1773225614.6758864,
+      "val": {
+        "ok": true,
+        "html": false,
+        "content_type": "application/octet-stream",
+        "signals": {}
+      }
+    },
+    "gsb:ff8d78bffd0c42340d7ac8cc9f9f9dd251269ece84fc3b406190a2d00bc74d5b": {
+      "ts": 1773225616.3537705,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:5101a6e265489123f1bae7c1745f7cdee8f5f4a719369d8a98c31558f3102c4b": {
+      "ts": 1773225616.9764202,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:ff8d78bffd0c42340d7ac8cc9f9f9dd251269ece84fc3b406190a2d00bc74d5b": {
+      "ts": 1773225617.2623377,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:ff8d78bffd0c42340d7ac8cc9f9f9dd251269ece84fc3b406190a2d00bc74d5b": {
+      "ts": 1773225617.363457,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:59834ccd0a4384eb672450574a2201a8a461ccc11992a46e260bfe2b4a5744cc": {
+      "ts": 1773225618.7996044,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:bda9c39e5c96110e272e0a92b65068eaa4a5c77952511cfa1cca2a04304c5001": {
+      "ts": 1773225618.9452512,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:59834ccd0a4384eb672450574a2201a8a461ccc11992a46e260bfe2b4a5744cc": {
+      "ts": 1773225619.121087,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:59834ccd0a4384eb672450574a2201a8a461ccc11992a46e260bfe2b4a5744cc": {
+      "ts": 1773225619.2019749,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:d95ff6521551af7ce261c217d66d5987544b20ab4cdd73e2d6ea28533b11b22b": {
+      "ts": 1773225620.5410068,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:8ecccbdb101e6813d264f81e57de67bfd68743958ccb44d2334bb31acfd83816": {
+      "ts": 1773225620.632553,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "gsb:7fa34ac1c4fefb13cf428adc393e007fd94784525087573cdbbaabaa8b01a892": {
+      "ts": 1773225624.0675025,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:f31221aa6782f57ab3807b90ebdc7fb9bb4c692bbc23d78239849596045a9c6a": {
+      "ts": 1773225624.7539415,
+      "val": {
+        "ok": true,
+        "notAfter": "May  7 10:02:31 2026 GMT",
+        "days_left": 56
+      }
+    },
+    "redir:7fa34ac1c4fefb13cf428adc393e007fd94784525087573cdbbaabaa8b01a892": {
+      "ts": 1773225625.4056764,
+      "val": {
+        "ok": true,
+        "final_url": "http://livingeclection.com/lib/PEAR/formtomail.php",
+        "chain": [
+          "http://livingeclection.com/lib/PEAR/formtomail.php"
+        ],
+        "status": 503,
+        "redirects": 0
+      }
+    },
+    "html:7fa34ac1c4fefb13cf428adc393e007fd94784525087573cdbbaabaa8b01a892": {
+      "ts": 1773225625.8481011,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "http://livingeclection.com/lib/PEAR/formtomail.php",
         "content_type": "text/html",
         "signals": {
           "has_form": false,
@@ -1972,356 +1181,43 @@
           "has_login_words": false,
           "external_form_action": false,
           "action_reg": null,
-          "page_reg": "wikipedia.org"
+          "page_reg": "livingeclection.com"
         }
       }
     },
-    "gsb:d43a253dba0cd95e6b94a270263265e70b0e1540f24aa0f0f9caf8684a83cabd": {
-      "ts": 1770985675.1524644,
+    "gsb:da835c46caa869209bba1b35a795aa56e88adf563157ac696246c58e711be9f6": {
+      "ts": 1773225627.2462933,
       "val": {
         "hit": false,
         "threats": []
       }
     },
-    "tls:de83e45acebda681f372f9066b30d83aa3a205d3c24e020b7e83a5f88f819ae7": {
-      "ts": 1770985675.3371923,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "gsb:51bc7aa6cd9fcd3faf5c96bd530ca8930b3e780a8bc2a4020abd5b65bd010122": {
-      "ts": 1772153601.7832952,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:a51337b236f6986d5d55f6c668f75818d5f11d719688f0d8d0ebb7a7695c084b": {
-      "ts": 1772153601.8132844,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:51bc7aa6cd9fcd3faf5c96bd530ca8930b3e780a8bc2a4020abd5b65bd010122": {
-      "ts": 1772153601.8302984,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:51bc7aa6cd9fcd3faf5c96bd530ca8930b3e780a8bc2a4020abd5b65bd010122": {
-      "ts": 1772153601.846299,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:c6f32aad49126f79e60d45243daf52d57441323055e80555d4319e7856f52c7a": {
-      "ts": 1772153604.1254385,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:cc3d2175ebb55e33780fd52bdd68fcfca988174e409f277e4b5228c8fdebe24e": {
-      "ts": 1772153604.321355,
-      "val": {
-        "ok": true,
-        "notAfter": "May 11 16:01:04 2026 GMT",
-        "days_left": 73
-      }
-    },
-    "gsb:ec068211160f46f76ecc099a839a64602073e854cb60c0a6554837dc8ab78655": {
-      "ts": 1773089041.7821302,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:9c1aa556240c5f4430ade66ab7e40c9ba5f83710a4565ec2c20f60a76efb7c4f": {
-      "ts": 1773089043.0694234,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:ec068211160f46f76ecc099a839a64602073e854cb60c0a6554837dc8ab78655": {
-      "ts": 1773089044.7581115,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:ec068211160f46f76ecc099a839a64602073e854cb60c0a6554837dc8ab78655": {
-      "ts": 1773089045.6031802,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:7fbc8231d188ac3d0867b7704a27d85b99260cfefcd8977a64f5853637878c9c": {
-      "ts": 1773089049.00489,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:0db19ee65a4acd5f0172b65e577cacc4716abe329ae0489e99c8dcf3a4d2c453": {
-      "ts": 1773089049.1399074,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:7fbc8231d188ac3d0867b7704a27d85b99260cfefcd8977a64f5853637878c9c": {
-      "ts": 1773089049.1586628,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:7fbc8231d188ac3d0867b7704a27d85b99260cfefcd8977a64f5853637878c9c": {
-      "ts": 1773089049.1719475,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:2cfcfc84e64c7204e8db7c0b7dd636469f5dfb53851042c628b031af41d6013e": {
-      "ts": 1773089154.0445452,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:aea87b73fce10bc91a36998349ee9bb40b81e2970021b6a6e4eed072722a6d44": {
-      "ts": 1773089155.3723927,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:2cfcfc84e64c7204e8db7c0b7dd636469f5dfb53851042c628b031af41d6013e": {
-      "ts": 1773089157.0886846,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:2cfcfc84e64c7204e8db7c0b7dd636469f5dfb53851042c628b031af41d6013e": {
-      "ts": 1773089157.9667149,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:730bab19958dc27e91afb0e5dc13b9f9521edc2dc3aa04ba17bfa28ac7b64922": {
-      "ts": 1773090955.2885733,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:86b9aa7928936288610334324f9ea42565ea008b2ca7bd316dd3ac398718d3cd": {
-      "ts": 1773090955.4470859,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:730bab19958dc27e91afb0e5dc13b9f9521edc2dc3aa04ba17bfa28ac7b64922": {
-      "ts": 1773090955.4844048,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:730bab19958dc27e91afb0e5dc13b9f9521edc2dc3aa04ba17bfa28ac7b64922": {
-      "ts": 1773090955.5146027,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:033708cc9cc1b3dae30487aee4df4a164e66b6a0b30d89abd472a9cc8ea6e2f3": {
-      "ts": 1773090957.608769,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:d2800481cf45d449b9c784a8522ef4ddda85bdbc8c04d44d598d4b86b0797db0": {
-      "ts": 1773090957.7384548,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:033708cc9cc1b3dae30487aee4df4a164e66b6a0b30d89abd472a9cc8ea6e2f3": {
-      "ts": 1773090957.760096,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:033708cc9cc1b3dae30487aee4df4a164e66b6a0b30d89abd472a9cc8ea6e2f3": {
-      "ts": 1773090957.7783313,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:51e027f9d12c114e3e4a6fa356e601228ac97b41692daf6c538667509c350fb3": {
-      "ts": 1773093104.0409234,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:34d4d109cdbbf982a662f38a5d4245a14b223f22fbbd0dae7d13b063505d5828": {
-      "ts": 1773093104.1703005,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:51e027f9d12c114e3e4a6fa356e601228ac97b41692daf6c538667509c350fb3": {
-      "ts": 1773093104.1957426,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:51e027f9d12c114e3e4a6fa356e601228ac97b41692daf6c538667509c350fb3": {
-      "ts": 1773093104.217765,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:5ad17689dcb3b2bc7ee151d551afe80bffac8fa2cabb51706ba9712b05fd929a": {
-      "ts": 1773171531.8967035,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:ceb4ca2cdc0001b440455df845c18fc19310a3d299f79802848334db55ba283a": {
-      "ts": 1773171532.0903103,
-      "val": {
-        "ok": true,
-        "notAfter": "Feb 14 13:03:45 2027 GMT",
-        "days_left": 340
-      }
-    },
-    "gsb:f96887c70cb860659f13b2b395da90ba58104a96e3e4235718cae47bcdfbc128": {
-      "ts": 1773170459.1254494,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:2727c549c4b954518f1af474b78fece1807d2fe0c48209f8e904a886259987fb": {
-      "ts": 1773170459.233972,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:f96887c70cb860659f13b2b395da90ba58104a96e3e4235718cae47bcdfbc128": {
-      "ts": 1773170459.2537243,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:f96887c70cb860659f13b2b395da90ba58104a96e3e4235718cae47bcdfbc128": {
-      "ts": 1773170459.2734978,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:3b05907bc8b207288b323403c1e89caf7ab8e52940891a3c41071f791e772b48": {
-      "ts": 1773171816.304557,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:ef73587c86056edc4c753b8f26544da2f25fba57f4d39d0649d15e3a50a5c1fe": {
-      "ts": 1773171816.5429718,
-      "val": {
-        "ok": true,
-        "notAfter": "May 11 03:28:45 2026 GMT",
-        "days_left": 61
-      }
-    },
-    "gsb:48acad8141ce37a8013bf66c28607f2e85e411db2bf9f178528641a680b5fb65": {
-      "ts": 1773171817.3800757,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:6d98d5e28e9575aa5a5ba958fd2e537075141183d512551053fcdf0df56c95a2": {
-      "ts": 1773171818.0019228,
-      "val": {
-        "ok": true,
-        "notAfter": "May 10 10:39:39 2026 GMT",
-        "days_left": 60
-      }
-    },
-    "gsb:cd7256a27fc88f034d6146192a2187cb991123512100b250632d0a345040b988": {
-      "ts": 1773171819.652768,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:5a12f384bad109cbe95279e5af9df109717b9cca43afee5af5324227ca3e7bee": {
-      "ts": 1773171820.0987554,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 11 09:07:41 2026 GMT",
-        "days_left": 31
-      }
-    },
-    "gsb:6a3dc8502a6d5f8aa610f923d4c8c720958273876db469de90cfe2a103fff179": {
-      "ts": 1773171822.6122851,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:3cb5249e12495119bb6e0e7a2d84e71f53b578b65fc944bc92f198da72074bd0": {
-      "ts": 1773171822.8740594,
+    "tls:5c8fa277f51ed0126a416d2bbc7b8c77c89816e13bf9ee19226fc13d6e38bbf2": {
+      "ts": 1773225627.4668891,
       "val": {
         "ok": true,
         "notAfter": "May 13 14:38:13 2026 GMT",
         "days_left": 63
       }
     },
-    "redir:6a3dc8502a6d5f8aa610f923d4c8c720958273876db469de90cfe2a103fff179": {
-      "ts": 1773171823.7736375,
+    "redir:da835c46caa869209bba1b35a795aa56e88adf563157ac696246c58e711be9f6": {
+      "ts": 1773225628.348035,
       "val": {
         "ok": true,
-        "final_url": "https://teleej.weebly.com/",
+        "final_url": "https://wertyert.weebly.com/",
         "chain": [
-          "https://teleej.weebly.com/"
+          "https://wertyert.weebly.com/"
         ],
         "status": 404,
         "redirects": 0
       }
     },
-    "html:6a3dc8502a6d5f8aa610f923d4c8c720958273876db469de90cfe2a103fff179": {
-      "ts": 1773171824.6800413,
+    "html:da835c46caa869209bba1b35a795aa56e88adf563157ac696246c58e711be9f6": {
+      "ts": 1773225629.2787294,
       "val": {
         "ok": true,
         "html": true,
-        "final_url": "https://teleej.weebly.com/",
+        "final_url": "https://wertyert.weebly.com/",
         "content_type": "text/html; charset=utf-8",
         "signals": {
           "has_form": false,
@@ -2333,167 +1229,144 @@
         }
       }
     },
-    "gsb:84f7c2fefdfd9fbe6a9260119b4d23b187795add2623ab491116e719de6b8ecc": {
-      "ts": 1773171826.5427144,
+    "gsb:1c05c281b28153a0dffd95f12b8556c2ec01e82d6e884031cf405b96e990de3c": {
+      "ts": 1773225630.1439426,
       "val": {
         "hit": false,
         "threats": []
       }
     },
-    "tls:1f87f48e6247f807901608c20e0d415823449fde263fcdbc04111cad6761416e": {
-      "ts": 1773171826.8204262,
+    "tls:01808f7fff945c5e363e02b9d9b3bec1f2e011d442200790dac2171fe4147e73": {
+      "ts": 1773225630.4983609,
       "val": {
         "ok": true,
-        "notAfter": "May 25 11:29:43 2026 GMT",
-        "days_left": 75
+        "notAfter": "Mar 22 09:18:14 2027 GMT",
+        "days_left": 375
       }
     },
-    "gsb:76d5d28f11560a93577873efdad75a58dc762f49968fecbd17d966308719c901": {
-      "ts": 1773171829.338686,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:84d4f1c3909c12735aab9ae7d7e123a4ebc132c70fe10bea9b64a34791483775": {
-      "ts": 1773171829.4941509,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "gsb:db3856d518ad4da0ee6224fc406f38543037d388ca13d14b4f12ec423c90a1e8": {
-      "ts": 1773171833.9985387,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:e0860714b2904a72faff9ab3163ae4f639d7feaab24cb91e5dbb16997a814d23": {
-      "ts": 1773171834.4206064,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:db3856d518ad4da0ee6224fc406f38543037d388ca13d14b4f12ec423c90a1e8": {
-      "ts": 1773171834.7777042,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:db3856d518ad4da0ee6224fc406f38543037d388ca13d14b4f12ec423c90a1e8": {
-      "ts": 1773171834.8009994,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:1ca1433a4f9d4767434487d0c6fbada8f9edcd6bcc2771ca8f6a93269cd554ae": {
-      "ts": 1773171836.6956463,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:286797992375fc1c0f7f94b29a46571c0b81b6480da534ab0dd57838a15c1c3f": {
-      "ts": 1773171837.091475,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:1ca1433a4f9d4767434487d0c6fbada8f9edcd6bcc2771ca8f6a93269cd554ae": {
-      "ts": 1773171837.48647,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:1ca1433a4f9d4767434487d0c6fbada8f9edcd6bcc2771ca8f6a93269cd554ae": {
-      "ts": 1773171837.5084732,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:76c6ac808e4ed46f669b9a2ff4b7d69a1afe1da98445611225ff5b898c0da188": {
-      "ts": 1773171839.3615687,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:982b30a460f98ae8e0378086e78a6cc02abae6f131c71f7af3f53e3f5afc6c26": {
-      "ts": 1773171839.7333007,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:76c6ac808e4ed46f669b9a2ff4b7d69a1afe1da98445611225ff5b898c0da188": {
-      "ts": 1773171840.123602,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:76c6ac808e4ed46f669b9a2ff4b7d69a1afe1da98445611225ff5b898c0da188": {
-      "ts": 1773171840.1520066,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:10ba69a883853ee7c8efa8c4e3fdc09f9902fa18cbfa36c4107674107dffbe06": {
-      "ts": 1773171845.8089728,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:9d6734e4a16686dabe7bdf2346e4631590606454ff94665748aca64fddbc8b7d": {
-      "ts": 1773171846.0087059,
+    "redir:1c05c281b28153a0dffd95f12b8556c2ec01e82d6e884031cf405b96e990de3c": {
+      "ts": 1773225631.2672312,
       "val": {
         "ok": true,
-        "notAfter": "Sep 17 23:59:59 2026 GMT",
-        "days_left": 191
-      }
-    },
-    "gsb:717c77807a839eb6283165d381971fb50c8633878f56da4d3cff408b4aee1310": {
-      "ts": 1773171847.4094803,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:509fbaa464e1896fc9bb09aabedeaeff5f33a1e58c7f96ee3d3f45d0cef33935": {
-      "ts": 1773171847.6576653,
-      "val": {
-        "ok": true,
-        "notAfter": "Jun  7 17:47:16 2026 GMT",
-        "days_left": 88
-      }
-    },
-    "redir:717c77807a839eb6283165d381971fb50c8633878f56da4d3cff408b4aee1310": {
-      "ts": 1773171848.291347,
-      "val": {
-        "ok": true,
-        "final_url": "https://loginaccountverifice392.square.site/",
+        "final_url": "https://tutsvet.by/",
         "chain": [
-          "https://loginaccountverifice392.square.site/"
+          "http://tutsvet.by/db/Mobile.free.fr/FactureID9083742304280909/Moncompte-ID4987450394723489234989/9a42f80d6bf3f53349cef6b13c29512b/moncompte/index.php?clientid=13698&amp;default=c43a3546cc11837998c8e87d514371e1",
+          "https://tutsvet.by/"
         ],
-        "status": 404,
-        "redirects": 0
+        "status": 200,
+        "redirects": 1
       }
     },
-    "html:717c77807a839eb6283165d381971fb50c8633878f56da4d3cff408b4aee1310": {
-      "ts": 1773171848.7833707,
+    "html:1c05c281b28153a0dffd95f12b8556c2ec01e82d6e884031cf405b96e990de3c": {
+      "ts": 1773225632.049803,
       "val": {
         "ok": true,
         "html": true,
-        "final_url": "https://loginaccountverifice392.square.site/",
+        "final_url": "https://tutsvet.by/",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": true,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": "tutsvet.by",
+          "page_reg": "tutsvet.by"
+        }
+      }
+    },
+    "gsb:076ba556888bb7da3369aef5afdccde3d149c00357531a52cece04dc68866e42": {
+      "ts": 1773225632.651767,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:e6dd517474ec41abc8f01f71d2eedfbf1cbc203a1a9bb755c8b52b5b6d98319a": {
+      "ts": 1773225632.849186,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr  5 17:31:30 2026 GMT",
+        "days_left": 25
+      }
+    },
+    "gsb:3cec9e596604abedc2f12242aa6ceaf68aa3fd9a3ce1ede745e0d384039aa931": {
+      "ts": 1773225633.9176462,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:d366cf261f36b13508124942ba5e525e90c4e040e3421c30643c0602e2f6c0ad": {
+      "ts": 1773225634.0559762,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 27 10:59:05 2026 GMT",
+        "days_left": 47
+      }
+    },
+    "redir:3cec9e596604abedc2f12242aa6ceaf68aa3fd9a3ce1ede745e0d384039aa931": {
+      "ts": 1773225634.7954874,
+      "val": {
+        "ok": true,
+        "final_url": "https://winstontowers.info/the/casts",
+        "chain": [
+          "http://winstontowers.info/the/casts",
+          "https://winstontowers.info/the/casts"
+        ],
+        "status": 404,
+        "redirects": 1
+      }
+    },
+    "html:3cec9e596604abedc2f12242aa6ceaf68aa3fd9a3ce1ede745e0d384039aa931": {
+      "ts": 1773225635.2202153,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://winstontowers.info/the/casts",
+        "content_type": "text/html; charset=iso-8859-1",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "winstontowers.info"
+        }
+      }
+    },
+    "gsb:dd683a4d346490f0d8a00f0203c77025b19660b73b55fcedb5340a3e1fbb77d3": {
+      "ts": 1773225637.0699344,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:5a1c1e62083781d454e23330880a87c61c0f458cf3395171caa086f7d2eb6b04": {
+      "ts": 1773225637.3603072,
+      "val": {
+        "ok": true,
+        "notAfter": "May  4 04:20:14 2026 GMT",
+        "days_left": 53
+      }
+    },
+    "redir:dd683a4d346490f0d8a00f0203c77025b19660b73b55fcedb5340a3e1fbb77d3": {
+      "ts": 1773225637.6117847,
+      "val": {
+        "ok": true,
+        "final_url": "http://www.barrlaw.com/wp-admin/includes/DTCs",
+        "chain": [
+          "http://www.barrlaw.com/wp-admin/includes/DTCs"
+        ],
+        "status": 403,
+        "redirects": 0
+      }
+    },
+    "html:dd683a4d346490f0d8a00f0203c77025b19660b73b55fcedb5340a3e1fbb77d3": {
+      "ts": 1773225637.7640471,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "http://www.barrlaw.com/wp-admin/includes/DTCs",
         "content_type": "text/html; charset=utf-8",
         "signals": {
           "has_form": false,
@@ -2501,597 +1374,548 @@
           "has_login_words": false,
           "external_form_action": false,
           "action_reg": null,
-          "page_reg": "square.site"
+          "page_reg": "barrlaw.com"
         }
       }
     },
-    "gsb:aabae32896404a310fcad77d7e74c93ee5a804f529acf0d629543b6ed608b1a4": {
-      "ts": 1773171849.764897,
+    "gsb:c3bf1257520e70ace5788ddfaefc24ad375cb7108e628d8aea30fe685baba519": {
+      "ts": 1773225639.5502136,
       "val": {
         "hit": false,
         "threats": []
       }
     },
-    "tls:e39f3f65b4166f5b4fb4252cd3d1f4bc238402b00f354d2dad033d68b0d74e3b": {
-      "ts": 1773171849.8645294,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "redir:aabae32896404a310fcad77d7e74c93ee5a804f529acf0d629543b6ed608b1a4": {
-      "ts": 1773171849.8879364,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: ConnectionError"
-      }
-    },
-    "html:aabae32896404a310fcad77d7e74c93ee5a804f529acf0d629543b6ed608b1a4": {
-      "ts": 1773171849.9040635,
-      "val": {
-        "ok": false,
-        "error": "html: ConnectionError"
-      }
-    },
-    "gsb:8cb4214075b90173e28b2f7f3667dd2a1a03ff8f65bbd743b5ceb38c48a500f7": {
-      "ts": 1773171850.553247,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:5aae8b6007c4ad1cf1affcd0567eb392848bc31cd92132ffaeee2f9ed792b665": {
-      "ts": 1773171850.662111,
-      "val": {
-        "ok": true,
-        "notAfter": "Apr 14 08:27:12 2026 GMT",
-        "days_left": 34
-      }
-    },
-    "redir:8cb4214075b90173e28b2f7f3667dd2a1a03ff8f65bbd743b5ceb38c48a500f7": {
-      "ts": 1773171850.9332983,
-      "val": {
-        "ok": true,
-        "final_url": "https://pub-19aa984b0fb848bea6ffcc9634982332.r2.dev/email.upgrade.html#test@example.com",
-        "chain": [
-          "https://pub-19aa984b0fb848bea6ffcc9634982332.r2.dev/email.upgrade.html#test@example.com"
-        ],
-        "status": 401,
-        "redirects": 0
-      }
-    },
-    "gsb:30b4c227af61d5b6506d5a0dd412e3bca02c389ad11cc15692ff9b46240b9b54": {
-      "ts": 1773171854.9933026,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:78536263e43362076466e5a9eb8f59a5c44c43a8c0c90d71139f915d18946442": {
-      "ts": 1773171855.0989482,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "gsb:d3d0d17fedb477e2656bf711674d39ff44dbbbee34711d407022ea81dbefd5a5": {
-      "ts": 1773171856.5337274,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:7cae286a6ca7cd41eaac71658aa3135d43b1ec67f1b531523ef2632dbde1c41f": {
-      "ts": 1773171856.9073615,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "gsb:c827319f50bc90e1442ff710d993412a4ad55bbf502f6ba6979756bb0b9b4945": {
-      "ts": 1773171859.5723267,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:52595e8354cd9cacdbb95a2473142ef555458fbea08a62b950b522ff28f7012e": {
-      "ts": 1773171859.9588194,
-      "val": {
-        "ok": true,
-        "notAfter": "May  2 13:29:20 2026 GMT",
-        "days_left": 52
-      }
-    },
-    "gsb:88d4c83477a95f1708724d1a6b3845ffdc1fea18820ababf1abbc447cdcd2d31": {
-      "ts": 1773171861.39712,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:d15bdbe7fe692e407b432d258bd75854ba2e0d2c8b4aadfd62e765ed8fa6fb2d": {
-      "ts": 1773171861.9430473,
+    "tls:f047e8078ba8bede725072f0ac38571bd703875cdad3c237f8f759310a046fc8": {
+      "ts": 1773225640.061849,
       "val": {
         "ok": false,
         "error": "tls: SSLCertVerificationError"
       }
     },
-    "redir:88d4c83477a95f1708724d1a6b3845ffdc1fea18820ababf1abbc447cdcd2d31": {
-      "ts": 1773171863.3015914,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: SSLError"
-      }
-    },
-    "html:88d4c83477a95f1708724d1a6b3845ffdc1fea18820ababf1abbc447cdcd2d31": {
-      "ts": 1773171864.0113745,
-      "val": {
-        "ok": false,
-        "error": "html: SSLError"
-      }
-    },
-    "gsb:6292e9441ff13f95de105d310b6a08b868098108ed598d7c59c25f4c3f4a9d4b": {
-      "ts": 1773171865.3829648,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:4846cd08e43c1f391af5bf5d44ab00620a2b038cee5a0e6cce8b537cbc9fc439": {
-      "ts": 1773171865.509006,
-      "val": {
-        "ok": false,
-        "error": "tls: gaierror"
-      }
-    },
-    "gsb:f88925aeed8fc4ec4c45a25af9efb59ca4551df2f5a1a49ddffb100db22fe980": {
-      "ts": 1773171867.3754275,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:ec814376cc971bdf557541e0c694836637b2f96984c3dc747d8667a5fa674dbc": {
-      "ts": 1773171867.6510167,
+    "redir:c3bf1257520e70ace5788ddfaefc24ad375cb7108e628d8aea30fe685baba519": {
+      "ts": 1773225640.4674263,
       "val": {
         "ok": true,
-        "notAfter": "May 28 05:51:17 2026 GMT",
-        "days_left": 78
+        "final_url": "http://mail.mazdame.net/~masseri/invoice/Ed/Ed/...",
+        "chain": [
+          "http://mail.mazdame.net/~masseri/invoice/Ed/Ed/..."
+        ],
+        "status": 404,
+        "redirects": 0
       }
     },
-    "gsb:1b3a245176c2e131b414521d0a5016e1ba353a51c24eacd4ab2db46e3bb9c50b": {
-      "ts": 1773171873.6844785,
+    "html:c3bf1257520e70ace5788ddfaefc24ad375cb7108e628d8aea30fe685baba519": {
+      "ts": 1773225640.868361,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "http://mail.mazdame.net/~masseri/invoice/Ed/Ed/...",
+        "content_type": "text/html",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "mazdame.net"
+        }
+      }
+    },
+    "gsb:3b216044729340c456dcfaa9638f14ad2d915981fef46e1980e52563237b20b4": {
+      "ts": 1773225642.0091891,
       "val": {
         "hit": false,
         "threats": []
       }
     },
-    "tls:235f82b78b5d1dbf70e581a14e628fd199cd4f12e8adf7815100549ed058162a": {
-      "ts": 1773171873.792578,
+    "tls:44a2cb0f733a2fc655359dd4aece5d96314e02cd1df308906e96425606c71faa": {
+      "ts": 1773225642.1171932,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
-    "gsb:6d29e88e150d171b13217ba382c253a5f88c154a44e874e2c0df500b3994b00e": {
-      "ts": 1773171878.7219474,
+    "gsb:ac660d53961acd4a12629d54567f3b470b80862cd2e01d199644a3f9f5e3619f": {
+      "ts": 1773225642.7114232,
       "val": {
         "hit": false,
         "threats": []
       }
     },
-    "tls:f9c5f3fc033142bf9496d147e36aeb649dfe5f2001030157036b7fe777a6b89e": {
-      "ts": 1773171878.8375576,
+    "tls:107fab3c702fcf8ea25b32ab834643b38b6e4eda6000636aa89f91776a647175": {
+      "ts": 1773225642.825857,
+      "val": {
+        "ok": true,
+        "notAfter": "May  2 19:06:32 2026 GMT",
+        "days_left": 52
+      }
+    },
+    "gsb:184fbd5385034975074ff124194a54bac76fdc99415ac54098cc1c9b60f3b930": {
+      "ts": 1773225644.332015,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:41adf6a1cecd58232e1d2f997a97aa689299f7288345ab1dd11ba2a7cfb30a4e": {
+      "ts": 1773225644.4617634,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 29 12:01:10 2026 GMT",
+        "days_left": 49
+      }
+    },
+    "redir:184fbd5385034975074ff124194a54bac76fdc99415ac54098cc1c9b60f3b930": {
+      "ts": 1773225644.567145,
+      "val": {
+        "ok": true,
+        "final_url": "http://www.im-creator.com/free/microvalid/bt_mail",
+        "chain": [
+          "http://www.im-creator.com/free/microvalid/bt_mail"
+        ],
+        "status": 403,
+        "redirects": 0
+      }
+    },
+    "html:184fbd5385034975074ff124194a54bac76fdc99415ac54098cc1c9b60f3b930": {
+      "ts": 1773225644.6109118,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "http://www.im-creator.com/free/microvalid/bt_mail",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "im-creator.com"
+        }
+      }
+    },
+    "gsb:000e5f74afb6ec47a5927a8a564e4201f790307b399992e68870cc8505bc1f9c": {
+      "ts": 1773225646.1488051,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:927859acc28e9110c715c07554580a6fef4af255cf392f4de3da631eebda3edf": {
+      "ts": 1773225646.388039,
+      "val": {
+        "ok": true,
+        "notAfter": "May 11 03:28:45 2026 GMT",
+        "days_left": 60
+      }
+    },
+    "gsb:a7aa77119bd874e2bbfaa08c14dfcac1722b7125f21edc14b250162957be0522": {
+      "ts": 1773225648.481368,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:1696eeda14518ce121fa50ddad534c290828628f1da90f8c64cfb31f970a97ce": {
+      "ts": 1773225648.5963738,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
-    "redir:6d29e88e150d171b13217ba382c253a5f88c154a44e874e2c0df500b3994b00e": {
-      "ts": 1773171878.85905,
+    "redir:a7aa77119bd874e2bbfaa08c14dfcac1722b7125f21edc14b250162957be0522": {
+      "ts": 1773225648.9380403,
       "val": {
         "ok": false,
         "error": "redirect_check: ConnectionError"
       }
     },
-    "html:6d29e88e150d171b13217ba382c253a5f88c154a44e874e2c0df500b3994b00e": {
-      "ts": 1773171878.8772345,
+    "html:a7aa77119bd874e2bbfaa08c14dfcac1722b7125f21edc14b250162957be0522": {
+      "ts": 1773225649.1171844,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"
       }
     },
-    "gsb:da011e5bad7735087655062041818b8be6a6ceb6795d696bdf69af0ea3d11176": {
-      "ts": 1773171883.5611243,
+    "gsb:3825c91598cfb898bfbad0b89e5e4ec1aee5ce1271753e4e5dbec6942f3ccfd2": {
+      "ts": 1773225650.5176857,
       "val": {
         "hit": false,
         "threats": []
       }
     },
-    "tls:57bcd277a38abae3d361fd2b6d0f7548ca11168ee62b4661901c674a36c0dbbd": {
-      "ts": 1773171884.0842168,
+    "tls:2f8d2c620d2da0c0ff205983a76a7256970be4b05936dfa10f0aabdb1bf3df08": {
+      "ts": 1773225653.6314764,
       "val": {
         "ok": false,
-        "error": "tls: SSLError"
+        "error": "tls: TimeoutError"
       }
     },
-    "gsb:ab0f04258b4d386f6c39a606fc8c13059cf58aa49511d4d386ba11754a091bf5": {
-      "ts": 1773171889.2829542,
+    "redir:3825c91598cfb898bfbad0b89e5e4ec1aee5ce1271753e4e5dbec6942f3ccfd2": {
+      "ts": 1773225657.6517084,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectTimeout"
+      }
+    },
+    "html:3825c91598cfb898bfbad0b89e5e4ec1aee5ce1271753e4e5dbec6942f3ccfd2": {
+      "ts": 1773225659.676114,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectTimeout"
+      }
+    },
+    "gsb:9e75cb944bf024b4e190c8010e8bd426e0acc3006ed7fab9bf52d8d1ae728036": {
+      "ts": 1773225662.6253371,
       "val": {
         "hit": false,
         "threats": []
       }
     },
-    "tls:017a5a44304f8dde61b9ae8d27982b16c9f5d6e41cff67626ff93f3fded55ced": {
-      "ts": 1773171889.723603,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLError"
-      }
-    },
-    "gsb:502a4436e2eafc977635ce2346129ff2bce7170cea0b2ab7fbc85ff0cf333ff1": {
-      "ts": 1773171894.3332074,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:68d51c813c8931aa2280ae939390331f02a09b50a162db3db4f1830f1665f039": {
-      "ts": 1773171894.8812156,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLError"
-      }
-    },
-    "redir:502a4436e2eafc977635ce2346129ff2bce7170cea0b2ab7fbc85ff0cf333ff1": {
-      "ts": 1773171896.0585363,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: SSLError"
-      }
-    },
-    "html:502a4436e2eafc977635ce2346129ff2bce7170cea0b2ab7fbc85ff0cf333ff1": {
-      "ts": 1773171896.6028087,
-      "val": {
-        "ok": false,
-        "error": "html: SSLError"
-      }
-    },
-    "gsb:c103950099a38881ce970fd2022e332943b57ea004576135d9d05434b4172e04": {
-      "ts": 1773171900.7039993,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:ae8a6cb3b3279cf7b5a57a8d0ea0ddaa648359a62019007fd3cb1ed2fc243d89": {
-      "ts": 1773171901.237682,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLError"
-      }
-    },
-    "gsb:678efc52c6796a3c37c0b629039ffb468cc693a6b1879584c5418434dd85bcb6": {
-      "ts": 1773171902.992198,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:3eb43fe56731360625ec19256f7b7c8b9171f3e832f1f74c448e2d1d61b72658": {
-      "ts": 1773171903.4315343,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLError"
-      }
-    },
-    "gsb:f000d34cb9dbb527fcbf9f963d95318f6ce8777319293fc0d032cab84a278c58": {
-      "ts": 1773171905.2929502,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:d6a9e4a2102a3bf13091ba1fde3b71787ea574bf0e477fbf335f8b8b0b8323f1": {
-      "ts": 1773171905.7396142,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLError"
-      }
-    },
-    "gsb:994a4d24fc9e74220d9b4cc14e70d538c2814f0889286a73adabc29e45dbbc1e": {
-      "ts": 1773171910.0643396,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:53b6d31ad5e9bb2409b7445702dca9528c974b388a02d39464aadb1d1217b30f": {
-      "ts": 1773171910.5234652,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLError"
-      }
-    },
-    "gsb:124eaf41f1481c586b611814da83e6d68a4b6d6bfd5002108f9614c28e01db0c": {
-      "ts": 1773171912.2887592,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:12051ad4c74354a6ddf06b49c83539bc9ed3a4dbf21cf1f524a0259ff8c0bf23": {
-      "ts": 1773171912.8300679,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLError"
-      }
-    },
-    "redir:124eaf41f1481c586b611814da83e6d68a4b6d6bfd5002108f9614c28e01db0c": {
-      "ts": 1773171914.1235821,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: SSLError"
-      }
-    },
-    "html:124eaf41f1481c586b611814da83e6d68a4b6d6bfd5002108f9614c28e01db0c": {
-      "ts": 1773171914.6647675,
-      "val": {
-        "ok": false,
-        "error": "html: SSLError"
-      }
-    },
-    "gsb:135f1acb1729f8c64be053c60da589b2eb489ce22271afecabfcf3f1ec4b72cb": {
-      "ts": 1773171916.4653223,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:1429f0379af3949f235bd61c57a93218cc1b402e56e5d324e95361162983106f": {
-      "ts": 1773171916.9144452,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLError"
-      }
-    },
-    "gsb:f202ca35dbb99694ad881c2d3b83a8cc2f894cf4581d694e32c71271ffe6988f": {
-      "ts": 1773171919.6216342,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:cb2d4a58b907af03fe506a1c8ac70fbcd673b8b9f362a7e3635db7a28d5e4498": {
-      "ts": 1773171920.152415,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLError"
-      }
-    },
-    "gsb:4827b205121ad1cd22499409df50d0f895302457c47a637ec32ca60c7ad829bf": {
-      "ts": 1773171923.5234282,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:56142e650e402919aca59e43e2e12cf83e443112506a72335e0a1409d3e07390": {
-      "ts": 1773171923.9584792,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLError"
-      }
-    },
-    "redir:4827b205121ad1cd22499409df50d0f895302457c47a637ec32ca60c7ad829bf": {
-      "ts": 1773171925.136385,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: SSLError"
-      }
-    },
-    "html:4827b205121ad1cd22499409df50d0f895302457c47a637ec32ca60c7ad829bf": {
-      "ts": 1773171925.696266,
-      "val": {
-        "ok": false,
-        "error": "html: SSLError"
-      }
-    },
-    "gsb:48121685fb1a297f8ce628c1ad8226caa0871e5350afee44086bdf7a4a1a165f": {
-      "ts": 1773171928.1737607,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:165f064c8b6c8d4d8f199473d22eabd00be27bc56d14d555cdf9cbea188489e1": {
-      "ts": 1773171928.6086156,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLError"
-      }
-    },
-    "gsb:8a3bcfad32b8c245e6465fab2557fcf62c152b1bc6508dc37e99167215f5d2de": {
-      "ts": 1773171932.6639488,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:e3dc2f499a0ea9b643611247728d4a9442beda42d55fb0111232d8d17373a317": {
-      "ts": 1773171933.108774,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLError"
-      }
-    },
-    "redir:8a3bcfad32b8c245e6465fab2557fcf62c152b1bc6508dc37e99167215f5d2de": {
-      "ts": 1773171934.2819965,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: SSLError"
-      }
-    },
-    "html:8a3bcfad32b8c245e6465fab2557fcf62c152b1bc6508dc37e99167215f5d2de": {
-      "ts": 1773171934.853476,
-      "val": {
-        "ok": false,
-        "error": "html: SSLError"
-      }
-    },
-    "gsb:cf333ebcf4c63412f4242b2fea8a62922c763e546bd235fc1a95231d4d499a66": {
-      "ts": 1773171937.8087065,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:a61eca602bbdbd1ca23ee5f3a046c3c93bc39a599db5b244b07941d4c5bfe4e5": {
-      "ts": 1773171938.263147,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLError"
-      }
-    },
-    "gsb:44cd987e3bab37e607fbcd6c73abc9441329c558cb640c84ef035cb5ce9855c3": {
-      "ts": 1773171940.718656,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:7ab4d06257ccb39d8175b04be9c82704ac175459944dd08eae33a991ff82cdd7": {
-      "ts": 1773171941.1520016,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLError"
-      }
-    },
-    "gsb:4c322045038a84f8b06e3a07b0daa971bbb0c8a707bd4e7ca4a654d541b2130b": {
-      "ts": 1773171945.899303,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:a01dff9b14b809e077b0eb83f73b57a3b0a4beecad45fe778687618027898a24": {
-      "ts": 1773171946.332219,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLError"
-      }
-    },
-    "redir:4c322045038a84f8b06e3a07b0daa971bbb0c8a707bd4e7ca4a654d541b2130b": {
-      "ts": 1773171947.5239606,
-      "val": {
-        "ok": false,
-        "error": "redirect_check: SSLError"
-      }
-    },
-    "html:4c322045038a84f8b06e3a07b0daa971bbb0c8a707bd4e7ca4a654d541b2130b": {
-      "ts": 1773171948.084303,
-      "val": {
-        "ok": false,
-        "error": "html: SSLError"
-      }
-    },
-    "gsb:21122c733d3e68ebcd8823b4e68c14901a309a747156533a5e695ad5d599831c": {
-      "ts": 1773171949.7519732,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:481ede51f454b49040186376c27d1a6481416746ac71c05155fa84a0c825d855": {
-      "ts": 1773171950.2147992,
-      "val": {
-        "ok": false,
-        "error": "tls: SSLError"
-      }
-    },
-    "gsb:7e4a3fa05557abbeb0f5d2cdd771070f9448fc3312be5c201ef4aaae639dca41": {
-      "ts": 1773171951.3731568,
-      "val": {
-        "hit": false,
-        "threats": []
-      }
-    },
-    "tls:43eaf9f69da687e581de89a2677efaf9e8119602691f5f82a2b3997a1af00038": {
-      "ts": 1773171951.473648,
+    "tls:fbace2e60e1709e3c01b9941c2c126370c2e2302a9c67ff8d17299c355697015": {
+      "ts": 1773225662.7385356,
       "val": {
         "ok": false,
         "error": "tls: gaierror"
       }
     },
-    "gsb:6ee327381fcff3e736b949abcab2856b59941c8e9cd9011fd5acb17181ef0528": {
-      "ts": 1773171953.0255284,
+    "redir:9e75cb944bf024b4e190c8010e8bd426e0acc3006ed7fab9bf52d8d1ae728036": {
+      "ts": 1773225662.8891065,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:9e75cb944bf024b4e190c8010e8bd426e0acc3006ed7fab9bf52d8d1ae728036": {
+      "ts": 1773225662.9680343,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:10c58f09b5650d97d71c393240e48befa8e292c022a49a07efbb4308d39043f7": {
+      "ts": 1773225664.7988892,
       "val": {
         "hit": false,
         "threats": []
       }
     },
-    "tls:5130c75cee7c92462e4a906ffb132b908ba761f5c78184dbc8eebddadf915c9a": {
-      "ts": 1773171953.471349,
+    "tls:7b9c9e5f9bb41246065f1c4f738e35078e6b1c0eef7813d0d1221df0591cd4bc": {
+      "ts": 1773225665.0019147,
       "val": {
-        "ok": false,
-        "error": "tls: SSLError"
+        "ok": true,
+        "notAfter": "Apr  5 17:31:53 2026 GMT",
+        "days_left": 25
       }
     },
-    "gsb:fcfd6f5b12ce285b46e09959344f13f2e43fea6a55ac477c0d9e17209f9c466f": {
-      "ts": 1773171955.0607817,
+    "gsb:58f44e5448dee68d0d3aa701398949e02d0616c5ae4f1b96611e77b583a8038f": {
+      "ts": 1773225667.7382684,
       "val": {
         "hit": false,
         "threats": []
       }
     },
-    "tls:79f45eba6459cfe04333eed48b8c479896d5577f1e4dd09436929fe708c805c4": {
-      "ts": 1773171955.5240314,
+    "tls:052b5aae023f99cef97e9a19465977a59580655f86f46119bf2fc32ff578ed04": {
+      "ts": 1773225667.8669915,
       "val": {
-        "ok": false,
-        "error": "tls: SSLError"
+        "ok": true,
+        "notAfter": "May  9 08:41:12 2026 GMT",
+        "days_left": 58
       }
     },
-    "gsb:3eeb635a67df61b01c29fb65230f8ea35896c2525e13878d78d4b8d9b7b0ccea": {
-      "ts": 1773171956.9694364,
+    "redir:58f44e5448dee68d0d3aa701398949e02d0616c5ae4f1b96611e77b583a8038f": {
+      "ts": 1773225667.9671662,
+      "val": {
+        "ok": true,
+        "final_url": "http://brandappz.com/knby545",
+        "chain": [
+          "http://brandappz.com/knby545"
+        ],
+        "status": 521,
+        "redirects": 0
+      }
+    },
+    "html:58f44e5448dee68d0d3aa701398949e02d0616c5ae4f1b96611e77b583a8038f": {
+      "ts": 1773225668.0752213,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "http://brandappz.com/knby545",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "brandappz.com"
+        }
+      }
+    },
+    "gsb:c01c426bbb71cd2e2c86f03e6800748d5f72435bbe09943a0da719c58a5b2791": {
+      "ts": 1773225669.0384207,
       "val": {
         "hit": false,
         "threats": []
       }
     },
-    "tls:03bdf103b247c13ef05f135afd1078187e540d3bb56360dd8ea9f517be7cdb1f": {
-      "ts": 1773171957.4118853,
+    "tls:1da38d0c4d1668dbf3b728fe6e4bdd137c4100378dd5e6fc87df15ddeb6109f9": {
+      "ts": 1773225672.131619,
       "val": {
         "ok": false,
-        "error": "tls: SSLError"
+        "error": "tls: TimeoutError"
       }
     },
-    "gsb:766e25f03325c623bd4ab2977349d487e696c75d0d610b126d9505ace5d5bd95": {
-      "ts": 1773171961.3105977,
+    "gsb:f7ac959136115273a444dcf5ac8e2bc804c59bc601620674a0f1b897f525b530": {
+      "ts": 1773225674.6363232,
       "val": {
         "hit": false,
         "threats": []
       }
     },
-    "tls:58df16836dc0bedc6a40b0be358ac651c636c0748520bdd6beba47725542c698": {
-      "ts": 1773171961.7644558,
+    "tls:bcd946b521c1d90444f385ad3a8c3d64bb7adfa7ef2f8c8da8357007ec67070f": {
+      "ts": 1773225674.7384732,
       "val": {
         "ok": false,
-        "error": "tls: SSLError"
+        "error": "tls: gaierror"
       }
     },
-    "gsb:acc24c467a03e7782dedc1649868636325cd4a986ecac55375e8ee0832593687": {
-      "ts": 1773171966.692009,
+    "redir:f7ac959136115273a444dcf5ac8e2bc804c59bc601620674a0f1b897f525b530": {
+      "ts": 1773225674.9356942,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:f7ac959136115273a444dcf5ac8e2bc804c59bc601620674a0f1b897f525b530": {
+      "ts": 1773225675.0257888,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "gsb:8ffc9d3b46bafe2491843f63c3b6b7764104af029057bd9edbe868359749fc30": {
+      "ts": 1773225677.255533,
       "val": {
         "hit": false,
         "threats": []
       }
     },
-    "tls:f19e3149711cd64332f9043eb7c7c7eed142756ad69f6868d8466ea446162f55": {
-      "ts": 1773171967.1456754,
+    "tls:02b00c4f284b897a4fd035e607f6b4e3b79662791a336bf149c79645fcafaf8f": {
+      "ts": 1773225677.3950765,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 29 02:10:15 2026 GMT",
+        "days_left": 48
+      }
+    },
+    "redir:8ffc9d3b46bafe2491843f63c3b6b7764104af029057bd9edbe868359749fc30": {
+      "ts": 1773225678.0693026,
+      "val": {
+        "ok": true,
+        "final_url": "https://rocchiusa.webflow.io/",
+        "chain": [
+          "https://rocchiusa.webflow.io/"
+        ],
+        "status": 404,
+        "redirects": 0
+      }
+    },
+    "html:8ffc9d3b46bafe2491843f63c3b6b7764104af029057bd9edbe868359749fc30": {
+      "ts": 1773225678.3482049,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://rocchiusa.webflow.io/",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "webflow.io"
+        }
+      }
+    },
+    "gsb:44b2524048d008d20805a43b77e76a02d948b5e949134428ebbd9aa7c1f30f9c": {
+      "ts": 1773225678.8612602,
+      "val": {
+        "error": "GSB HTTP 400"
+      }
+    },
+    "gsb:bd4b2572dafe6ad5e201016d08ebdf04cd1d95e5a115d100b92dbb24e8e7c8a8": {
+      "ts": 1773225680.5064723,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:8d919552ece24e483eead0c7b09e9ff3049fc3b1664a6cd22e2cecf2b6fed792": {
+      "ts": 1773225680.6178563,
+      "val": {
+        "ok": true,
+        "notAfter": "May 10 10:40:33 2026 GMT",
+        "days_left": 59
+      }
+    },
+    "gsb:9bc9fc62b49258f6a8ad9c8a08059f6e6667c780aea9c378dff2207ed04bc124": {
+      "ts": 1773225682.2539985,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:d6faa5f5d850757e5a013918a59c0be377f4067aec861a45f7cfd566aa676804": {
+      "ts": 1773225682.476227,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 27 16:03:19 2026 GMT",
+        "days_left": 47
+      }
+    },
+    "gsb:b5ba79bfd852bd30e64bae8ef14ab5bb114f0f33c12a1169fa56e791ef2125a1": {
+      "ts": 1773225685.7891152,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:a0bb12aa7d1449ffaea6c8e7955a8a11039defb16147c6038187325eb651607c": {
+      "ts": 1773225686.0387106,
+      "val": {
+        "ok": true,
+        "notAfter": "Jun  2 02:26:21 2026 GMT",
+        "days_left": 82
+      }
+    },
+    "redir:b5ba79bfd852bd30e64bae8ef14ab5bb114f0f33c12a1169fa56e791ef2125a1": {
+      "ts": 1773225686.4626427,
+      "val": {
+        "ok": true,
+        "final_url": "https://sikeikseeee.company.site/",
+        "chain": [
+          "https://sikeikseeee.company.site/"
+        ],
+        "status": 200,
+        "redirects": 0
+      }
+    },
+    "html:b5ba79bfd852bd30e64bae8ef14ab5bb114f0f33c12a1169fa56e791ef2125a1": {
+      "ts": 1773225686.8758645,
+      "val": {
+        "ok": true,
+        "html": false,
+        "content_type": "",
+        "signals": {}
+      }
+    },
+    "gsb:7e4ecc3af76c79c645987c0facbeb086a40c05b4b3dc258e82defd75bd351a67": {
+      "ts": 1773225688.4980614,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:9e04a0316ed849e79ac96a57cd4d9aaa35346aa637654de030d34f58c5431b30": {
+      "ts": 1773225688.8956988,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "gsb:4bc4164b5243f8e7b3e8f8e2fb10f987d9866f20bbe7506c3f2e9ee3187c0ff0": {
+      "ts": 1773225690.434428,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:181d03516d58abdafa1232ff973c548596a1746085dc512a3fb34907742b5cdf": {
+      "ts": 1773225690.6993537,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 25 01:17:06 2026 GMT",
+        "days_left": 44
+      }
+    },
+    "redir:4bc4164b5243f8e7b3e8f8e2fb10f987d9866f20bbe7506c3f2e9ee3187c0ff0": {
+      "ts": 1773225690.8753247,
+      "val": {
+        "ok": true,
+        "final_url": "http://www.bobcareyphoto.com/gwutoday/wordpress/domain2/webmail/WebMail.php?rand=13InboxLightaspxn.1774256418&amp",
+        "chain": [
+          "http://www.bobcareyphoto.com/gwutoday/wordpress/domain2/webmail/WebMail.php?rand=13InboxLightaspxn.1774256418&amp"
+        ],
+        "status": 404,
+        "redirects": 0
+      }
+    },
+    "html:4bc4164b5243f8e7b3e8f8e2fb10f987d9866f20bbe7506c3f2e9ee3187c0ff0": {
+      "ts": 1773225690.9771063,
+      "val": {
+        "ok": true,
+        "html": false,
+        "content_type": "",
+        "signals": {}
+      }
+    },
+    "gsb:d8ceffec4cf5931a94053ff53d366535e83d3ae07c6567def27981351a94f300": {
+      "ts": 1773225693.3194776,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:419499d485605a8f96ea85a5b3027bca4a44c4954b48979f5bd4206dd9274d9e": {
+      "ts": 1773225693.607937,
       "val": {
         "ok": false,
         "error": "tls: SSLError"
+      }
+    },
+    "redir:d8ceffec4cf5931a94053ff53d366535e83d3ae07c6567def27981351a94f300": {
+      "ts": 1773225693.7676451,
+      "val": {
+        "ok": true,
+        "final_url": "http://arcziuuucity.y0.pl/987nkjh8",
+        "chain": [
+          "http://arcziuuucity.y0.pl/987nkjh8"
+        ],
+        "status": 202,
+        "redirects": 0
+      }
+    },
+    "html:d8ceffec4cf5931a94053ff53d366535e83d3ae07c6567def27981351a94f300": {
+      "ts": 1773225693.9240243,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "http://arcziuuucity.y0.pl/987nkjh8",
+        "content_type": "text/html",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "y0.pl"
+        }
+      }
+    },
+    "gsb:22f1b4a1e9615e7dc6a4f96a79c29b951919d47215ee68807f8b7994da532d05": {
+      "ts": 1773252062.5109258,
+      "val": {
+        "hit": false,
+        "threats": []
+      }
+    },
+    "tls:b1fcdbf1ee4a49b138abb903dde3191ec8cc4e92da28b554ec022be9a227befe": {
+      "ts": 1773252062.676238,
+      "val": {
+        "ok": true,
+        "notAfter": "May 25 16:08:52 2026 GMT",
+        "days_left": 74
       }
     }
   }

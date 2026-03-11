@@ -665,8 +665,24 @@ def is_allowlisted_reg_domain(reg: str) -> bool:
 
 
 # =========================================================
-# FEATURES
+# FEATURES (SYNCED WITH NLP STAGE 2)
 # =========================================================
+TOP_DOMAINS = {
+    "google.com", "www.google.com",
+    "amazon.com", "www.amazon.com",
+    "microsoft.com", "www.microsoft.com",
+    "apple.com", "www.apple.com",
+    "paypal.com", "www.paypal.com",
+    "facebook.com", "www.facebook.com"
+}
+
+def get_vowel_consonant_ratio(s):
+    if not s: return 0.0
+    vowels = sum(c in "aeiou" for c in s)
+    consonants = sum(c in "bcdfghjklmnpqrstvwxyz" for c in s)
+    if consonants == 0: return float(vowels)
+    return vowels / consonants
+
 def url_features(url: str) -> dict:
     decoded = unquote(str(url))
     low = decoded.lower()
@@ -676,7 +692,7 @@ def url_features(url: str) -> dict:
     path = p.path or ""
     query = p.query or ""
     host_no_port = host_raw.split(":")[0] if host_raw else ""
-    host_no_port = _strip_www(host_no_port)
+    port_present = 1 if (host_raw and ":" in host_raw) else 0
 
     digits = sum(c.isdigit() for c in decoded)
     specials = sum((not c.isalnum()) for c in decoded)
@@ -685,13 +701,25 @@ def url_features(url: str) -> dict:
     path_tokens = [t for t in path.split("/") if t]
     query_params = [t for t in query.split("&") if t]
 
+    max_host_token_len = max([len(t) for t in host_tokens]) if host_tokens else 0
+    max_path_token_len = max([len(t) for t in path_tokens]) if path_tokens else 0
+
     tld = host_no_port.split(".")[-1] if "." in host_no_port else ""
+
+    redirect_like = 1 if re.search(r"(redirect|next|url|continue|dest|destination)=", low) else 0
+    double_slash_path = 1 if ("//" in path) else 0
+
+    has_login = 1 if sum(w in low for w in ["login", "signin", "verify", "secure", "account", "auth"]) > 0 else 0
+    has_finance = 1 if sum(w in low for w in ["bank", "pay", "billing", "invoice", "crypto", "bitcoin", "wallet"]) > 0 else 0
+    has_scam = 1 if sum(w in low for w in ["free", "bonus", "winner", "hack", "porn", "adware", "worm", "malware"]) > 0 else 0
 
     return {
         "url_len": len(decoded),
         "host_len": len(host_no_port),
         "path_len": len(path),
         "query_len": len(query),
+        "max_host_token_len": max_host_token_len,
+        "max_path_token_len": max_path_token_len,
 
         "dots": decoded.count("."),
         "hyphens": decoded.count("-"),
@@ -702,11 +730,13 @@ def url_features(url: str) -> dict:
 
         "digit_ratio": digits / max(len(decoded), 1),
         "special_ratio": specials / max(len(decoded), 1),
+        "vc_ratio_host": get_vowel_consonant_ratio(host_no_port),
 
         "subdomains": host_no_port.count("."),
         "host_tokens": len(host_tokens),
         "path_tokens": len(path_tokens),
         "query_params": len(query_params),
+        "path_depth": path.count("/"),
 
         "https": 1 if decoded.startswith("https") else 0,
         "has_ipv4": has_ipv4(host_no_port),
@@ -714,16 +744,22 @@ def url_features(url: str) -> dict:
         "at_count": decoded.count("@"),
         "pct_count": decoded.count("%"),
         "eq_count": decoded.count("="),
+        "port_present": port_present,
+        "double_slash_path": double_slash_path,
 
-        "suspicious_kw": sum(w in low for w in SUSPICIOUS_WORDS),
+        "has_login": has_login,
+        "has_finance": has_finance,
+        "has_scam": has_scam,
         "brand_hits": sum(1 for b in BRAND_KEYWORDS if b in low),
-        "redirect_like": 1 if REDIRECT_PARAM_PAT.search(low) else 0,
+        "redirect_like": redirect_like,
 
         "entropy_url": entropy(decoded),
         "entropy_host": entropy(host_no_port),
         "entropy_path": entropy(path),
+        "entropy_query": entropy(query),
 
         "risky_tld": 1 if tld in RISKY_TLDS else 0,
+        "top_domain": 1 if host_no_port in TOP_DOMAINS else 0,
     }
 
 
@@ -1186,7 +1222,7 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
     if gsb_clean and cert_clean and domain_old:
         years = domain_age // 365
         reasons.append(f"Triple-verified safe: GSB clean + valid TLS + established domain ({years} yr{'s' if years > 1 else ''}).")
-        p_ml = 0.0  # Fully safe
+        score = 0.0  # Fully safe
         # Auto-allowlist for future lookups
         host = get_host(url)
         reg = registrable_domain(host) if host else ""
@@ -1196,7 +1232,7 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
     elif gsb_clean and cert_clean:
         # GSB + TLS both clean — very strong, even without age data
         reasons.append("GSB + TLS validation: site verified as safe.")
-        p_ml = 0.0
+        score = 0.0
         host = get_host(url)
         reg = registrable_domain(host) if host else ""
         if reg and reg not in ALLOW_REG:
@@ -1205,7 +1241,7 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
     elif gsb_clean and domain_old:
         # GSB clean + old domain — strong
         reasons.append("GSB clean + established domain confirms safety.")
-        p_ml = 0.0
+        score = 0.0
         host = get_host(url)
         reg = registrable_domain(host) if host else ""
         if reg and reg not in ALLOW_REG:
@@ -1214,11 +1250,11 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
     elif gsb_clean:
         # GSB clean alone — authoritative but not absolute
         reasons.append("Models disagree: GSB validation prevents false positive.")
-        p_ml = min(p_ml, 0.10)
+        score = min(score, 0.10)
     elif cert_clean and domain_old:
         # TLS valid + old domain — moderate safety signal
         reasons.append("Valid TLS + established domain suggests legitimacy.")
-        p_ml = min(p_ml, 0.15)
+        score = min(score, 0.15)
 
     # =========================================================
     # END FAIL-SAFE
@@ -1234,17 +1270,18 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
         # The new FAIL-SAFE block already handles GSB clean and adjusts p_ml
         # This block now only needs to adjust score based on p1 if GSB is clean
         
-        # ENHANCED: If Stage 1 is very safe, veto Stage 2's aggressiveness
-        # This prevents false positives on legitimate sites
-        if p1 < 0.10:
-            score = min(score, 0.15)
-            reasons.append("URL-based model is highly confident of safety; discounting feature-based risk.")
-        elif p1 < 0.30:
-            score = min(score, 0.35)
-            reasons.append("URL patterns strongly suggest legitimate site; capping risk score.")
-        elif p1 < 0.50:
-            score = min(score, 0.45)
-            reasons.append("Reputation and URL patterns suggest safety; capping risk score.")
+        # ENHANCED: If Stage 1 is very safe (AND the overall score isn't screaming Zero-Day)
+        # This prevents false positives on legitimate sites, but honors high ML confidence
+        if score < 0.75:
+            if p1 < 0.10:
+                score = min(score, 0.15)
+                reasons.append("URL-based model is highly confident of safety; discounting feature-based risk.")
+            elif p1 < 0.30:
+                score = min(score, 0.35)
+                reasons.append("URL patterns strongly suggest legitimate site; capping risk score.")
+            elif p1 < 0.50:
+                score = min(score, 0.45)
+                reasons.append("Reputation and URL patterns suggest safety; capping risk score.")
 
     # ENHANCED: WHOIS-based risk adjustments with more nuance
     age = whois_data.get("age_days")

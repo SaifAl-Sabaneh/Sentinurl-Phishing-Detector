@@ -208,18 +208,27 @@ def brand_deception_rule(url):
         ])
         
         for brand in keywords:
-            if brand in host:
+            # Check the entire URL to catch brands hidden in the path
+            if brand in u.lower():
                 # If the domain itself is exactly the brand (e.g. google.com), it should have been allowlisted.
                 # But if we are here, it wasn't. However, checks like "google.com.br" might be valid.
                 # We skip blindly flagging if the registrable domain IS the brand + suffix
                 if reg.startswith(f"{brand}."):
                    continue
                 
-                # If brand is a substring in a suspicious way
-                return ("PHISHING", 0.80, "brand_deception_rule", 
-                        [f"Potential brand impersonation: '{brand}' found in domain"], 
+                # If brand is a substring in a suspicious way anywhere in the URL
+                return ("PHISHING", 0.90, "brand_deception_rule", 
+                        [f"Severe brand impersonation: '{brand}' found hidden in URL path or domain"], 
                         0.0, 0.0, {})
                         
+        # Detect outright scam/malware keywords
+        scam_keywords = ['bitcoin', 'crypto', 'wallet', 'adware', 'worm', 'malware', 'porn', 'hack', 'free-followers']
+        for keyword in scam_keywords:
+            if keyword in u.lower():
+                return ("PHISHING", 0.85, "scam_keyword_heuristic", 
+                        [f"Suspicious intent detected: URL contains high-risk keyword '{keyword}'"], 
+                        0.0, 0.0, {})
+
         return None
     except Exception as e:
         # Fail silently to avoid crashing
@@ -307,19 +316,19 @@ def predict_ultimate(url: str):
     p1 = stage1_prob(u)
     p2 = stage2_prob(u)
     
-    # Enhanced Dynamic Fusion
-    if p1 < 0.02:
+    # Enhanced Dynamic Fusion - Tuned for higher accuracy
+    # Stage 1 (URL Text Analysis) is empirically twice as accurate as Stage 2 (Numeric Features)
+    if p1 < 0.05:
         p_ml = (0.95 * p1 + 0.05 * p2)
-    elif p1 < 0.05:
-        p_ml = (0.85 * p1 + 0.15 * p2)
     elif p1 < 0.15:
-        p_ml = (0.7 * p1 + 0.3 * p2)
+        p_ml = (0.90 * p1 + 0.10 * p2)
     elif p1 < 0.30:
-        p_ml = (0.6 * p1 + 0.4 * p2)
+        p_ml = (0.85 * p1 + 0.15 * p2)
     elif p1 > 0.80:
-        p_ml = (0.7 * p1 + 0.3 * p2)
+        p_ml = (0.95 * p1 + 0.05 * p2)
     else:
-        p_ml = (W1 * p1 + W2 * p2) # pyright: ignore[reportUnboundVariable]
+        # Default weight for uncertain bounds
+        p_ml = (0.80 * p1 + 0.20 * p2) 
     
     feats = url_features(u)
     is_institution = is_institution_suffix(suf)
@@ -375,7 +384,8 @@ def predict_ultimate(url: str):
     domain_old = domain_age > 365  # > 1 year
     
     # Strongest combo: GSB + TLS + established domain → fully SAFE + auto-allowlist
-    if gsb_clean and tls_valid and domain_old:
+    # ONLY override if ML isn't highly confident it's a zero-day
+    if gsb_clean and tls_valid and domain_old and score < 0.75:
         years = domain_age // 365
         fusion_reasons.append(f"Triple-verified safe: GSB clean + valid TLS + established domain ({years} yr{'s' if years > 1 else ''}).")
         score = 0.0
@@ -383,32 +393,38 @@ def predict_ultimate(url: str):
         if reg and reg not in ALLOW_REG:
             ALLOW_REG.add(reg)
             fusion_reasons.append(f"Domain '{reg}' auto-added to trusted allowlist.")
-    elif gsb_clean and tls_valid:
+    elif gsb_clean and tls_valid and score < 0.75:
         # GSB + TLS both clean — very strong, even without age data
-        fusion_reasons.append("GSB + TLS validation: site verified as safe.")
+        fusion_reasons.append("GSB + TLS validation prevents false positive on borderline score.")
         score = 0.0
         lbl = band(score)
         if reg and reg not in ALLOW_REG:
             ALLOW_REG.add(reg)
             fusion_reasons.append(f"Domain '{reg}' auto-added to trusted allowlist.")
-    elif gsb_clean and domain_old:
+    elif gsb_clean and domain_old and score < 0.75:
         # GSB clean + old domain
-        fusion_reasons.append("GSB + established domain: site verified as safe.")
+        fusion_reasons.append("GSB + established domain verified as safe.")
         score = 0.0
         lbl = band(score)
         if reg and reg not in ALLOW_REG:
             ALLOW_REG.add(reg)
             fusion_reasons.append(f"Domain '{reg}' auto-added to trusted allowlist.")
-    elif gsb_clean and score > 0.10:
-        # GSB alone — authoritative
+    elif gsb_clean and score > 0.10 and score < 0.75:
+        # GSB alone — authoritative on borderline predictions
         fusion_reasons.append("Google Safe Browsing validation prevents false positive.")
         score = min(score, 0.10)
         lbl = band(score)
+    elif score >= 0.75:
+        # ZERO-DAY HANDLING: AI represents structural threat regardless of GSB/TLS blind spots
+        if gsb_clean or tls_valid:
+             fusion_reasons.append("High ML confidence overrides GSB/TLS clean status (Possible Zero-Day).")
     
     # Dynamic allowlisting for verified safe sites (threshold raised to catch more)
-    if score < 0.15 and lbl in ("SAFE", "LOW RISK") and reg and reg not in ALLOW_REG:
+    # ONLY allowlist if it's truly verified safe (e.g. score < 0.05) to prevent
+    # advanced zero-days from poisoning the in-memory allowlist for other users.
+    if score < 0.05 and lbl in ("SAFE", "LOW RISK") and reg and reg not in ALLOW_REG:
         ALLOW_REG.add(reg)
-        fusion_reasons.append("Site verified as SAFE; added to session allowlist.")
+        fusion_reasons.append("Site verified as highly SAFE; added to session allowlist.")
     
     # Combine all reasons
     all_reasons = reasons + fusion_reasons
