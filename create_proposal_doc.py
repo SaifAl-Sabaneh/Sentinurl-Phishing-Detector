@@ -26,7 +26,7 @@ def create_proposal():
     # Subtitle/Meta
     p_meta = doc.add_paragraph()
     p_meta.add_run('Project Title: ').bold = True
-    p_meta.add_run('Bixah Ultimate Multi-Stage Phishing Detection System\n')
+    p_meta.add_run('SentinURL Multi-Stage Phishing Detection System\n')
     p_meta.add_run('Student Name: ').bold = True
     p_meta.add_run('Saif Al-Sabaneh\n')
     p_meta.add_run('Submission Deadline: ').bold = True
@@ -36,7 +36,7 @@ def create_proposal():
     doc.add_paragraph() # Spacing
 
     doc.add_heading('1. Overview', level=1)
-    doc.add_paragraph("This graduation project aims to design and implement a high-performance, multi-stage machine learning system dedicated to identifying and neutralizing zero-day phishing threats. Dubbed 'Bixah Ultimate', the system bridges the gap between rapid heuristic analysis and deep Natural Language Processing (NLP) to provide enterprise-grade web security with minimal false positives.")
+    doc.add_paragraph("This graduation project aims to design and implement a high-performance, multi-stage machine learning system dedicated to identifying and neutralizing zero-day phishing threats. Dubbed 'SentinURL', the system bridges the gap between rapid heuristic analysis and deep Natural Language Processing (NLP) to provide enterprise-grade web security with minimal false positives.")
 
     doc.add_heading('2. Proposal Details', level=1)
 
@@ -49,13 +49,13 @@ def create_proposal():
     p_structure.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
 
     doc.add_heading('Expected Results', level=2)
-    p_results = doc.add_paragraph("The system successfully achieves an exceptional offline detection accuracy of exactly 89.1% using purely mathematical and semantic analysis of the URL strings. When integrated with its dynamic live external intelligence APIs (such as Google Safe Browsing and TLS Certificate inspection), the system reaches a formidable 99.4% accuracy. Expected outcomes include the deployment of a highly reliable, automated defense mechanism capable of sharply reducing user susceptibility to credential-theft and social engineering attacks. By successfully deploying the Bixah Ultimate system, the project will demonstrate a tangible improvement in cybersecurity defense, providing an intelligent tool that protects individual users and organizations while maintaining a seamless browsing experience.")
+    p_results = doc.add_paragraph("The system successfully achieves an exceptional offline detection accuracy of exactly 89.1% using purely mathematical and semantic analysis of the URL strings. When integrated with its dynamic live external intelligence APIs (such as Google Safe Browsing and TLS Certificate inspection), the system reaches a formidable 99.4% accuracy. Expected outcomes include the deployment of a highly reliable, automated defense mechanism capable of sharply reducing user susceptibility to credential-theft and social engineering attacks. By successfully deploying the SentinURL system, the project will demonstrate a tangible improvement in cybersecurity defense, providing an intelligent tool that protects individual users and organizations while maintaining a seamless browsing experience.")
     p_results.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
     
     doc.add_paragraph() # Spacing
     
     doc.add_heading('3. Conclusion', level=1)
-    p_conclusion = doc.add_paragraph("In conclusion, the Bixah Ultimate Phishing Detector represents a comprehensive effort to modernise phishing detection techniques limitlessly. Driven by data, structural integrity, and measurable outcomes, it fulfills the requirements for a rigorous and deeply impactful graduation project.")
+    p_conclusion = doc.add_paragraph("In conclusion, the SentinURL Phishing Detector represents a comprehensive effort to modernise phishing detection techniques limitlessly. Driven by data, structural integrity, and measurable outcomes, it fulfills the requirements for a rigorous and deeply impactful graduation project.")
     p_conclusion.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
 
     # Save

@@ -14,7 +14,7 @@ from datetime import datetime
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, current_dir)
 
-from bixah_ultimate import predict_ultimate
+from sentinurl import predict_ultimate
 from enhanced_original import url_features
 
 # --- Constants & State ---
@@ -22,7 +22,7 @@ HISTORY_FILE = "scan_history.csv"
 
 # --- Page Configuration ---
 st.set_page_config(
-    page_title="Bixah Ultimate | Phishing Detection",
+    page_title="SentinURL | Phishing Detection",
     page_icon="🛡️",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -95,7 +95,7 @@ def create_gauge_chart(score):
 # --- Sidebar UI ---
 with st.sidebar:
     st.image("https://img.icons8.com/nolan/256/shield.png", width=100)
-    st.title("Bixah Ultimate")
+    st.title("SentinURL")
     st.caption("Advanced Phishing Detection Engine")
     
     st.markdown("---")

@@ -4,7 +4,7 @@ from datetime import datetime
 
 def generate_report_from_session(log_obj):
     """
-    Takes the Bixah Ultimate log_obj (containing session details and all scans)
+    Takes the SentinURL log_obj (containing session details and all scans)
     and dynamically generates a stunning HTML report.
     Returns the absolute file path of the generated HTML report.
     """
@@ -71,7 +71,7 @@ def generate_report_from_session(log_obj):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bixah Ultimate - Session Report</title>
+    <title>SentinURL - Session Report</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -224,7 +224,7 @@ def generate_report_from_session(log_obj):
 <body>
 
     <div class="header-box">
-        <h1>Bixah Ultimate Enterprise Engine</h1>
+        <h1>SentinURL Enterprise Engine</h1>
         <p style="color: var(--text-muted);">Session Analysis Report • Executed {session_start[:10]}</p>
     </div>
 
