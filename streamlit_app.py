@@ -14,8 +14,19 @@ from datetime import datetime
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, current_dir)
 
-from sentinurl import predict_ultimate
-from enhanced_original import url_features
+# Suppress backend model loading prints to keep the terminal clean
+import sys, os
+class SuppressPrints:
+    def __enter__(self):
+        self._original_stdout = sys.stdout
+        sys.stdout = open(os.devnull, 'w')
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        sys.stdout.close()
+        sys.stdout = self._original_stdout
+
+with SuppressPrints():
+    from sentinurl import predict_ultimate
+    from enhanced_original import url_features
 
 # --- Constants & State ---
 HISTORY_FILE = "scan_history.csv"
