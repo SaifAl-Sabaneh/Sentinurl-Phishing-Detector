@@ -22,7 +22,7 @@ def generate_report_from_session(log_obj):
     
     for idx, scan in enumerate(scans):
         label = scan.get("classification", {}).get("label", "UNKNOWN").upper()
-        # Fallback through expected url formats from bixah engine
+        # Fallback through expected url formats from SentinURL engine
         url_dict = scan.get("url", {})
         url = url_dict.get("raw", url_dict.get("normalized", "Unknown"))
         risk_pct = scan.get("classification", {}).get("risk_percent", 0.0)
@@ -343,7 +343,7 @@ def generate_report_from_session(log_obj):
     reports_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "reports")
     os.makedirs(reports_dir, exist_ok=True)
     
-    file_path = os.path.join(reports_dir, f"Bixah_Report_{date_str}.html")
+    file_path = os.path.join(reports_dir, f"SentinURL_Report_{date_str}.html")
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(html_content)
         

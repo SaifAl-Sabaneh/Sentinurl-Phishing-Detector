@@ -220,8 +220,8 @@ EXTRACT = tldextract.TLDExtract()
 # =========================================================
 # ONLINE API KEYS
 # =========================================================
-GSB_API_KEY = os.getenv("BIXAH_GSB_API_KEY", "").strip()
-VT_API_KEY = os.getenv("BIXAH_VT_API_KEY", "").strip()
+GSB_API_KEY = os.getenv("SENTINURL_GSB_API_KEY", "").strip()
+VT_API_KEY = os.getenv("SENTINURL_VT_API_KEY", "").strip()
 
 
 # =========================================================
@@ -854,7 +854,7 @@ def safe_requests_session():
     if not _need_requests():
         return None
     s = requests.Session()
-    s.headers.update({"User-Agent": "BixahLinkEngine/2.2 (+security; headless)"})
+    s.headers.update({"User-Agent": "SentinURLLinkEngine/2.2 (+security; headless)"})
     return s
 
 
@@ -869,7 +869,7 @@ def gsb_check(url: str):
 
     endpoint = f"https://safebrowsing.googleapis.com/v4/threatMatches:find?key={GSB_API_KEY}"
     body = {
-        "client": {"clientId": "bixah", "clientVersion": ENGINE_VERSION},
+        "client": {"clientId": "sentinurl", "clientVersion": ENGINE_VERSION},
         "threatInfo": {
             "threatTypes": ["MALWARE", "SOCIAL_ENGINEERING", "UNWANTED_SOFTWARE", "POTENTIALLY_HARMFUL_APPLICATION"],
             "platformTypes": ["ANY_PLATFORM"],
@@ -1812,7 +1812,7 @@ def build_scan_object(url: str, label: str, score: float, decision_by: str, reas
 # =========================================================
 def startup_banner(active_log_path: str):
     print("\n" + "=" * 68)
-    print(f"Bixah Link Risk Engine  |  v{ENGINE_VERSION}  |  MODE={MODE}")
+    print(f"SentinURL Link Risk Engine  |  v{ENGINE_VERSION}  |  MODE={MODE}")
     print("-" * 68)
     print("Models : Stage1 TF-IDF + Calibrated LR")
     if STAGE2_COLS:

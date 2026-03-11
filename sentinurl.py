@@ -1,5 +1,5 @@
 """
-BIXAH ULTIMATE PHISHING DETECTION SYSTEM
+SENTINURL PHISHING DETECTION SYSTEM
 Production-Grade with All Advanced Features
 Version: 3.0.0-ultimate
 """
@@ -475,7 +475,7 @@ def startup_banner_ultimate(active_log_path: str):
     
     print("\n" + "═" * 68)
     print("╔" + "═" * 66 + "╗")
-    print("║" + " " * 12 + "BIXAH ULTIMATE PHISHING DETECTION SYSTEM" + " " * 14 + "║")
+    print("║" + " " * 12 + "SENTINURL PHISHING DETECTION SYSTEM" + " " * 14 + "║")
     print("║" + " " * 18 + f"Version {ENGINE_VERSION} | MODE: {MODE}" + " " * 19 + "║")
     print("╚" + "═" * 66 + "╝")
     print("═" * 68)
@@ -573,7 +573,7 @@ if __name__ == "__main__":
     
     # Initialize system with progress
     print("\n" + "═" * 68)
-    print("INITIALIZING BIXAH ULTIMATE SYSTEM...")
+    print("INITIALIZING SENTINURL SYSTEM...")
     print("═" * 68)
     
     print("\n[1/3] Loading ML models...", end=" ", flush=True)
@@ -729,13 +729,13 @@ if __name__ == "__main__":
                 # Handle exit command
                 elif u.lower() in ["exit", "quit", "q"]:
                     print("\n" + "═" * 68)
-                    print("SHUTTING DOWN BIXAH ULTIMATE...")
+                    print("SHUTTING DOWN SENTINURL...")
                     print("═" * 68)
                     print(f"\nSession Summary:")
                     print(f"  • URLs Scanned: {session_stats['total']}")
                     print(f"  • Threats Blocked: {session_stats['phishing']}")
                     print(f"  • Safe Sites: {session_stats['safe']}")
-                    print("\n✓ Thank you for using Bixah Ultimate!")
+                    print("\n✓ Thank you for using SENTINURL!")
                     print("Stay safe from phishing! 🛡️\n")
                     break
                 
@@ -793,5 +793,5 @@ if __name__ == "__main__":
         print(f"  • Threats Detected: {session_stats['phishing']}")
         print(f"  • Safe Sites: {session_stats['safe']}")
         print(f"  • Suspicious: {session_stats['suspicious']}")
-        print("\n✓ Bixah Ultimate shut down successfully")
+        print("\n✓ SENTINURL shut down successfully")
         print("Stay vigilant against phishing! 🛡️\n")
