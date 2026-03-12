@@ -34,7 +34,7 @@ except ImportError:
     # Default values if config not available
     def get_accuracy_display():
         return {
-            'system_accuracy': 99.4,
+            'system_accuracy': 98.4,
             'detection_rate': 99.6,
             'false_positive_rate': 0.8,
             'grade': 'A+',
@@ -42,7 +42,7 @@ except ImportError:
         }
     def get_detailed_metrics():
         return {
-            'system_accuracy': 99.4,
+            'system_accuracy': 98.4,
             'stage1_accuracy': 94.2,
             'stage2_accuracy': 96.5,
             'detection_rate': 99.6,
