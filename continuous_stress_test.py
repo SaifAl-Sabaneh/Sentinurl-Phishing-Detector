@@ -67,7 +67,7 @@ def extract_features(u):
 # ==========================================
 # 3. CORE EXECUTION ENGINE
 # ==========================================
-def run_continuous_test(batch_size=10000):
+def run_continuous_test(batch_size=90000):
     print("\n" + "="*60)
     print(f" SENTINURL CONTINUOUS NEURAL STRESS TEST ({batch_size} URLs)")
     print("="*60)
@@ -141,7 +141,7 @@ def run_continuous_test(batch_size=10000):
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description="SentinURL Continuous Offline Testing Engine")
-    parser.add_argument("--batch", type=int, default=10000, help="Number of zero-day URLs to generate and test (Default: 10,000)")
+    parser.add_argument("--batch", type=int, default=90000, help="Number of zero-day URLs to generate and test (Default: 90,000)")
     args = parser.parse_args()
     
     run_continuous_test(args.batch)
