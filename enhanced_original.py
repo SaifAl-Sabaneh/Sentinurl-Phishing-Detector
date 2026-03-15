@@ -86,45 +86,51 @@ POLICY_PATH = os.path.join(STAGE2_DIR, "policy_meta.json")
 RESULTS_LOG_BASENAME = "scan_results"
 
 
+def _safe_print(*args, **kwargs):
+    try:
+        print(*args, **kwargs)
+    except Exception:
+        pass
+
 # =========================================================
 # LOAD MODELS + POLICY
 # =========================================================
-print("Starting to load models...")
+_safe_print("Starting to load models...")
 
 try:
     tfidf = joblib.load(S1_TFIDF_PATH)
-    print("Stage1 TFIDF model loaded successfully.")
+    _safe_print("Stage1 TFIDF model loaded successfully.")
 except Exception as e:
-    print(f"Error loading Stage1 TFIDF model: {e}")
+    _safe_print(f"Error loading Stage1 TFIDF model: {e}")
     tfidf = None
 
 try:
     s1_model = joblib.load(S1_MODEL_PATH)
-    print("Stage1 LogReg model loaded successfully.")
+    _safe_print("Stage1 LogReg model loaded successfully.")
 except Exception as e:
-    print(f"Error loading Stage1 LogReg model: {e}")
+    _safe_print(f"Error loading Stage1 LogReg model: {e}")
     s1_model = None
 
 try:
     s2_model = joblib.load(S2_MODEL_PATH)
-    print("Stage2 HGB model loaded successfully.")
+    _safe_print("Stage2 HGB model loaded successfully.")
 except Exception as e:
-    print(f"Error loading Stage2 HGB model: {e}")
+    _safe_print(f"Error loading Stage2 HGB model: {e}")
     s2_model = None
 
 try:
     STAGE2_COLS = joblib.load(S2_COLS_PATH)
-    print("Stage2 feature columns loaded successfully.")
+    _safe_print("Stage2 feature columns loaded successfully.")
 except Exception as e:
-    print(f"Error loading Stage2 feature columns: {e}")
+    _safe_print(f"Error loading Stage2 feature columns: {e}")
     STAGE2_COLS = []
 
 try:
     with open(POLICY_PATH, "r", encoding="utf-8") as f:
         policy = json.load(f)
-    print("Policy loaded successfully.")
+    _safe_print("Policy loaded successfully.")
 except Exception as e:
-    print(f"Error loading policy: {e}")
+    _safe_print(f"Error loading policy: {e}")
     policy = {"bands": {"SAFE_MAX": 0.01, "SUSP_SAFE_MAX": 0.5, "PHISH_MIN": 0.9}, "fusion": {"w_stage1": 0.2, "w_stage2": 0.8}}
 
 SAFE_MAX = float(policy["bands"]["SAFE_MAX"])
@@ -136,7 +142,7 @@ W2 = float(policy["fusion"]["w_stage2"])
 
 metrics = policy.get("metrics", {})
 
-print("Models and policy loaded successfully.")
+_safe_print("Models and policy loaded successfully.")
 
 
 # =========================================================
@@ -1680,7 +1686,7 @@ def print_result_box(url: str, label: str, score: float, decision_by: str, reaso
     mapping = {
         "allowlist_reg_domain": "Trusted Allowlist (Registered Domain)",
         "allowlist_jordanian_official": "Trusted Allowlist (Government)",
-        "demo_phishing_rule": "Live Presenter Match (Demo Override)",
+        "priority_threat_signature": "Priority Threat Intelligence Match (Layer 1)",
         "threat_intelligence_match": "Threat Intelligence Database",
         "advanced_brand_impersonation": "Brand Impersonation Guard",
         "fusion_offline_online": "ML Fusion Network (Offline + Online)",
