@@ -9,7 +9,7 @@
   },
   "bands": {
     "SAFE_MAX": 0.00833931912441942,
-    "SUSP_SAFE_MAX": 0.2500000000000000,
+    "SUSP_SAFE_MAX": 0.5217621042094407,
     "PHISH_MIN": 0.9253162426167922
   },
   "fp_target_on_safe_for_phish": 0.0002,

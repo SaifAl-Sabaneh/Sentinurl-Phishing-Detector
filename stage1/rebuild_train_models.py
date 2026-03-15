@@ -9,11 +9,11 @@ from urllib.parse import urlparse, unquote
 import numpy as np
 import pandas as pd
 
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, StratifiedKFold, cross_val_score
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.calibration import CalibratedClassifierCV
-from sklearn.metrics import roc_auc_score
+from sklearn.metrics import roc_auc_score, accuracy_score, precision_recall_fscore_support
 from sklearn.ensemble import HistGradientBoostingClassifier
 
 
@@ -23,7 +23,21 @@ from sklearn.ensemble import HistGradientBoostingClassifier
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(BASE_DIR)
 
-DATASET_PATH = os.path.join(PROJECT_ROOT, "Phishing Dataset.csv")
+# Check multiple possible locations for the dataset
+possible_paths = [
+    os.path.join(PROJECT_ROOT, "Backup work", "Phishing Dataset.csv"),
+    os.path.join(PROJECT_ROOT, "Phishing Dataset.csv")
+]
+DATASET_PATH = None
+for p in possible_paths:
+    if os.path.exists(p):
+        DATASET_PATH = p
+        break
+
+if not DATASET_PATH:
+    raise FileNotFoundError("Could not find Phishing Dataset.csv in expected locations.")
+
+print(f"Using dataset: {DATASET_PATH}")
 RANDOM_SEED = 42
 
 SAVE_DIR_STAGE1 = os.path.join(BASE_DIR, "stage1")
@@ -230,7 +244,14 @@ s1_cal.fit(X1_tr, y_train[subset_idx])
 
 X1_te = tfidf.transform(urls_test)
 p1_test = s1_cal.predict_proba(X1_te)[:, 1]
-print("Stage1 ROC-AUC:", roc_auc_score(y_test, p1_test))
+s1_auc = roc_auc_score(y_test, p1_test)
+print("Stage1 ROC-AUC:", s1_auc)
+
+# ── NEW: K-Fold Validation for Stage 1 ──
+print("\nRunning 5-Fold Cross-Validation for Stage 1...")
+skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=RANDOM_SEED)
+s1_cv_scores = cross_val_score(s1_cal, X1_tr, y_train[subset_idx], cv=skf, scoring='roc_auc')
+print(f"Stage 1 Mean CV ROC-AUC: {s1_cv_scores.mean():.4f} (+/- {s1_cv_scores.std() * 2:.4f})")
 
 
 # =========================================================
@@ -253,7 +274,13 @@ s2_hgb = HistGradientBoostingClassifier(
 s2_hgb.fit(X2_tr, y_train)
 
 p2_test = s2_hgb.predict_proba(X2_te)[:, 1]
-print("Stage2 ROC-AUC:", roc_auc_score(y_test, p2_test))
+s2_auc = roc_auc_score(y_test, p2_test)
+print("Stage2 ROC-AUC:", s2_auc)
+
+# ── NEW: K-Fold Validation for Stage 2 ──
+print("\nRunning 5-Fold Cross-Validation for Stage 2...")
+s2_cv_scores = cross_val_score(s2_hgb, X2_tr, y_train, cv=skf, scoring='roc_auc')
+print(f"Stage 2 Mean CV ROC-AUC: {s2_cv_scores.mean():.4f} (+/- {s2_cv_scores.std() * 2:.4f})")
 
 
 # =========================================================
@@ -289,11 +316,11 @@ print("PHISH_MIN:", PHISH_MIN)
 # =========================================================
 joblib.dump(tfidf, os.path.join(SAVE_DIR_STAGE1, "tfidf.joblib"))
 joblib.dump(s1_cal, os.path.join(SAVE_DIR_STAGE1, "calibrated_logreg.joblib"))
-print("✅ Saved Stage 1: tfidf.joblib + calibrated_logreg.joblib ->", SAVE_DIR_STAGE1)
+print("[v] Saved Stage 1: tfidf.joblib + calibrated_logreg.joblib ->", SAVE_DIR_STAGE1)
 
 joblib.dump(s2_hgb, os.path.join(SAVE_DIR_STAGE2, "stage2_hgb.joblib"))
 joblib.dump(STAGE2_COLS, os.path.join(SAVE_DIR_STAGE2, "stage2_feature_columns.joblib"))
-print("✅ Saved Stage 2: stage2_hgb.joblib + stage2_feature_columns.joblib ->", SAVE_DIR_STAGE2)
+print("[v] Saved Stage 2: stage2_hgb.joblib + stage2_feature_columns.joblib ->", SAVE_DIR_STAGE2)
 
 meta = {
     "label_map": {"safe": 0, "phishing": 1},
@@ -309,5 +336,28 @@ meta = {
 with open(os.path.join(SAVE_DIR_STAGE2, "policy_meta.json"), "w", encoding="utf-8") as f:
     json.dump(meta, f, indent=2)
 
-print("✅ Saved policy_meta.json ->", SAVE_DIR_STAGE2)
-print("\n✅ DONE: Rebuild training completed successfully.")
+# =========================================================
+# FINAL SCIENTIFIC VALIDATION REPORT
+# =========================================================
+print("\n" + "="*65)
+print("             SCIENTIFIC VALIDATION REPORT")
+print("="*65)
+print(f"Methodology: 5-Fold Stratified Cross-Validation")
+print(f"Dataset Size: {len(df):,} URLs")
+print("-" * 65)
+print(f"STAGE 1 (TF-IDF + LR):")
+print(f"  • Holdout ROC-AUC : {s1_auc:.4f}")
+print(f"  • Cross-Val Mean  : {s1_cv_scores.mean():.4f}")
+print(f"  • Cross-Val Std   : ±{s1_cv_scores.std():.4f}")
+print("-" * 65)
+print(f"STAGE 2 (HGB Tabular):")
+print(f"  • Holdout ROC-AUC : {s2_auc:.4f}")
+print(f"  • Cross-Val Mean  : {s2_cv_scores.mean():.4f}")
+print(f"  • Cross-Val Std   : ±{s2_cv_scores.std():.4f}")
+print("-" * 65)
+print(f"HYBRID FUSION:")
+print(f"  • Holdout ROC-AUC : {roc_auc_score(y_test, p_test):.4f}")
+print("="*65)
+
+print("\n[v] Saved policy_meta.json ->", SAVE_DIR_STAGE2)
+print("\n[v] DONE: Rebuild training completed successfully with K-Fold validation.")
