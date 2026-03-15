@@ -1,20 +1,32 @@
-Copyright (c) 2026 Saif Al-Sabaneh. All Rights Reserved.
+PROPRIETARY LICENSE - ALL RIGHTS RESERVED
 
-This project, "Bixah Ultimate Phishing Detector / SentinURL", including all source code,
-models, documentation, and associated files, is the intellectual property of the author
-and was developed as a graduation project.
+Project: SentinURL Phishing Detector (including "Bixah Ultimate" architecture)
+Author: Saif Al-Sabaneh
+Version: 3.0.0
+Date: March 16, 2026
 
-PERMISSIONS:
-- Viewing the source code for educational and reference purposes is permitted.
+1. OWNERSHIP & COPYRIGHT
+This software, including but not limited to all source code (.py), pre-trained machine learning models (.joblib, .pkl), documentation (.pdf), datasets, and user interface designs (the "Work"), is the exclusive intellectual property of Saif Al-Sabaneh. All rights are reserved under international copyright laws.
 
-RESTRICTIONS:
-- You may NOT use, copy, modify, merge, publish, distribute, sublicense, or sell
-  copies of this software or any portion of it without explicit written permission
-  from the author.
-- You may NOT use this project or any part of it for commercial purposes.
-- You may NOT claim this work as your own or submit it as part of any academic
-  or professional submission without the author's consent.
+2. ACADEMIC INTEGRITY & ANTI-PLAGIARISM NOTICE
+This Work is presented as a Graduation Project for academic evaluation. Any unauthorized use, copying, or representation of this project (in whole or in part) as the work of another individual for academic credit, submission to any educational institution, or publication is strictly prohibited. Such actions constitute academic plagiarism and intellectual property theft.
 
-This software is provided "as is", without warranty of any kind, express or implied.
+3. USAGE RESTRICTIONS
+Permission is NOT granted for any individual or entity to:
+a) Modify, adapt, or create derivative works based upon the Work.
+b) Redistribute, publish, sublicense, or sell copies of the Work in any form.
+c) Use the pre-trained machine learning models in any production or commercial environment without explicit written authorization from the Author.
+d) Remove or obscure this copyright notice.
 
-For permissions or inquiries, contact the author through GitHub.
+4. PERMITTED USE (VIEWING ONLY)
+Permission is granted to users of GitHub and Streamlit Cloud to VIEW the source code for the sole purposes of:
+a) Personal non-commercial evaluation.
+b) Peer review and academic assessment.
+c) Demonstration of the system's functionality.
+
+5. NO WARRANTY
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHOR OR COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+(c) 2026 Saif Al-Sabaneh. All Rights Reserved.
+    
+Contact: [Saif Al-Sabaneh] via GitHub for licensing inquiries.
