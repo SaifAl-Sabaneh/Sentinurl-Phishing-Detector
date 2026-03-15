@@ -35,15 +35,15 @@ from sklearn.metrics import (
 # ── Config ────────────────────────────────────────────────────────────────────
 BASE_DIR     = os.path.dirname(os.path.abspath(__file__))
 DATASET_PATH = os.path.join(os.path.dirname(BASE_DIR), "steps", "Merged Files.csv")
-GSB_KEY      = "AIzaSyBOzAqDfrgL02TW0yjHDPEFI7tdMKpHfxI"
+GSB_KEY      = os.environ.get("SENTINURL_GSB_API_KEY", "")
 
 N_PHISHING   = 140
 N_SAFE       = 60
 RANDOM_SEED  = 99
 THRESHOLD    = 0.25
 
-# Inject the GSB key  
-os.environ["SENTINURL_GSB_API_KEY"] = GSB_KEY
+# The GSB key is now loaded from environment variables for security.
+# To run locally, set the variable: $env:SENTINURL_GSB_API_KEY="your_key_here"
 
 print("\n" + "="*65)
 print("  SENTINURL — FULL ONLINE PIPELINE EVALUATION")
