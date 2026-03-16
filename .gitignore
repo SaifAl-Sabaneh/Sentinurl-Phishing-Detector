@@ -25,4 +25,10 @@ scan_history.csv
 Thumbs.db
 
 # Exclude massive datasets only
+**/*.csv
+*.csv
 Phishing Dataset.csv
+stress_test_results.csv
+
+# Security
+Google API Key.txt

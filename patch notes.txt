@@ -1,0 +1,8 @@
+patch notes for sentiurl:
+
+" Model " 
+made the streamlit dashboard live and working ( test it with people ) 
+updated the accuracy on the offline model from 89.1% to 99.14% 
+updated the accuracy on the online model from 98.4% to 99% using the api's 
+
+" Challenges we faced " 

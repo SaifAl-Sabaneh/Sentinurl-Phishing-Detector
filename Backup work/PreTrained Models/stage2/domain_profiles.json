@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "trusted_reg_domains": [],
+  "trusted_suffixes": [],
+  "block_reg_domains": [],
+  "notes": "Edit trusted_reg_domains once; engine will stay stable without code changes."
+}
