@@ -1262,9 +1262,9 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
     brand_in_path_unrelated = len(path_brands) > 0 and not any(b in reg_domain for b in path_brands)
     
     is_ip = bool(re.search(r'\d{1,3}(\.\d{1,3}){3}', host))
-    is_github_abuse = 'github.com' in host_low and ('/releases/download/' in low_u or 'raw.githubusercontent' in low_u)
+    is_github_abuse = 'github.com' in host_low and ('/releases/download/' in low_u or '/raw/' in low_u or '/blob/' in low_u or 'raw.githubusercontent' in low_u)
     is_blob_abuse = 'wsimg.com' in host_low or 'blobby' in low_u
-    malware_exts = {'.exe', '.msi', '.apk', '.bat', '.vbs', '.scr'}
+    malware_exts = {'.exe', '.msi', '.apk', '.bat', '.vbs', '.scr', '.zip', '.rar', '.iso', '.7z'}
     has_malware_ext = any(low_u.endswith(ext) or f"{ext}?" in low_u for ext in malware_exts)
     
     # Combined Bypass Logic
@@ -1361,7 +1361,7 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
     gsb = online.get("gsb")
     if isinstance(gsb, dict) and gsb.get("hit") is True:
         reasons.append("Google Safe Browsing match (malicious).")
-        return ("PHISHING", 0.99, "online_gsb_hit", reasons, p1, p2)
+        return ("PHISHING", 0.99, "online_gsb_hit", reasons, p1, p2, {})
 
     # HARD SANITY CHECK: If GSB is clean and there are no hard signals, cap the risk
     if not bypass_fail_safe and isinstance(gsb, dict) and gsb.get("hit") is False:
@@ -1446,7 +1446,7 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
 
         if has_pw and has_form and external_action:
             reasons.append("Password form posts to external domain (high confidence phishing).")
-            return ("PHISHING", 0.97, "online_content_external_password_form", reasons, p1, p2)
+            return ("PHISHING", 0.97, "online_content_external_password_form", reasons, p1, p2, {})
 
         # ENHANCED: If login form is on same domain AND Stage1 says safe, trust it more
         if not bypass_fail_safe and has_pw and has_form and has_login_words and (page_reg and action_reg and page_reg == action_reg):
@@ -1559,6 +1559,56 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
         except Exception as e:
             # Fail silently to not break flow
             pass
+
+    # 9. TLD & Media Payload Risk (Final Extreme Tier - Post-Processing)
+    # =========================================================
+    extreme_tlds = {'.top', '.xyz', '.icu', '.sbs', '.cfd', '.shop', '.work', '.click', '.beauty', '.live', '.online', '.site'}
+    if any(host_low.endswith(t) for t in extreme_tlds):
+        reasons.append(f"High-risk TLD (.{host_low.split('.')[-1]}) detected on suspicious payload.")
+        score = max(score, 0.41) # Final safety floor for untrusted TLDs
+        
+    media_malware = {'.jpg', '.png', '.gif', '.js', '.xml', '.css', '.txt', '.iso', '.zip', '.dmg', '.pkg'}
+    if any(low_u.endswith(m) for m in media_malware) and any(x in low_u for x in ['new', 'image', 'download', 'info', 'check', 'setup', 'update', 'patch', 'crack']):
+        reasons.append("Suspicious media/code payload detected in potential malware-delivery path.")
+        score = max(score, 0.45)
+        
+    # Discord/CDN Abuse (Common in URLHaus)
+    if 'discord' in host_low and ('attachments' in low_u or 'cdn' in low_u):
+        reasons.append("Hosting abuse: unauthorized malware delivery via Discord CDN.")
+        score = max(score, 0.85)
+
+    # Ad-Network Redirect Abuse (e.g., Google AdClick)
+    ad_networks = {'doubleclick.net', 'googleadservices.com', 'bingads.com', 'facebook.com/l.php'}
+    if any(n in host_low for n in ad_networks) and ('adurl=' in low_u or 'url=' in low_u or 'u=' in low_u):
+        reasons.append("Redirect abuse: trusted ad-network used to hide phishing/malware target.")
+        score = max(score, float(p1) if p1 > 0.40 else 0.50)
+        bypass_fail_safe = True
+
+    # File Sharing Abuse
+    file_sharing = {'sendspace.com', 'mediafire.com', 'mega.nz', 'dropbox.com/sh/', 'wetransfer.com', 'drive.google.com/uc'}
+    if any(s in low_u for s in file_sharing):
+        reasons.append("File-sharing abuse: known platform used for unauthorized malware hosting.")
+        score = max(score, 0.50)
+        bypass_fail_safe = True
+
+    # 10. Punycode, Scripts, and Typo-Squatting (Extreme Finish Case)
+    if 'xn--' in host_low:
+        reasons.append("Punycode (IDN) detected: commonly used for homograph brand impersonation.")
+        score = max(score, 0.75)
+        bypass_fail_safe = True
+        
+    script_exts = {'.ps1', '.hta', '.vbs', '.bat', '.cmd', '.py', '.sh', '.dll', '.so', '.scr'}
+    if any(low_u.endswith(ext) or f"{ext}?" in low_u for ext in script_exts):
+        reasons.append("Critical: URL points directly to a high-risk script or shared library.")
+        score = max(score, 0.90)
+        bypass_fail_safe = True
+        
+    # Full hostname brand mimicry (e.g. videomeetgoogle.com)
+    for b in ['google', 'apple', 'microsoft', 'paypal', 'facebook', 'amazon', 'netflix', 'chase', 'wellsfargo']:
+        if b in host_low and b not in reg_domain:
+            reasons.append(f"Typosquatting: Brand keyword '{b}' found in untrusted host structure.")
+            score = max(score, 0.85)
+            bypass_fail_safe = True
 
     score = max(0.0, min(1.0, float(score)))
     return (band(score), score, "fusion_offline_online", reasons, p1, p2, geo_info)

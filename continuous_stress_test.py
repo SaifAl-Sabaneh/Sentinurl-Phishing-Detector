@@ -11,7 +11,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 warnings.filterwarnings('ignore')
 sys.path.append('.')
-from enhanced_original import url_features, BRAND_KEYWORDS, SUSPICIOUS_PATHS, registrable_domain, get_host
+from enhanced_original import url_features, fuse_evidence
 
 # ==========================================
 # 1. DATA GENERATION & ACQUISITION
@@ -134,98 +134,22 @@ def run_continuous_test(batch_size=200000):
     X_s2 = s2_df[s2_cols]
     s2_probs = s2_model.predict_proba(X_s2)[:, 1]
     
-    # Aggressive Heuristics (Aligned with latest SentinURL logic)
-    heuristic_boosts = []
-    import re
-    high_risk_tlds = {'.ru', '.zip', '.mov', '.top', '.icu', '.site', '.online', '.xyz', '.club'}
-    
-    for u in test_payload:
-        boost = 0.0
-        try:
-            low_u = u.lower()
-            path_low = u.split('/', 3)[-1].lower() if '/' in u else ""
-            host = get_host(u)
-            host_low = host.lower()
-            
-            # 1. Path-based (WordPress/OpenCart/Brand-in-Path)
-            path_brands = [b for b in BRAND_KEYWORDS if b in path_low]
-            susp_path_detected = any(p in path_low for p in SUSPICIOUS_PATHS)
-            reg_domain = registrable_domain(host)
-            brand_in_path_unrelated = len(path_brands) > 0 and not any(b in reg_domain for b in path_brands)
-            
-            if brand_in_path_unrelated:
-                boost += 0.50
-            elif susp_path_detected:
-                boost += 0.40
-                
-            # 2. IP-based (Raw IPs are very rare in legit web portals)
-            if re.search(r'\d{1,3}(\.\d{1,3}){3}', host):
-                boost += 0.45
-                
-            # 3. High-Risk TLDs
-            if any(host_low.endswith(t) for t in high_risk_tlds):
-                boost += 0.15
-                
-            # 4. Domain-level Brand Mimicry (Subdomains)
-            # e.g., paypal.login.secure.com
-            domain_brands = [b for b in BRAND_KEYWORDS if b in host_low]
-            if domain_brands and not any(b in reg_domain for b in domain_brands):
-                boost += 0.40
-            
-            # 5. Generic Phishing Keywords in Domain/Path
-            # Keywords often used in URLHaus zero-days
-            phish_indicators = {'office365', 'outlook', 'webmail', 'portal', 'admin', 'secure', 'billing', 'invoice'}
-            if any(k in low_u for k in phish_indicators):
-                boost += 0.10
-                
-            # 6. Length-based Risk (Unusually long paths/params)
-            if len(u) > 120:
-                boost += 0.05
-
-            # 7. Malware & Github/Blob Abuse (Final Accuracy Push)
-            malware_exts = {'.exe', '.msi', '.apk', '.bat', '.vbs', '.scr'}
-            if any(low_u.endswith(ext) or f"{ext}?" in low_u for ext in malware_exts):
-                boost += 0.40
-            
-            # GitHub Release/Raw Abuse
-            if 'github.com' in host_low and ('/releases/download/' in low_u or 'raw.githubusercontent' in low_u):
-                boost += 0.35
-            
-            # GoDaddy/Wix Blob Abuse
-            if 'wsimg.com' in host_low or 'blobby' in low_u:
-                boost += 0.30
-                
-            # Malware Keywords
-            malware_keywords = {'crack', 'unlocker', 'patch', 'bot', 'checker', 'autofarm', 'injector'}
-            if any(k in low_u for k in malware_keywords):
-                boost += 0.25
-                
-        except:
-            pass
-        heuristic_boosts.append(boost)
-    
-    # Dynamic Fusion Engine (Aligned with sentinurl.py)
+    # Phase 3: PRODUCTION FUSION ENGINE (Absolute Parity with sentinurl.py)
     final_probs = []
-    for s1p, s2p, hb in zip(s1_probs, s2_probs, heuristic_boosts):
-        if s1p < 0.05:
-            # Stage 1 is very sure it's safe
-            p_ml = (0.95 * s1p + 0.05 * s2p)
-        elif s1p < 0.15:
-            p_ml = (0.90 * s1p + 0.10 * s2p)
-        elif s1p < 0.30:
-            p_ml = (0.85 * s1p + 0.15 * s2p)
-        elif s1p > 0.85:
-            # Stage 1 is very sure it's phishing
-            p_ml = (0.95 * s1p + 0.05 * s2p)
-        elif s1p > 0.70:
-            p_ml = (0.90 * s1p + 0.10 * s2p)
-        else:
-            # Hybrid mode
-            p_ml = (0.80 * s1p + 0.20 * s2p)
-            
-        # Apply Heuristic Boost (Ensures zero-days are caught even offline)
-        p_ml = min(0.99, p_ml + hb)
-        final_probs.append(p_ml)
+    
+    # Mock online environment (Safe GSB, Valid TLS, Established Domain)
+    # This forces the engine to rely on its ML + Heuristic Intelligence
+    mock_online = {"gsb": {"hit": False, "ok": True}, "tls": {"ok": True, "days_left": 100}, "html": {"ok": False}}
+    mock_whois = {"age_days": 1000}
+    
+    print(f"[*] Analyzing threats via Production Fusion Logic...")
+    for i, u in enumerate(test_payload):
+        s1p = s1_probs[i]
+        s2p = s2_probs[i]
+        
+        # Call the actual production engine
+        label, score, src, reasons, p1, p2, geo = fuse_evidence(u, s1p, s1p, s2p, mock_online, mock_whois)
+        final_probs.append(score)
     
     final_probs = np.array(final_probs)
     
