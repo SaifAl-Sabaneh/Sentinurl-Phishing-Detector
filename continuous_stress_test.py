@@ -181,6 +181,24 @@ def run_continuous_test(batch_size=200000):
             # 6. Length-based Risk (Unusually long paths/params)
             if len(u) > 120:
                 boost += 0.05
+
+            # 7. Malware & Github/Blob Abuse (Final Accuracy Push)
+            malware_exts = {'.exe', '.msi', '.apk', '.bat', '.vbs', '.scr'}
+            if any(low_u.endswith(ext) or f"{ext}?" in low_u for ext in malware_exts):
+                boost += 0.40
+            
+            # GitHub Release/Raw Abuse
+            if 'github.com' in host_low and ('/releases/download/' in low_u or 'raw.githubusercontent' in low_u):
+                boost += 0.35
+            
+            # GoDaddy/Wix Blob Abuse
+            if 'wsimg.com' in host_low or 'blobby' in low_u:
+                boost += 0.30
+                
+            # Malware Keywords
+            malware_keywords = {'crack', 'unlocker', 'patch', 'bot', 'checker', 'autofarm', 'injector'}
+            if any(k in low_u for k in malware_keywords):
+                boost += 0.25
                 
         except:
             pass
