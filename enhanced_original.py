@@ -1603,10 +1603,12 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
         score = max(score, 0.90)
         bypass_fail_safe = True
         
-    # Full hostname brand mimicry (e.g. videomeetgoogle.com)
+    # Full hostname brand mimicry (e.g. videomeetgoogle.com, g00gle.com)
+    # Advanced: Handle Leetspeak/Homographs (0->o, 1->l, 3->e, 4->a, !->i)
+    leetspeak_host = host_low.replace('0', 'o').replace('1', 'l').replace('3', 'e').replace('4', 'a').replace('!', 'i').replace('vv', 'w')
     for b in ['google', 'apple', 'microsoft', 'paypal', 'facebook', 'amazon', 'netflix', 'chase', 'wellsfargo']:
-        if b in host_low and b not in reg_domain:
-            reasons.append(f"Typosquatting: Brand keyword '{b}' found in untrusted host structure.")
+        if (b in host_low or b in leetspeak_host) and b not in reg_domain:
+            reasons.append(f"Typosquatting: Deceptive use of brand '{b}' found in untrusted host.")
             score = max(score, 0.85)
             bypass_fail_safe = True
 
