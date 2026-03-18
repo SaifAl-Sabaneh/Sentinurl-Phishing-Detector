@@ -134,30 +134,61 @@ def run_continuous_test(batch_size=200000):
     X_s2 = s2_df[s2_cols]
     s2_probs = s2_model.predict_proba(X_s2)[:, 1]
     
-    # Path-based Escalation (Aligned with latest SentinURL logic)
-    path_boosts = []
+    # Aggressive Heuristics (Aligned with latest SentinURL logic)
+    heuristic_boosts = []
+    import re
+    high_risk_tlds = {'.ru', '.zip', '.mov', '.top', '.icu', '.site', '.online', '.xyz', '.club'}
+    
     for u in test_payload:
         boost = 0.0
         try:
+            low_u = u.lower()
             path_low = u.split('/', 3)[-1].lower() if '/' in u else ""
+            host = get_host(u)
+            host_low = host.lower()
+            
+            # 1. Path-based (WordPress/OpenCart/Brand-in-Path)
             path_brands = [b for b in BRAND_KEYWORDS if b in path_low]
             susp_path_detected = any(p in path_low for p in SUSPICIOUS_PATHS)
-            
-            # Brand in path on unrelated domain?
-            reg_domain = registrable_domain(get_host(u))
+            reg_domain = registrable_domain(host)
             brand_in_path_unrelated = len(path_brands) > 0 and not any(b in reg_domain for b in path_brands)
             
             if brand_in_path_unrelated:
-                boost = 0.50
+                boost += 0.50
             elif susp_path_detected:
-                boost = 0.40
+                boost += 0.40
+                
+            # 2. IP-based (Raw IPs are very rare in legit web portals)
+            if re.search(r'\d{1,3}(\.\d{1,3}){3}', host):
+                boost += 0.45
+                
+            # 3. High-Risk TLDs
+            if any(host_low.endswith(t) for t in high_risk_tlds):
+                boost += 0.15
+                
+            # 4. Domain-level Brand Mimicry (Subdomains)
+            # e.g., paypal.login.secure.com
+            domain_brands = [b for b in BRAND_KEYWORDS if b in host_low]
+            if domain_brands and not any(b in reg_domain for b in domain_brands):
+                boost += 0.40
+            
+            # 5. Generic Phishing Keywords in Domain/Path
+            # Keywords often used in URLHaus zero-days
+            phish_indicators = {'office365', 'outlook', 'webmail', 'portal', 'admin', 'secure', 'billing', 'invoice'}
+            if any(k in low_u for k in phish_indicators):
+                boost += 0.10
+                
+            # 6. Length-based Risk (Unusually long paths/params)
+            if len(u) > 120:
+                boost += 0.05
+                
         except:
             pass
-        path_boosts.append(boost)
+        heuristic_boosts.append(boost)
     
     # Dynamic Fusion Engine (Aligned with sentinurl.py)
     final_probs = []
-    for s1p, s2p, pb in zip(s1_probs, s2_probs, path_boosts):
+    for s1p, s2p, hb in zip(s1_probs, s2_probs, heuristic_boosts):
         if s1p < 0.05:
             # Stage 1 is very sure it's safe
             p_ml = (0.95 * s1p + 0.05 * s2p)
@@ -174,8 +205,8 @@ def run_continuous_test(batch_size=200000):
             # Hybrid mode
             p_ml = (0.80 * s1p + 0.20 * s2p)
             
-        # Apply Path Boost (Ensures compromised sites are caught even offline)
-        p_ml = min(0.99, p_ml + pb)
+        # Apply Heuristic Boost (Ensures zero-days are caught even offline)
+        p_ml = min(0.99, p_ml + hb)
         final_probs.append(p_ml)
     
     final_probs = np.array(final_probs)
