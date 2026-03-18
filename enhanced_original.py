@@ -167,7 +167,9 @@ SHORTENERS = {"bit.ly", "tinyurl.com", "t.co", "goo.gl", "is.gd", "cutt.ly"}
 
 BRAND_KEYWORDS = [
     "google", "paypal", "microsoft", "apple", "amazon",
-    "facebook", "instagram", "whatsapp", "youtube"
+    "facebook", "instagram", "whatsapp", "youtube", "netflix",
+    "cielo", "bbva", "santander", "bradesco", "itau", "nubank",
+    "chase", "wellsfargo", "bankofamerica", "binance", "coinbase", "metamask"
 ]
 
 BRAND_DOMAINS = {
@@ -215,6 +217,12 @@ JORDANIAN_OFFICIAL = {
     "salt.jo", "jerash.jo", "ajloun.jo", "karak.jo", "tafilah.jo",
     "maan.jo", "mafraq.jo"
 }
+
+SUSPICIOUS_PATHS = [
+    "wp-content/themes", "wp-includes/pomo", "opencart/system", 
+    "cgi-bin", "includes/temp", "survey/webscr", "modules/remax", 
+    "scripts/smiles", "cycgi-bin", "webscr.php", "login.php", "signin.php"
+]
 
 
 # =========================================================
@@ -781,6 +789,7 @@ def url_features(url: str) -> dict:
         "has_finance": has_finance,
         "has_scam": has_scam,
         "brand_hits": sum(1 for b in BRAND_KEYWORDS if b in low),
+        "suspicious_path": 1 if any(p in low for p in SUSPICIOUS_PATHS) else 0,
         "redirect_like": redirect_like,
 
         "entropy_url": entropy(decoded),
@@ -1233,64 +1242,60 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
     # FAIL-SAFE: TRUSTED SIGNALS TO PREVENT FALSE POSITIVES
     # =========================================================
     
-    # 1. Google Safe Browsing is authoritative
-    # If GSB says it's clean, we trust it highly
-    gsb_clean = False
-    if online.get("gsb") and not online["gsb"].get("hit", False) and not online["gsb"].get("error"):
-        gsb_clean = True
-        reasons.append("Google Safe Browsing: no threats found (clean).")
-        
-    # 2. Certificate Validity
-    # If we have a valid TLS cert from a major issuer, it's less likely to be Phishing (though not impossible)
-    cert_clean = False
-    tls_data = online.get("tls")
-    if tls_data and tls_data.get("ok"):
-        # Just having a cert isn't enough (Let's Encrypt is free), but it's a positive signal
-        cert_clean = True
-        reasons.append("Valid TLS certificate detected (good sign).")
-
-    # 3. Domain Age
+    # 1. Google Safe Browsing and Certificate Validity
+    gsb_clean = online.get("gsb") and not online["gsb"].get("hit", False) and not online["gsb"].get("error")
+    tls_valid = online.get("tls") and online["tls"].get("ok")
     domain_age = whois_data.get("age_days", 0) or 0
     domain_old = domain_age > 365  # > 1 year
 
-    # 4. Combined Fail-Safe Resolution
-    # Strongest combo: GSB clean + valid TLS + established domain → fully SAFE
-    if gsb_clean and cert_clean and domain_old:
-        years = domain_age // 365
-        reasons.append(f"Triple-verified safe: GSB clean + valid TLS + established domain ({years} yr{'s' if years > 1 else ''}).")
-        score = 0.0  # Fully safe
-        # Auto-allowlist for future lookups
-        host = get_host(url)
-        reg = registrable_domain(host) if host else ""
-        if reg and reg not in ALLOW_REG:
-            ALLOW_REG.add(reg)
-            reasons.append(f"Domain '{reg}' auto-added to trusted allowlist.")
-    elif gsb_clean and cert_clean:
-        # GSB + TLS both clean — very strong, even without age data
-        reasons.append("GSB + TLS validation: site verified as safe.")
-        score = 0.0
-        host = get_host(url)
-        reg = registrable_domain(host) if host else ""
-        if reg and reg not in ALLOW_REG:
-            ALLOW_REG.add(reg)
-            reasons.append(f"Domain '{reg}' auto-added to trusted allowlist.")
-    elif gsb_clean and domain_old:
-        # GSB clean + old domain — strong
-        reasons.append("GSB clean + established domain confirms safety.")
-        score = 0.0
-        host = get_host(url)
-        reg = registrable_domain(host) if host else ""
-        if reg and reg not in ALLOW_REG:
-            ALLOW_REG.add(reg)
-            reasons.append(f"Domain '{reg}' auto-added to trusted allowlist.")
+    # 2. Compromised Site Detection (Escalation)
+    # Check if a protected brand name is in the path of an unrelated domain
+    path_low = url.split('/', 3)[-1].lower() if '/' in url else ""
+    path_brands = [b for b in BRAND_KEYWORDS if b in path_low]
+    susp_path_detected = any(p in path_low for p in SUSPICIOUS_PATHS)
+    
+    # Brand in path on unrelated domain?
+    reg_domain = registrable_domain(get_host(url))
+    brand_in_path_unrelated = len(path_brands) > 0 and not any(b in reg_domain for b in path_brands)
+    
+    bypass_fail_safe = susp_path_detected or brand_in_path_unrelated
+
+    if brand_in_path_unrelated:
+        reasons.append(f"Deceptive brand reference in path: '{path_brands[0]}' on unrelated domain.")
+        score = max(score, 0.70)
+    elif susp_path_detected:
+        reasons.append(f"Suspicious path structure detected (commonly used in compromised sites).")
+        score = max(score, 0.50)
+
+    # 3. Combined Fail-Safe Resolution (Now with bypass and threshold)
+    if not bypass_fail_safe and gsb_clean and tls_valid and domain_old:
+        # Strongest triple validation: GSB clean + valid TLS + established domain
+        # ONLY override to 0.0 if ML isn't highly confident (threshold 0.40)
+        if score < 0.40:
+            years = domain_age // 365
+            reasons.append(f"Triple-verified safe: GSB + TLS + established domain ({years} yrs).")
+            score = 0.0
+        else:
+            reasons.append("GSB/TLS/Age validation suggests safety, but ML confidence overrides (Potential compromised site).")
+            
+    elif not bypass_fail_safe and gsb_clean and tls_valid:
+        if score < 0.40:
+            reasons.append("GSB + TLS validation confirms site appears safe.")
+            score = 0.0
+    elif not bypass_fail_safe and gsb_clean and domain_old:
+        if score < 0.40:
+            reasons.append("GSB + established domain confirms safety.")
+            score = 0.0
     elif gsb_clean:
-        # GSB clean alone — authoritative but not absolute
-        reasons.append("Models disagree: GSB validation prevents false positive.")
-        score = min(score, 0.10)
-    elif cert_clean and domain_old:
+        # GSB clean alone — reduce borderline scores
+        if score < 0.25:
+            reasons.append("GSB validation prevents false positive on borderline ML score.")
+            score = min(score, 0.10)
+    elif not bypass_fail_safe and tls_valid and domain_old:
         # TLS valid + old domain — moderate safety signal
-        reasons.append("Valid TLS + established domain suggests legitimacy.")
-        score = min(score, 0.15)
+        if score < 0.25:
+            reasons.append("Valid TLS + established domain suggests legitimacy.")
+            score = min(score, 0.15)
 
     # =========================================================
     # END FAIL-SAFE
@@ -1362,7 +1367,7 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
     if isinstance(tls, dict) and tls.get("ok") is False:
         reasons.append("TLS certificate check failed (risky host / misconfig).")
         score = max(score, 0.75)
-    elif isinstance(tls, dict) and tls.get("ok") is True:
+    elif not bypass_fail_safe and isinstance(tls, dict) and tls.get("ok") is True:
         days_left = tls.get("days_left")
         if days_left and days_left > 30:
             reasons.append("Valid TLS certificate detected (good sign).")
@@ -1384,7 +1389,7 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
             return ("PHISHING", 0.97, "online_content_external_password_form", reasons, p1, p2)
 
         # ENHANCED: If login form is on same domain AND Stage1 says safe, trust it more
-        if has_pw and has_form and has_login_words and (page_reg and action_reg and page_reg == action_reg):
+        if not bypass_fail_safe and has_pw and has_form and has_login_words and (page_reg and action_reg and page_reg == action_reg):
             reasons.append("Login form detected on same domain (likely legitimate portal).")
             # If Stage1 says it's safe, really trust it
             if p1 < 0.10:
