@@ -296,9 +296,10 @@ def predict_ultimate(url: str):
         # Threat feeds can have false positives (e.g., chatgpt.com in PhishTank)
         gsb_result = gsb_check(u)
         if gsb_result and not gsb_result.get("hit", False) and not gsb_result.get("error"):
-            # GSB says it's clean - override the threat feed
-            reasons.append(f"Threat feed flagged domain ({', '.join(threat_feeds)}), but Google Safe Browsing confirms SAFE.")
-            # Continue to other checks instead of returning PHISHING
+            # GSB says it's clean - but let's check if the threat feed hit is strong.
+            # Instead of a full override, we'll continue and let ML decide, 
+            # while keeping the threat feed hit as a reason.
+            reasons.append(f"Threat feed flagged domain ({', '.join(threat_feeds)}), though GSB is currently clean.")
         else:
             # GSB also flags it or unavailable - trust the threat feed
             return ("PHISHING", 0.99, "threat_intelligence_match",
@@ -395,8 +396,8 @@ def predict_ultimate(url: str):
     domain_old = domain_age > 365  # > 1 year
     
     # Strongest combo: GSB + TLS + established domain → fully SAFE + auto-allowlist
-    # ONLY override if ML isn't highly confident it's a zero-day (Now properly respects ML scores > 25%)
-    if gsb_clean and tls_valid and domain_old and score < 0.25:
+    # ONLY override if ML isn't highly confident it's a zero-day (Now properly respects ML scores > 40%)
+    if gsb_clean and tls_valid and domain_old and score < 0.40:
         years = domain_age // 365
         fusion_reasons.append(f"Triple-verified safe: GSB clean + valid TLS + established domain ({years} yr{'s' if years > 1 else ''}).")
         score = 0.0
@@ -404,7 +405,7 @@ def predict_ultimate(url: str):
         if reg and reg not in ALLOW_REG:
             ALLOW_REG.add(reg)
             fusion_reasons.append(f"Domain '{reg}' auto-added to trusted allowlist.")
-    elif gsb_clean and tls_valid and score < 0.25:
+    elif gsb_clean and tls_valid and score < 0.40:
         # GSB + TLS both clean — very strong, even without age data
         fusion_reasons.append("GSB + TLS validation prevents false positive on borderline score.")
         score = 0.0
@@ -412,7 +413,7 @@ def predict_ultimate(url: str):
         if reg and reg not in ALLOW_REG:
             ALLOW_REG.add(reg)
             fusion_reasons.append(f"Domain '{reg}' auto-added to trusted allowlist.")
-    elif gsb_clean and domain_old and score < 0.25:
+    elif gsb_clean and domain_old and score < 0.40:
         # GSB clean + old domain
         fusion_reasons.append("GSB + established domain verified as safe.")
         score = 0.0

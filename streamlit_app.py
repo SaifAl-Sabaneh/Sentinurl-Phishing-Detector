@@ -163,6 +163,10 @@ st.markdown("""
         background-color: rgba(220, 53, 69, 0.1); border: 2px solid #dc3545;
         animation: pulseBorder 1.5s infinite;
     }
+    .result-box-suspicious {
+        padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px;
+        background-color: rgba(243, 156, 18, 0.1); border: 2px solid #f39c12;
+    }
     
     @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes pulseBorder { 0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(220, 53, 69, 0); } 100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); } }
@@ -170,6 +174,7 @@ st.markdown("""
     .result-title { font-size: 2.5rem; font-weight: bold; margin-bottom: 10px; }
     .safe-text { color: #2ecc71; }
     .phishing-text { color: #e74c3c; }
+    .suspicious-text { color: #f39c12; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -293,9 +298,16 @@ with tab_scan:
                     safe_score = score_prob if score_prob is not None else 0.0
                     risk_score_percent = int(safe_score * 100)
                     
-                    safe_label = str(label).lower() if label is not None else "unknown"
-                    is_phishing = safe_label == "phishing" or safe_label == "bad"
-                    status_str = "Phishing" if is_phishing else "Safe"
+                    safe_label = str(label).upper() if label is not None else "UNKNOWN"
+                    is_phishing = safe_label in ["PHISHING", "HIGH RISK"]
+                    is_suspicious = safe_label == "LOW RISK"
+                    
+                    if is_phishing:
+                        status_str = "Phishing"
+                    elif is_suspicious:
+                        status_str = "Suspicious"
+                    else:
+                        status_str = "Safe"
                     
                     # Persist to disk (Feature 2 logic)
                     save_history({
@@ -317,8 +329,15 @@ with tab_scan:
                     if is_phishing:
                         st.markdown(f"""
                         <div class="result-box-phishing">
-                            <div class="result-title phishing-text">🚨 PHISHING DETECTED</div>
+                            <div class="result-title phishing-text">🚨 {safe_label} DETECTED</div>
                             <div>This website exhibits strong indicators of being a malicious or deceptive site.</div>
+                        </div>
+                        """, unsafe_allow_html=True)
+                    elif is_suspicious:
+                        st.markdown(f"""
+                        <div class="result-box-suspicious">
+                            <div class="result-title suspicious-text">⚠️ {safe_label} DETECTED</div>
+                            <div>This website has some suspicious signals. Caution is advised.</div>
                         </div>
                         """, unsafe_allow_html=True)
                     else:
