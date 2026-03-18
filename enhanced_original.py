@@ -1298,10 +1298,31 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
         score = min(0.99, score + 0.10) # Hard-escalate
         
     # Malware Keywords
-    malware_keywords = {'crack', 'unlocker', 'patch', 'bot', 'checker', 'autofarm', 'injector'}
+    malware_keywords = {'crack', 'unlocker', 'patch', 'bot', 'checker', 'autofarm', 'injector', 'setup', 'update', 'install'}
     if any(k in low_u for k in malware_keywords):
         reasons.append("Malware-associated terminology found in URL.")
         score = max(score, 0.75)
+
+    # 8. DGA & Entropy Detection (Extreme Optimization)
+    def get_entropy(s):
+        import math
+        if not s: return 0
+        counts = {c: s.count(c) for c in set(s)}
+        return -sum((count/len(s)) * math.log2(count/len(s)) for count in counts.values())
+
+    # High entropy in host or long random path
+    host_entropy = get_entropy(host_low)
+    path_entropy = get_entropy(path_low)
+    if (len(host_low) > 15 and host_entropy > 4.2) or (len(path_low) > 40 and path_entropy > 4.5):
+        reasons.append("High-entropy string detected (possible DGA or obfuscated path).")
+        score = max(score, 0.65)
+        bypass_fail_safe = True
+        
+    # Hex/Obfuscation Detection
+    if re.search(r'%[0-9a-f]{2}%[0-9a-f]{2}', low_u):
+        reasons.append("Encoded obfuscation detected in URL structure.")
+        score = max(score, 0.70)
+        bypass_fail_safe = True
 
     # 3. Combined Fail-Safe Resolution (Now with bypass and threshold)
     if not bypass_fail_safe and gsb_clean and tls_valid and domain_old:
@@ -1343,7 +1364,7 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
         return ("PHISHING", 0.99, "online_gsb_hit", reasons, p1, p2)
 
     # HARD SANITY CHECK: If GSB is clean and there are no hard signals, cap the risk
-    if isinstance(gsb, dict) and gsb.get("hit") is False:
+    if not bypass_fail_safe and isinstance(gsb, dict) and gsb.get("hit") is False:
         # The new FAIL-SAFE block already handles GSB clean and adjusts p_ml
         # This block now only needs to adjust score based on p1 if GSB is clean
         
@@ -1374,13 +1395,16 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
             # Don't increase score for domains 30-90 days old if Stage1 says safe
             if p1 > 0.50:
                 score = max(score, 0.50)
-        elif age > 365:
+        elif not bypass_fail_safe and age > 365:
             years = age // 365
             reasons.append(f"Domain has established reputation ({years} year{'s' if years > 1 else ''} old).")
-            score = min(score, 0.10)
-        elif age > 180:
+            # Only reduce if it's not already a confirmed threat
+            if score < 0.60:
+                score = min(score, 0.10)
+        elif not bypass_fail_safe and age > 180:
             reasons.append(f"Domain has moderate history ({age} days old).")
-            score = min(score, 0.25)
+            if score < 0.60:
+                score = min(score, 0.25)
 
     red = online.get("redir")
     if isinstance(red, dict) and red.get("ok"):
