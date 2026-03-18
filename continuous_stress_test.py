@@ -11,36 +11,12 @@ from concurrent.futures import ThreadPoolExecutor
 
 warnings.filterwarnings('ignore')
 sys.path.append('.')
-from enhanced_original import url_features
+from enhanced_original import url_features, BRAND_KEYWORDS, SUSPICIOUS_PATHS, registrable_domain, get_host
 
 # ==========================================
 # 1. DATA GENERATION & ACQUISITION
 # ==========================================
-def generate_synthetic_phishing(count):
-    brands = ['paypal', 'apple', 'microsoft', 'netflix', 'amazon', 'google', 'facebook', 'bankofamerica', 'chase', 'wellsfargo', 'dhl', 'fedex', 'usps']
-    keywords = ['login', 'secure', 'verify', 'update', 'account', 'auth', 'billing', 'support', 'service', 'center', 'invoice', 'tracking', 'refund']
-    tlds = ['.com', '.net', '.org', '.info', '.xyz', '.online', '.site', '.top', '.club', '.ru', '.io', '.co']
-    
-    urls = []
-    for _ in range(count):
-        brand = random.choice(brands)
-        kw1 = random.choice(keywords)
-        kw2 = random.choice(keywords)
-        tld = random.choice(tlds)
-        
-        chance = random.random()
-        if chance < 0.25:
-            urls.append(f"https://{brand}-{kw1}-{kw2}{tld}/{random.choice(keywords)}?token={random.randint(1000,9999)}")
-        elif chance < 0.50:
-            urls.append(f"http://{kw1}.{kw2}.{brand}.security-check-{random.randint(100,999)}.com/{kw1}.php")
-        elif chance < 0.75:
-            ip = f"{random.randint(11,250)}.{random.randint(11,250)}.{random.randint(11,250)}.{random.randint(11,250)}"
-            urls.append(f"http://{ip}/{brand}/{kw1}/index.html")
-        else:
-            gibberish = "".join(random.choices("abcdefghijklmnopqrstuvwxyz0123456789", k=random.randint(12,25)))
-            urls.append(f"https://{gibberish}{tld}/{brand}-{kw1}")
-            
-    return urls
+# Synthetic generation removed as per user request.
 
 def fetch_urlhaus():
     urlhaus_csv = "https://urlhaus.abuse.ch/downloads/csv_online/"
@@ -124,22 +100,20 @@ def run_continuous_test(batch_size=200000):
         return
 
     # Generate Payload
-    print(f"[*] Fetching live malware data & synthesizing zero-day threats...")
+    print(f"[*] Fetching live malware data from URLHaus (100% Live Mode)...")
     live_urls = fetch_urlhaus()
     
-    # Try to grab up to half the batch from URLhaus if available
-    target_live = min(len(live_urls), batch_size // 2)
-    selected_live = random.sample(live_urls, target_live) if live_urls else []
+    if not live_urls:
+        print("[!] No live URLs found in URLHaus feed. Aborting test.")
+        return
+
+    # Respect batch size limit
+    num_to_test = min(len(live_urls), batch_size)
+    test_payload = random.sample(live_urls, num_to_test)
     
-    synthetic_needed = batch_size - len(selected_live)
-    synthetic_urls = generate_synthetic_phishing(synthetic_needed)
-    
-    test_payload = selected_live + synthetic_urls
-    random.shuffle(test_payload)
-    
-    print(f"    - Live Academic Malware  : {len(selected_live):,}")
-    print(f"    - Synthesized Zero-Days  : {len(synthetic_urls):,}")
-    print(f"    - Total Testing Array    : {len(test_payload):,}")
+    print(f"    - Live Academic Malware Found: {len(live_urls):,}")
+    print(f"    - Selected for this Batch    : {len(test_payload):,}")
+    print(f"    - Mode                       : LIVE ONLY")
     
     print("\n[*] Initializing Air-Gapped Math Predictions...")
     start_time = time.time()
@@ -160,11 +134,54 @@ def run_continuous_test(batch_size=200000):
     X_s2 = s2_df[s2_cols]
     s2_probs = s2_model.predict_proba(X_s2)[:, 1]
     
-    # Fusion Engine
-    final_probs = (s1_probs * 0.4) + (s2_probs * 0.6)
+    # Path-based Escalation (Aligned with latest SentinURL logic)
+    path_boosts = []
+    for u in test_payload:
+        boost = 0.0
+        try:
+            path_low = u.split('/', 3)[-1].lower() if '/' in u else ""
+            path_brands = [b for b in BRAND_KEYWORDS if b in path_low]
+            susp_path_detected = any(p in path_low for p in SUSPICIOUS_PATHS)
+            
+            # Brand in path on unrelated domain?
+            reg_domain = registrable_domain(get_host(u))
+            brand_in_path_unrelated = len(path_brands) > 0 and not any(b in reg_domain for b in path_brands)
+            
+            if brand_in_path_unrelated:
+                boost = 0.50
+            elif susp_path_detected:
+                boost = 0.40
+        except:
+            pass
+        path_boosts.append(boost)
     
-    # Accuracy Metric
-    THRESHOLD = 0.25
+    # Dynamic Fusion Engine (Aligned with sentinurl.py)
+    final_probs = []
+    for s1p, s2p, pb in zip(s1_probs, s2_probs, path_boosts):
+        if s1p < 0.05:
+            # Stage 1 is very sure it's safe
+            p_ml = (0.95 * s1p + 0.05 * s2p)
+        elif s1p < 0.15:
+            p_ml = (0.90 * s1p + 0.10 * s2p)
+        elif s1p < 0.30:
+            p_ml = (0.85 * s1p + 0.15 * s2p)
+        elif s1p > 0.85:
+            # Stage 1 is very sure it's phishing
+            p_ml = (0.95 * s1p + 0.05 * s2p)
+        elif s1p > 0.70:
+            p_ml = (0.90 * s1p + 0.10 * s2p)
+        else:
+            # Hybrid mode
+            p_ml = (0.80 * s1p + 0.20 * s2p)
+            
+        # Apply Path Boost (Ensures compromised sites are caught even offline)
+        p_ml = min(0.99, p_ml + pb)
+        final_probs.append(p_ml)
+    
+    final_probs = np.array(final_probs)
+    
+    # Accuracy Metric (Aligned with SUSP_SAFE_MAX = 0.40)
+    THRESHOLD = 0.40
     caught = int(np.sum(final_probs >= THRESHOLD))
     missed = len(test_payload) - caught
     acc = (caught / len(test_payload)) * 100
