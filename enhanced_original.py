@@ -1248,24 +1248,60 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
     domain_age = whois_data.get("age_days", 0) or 0
     domain_old = domain_age > 365  # > 1 year
 
-    # 2. Compromised Site Detection (Escalation)
-    # Check if a protected brand name is in the path of an unrelated domain
+    # 2. Compromised Site & Malware Delivery Detection (Escalation)
+    import re
+    host = get_host(url)
+    host_low = host.lower()
     path_low = url.split('/', 3)[-1].lower() if '/' in url else ""
+    low_u = url.lower()
+
+    # Heuristic Checks
     path_brands = [b for b in BRAND_KEYWORDS if b in path_low]
     susp_path_detected = any(p in path_low for p in SUSPICIOUS_PATHS)
-    
-    # Brand in path on unrelated domain?
-    reg_domain = registrable_domain(get_host(url))
+    reg_domain = registrable_domain(host)
     brand_in_path_unrelated = len(path_brands) > 0 and not any(b in reg_domain for b in path_brands)
     
-    bypass_fail_safe = susp_path_detected or brand_in_path_unrelated
+    is_ip = bool(re.search(r'\d{1,3}(\.\d{1,3}){3}', host))
+    is_github_abuse = 'github.com' in host_low and ('/releases/download/' in low_u or 'raw.githubusercontent' in low_u)
+    is_blob_abuse = 'wsimg.com' in host_low or 'blobby' in low_u
+    malware_exts = {'.exe', '.msi', '.apk', '.bat', '.vbs', '.scr'}
+    has_malware_ext = any(low_u.endswith(ext) or f"{ext}?" in low_u for ext in malware_exts)
+    
+    # Combined Bypass Logic
+    bypass_fail_safe = susp_path_detected or brand_in_path_unrelated or is_ip or is_github_abuse or is_blob_abuse or has_malware_ext
 
+    # Apply Escalations
     if brand_in_path_unrelated:
         reasons.append(f"Deceptive brand reference in path: '{path_brands[0]}' on unrelated domain.")
         score = max(score, 0.70)
     elif susp_path_detected:
         reasons.append(f"Suspicious path structure detected (commonly used in compromised sites).")
         score = max(score, 0.50)
+        
+    if is_ip:
+        reasons.append("URL uses raw IP address instead of domain (highly suspicious).")
+        score = max(score, 0.75)
+        
+    if is_github_abuse:
+        reasons.append("Hosting abuse: unauthorized malware/phishing delivery via GitHub Release/Raw.")
+        score = max(score, 0.85)
+        score = min(0.99, score + 0.10) # Additional additive boost for repo-abuse
+        
+    if is_blob_abuse:
+        reasons.append("Hosting abuse: anonymous blob storage used for threat delivery.")
+        score = max(score, 0.80)
+        score = min(0.99, score + 0.10) # Additional additive boost for blob-abuse
+        
+    if has_malware_ext:
+        reasons.append("Critical: URL points directly to an executable or malware payload.")
+        score = max(score, 0.90)
+        score = min(0.99, score + 0.10) # Hard-escalate
+        
+    # Malware Keywords
+    malware_keywords = {'crack', 'unlocker', 'patch', 'bot', 'checker', 'autofarm', 'injector'}
+    if any(k in low_u for k in malware_keywords):
+        reasons.append("Malware-associated terminology found in URL.")
+        score = max(score, 0.75)
 
     # 3. Combined Fail-Safe Resolution (Now with bypass and threshold)
     if not bypass_fail_safe and gsb_clean and tls_valid and domain_old:
