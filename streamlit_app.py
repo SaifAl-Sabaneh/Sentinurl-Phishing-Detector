@@ -9,8 +9,11 @@ import sys
 import json
 import random
 import requests
+import base64
 from streamlit_lottie import st_lottie
 from datetime import datetime
+from translations import TRANSLATIONS
+from pdf_generator import generate_pdf_report
 
 # Add current directory to path
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -144,7 +147,7 @@ with st.sidebar:
     
     st.markdown("---")
     
-    st.subheader("⏱️ Recent Scans")
+    st.subheader(lang["recent_scans"])
     hist_df = load_history()
     if hist_df.empty:
         st.info("No URLs scanned yet.")
@@ -163,13 +166,23 @@ with st.sidebar:
             </div>
             ''', unsafe_allow_html=True)
             
-        if st.button("Clear History"):
-            if os.path.exists(HISTORY_FILE):
-                os.remove(HISTORY_FILE)
+    st.markdown("---")
+    st.subheader("🌐 Language / اللغة")
+    selected_lang = st.radio("Select Language", ["English", "Arabic"], label_visibility="collapsed")
+    lang = TRANSLATIONS[selected_lang]
+    
+    if selected_lang == "Arabic":
+        st.markdown('<style>html, body, [data-testid="stAppViewContainer"] { direction: rtl; text-align: right; }</style>', unsafe_allow_html=True)
+    
+    st.markdown("---")
+    
+    if st.button(lang["clear_history"]):
+        if os.path.exists(HISTORY_FILE):
+            os.remove(HISTORY_FILE)
             st.rerun()
 
     st.markdown("---")
-    st.subheader("About the System")
+    st.subheader(lang["about_system"])
     st.info("""
     This graduation project utilizes a hybrid machine learning approach to detect malicious URLs.
     
@@ -177,7 +190,7 @@ with st.sidebar:
     - 🌳 **Random Forest:** Handles text and lexical features.
     - 🚀 **CatBoost:** Processes categorical and complex behavioral data.
     """)
-    st.caption("Developed for Final Year Project - 2026")
+    st.caption(lang["developed_for"])
 
 # --- Custom CSS for Styling ---
 st.markdown("""
@@ -264,12 +277,44 @@ st.markdown("""
         background-color: #f8f9fa !important;
         color: #1f1f1f !important;
     }
+    
+    /* Particles Container */
+    #particles-js {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
 </style>
+
+<div id="particles-js"></div>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+particlesJS("particles-js", {
+  "particles": {
+    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+    "color": { "value": "#3498db" },
+    "shape": { "type": "circle" },
+    "opacity": { "value": 0.2, "random": false },
+    "size": { "value": 3, "random": true },
+    "line_linked": { "enable": true, "distance": 150, "color": "#3498db", "opacity": 0.1, "width": 1 },
+    "move": { "enable": true, "speed": 1, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+    "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } }
+  },
+  "retina_detect": true
+});
+</script>
 """, unsafe_allow_html=True)
 
 
 # --- Top Level Tabs ---
-tab_scan, tab_batch, tab_stats, tab_report = st.tabs(["🔍 Single URL Scan", "📁 Batch CSV Scanner", "📈 Global Statistics", "⚠️ Report Threat"])
+tab_scan, tab_batch, tab_stats, tab_report = st.tabs([lang["scan_tab"], lang["batch_tab"], lang["stats_tab"], lang["report_tab"]])
 
 # --- Data Loading for Generator ---
 @st.cache_data
@@ -342,28 +387,28 @@ def get_random_url_hybrid(url_type="Safe"):
 # TAB 1: SINGLE URL SCAN
 # ==========================================
 with tab_scan:
-    st.title("URL Threat Scanner")
-    st.markdown("Enter a website URL below to analyze it for phishing indicators.")
+    st.title(lang["scanner_header"])
+    st.markdown(lang["scanner_desc"])
     
     if "demo_url" not in st.session_state:
         st.session_state.demo_url = ""
 
     col_btn1, col_btn2 = st.columns([1, 1])
     with col_btn1:
-        if st.button("✅ Load Random Safe URL", use_container_width=True):
+        if st.button(lang["btn_load_safe"], use_container_width=True):
             st.session_state.demo_url = get_random_url_hybrid("Safe")
             st.rerun() # Force UI update immediately so the input box shows the new URL
     with col_btn2:
-        if st.button("🚨 Load Random Phishing URL", use_container_width=True):
+        if st.button(lang["btn_load_phish"], use_container_width=True):
             st.session_state.demo_url = get_random_url_hybrid("Phishing")
             st.rerun() # Force UI update immediately
 
     with st.form(key='scan_form'):
         col1, col2 = st.columns([4, 1])
         with col1:
-            url_input = st.text_input("Website URL", value=st.session_state.demo_url, placeholder="e.g., https://www.secure-login-example.com", label_visibility="collapsed")
+            url_input = st.text_input("Website URL", value=st.session_state.demo_url, placeholder=lang["input_placeholder"], label_visibility="collapsed")
         with col2:
-            submit_button = st.form_submit_button(label='Scan URL', use_container_width=True, type="primary")
+            submit_button = st.form_submit_button(label=lang["btn_scan"], use_container_width=True, type="primary")
 
     if submit_button:
         if not url_input:
@@ -380,7 +425,7 @@ with tab_scan:
                 with status_placeholder.container():
                     if lottie_scanning:
                         st_lottie(lottie_scanning, height=200, key="scanning")
-                    st.markdown("<center><h4>🔍 Deep Neural Analysis in Progress...</h4></center>", unsafe_allow_html=True)
+                    st.markdown(f"<center><h4>{lang['analyzing']}</h4></center>", unsafe_allow_html=True)
                 
                 time.sleep(0.5) # Reduced for snappier feel
                 status_placeholder.empty()
@@ -602,15 +647,17 @@ with tab_scan:
                         }
                         st.json(raw_data)
 
-                    # Export Report
+                    # Export Report (PDF Expansion)
                     st.markdown("---")
                     with st.columns([1, 4])[0]:
+                        pdf_data = generate_pdf_report(url_input, status_str, risk_score_percent, reasons, neural_analysis, domain)
                         st.download_button(
-                            label="📄 Download Analysis Report",
-                            data=f"Verdict: {status_str}\nRisk: {risk_score_percent}%\nURL: {url_input}\nReasons:\n" + "\n".join(reasons),
-                            file_name=f"report_{domain}.txt",
-                            mime="text/plain",
-                            type="primary"
+                            label=lang["download_report"],
+                            data=pdf_data,
+                            file_name=f"SentinURL_Scan_{domain}.pdf",
+                            mime="application/pdf",
+                            type="primary",
+                            use_container_width=True
                         )
 
                 except Exception as e:
