@@ -481,8 +481,8 @@ with tab_scan:
                     if is_phishing:
                         st.markdown(f"""
                         <div class="result-box-phishing">
-                            <div class="result-title" style="color: #e74c3c;">🚨 {safe_label} DETECTED</div>
-                            <div style="font-size: 1.2rem; opacity: 0.9;">This website exhibits strong indicators of being a malicious or deceptive site.</div>
+                            <div class="result-title" style="color: #e74c3c;">{lang['phish_title']}</div>
+                            <div style="font-size: 1.2rem; opacity: 0.9;">{lang['phish_desc']}</div>
                         </div>
                         """, unsafe_allow_html=True)
                         if lottie_warning:
@@ -491,8 +491,8 @@ with tab_scan:
                     elif is_suspicious:
                         st.markdown(f"""
                         <div class="result-box-suspicious">
-                            <div class="result-title suspicious-text">⚠️ {safe_label} DETECTED</div>
-                            <div>This website has some suspicious signals. Caution is advised.</div>
+                            <div class="result-title" style="color: #f39c12;">{lang['susp_title']}</div>
+                            <div style="font-size: 1.2rem; opacity: 0.9;">{lang['susp_desc']}</div>
                         </div>
                         """, unsafe_allow_html=True)
                         
@@ -504,8 +504,8 @@ with tab_scan:
                     else:
                         st.markdown(f"""
                         <div class="result-box-safe">
-                            <div class="result-title" style="color: #2ecc71;">✅ SAFE WEBSITE</div>
-                            <div style="font-size: 1.2rem; opacity: 0.9;">This website appears to be legitimate and safe to visit.</div>
+                            <div class="result-title" style="color: #2ecc71;">{lang['safe_title']}</div>
+                            <div style="font-size: 1.2rem; opacity: 0.9;">{lang['safe_desc']}</div>
                         </div>
                         """, unsafe_allow_html=True)
                         if lottie_safe:
@@ -530,20 +530,20 @@ with tab_scan:
                     clean_decision_by = format_engine_name(decision_by)
 
                     with mcol1:
-                        st.metric("Target Domain", domain, help="The primary network location being analyzed.")
+                        st.metric(lang["target_domain"], domain, help="The primary network location being analyzed.")
                     with mcol2:
                         is_new_domain = age_days_val is not None and age_days_val < 180
-                        st.metric("Domain Age", age_display, delta="Warning" if is_new_domain else "Established", delta_color="inverse", help="Phishing endpoints are usually less than 6 months old. Legitimate sites are typically older.")
+                        st.metric(lang["domain_age"], age_display, delta="Warning" if is_new_domain else "Established", delta_color="inverse", help="Phishing endpoints are usually less than 6 months old. Legitimate sites are typically older.")
                     with mcol3:
-                        st.metric("Server Location", country_display, help="The geographic location where this website is physically hosted based on its IP address.")
+                        st.metric(lang["server_loc"], country_display, help="The geographic location where this website is physically hosted based on its IP address.")
                     with mcol4:
-                        st.metric("Decision Engine", clean_decision_by, help="Which specific layer of the ML pipeline (Random Forest, CatBoost, Threat Intel, etc.) made the final judgment.")
+                        st.metric(lang["decision_engine"], clean_decision_by, help="Which specific layer of the ML pipeline (Random Forest, CatBoost, Threat Intel, etc.) made the final judgment.")
 
                     st.markdown(" ") 
                     res_col1, res_col2 = st.columns([1, 1.5])
                     
                     with res_col1:
-                        st.markdown('<div class="summary-header">Threat Analysis</div>', unsafe_allow_html=True)
+                        st.markdown(f'<div class="summary-header">{lang["risk_probability"]}</div>', unsafe_allow_html=True)
                         fig = create_gauge_chart(risk_score_percent)
                         st.plotly_chart(fig, use_container_width=True)
                     
@@ -560,8 +560,8 @@ with tab_scan:
                         
                         # Phase 4 Expansion: Neural Breakdown
                         if neural_analysis:
-                            with st.expander("🧠 View Neural Logic Breakdown", expanded=False):
-                                st.write("The AI identified the following structural and intentional markers:")
+                            with st.expander(lang["neural_breakdown"], expanded=False):
+                                st.write(lang["neural_desc"])
                                 for marker in neural_analysis:
                                     risk_color = "🔴" if marker["risk"] == "Critical" else "🟠" if marker["risk"] == "High" else "🟡"
                                     st.markdown(f"""
@@ -571,12 +571,12 @@ with tab_scan:
                                     """)
                                     
                     st.markdown("---")
-                    st.subheader("Deep Dive Analysis")
+                    st.subheader(lang["deep_dive"])
                     
                     # Added Feature 3: Extracted Features tab!
                     d_tab1, d_tab2, d_tab3, d_tab4, d_tab5, d_tab6 = st.tabs([
-                        "🌐 Domain Identity", "🌍 Network & Geo", "🤖 Engine Breakdown", 
-                        "📍 Server Map", "🔬 Extracted Features", "💻 Raw JSON"
+                        lang["tab_identity"], lang["tab_network"], lang["tab_breakdown"], 
+                        lang["tab_map"], lang["tab_features"], lang["tab_json"]
                     ])
                     
                     with d_tab1:
@@ -782,12 +782,12 @@ with tab_batch:
                     total_errors = len(res_df[res_df["Status"] == "Error"])
                     
                     # Display metrics dashboard
-                    st.markdown("#### 📊 Bulk Scan Analytics")
+                    st.markdown(f"#### {lang['bulk_analytics_header']}")
                     m1, m2, m3, m4 = st.columns(4)
-                    m1.metric("Total URLs Scanned", total_scanned)
-                    m2.metric("Phishing Detected", total_phishing)
-                    m3.metric("Safe URLs", total_safe)
-                    m4.metric("Scan Errors", total_errors)
+                    m1.metric(lang["total_scanned_metric"], total_scanned)
+                    m2.metric(lang["phishing_detected_metric"], total_phishing)
+                    m3.metric(lang["safe_urls_metric"], total_safe)
+                    m4.metric(lang["scan_errors_metric"], total_errors)
                     
                     st.markdown("---")
                     
@@ -806,12 +806,12 @@ with tab_stats:
     st.title("📈 Global Statistics & Trends")
     
     # --- Verified Accuracy Card (Added for Defense) ---
-    st.markdown("""
+    st.markdown(f"""
     <div style="background-color: rgba(52, 152, 219, 0.1); border: 2px solid #3498db; padding: 20px; border-radius: 10px; margin-bottom: 25px;">
-        <h3 style="margin-top:0; color: #3498db;">🛡️ Verified System Integrity (Large Scale)</h3>
+        <h3 style="margin-top:0; color: #3498db;">{lang['verified_integrity']}</h3>
         <p>The SentinURL engine has been validated against a <b>100,000 URL</b> holdout dataset (70,000 Phishing / 30,000 Safe).</p>
         <div style="display: flex; justify-content: space-around; text-align: center;">
-            <div><h2 style="margin-bottom:0;">99.14%</h2><small>OVERALL ACCURACY</small></div>
+            <div><h2 style="margin-bottom:0;">99.14%</h2><small>{lang['overall_accuracy']}</small></div>
             <div><h2 style="margin-bottom:0;">99.78%</h2><small>PRECISION</small></div>
             <div><h2 style="margin-bottom:0;">98.99%</h2><small>RECALL (CATCH RATE)</small></div>
             <div><h2 style="margin-bottom:0;">0.15%</h2><small>FALSE POSITIVE RATE</small></div>
@@ -819,7 +819,7 @@ with tab_stats:
     </div>
     """, unsafe_allow_html=True)
 
-    st.write("Historical data from all local scans across sessions.")
+    st.write(lang["historical_data_info"])
     
     hist_stats = load_history()
     
@@ -832,14 +832,14 @@ with tab_stats:
         phishing_hits = len(hist_stats[hist_stats['status'] == 'Phishing'])
         safe_hits = total_scans - phishing_hits
         
-        stcol1.metric("Total Scans Performed", total_scans)
-        stcol2.metric("Phishing Submissions", phishing_hits)
-        stcol3.metric("Safe Submissions", safe_hits)
+        stcol1.metric(lang["total_scanned_metric"], total_scans)
+        stcol2.metric(lang["phishing_detected_metric"], phishing_hits)
+        stcol3.metric(lang["safe_urls_metric"], safe_hits)
         
         c1, c2 = st.columns(2)
         
         with c1:
-            st.markdown("### Safe vs Phishing Breakdown")
+            st.markdown(f"### {lang['safe_vs_phish_title']}")
             # Donut chart
             labels = ['Phishing', 'Safe']
             values = [phishing_hits, safe_hits]
