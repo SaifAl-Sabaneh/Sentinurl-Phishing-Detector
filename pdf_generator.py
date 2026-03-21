@@ -1,18 +1,19 @@
 from fpdf import FPDF
 from datetime import datetime
 import io
+import textwrap
 
 class SentinURL_Report(FPDF):
     def _sanitize(self, txt):
         return str(txt).encode('latin-1', 'ignore').decode('latin-1')
         
     def cell(self, w, h=0, txt="", *args, **kwargs):
-        # Override to ensure text is always Latin-1 compliant
         super().cell(w, h, self._sanitize(txt), *args, **kwargs)
         
     def multi_cell(self, w, h, txt, *args, **kwargs):
-        # Override to ensure text is always Latin-1 compliant
-        super().multi_cell(w, h, self._sanitize(txt), *args, **kwargs)
+        # Prevent FPDF "Not enough horizontal space" crash for very long words (e.g., URLs)
+        wrapped_txt = textwrap.fill(self._sanitize(txt), width=90)
+        super().multi_cell(w, h, wrapped_txt, *args, **kwargs)
 
     def header(self):
         # Logo placeholder or text
