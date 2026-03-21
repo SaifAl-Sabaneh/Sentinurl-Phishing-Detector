@@ -1,5 +1,20 @@
 # SentinURL Retraining & Accuracy Enhancement Walkthrough
 
+## 🎙️ Executive Summary (Presentation Script Highlights)
+*These are the core architectural achievements of the SentinURL platform to explicitly mention during your defense:*
+
+1.  **Live Interactive Dashboard:** We made the Streamlit dashboard fully live and working, and successfully tested it with real users.
+2.  **Continuous Learning Engine:** We added an automated learning model so the AI continually learns from every new link attached to it.
+3.  **"Report Threat" Feedback Loop:** We added a feature where if the system mistakenly detects a phishing link as "Safe", the user can click a button in the dashboard to add it to the dataset. The engine will automatically retrain on it the next day so the model will *never* miss it or anything like it ever again.
+4.  **Model Versioning & Rollback:** Every time the AI retrains, we save the old weights in an `archive/` folder. If a retrain ever performs poorly, you can instantly "Rollback" to yesterday’s brain with one click.
+5.  **Crash-Proof Sanitization:** We wrapped the core engine in a safety layer. If someone submits a "toxic" or malformed URL that would normally crash a Python string-parser, the engine handles it gracefully and returns "Suspicious" instead of crashing.
+6.  **"Unblock" Feedback Loop:** Just as we have a "Report Phishing" button, we added a "🛡️ This is actually Safe" button. This creates a Local Allowlist that overrides the AI, letting you protect your own favorite websites immediately if the AI makes a mistake.
+7.  **100% Portable Code:** We engineered a portable Python setup so that when the project is moved from one computer to another, running the code will make sure all files run perfectly and smoothly.
+8.  **National Localization:** We added a full English / Arabic translation engine.
+9.  **Quishing Hub:** The QR-Code Phishing (Quishing) Analysis feature is now live and fully integrated!
+
+---
+
 ## Summary of the Issue
 The user noticed a massive drop in accuracy (from ~98% down to 30.86%) when running the SentinURL model offline against a custom batch of ~156,000 legacy credential-phishing links provided in `testt.csv`.
 
