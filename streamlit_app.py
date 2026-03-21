@@ -60,6 +60,7 @@ st.set_page_config(
 )
 
 # --- Lottie Asset Loader ---
+@st.cache_data
 def load_lottieurl(url: str):
     r = requests.get(url)
     if r.status_code != 200:
@@ -244,13 +245,24 @@ st.markdown("""
     /* Premium Buttons */
     .stButton>button {
         border-radius: 12px !important;
-        border: none !important;
+        border: 1px solid rgba(128, 128, 128, 0.3) !important;
+        background-color: rgba(255, 255, 255, 0.05) !important;
         transition: all 0.3s !important;
         font-weight: 600 !important;
+        padding: 10px 20px !important;
     }
     .stButton>button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        border-color: #3498db !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    /* Stronger borders for Light Mode visibility */
+    [data-theme="light"] .stButton>button {
+        border: 1px solid rgba(0, 0, 0, 0.2) !important;
+        background-color: #f8f9fa !important;
+        color: #1f1f1f !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -370,7 +382,7 @@ with tab_scan:
                         st_lottie(lottie_scanning, height=200, key="scanning")
                     st.markdown("<center><h4>🔍 Deep Neural Analysis in Progress...</h4></center>", unsafe_allow_html=True)
                 
-                time.sleep(1.5) # Allow animation to breathe
+                time.sleep(0.5) # Reduced for snappier feel
                 status_placeholder.empty()
                 
                 try:
