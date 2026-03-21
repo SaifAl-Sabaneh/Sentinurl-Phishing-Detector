@@ -146,6 +146,14 @@ with st.sidebar:
     st.caption("Advanced Phishing Detection Engine")
     
     st.markdown("---")
+    st.subheader("🌐 Language / اللغة")
+    selected_lang = st.radio("Select Language", ["English", "Arabic"], label_visibility="collapsed")
+    lang = TRANSLATIONS[selected_lang]
+    
+    if selected_lang == "Arabic":
+        st.markdown('<style>html, body, [data-testid="stAppViewContainer"] { direction: rtl; text-align: right; }</style>', unsafe_allow_html=True)
+    
+    st.markdown("---")
     
     st.subheader(lang["recent_scans"])
     hist_df = load_history()
@@ -166,14 +174,6 @@ with st.sidebar:
             </div>
             ''', unsafe_allow_html=True)
             
-    st.markdown("---")
-    st.subheader("🌐 Language / اللغة")
-    selected_lang = st.radio("Select Language", ["English", "Arabic"], label_visibility="collapsed")
-    lang = TRANSLATIONS[selected_lang]
-    
-    if selected_lang == "Arabic":
-        st.markdown('<style>html, body, [data-testid="stAppViewContainer"] { direction: rtl; text-align: right; }</style>', unsafe_allow_html=True)
-    
     st.markdown("---")
     
     if st.button(lang["clear_history"]):
