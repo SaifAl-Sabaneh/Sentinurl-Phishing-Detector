@@ -14,6 +14,7 @@ from streamlit_lottie import st_lottie
 from datetime import datetime
 from translations import TRANSLATIONS
 from pdf_generator import generate_pdf_report
+from qr_decoder import extract_url_from_qr
 
 # Add current directory to path
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -314,7 +315,7 @@ particlesJS("particles-js", {
 
 
 # --- Top Level Tabs ---
-tab_scan, tab_batch, tab_stats, tab_report = st.tabs([lang["scan_tab"], lang["batch_tab"], lang["stats_tab"], lang["report_tab"]])
+tab_scan, tab_qr, tab_batch, tab_stats, tab_report = st.tabs([lang["scan_tab"], lang["qr_tab"], lang["batch_tab"], lang["stats_tab"], lang["report_tab"]])
 
 # --- Data Loading for Generator ---
 @st.cache_data
@@ -666,6 +667,42 @@ with tab_scan:
                     with st.expander("Show Details"):
                          st.code(traceback.format_exc())
 
+
+# ==========================================
+# TAB 1.5: QR QUISHING SCANNER
+# ==========================================
+with tab_qr:
+    st.title(lang["qr_header"])
+    st.markdown(lang["qr_desc"])
+    
+    st.markdown(" ")
+    
+    qr_col1, qr_col2 = st.columns([1, 1])
+    
+    with qr_col1:
+        st.info("💡 **What is Quishing?** Attackers use malicious QR codes to bypass simple text-URL filters, tricking mobile users into visiting malicious pages.")
+        uploaded_qr = st.file_uploader(lang["upload_qr_prompt"], type=["png", "jpg", "jpeg"])
+    
+    with qr_col2:
+        if uploaded_qr is not None:
+            st.image(uploaded_qr, caption="Uploaded QR Code", width=250)
+            
+            with st.spinner(lang["qr_processing"]):
+                img_bytes = uploaded_qr.getvalue()
+                extracted_url, error_msg = extract_url_from_qr(img_bytes)
+                time.sleep(1)
+                
+            if error_msg:
+                st.error(f"❌ {error_msg}")
+            elif extracted_url:
+                st.success(lang["qr_found_safe"])
+                st.markdown(f"**{lang['qr_found_url']}** `{extracted_url}`")
+                
+                if st.button(lang["qr_analyze_btn"], type="primary", use_container_width=True):
+                    st.session_state.demo_url = extracted_url
+                    st.toast("Transferring payload...", icon="🔄")
+                    time.sleep(0.5)
+                    st.rerun()
 
 # ==========================================
 # TAB 2: BATCH CSV SCANNER

@@ -51,7 +51,15 @@ TRANSLATIONS = {
         "bulk_results_header": "🏁 Final Bulk Scan Results",
         "bulk_analytics_header": "📊 Bulk Scan Analytics",
         "historical_data_info": "Historical data from all local scans across sessions.",
-        "safe_vs_phish_title": "Safe vs Phishing Breakdown"
+        "safe_vs_phish_title": "Safe vs Phishing Breakdown",
+        "qr_tab": "📷 QR Quishing Scan",
+        "qr_header": "QR Code 'Quishing' Analyzer",
+        "qr_desc": "Upload a QR code image to systematically extract and analyze the hidden URL for mobile phishing (Quishing) threats.",
+        "upload_qr_prompt": "Upload QR Image (PNG, JPG, JPEG)",
+        "qr_processing": "Extracting optical payload from QR code...",
+        "qr_found_safe": "Extracted Successfully!",
+        "qr_found_url": "Extracted Payload:",
+        "qr_analyze_btn": "Transfer Payload to Scanning Engine"
     },
     "Arabic": {
         "title": "SentinURL | استخبارات التهديدات المتقدمة",
@@ -103,6 +111,14 @@ TRANSLATIONS = {
         "bulk_results_header": "🏁 نتائج الفحص الجماعي النهائية",
         "bulk_analytics_header": "📊 تحليلات الفحص الجماعي",
         "historical_data_info": "البيانات التاريخية من جميع عمليات الفحص المحلية عبر الجلسات.",
-        "safe_vs_phish_title": "تحليل المواقع الآمنة مقابل التصيد"
+        "safe_vs_phish_title": "تحليل المواقع الآمنة مقابل التصيد",
+        "qr_tab": "📷 فحص رمز الاستجابة السريعة (Quishing)",
+        "qr_header": "محلل التصيد عبر رمز الاستجابة السريعة",
+        "qr_desc": "قم بتحميل صورة رمز الاستجابة السريعة لاستخراج وتحليل الرابط المخفي بحثًا عن تهديدات.",
+        "upload_qr_prompt": "تحميل صورة الرمز (PNG, JPG, JPEG)",
+        "qr_processing": "جاري استخراج البيانات من الرمز...",
+        "qr_found_safe": "تم استخراج الرابط بنجاح!",
+        "qr_found_url": "البيانات المستخرجة:",
+        "qr_analyze_btn": "نقل الرابط إلى محرك الفحص"
     }
 }
