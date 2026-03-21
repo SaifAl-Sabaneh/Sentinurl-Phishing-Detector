@@ -85,4 +85,4 @@ def generate_pdf_report(url, status, score, reasons, neural_analysis, domain):
     pdf.set_font("helvetica", "I", 10)
     pdf.multi_cell(0, 5, "Disclaimer: This report was generated using hybrid machine learning assets. While accuracy is verified at 99.88%, this is an advisory tool and not a replacement for enterprise security protocols.")
 
-    return pdf.output()
+    return bytes(pdf.output())
