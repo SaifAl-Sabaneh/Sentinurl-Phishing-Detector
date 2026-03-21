@@ -375,7 +375,7 @@ with tab_scan:
             parsed_url = urlparse(url_input)
             domain = parsed_url.netloc or url_input
             
-            with st.spinner(None):
+            with st.spinner(""):
                 status_placeholder = st.empty()
                 with status_placeholder.container():
                     if lottie_scanning:
