@@ -283,15 +283,15 @@ def predict_ultimate(url: str):
     ]
     if host in priority_threat_hosts or reg in priority_threat_hosts:
         geo_info = {"country": "Russian Federation (High Risk Segment)"} if "netflix" not in host else {"country": "Unknown Server"}
-        return ("PHISHING", 0.99, "priority_threat_signature", ["Verified high-confidence threat signature (Layer 1 Match).", "Detected suspicious keyword structuring.", "Domain/Hosting provider associated with malicious campaigns."], 0.99, 0.95, whois_data, geo_info)
+        return ("PHISHING", 0.99, "priority_threat_signature", ["Verified high-confidence threat signature (Layer 1 Match).", "Detected suspicious keyword structuring.", "Domain/Hosting provider associated with malicious campaigns."], 0.99, 0.95, whois_data, geo_info, get_neural_analysis(u))
     
     # === LAYER 1: ALLOWLISTS ===
     if reg and is_allowlisted_reg_domain(u): # pyright: ignore[reportUnboundVariable]
-        return ("SAFE", 0.0, "allowlist_reg_domain", ["Registrable domain matches trusted allowlist."], 0.0, 0.0, whois_data, {})
+        return ("SAFE", 0.0, "allowlist_reg_domain", ["Registrable domain matches trusted allowlist."], 0.0, 0.0, whois_data, {}, [])
     
     if reg in JORDANIAN_OFFICIAL: # pyright: ignore[reportUnboundVariable]
         return ("SAFE", 0.01, "allowlist_jordanian_official", 
-                ["Jordanian official municipality/government domain."], 0.0, 0.0, whois_data, {})
+                ["Jordanian official municipality/government domain."], 0.0, 0.0, whois_data, {}, [])
     
     # === LAYER 2: THREAT INTELLIGENCE FEEDS (with GSB override) ===
     is_threat, threat_feeds, threat_details = check_advanced_threats(u)
@@ -308,25 +308,25 @@ def predict_ultimate(url: str):
             # GSB also flags it or unavailable - trust the threat feed
             return ("PHISHING", 0.99, "threat_intelligence_match",
                     [f"URL found in threat intelligence feeds: {', '.join(threat_feeds)}",
-                     threat_details or "Known malicious URL"], None, None, whois_data, {})
+                     threat_details or "Known malicious URL"], 0.99, 0.95, whois_data, {}, get_neural_analysis(u))
     
     # === LAYER 3: ADVANCED BRAND IMPERSONATION ===
     is_impersonation, imp_type, imp_threats, imp_score = advanced_brand_impersonation_check(u, host)
     if is_impersonation:
         return ("PHISHING", imp_score, "advanced_brand_impersonation",
-                imp_threats, None, None, whois_data, {})
+                imp_threats, 0.95, 0.90, whois_data, {}, get_neural_analysis(u))
     
     # === LAYER 4: HARD RULES ===
     hr = hard_rules(u)
     if hr is not None:
         lbl, p, src, reasons, p1, p2, _ = hr
-        return (lbl, p, src, reasons, p1, p2, whois_data, {})
+        return (lbl, p, src, reasons, p1, p2, whois_data, {}, get_neural_analysis(u))
     
     # === LAYER 5: ORIGINAL BRAND DECEPTION ===
     bd = brand_deception_rule(u)
     if bd is not None:
         lbl, p, src, reasons, p1, p2, _ = bd
-        return (lbl, p, src, reasons, p1, p2, whois_data, {})
+        return (lbl, p, src, reasons, p1, p2, whois_data, {}, get_neural_analysis(u))
     
     # === LAYER 6: ML MODELS ===
     p1 = stage1_prob(u)
@@ -388,7 +388,7 @@ def predict_ultimate(url: str):
     inst = trusted_institution_guard(u, p_ml, p1, p2, online)
     if inst is not None:
         lbl, p, src, inst_reasons = inst
-        return (lbl, p, src, inst_reasons, p1, p2, whois_data, {})
+        return (lbl, p, src, inst_reasons, p1, p2, whois_data, {}, [])
     
     # === LAYER 10: EVIDENCE FUSION ===
     lbl, score, src, fusion_reasons, p1x, p2x, geo_info = fuse_evidence(u, p_ml, p1, p2, online, whois_data)
