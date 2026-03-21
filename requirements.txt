@@ -10,3 +10,4 @@ requests>=2.30.0
 urllib3>=2.0.0
 tldextract>=3.4.0
 Pillow>=9.5.0
+streamlit-lottie>=0.0.4

@@ -1,13 +1,10 @@
-import streamlit as st
-import pandas as pd
-import plotly.graph_objects as go
-import plotly.express as px
-from urllib.parse import urlparse
 import time
 import os
 import sys
 import json
 import random
+import requests
+from streamlit_lottie import st_lottie
 from datetime import datetime
 
 # Add current directory to path
@@ -51,11 +48,23 @@ def add_to_allowlist(domain):
 
 # --- Page Configuration ---
 st.set_page_config(
-    page_title="SentinURL | Phishing Detection",
+    page_title="SentinURL | Advanced Threat Intelligence",
     page_icon="🛡️",
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
+# --- Lottie Asset Loader ---
+def load_lottieurl(url: str):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+# Assets
+lottie_scanning = load_lottieurl("https://assets10.lottiefiles.com/packages/lf20_p8bfn5to.json") # Pulse Shield
+lottie_safe = load_lottieurl("https://assets1.lottiefiles.com/packages/lf20_kqm4asv3.json") # Success Check
+lottie_warning = load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_TkwJ4Z.json") # Alert Triangle
 
 # --- Helper Functions ---
 def load_history():
@@ -166,33 +175,98 @@ with st.sidebar:
 
 # --- Custom CSS for Styling ---
 st.markdown("""
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
+    /* Global Styles */
+    html, body, [class*="css"] {
+        font-family: 'Outfit', sans-serif !important;
+    }
+    
     .main .block-container { padding-top: 2rem; padding-bottom: 2rem; }
-    div[data-testid="stMetricValue"] { font-size: 1.8rem; }
-    .summary-header { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-color); }
+    
+    /* Glassmorphism Background */
+    [data-testid="stAppViewContainer"] {
+        background: radial-gradient(circle at 10% 20%, rgb(0, 0, 0) 0%, rgb(15, 15, 15) 90.2%);
+    }
+    
+    /* Sidebar Styling */
+    [data-testid="stSidebar"] {
+        background-color: rgba(20, 20, 20, 0.8) !important;
+        backdrop-filter: blur(10px);
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Glass Cards */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 10px;
+        background-color: transparent;
+    }
+    
+    div[data-testid="stExpander"] {
+        background-color: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        backdrop-filter: blur(5px);
+    }
+
+    /* Modern Result Boxes */
+    .result-box-safe, .result-box-phishing, .result-box-suspicious {
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        margin-bottom: 25px;
+        backdrop-filter: blur(15px);
+        transition: transform 0.3s ease;
+    }
+    .result-box-safe:hover, .result-box-phishing:hover {
+        transform: scale(1.02);
+    }
     
     .result-box-safe {
-        padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px;
-        background-color: rgba(40, 167, 69, 0.1); border: 2px solid #28a745;
-        animation: fadeIn 0.5s ease-in;
+        background: linear-gradient(135deg, rgba(46, 204, 113, 0.15) 0%, rgba(39, 174, 96, 0.05) 100%);
+        border: 1px solid rgba(46, 204, 113, 0.4);
+        box-shadow: 0 8px 32px 0 rgba(46, 204, 113, 0.2);
     }
+    
     .result-box-phishing {
-        padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px;
-        background-color: rgba(220, 53, 69, 0.1); border: 2px solid #dc3545;
-        animation: pulseBorder 1.5s infinite;
+        background: linear-gradient(135deg, rgba(231, 76, 60, 0.15) 0%, rgba(192, 57, 43, 0.05) 100%);
+        border: 1px solid rgba(231, 76, 60, 0.4);
+        box-shadow: 0 8px 32px 0 rgba(231, 76, 60, 0.2);
+        animation: glowRed 2s infinite alternate;
     }
+    
     .result-box-suspicious {
-        padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px;
-        background-color: rgba(243, 156, 18, 0.1); border: 2px solid #f39c12;
+        background: linear-gradient(135deg, rgba(243, 156, 18, 0.15) 0%, rgba(211, 84, 0, 0.05) 100%);
+        border: 1px solid rgba(243, 156, 18, 0.4);
+        box-shadow: 0 8px 32px 0 rgba(243, 156, 18, 0.2);
     }
     
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes pulseBorder { 0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(220, 53, 69, 0); } 100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); } }
+    @keyframes glowRed {
+        from { box-shadow: 0 0 10px rgba(231, 76, 60, 0.1); }
+        to { box-shadow: 0 0 30px rgba(231, 76, 60, 0.4); }
+    }
     
-    .result-title { font-size: 2.5rem; font-weight: bold; margin-bottom: 10px; }
-    .safe-text { color: #2ecc71; }
-    .phishing-text { color: #e74c3c; }
-    .suspicious-text { color: #f39c12; }
+    .result-title { font-size: 2.8rem; font-weight: 800; margin-bottom: 15px; letter-spacing: -1px; }
+    
+    /* Metrics Styling */
+    [data-testid="stMetric"] {
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 15px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Premium Buttons */
+    .stButton>button {
+        border-radius: 12px !important;
+        border: none !important;
+        transition: all 0.3s !important;
+        font-weight: 600 !important;
+    }
+    .stButton>button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -304,8 +378,14 @@ with tab_scan:
             parsed_url = urlparse(url_input)
             domain = parsed_url.netloc or url_input
             
-            with st.spinner(f"Analyzing {domain}... Engine running."):
-                time.sleep(0.5) 
+            with st.spinner(None):
+                status_placeholder = st.empty()
+                with status_placeholder.container():
+                    st_lottie(lottie_scanning, height=200, key="scanning")
+                    st.markdown("<center><h4>🔍 Deep Neural Analysis in Progress...</h4></center>", unsafe_allow_html=True)
+                
+                time.sleep(1.5) # Allow animation to breathe
+                status_placeholder.empty()
                 
                 try:
                     # ML Engine Calls
@@ -358,10 +438,12 @@ with tab_scan:
                     if is_phishing:
                         st.markdown(f"""
                         <div class="result-box-phishing">
-                            <div class="result-title phishing-text">🚨 {safe_label} DETECTED</div>
-                            <div>This website exhibits strong indicators of being a malicious or deceptive site.</div>
+                            <div class="result-title" style="color: #e74c3c;">🚨 {safe_label} DETECTED</div>
+                            <div style="font-size: 1.2rem; opacity: 0.9;">This website exhibits strong indicators of being a malicious or deceptive site.</div>
                         </div>
                         """, unsafe_allow_html=True)
+                        with st.columns([1,2,1])[1]:
+                             st_lottie(lottie_warning, height=150, key="phish_anim")
                     elif is_suspicious:
                         st.markdown(f"""
                         <div class="result-box-suspicious">
@@ -378,10 +460,12 @@ with tab_scan:
                     else:
                         st.markdown(f"""
                         <div class="result-box-safe">
-                            <div class="result-title safe-text">✅ SAFE WEBSITE</div>
-                            <div>This website appears to be legitimate and safe to visit.</div>
+                            <div class="result-title" style="color: #2ecc71;">✅ SAFE WEBSITE</div>
+                            <div style="font-size: 1.2rem; opacity: 0.9;">This website appears to be legitimate and safe to visit.</div>
                         </div>
                         """, unsafe_allow_html=True)
+                        with st.columns([1,2,1])[1]:
+                             st_lottie(lottie_safe, height=150, key="safe_anim")
 
                     mcol1, mcol2, mcol3, mcol4 = st.columns(4)
                     
