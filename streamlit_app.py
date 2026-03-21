@@ -309,7 +309,7 @@ with tab_scan:
                 
                 try:
                     # ML Engine Calls
-                    label, score_prob, decision_by, reasons, p1, p2, whois_data, geo_info = predict_ultimate(url_input)
+                    label, score_prob, decision_by, reasons, p1, p2, whois_data, geo_info, neural_analysis = predict_ultimate(url_input)
                     extracted_feats = url_features(url_input)  # New Feature 3 logic
                     
                     # Check Local Allowlist
@@ -428,6 +428,18 @@ with tab_scan:
                                     st.info(f"ℹ️ {reason}")
                                 else:
                                     st.error(f"⚠️ {reason}")
+                        
+                        # Phase 4 Expansion: Neural Breakdown
+                        if neural_analysis:
+                            with st.expander("🧠 View Neural Logic Breakdown", expanded=False):
+                                st.write("The AI identified the following structural and intentional markers:")
+                                for marker in neural_analysis:
+                                    risk_color = "🔴" if marker["risk"] == "Critical" else "🟠" if marker["risk"] == "High" else "🟡"
+                                    st.markdown(f"""
+                                    **{risk_color} {marker['factor']}** ({marker['value']})  
+                                    *{marker['desc']}*  
+                                    ---
+                                    """)
                                     
                     st.markdown("---")
                     st.subheader("Deep Dive Analysis")
@@ -575,7 +587,9 @@ with tab_batch:
                         target_url_fmt = target_url if target_url.startswith("http") else "http://" + target_url
                         
                         try:
-                            lbl, score_prob, decision_by, _, _, _, _, _ = predict_ultimate(target_url_fmt)
+                            # Update for Phase 4 return signature
+                            res = predict_ultimate(target_url_fmt)
+                            lbl, score_prob, decision_by = res[0], res[1], res[2]
                             
                             safe_score = score_prob if score_prob is not None else 0.0
                             is_phishing = str(lbl).lower() in ["phishing", "bad", "high risk", "suspicious"]

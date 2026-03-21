@@ -262,6 +262,10 @@ def predict_ultimate(url: str):
     if reg:
         try:
             whois_data = get_whois_info(reg, debug=DEBUG_MODE) # pyright: ignore[reportUnboundVariable]
+            # === HONEYPOT TRIGGER (Phase 4 Extension) ===
+            age_days = whois_data.get("age_days")
+            if age_days is not None and age_days < 30:
+                reasons.append(f"🚨 HONEYPOT SIGNATURE: Domain registered only {age_days} days ago (High-risk Zero Day indicator).")
         except Exception as e:
             if DEBUG_MODE:
                 print(f"[DEBUG] Exception in predict_ultimate() calling get_whois_info: {e}")
@@ -441,7 +445,42 @@ def predict_ultimate(url: str):
     # Combine all reasons
     all_reasons = reasons + fusion_reasons
     
-    return (lbl, score, src, all_reasons, p1, p2, whois_data, geo_info)
+    # === LAYER 11: NEURAL EXPLAINABILITY (Phase 4) ===
+    neural_analysis = get_neural_analysis(u)
+    
+    return (lbl, score, src, all_reasons, p1, p2, whois_data, geo_info, neural_analysis)
+
+def get_neural_analysis(url: str):
+    """
+    Extracts mathematical risk factors for explainability (Idea #1)
+    """
+    try:
+        feats = url_features(url) # pyright: ignore[reportUnboundVariable]
+        markers = []
+        
+        # 1. Structural Logic
+        if feats.get("entropy_host", 0) > 4.0:
+            markers.append({"factor": "High Host Entropy", "value": f"{feats['entropy_host']:.2f}", "risk": "High", "desc": "Random-looking domain names are common in DGA-based malware."})
+        if feats.get("subdomains", 0) > 3:
+            markers.append({"factor": "Subdomain Depth", "value": feats["subdomains"], "risk": "Medium", "desc": "Excessive subdomains are often used to hide the true host (e.g. paypal.secure.com.xyz)."})
+        
+        # 2. Intentional Logic
+        if feats.get("brand_hits", 0) > 0:
+            markers.append({"factor": "Brand Deception", "value": "Detected", "risk": "Critical", "desc": "Protected brand keywords found in a non-standard domain."})
+        if feats.get("has_login", 0) == 1:
+            markers.append({"factor": "Credential Intent", "value": "Detected", "risk": "High", "desc": "URL structure suggests it is harvesting login credentials."})
+            
+        # 3. Technical Logic
+        if feats.get("punycode", 0) == 1:
+            markers.append({"factor": "Punycode/Homograph", "value": "Yes", "risk": "Critical", "desc": "Use of special characters to visually mimic a legitimate brand (e.g. apple.com vs apρle.com)."})
+        if feats.get("has_ipv4", 0) == 1:
+            markers.append({"factor": "Direct IP Hosting", "value": "Yes", "risk": "High", "desc": "Legitimate brands almost never use raw IP addresses for customer-facing sites."})
+        if feats.get("url_len", 0) > 100:
+            markers.append({"factor": "Excessive Length", "value": feats["url_len"], "risk": "Low", "desc": "Long URLs are often used to bury the real domain at the very end."})
+            
+        return markers
+    except Exception:
+        return []
 
 # =========================================================
 # ENHANCED OUTPUT WITH ADVANCED FEATURES
