@@ -189,61 +189,41 @@ st.markdown("""
     
     .main .block-container { padding-top: 2rem; padding-bottom: 2rem; }
     
-    /* Glassmorphism Background */
-    [data-testid="stAppViewContainer"] {
-        background: radial-gradient(circle at 10% 20%, rgb(0, 0, 0) 0%, rgb(15, 15, 15) 90.2%);
-    }
-    
-    /* Sidebar Styling */
+    /* Glassmorphism Background - Only for Sidebar/Cards to allow theme switching */
     [data-testid="stSidebar"] {
-        background-color: rgba(20, 20, 20, 0.8) !important;
+        background-color: rgba(20, 20, 20, 0.4) !important;
         backdrop-filter: blur(10px);
         border-right: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-    /* Glass Cards */
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 10px;
-        background-color: transparent;
-    }
-    
-    div[data-testid="stExpander"] {
-        background-color: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        backdrop-filter: blur(5px);
-    }
-
-    /* Modern Result Boxes */
+    /* Modern Result Boxes - Semi-Transparent Overlays */
     .result-box-safe, .result-box-phishing, .result-box-suspicious {
         padding: 30px;
         border-radius: 20px;
         text-align: center;
         margin-bottom: 25px;
-        backdrop-filter: blur(15px);
+        backdrop-filter: blur(10px);
         transition: transform 0.3s ease;
+        border: 1px solid rgba(128, 128, 128, 0.2);
     }
     .result-box-safe:hover, .result-box-phishing:hover {
         transform: scale(1.02);
     }
     
     .result-box-safe {
-        background: linear-gradient(135deg, rgba(46, 204, 113, 0.15) 0%, rgba(39, 174, 96, 0.05) 100%);
-        border: 1px solid rgba(46, 204, 113, 0.4);
-        box-shadow: 0 8px 32px 0 rgba(46, 204, 113, 0.2);
+        background: rgba(46, 204, 113, 0.1);
+        border: 1px solid rgba(46, 204, 113, 0.3);
     }
     
     .result-box-phishing {
-        background: linear-gradient(135deg, rgba(231, 76, 60, 0.15) 0%, rgba(192, 57, 43, 0.05) 100%);
-        border: 1px solid rgba(231, 76, 60, 0.4);
-        box-shadow: 0 8px 32px 0 rgba(231, 76, 60, 0.2);
+        background: rgba(231, 76, 60, 0.1);
+        border: 1px solid rgba(231, 76, 60, 0.3);
         animation: glowRed 2s infinite alternate;
     }
     
     .result-box-suspicious {
-        background: linear-gradient(135deg, rgba(243, 156, 18, 0.15) 0%, rgba(211, 84, 0, 0.05) 100%);
-        border: 1px solid rgba(243, 156, 18, 0.4);
-        box-shadow: 0 8px 32px 0 rgba(243, 156, 18, 0.2);
+        background: rgba(243, 156, 18, 0.1);
+        border: 1px solid rgba(243, 156, 18, 0.3);
     }
     
     @keyframes glowRed {
@@ -386,7 +366,8 @@ with tab_scan:
             with st.spinner(None):
                 status_placeholder = st.empty()
                 with status_placeholder.container():
-                    st_lottie(lottie_scanning, height=200, key="scanning")
+                    if lottie_scanning:
+                        st_lottie(lottie_scanning, height=200, key="scanning")
                     st.markdown("<center><h4>🔍 Deep Neural Analysis in Progress...</h4></center>", unsafe_allow_html=True)
                 
                 time.sleep(1.5) # Allow animation to breathe
@@ -447,8 +428,9 @@ with tab_scan:
                             <div style="font-size: 1.2rem; opacity: 0.9;">This website exhibits strong indicators of being a malicious or deceptive site.</div>
                         </div>
                         """, unsafe_allow_html=True)
-                        with st.columns([1,2,1])[1]:
-                             st_lottie(lottie_warning, height=150, key="phish_anim")
+                        if lottie_warning:
+                            with st.columns([1,2,1])[1]:
+                                 st_lottie(lottie_warning, height=150, key="phish_anim")
                     elif is_suspicious:
                         st.markdown(f"""
                         <div class="result-box-suspicious">
@@ -469,8 +451,9 @@ with tab_scan:
                             <div style="font-size: 1.2rem; opacity: 0.9;">This website appears to be legitimate and safe to visit.</div>
                         </div>
                         """, unsafe_allow_html=True)
-                        with st.columns([1,2,1])[1]:
-                             st_lottie(lottie_safe, height=150, key="safe_anim")
+                        if lottie_safe:
+                            with st.columns([1,2,1])[1]:
+                                 st_lottie(lottie_safe, height=150, key="safe_anim")
 
                     mcol1, mcol2, mcol3, mcol4 = st.columns(4)
                     
