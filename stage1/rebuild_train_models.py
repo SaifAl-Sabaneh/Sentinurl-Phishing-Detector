@@ -25,6 +25,7 @@ PROJECT_ROOT = os.path.dirname(BASE_DIR)
 
 # Check multiple possible locations for the dataset
 possible_paths = [
+    os.path.join(BASE_DIR, "Merged_Ultimate_Dataset.csv"),
     os.path.join(PROJECT_ROOT, "Backup work", "Phishing Dataset.csv"),
     os.path.join(PROJECT_ROOT, "Phishing Dataset.csv")
 ]
@@ -184,6 +185,11 @@ def build_tabular(urls):
 # =========================================================
 print("Loading dataset...")
 df = pd.read_csv(DATASET_PATH, encoding="latin1", low_memory=False)
+if len(df.columns) > 0 and 'url' in df.columns[0].lower():
+    df.rename(columns={df.columns[0]: 'URL'}, inplace=True)
+if len(df.columns) > 1 and 'type' in df.columns[1].lower():
+    df.rename(columns={df.columns[1]: 'Type'}, inplace=True)
+
 df = df.loc[:, ~df.columns.str.contains(r"^Unnamed", na=False)]
 df = df.dropna(axis=1, how="all")
 

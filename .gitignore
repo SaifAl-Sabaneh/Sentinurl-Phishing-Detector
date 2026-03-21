@@ -24,11 +24,13 @@ scan_history.csv
 .DS_Store
 Thumbs.db
 
-# Exclude massive datasets only
-**/*.csv
+# Exclude massive datasets but keep the Master Dataset
 *.csv
-Phishing Dataset.csv
+!Master_SentinURL_Dataset.csv
 stress_test_results.csv
+2026-03-18T20-11_export.csv
+scan_history.csv
+tested.csv
 
 # Security
 Google API Key.txt

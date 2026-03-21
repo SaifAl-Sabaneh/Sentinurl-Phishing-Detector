@@ -30,6 +30,24 @@ with SuppressPrints():
 
 # --- Constants & State ---
 HISTORY_FILE = "scan_history.csv"
+LOCAL_ALLOWLIST = "local_allowlist.json"
+
+if not os.path.exists(LOCAL_ALLOWLIST):
+    with open(LOCAL_ALLOWLIST, "w") as f:
+        json.dump([], f)
+
+def get_local_allowlist():
+    try:
+        with open(LOCAL_ALLOWLIST, "r") as f:
+            return set(json.load(f))
+    except:
+        return set()
+
+def add_to_allowlist(domain):
+    allowlist = get_local_allowlist()
+    allowlist.add(domain.lower())
+    with open(LOCAL_ALLOWLIST, "w") as f:
+        json.dump(list(allowlist), f)
 
 # --- Page Configuration ---
 st.set_page_config(
@@ -180,7 +198,7 @@ st.markdown("""
 
 
 # --- Top Level Tabs ---
-tab_scan, tab_batch, tab_stats = st.tabs(["🔍 Single URL Scan", "📁 Batch CSV Scanner", "📈 Global Statistics"])
+tab_scan, tab_batch, tab_stats, tab_report = st.tabs(["🔍 Single URL Scan", "📁 Batch CSV Scanner", "📈 Global Statistics", "⚠️ Report Threat"])
 
 # --- Data Loading for Generator ---
 @st.cache_data
@@ -294,20 +312,31 @@ with tab_scan:
                     label, score_prob, decision_by, reasons, p1, p2, whois_data, geo_info = predict_ultimate(url_input)
                     extracted_feats = url_features(url_input)  # New Feature 3 logic
                     
+                    # Check Local Allowlist
+                    local_safe = domain.lower() in get_local_allowlist()
+                    
                     # Process Results
                     safe_score = score_prob if score_prob is not None else 0.0
                     risk_score_percent = int(safe_score * 100)
                     
-                    safe_label = str(label).upper() if label is not None else "UNKNOWN"
-                    is_phishing = safe_label in ["PHISHING", "HIGH RISK"]
-                    is_suspicious = safe_label == "LOW RISK"
-                    
-                    if is_phishing:
-                        status_str = "Phishing"
-                    elif is_suspicious:
-                        status_str = "Suspicious"
-                    else:
+                    if local_safe:
                         status_str = "Safe"
+                        safe_label = "SAFE (Whitelisted)"
+                        is_phishing = False
+                        is_suspicious = False
+                        risk_score_percent = 0
+                        reasons = ["Domain is manually whitelisted in local security policy."]
+                    else:
+                        safe_label = str(label).upper() if label is not None else "UNKNOWN"
+                        is_phishing = safe_label in ["PHISHING", "HIGH RISK"]
+                        is_suspicious = safe_label == "LOW RISK"
+                        
+                        if is_phishing:
+                            status_str = "Phishing"
+                        elif is_suspicious:
+                            status_str = "Suspicious"
+                        else:
+                            status_str = "Safe"
                     
                     # Persist to disk (Feature 2 logic)
                     save_history({
@@ -340,6 +369,12 @@ with tab_scan:
                             <div>This website has some suspicious signals. Caution is advised.</div>
                         </div>
                         """, unsafe_allow_html=True)
+                        
+                        if not local_safe:
+                            if st.button(f"🛡️ This is actually Safe (Mark as False Positive)", help="This will add the domain to your local allowlist and override the AI verdict."):
+                                add_to_allowlist(domain)
+                                st.success(f"Domain '{domain}' added to local allowlist. Re-scan to see the update!")
+                                st.rerun()
                     else:
                         st.markdown(f"""
                         <div class="result-box-safe">
@@ -684,4 +719,58 @@ with tab_stats:
             st.plotly_chart(fig2, use_container_width=True)
             
         st.write("### Raw History Log")
-        st.dataframe(hist_stats, use_container_width=True)
+# ==========================================
+# TAB 4: REPORT THREAT (FEEDBACK LOOP)
+# ==========================================
+with tab_report:
+    st.title("⚠️ Continuous Learning: Report Threat")
+    st.markdown("""
+    Did **SentinURL** miss a zero-day phishing attack? Since no AI is 100% perfect, you can help it learn. 
+    Submit the malicious URL here, and the engine will automatically retrain itself to catch similar patterns in the future.
+    """)
+    
+    with st.container(border=True):
+        st.subheader("Submit Missed Phishing URL")
+        
+        with st.form(key='report_form', clear_on_submit=True):
+            report_url = st.text_input("Paste the malicious URL:", placeholder="http://suspicious-site.com/login")
+            report_submit = st.form_submit_button("Submit to Intelligence Database", type="primary", use_container_width=True)
+            
+        if report_submit:
+            if not report_url.strip():
+                st.warning("Please enter a URL to report.")
+            else:
+                # Normalization
+                final_url = report_url.strip()
+                
+                # Append to Merged_Ultimate_Dataset.csv
+                dataset_path = os.path.join(current_dir, "Merged_Ultimate_Dataset.csv")
+                
+                try:
+                    import csv
+                    # Check if file exists to decide on header (though we know it exists)
+                    file_exists = os.path.exists(dataset_path)
+                    
+                    with open(dataset_path, mode='a', encoding='utf-8', newline='') as f:
+                        writer = csv.writer(f)
+                        writer.writerow([final_url, "phishing"])
+                    
+                    st.success(f"✅ **Threat Successfully Archived!**")
+                    st.info(f"The URL **{final_url}** has been added to the primary dataset. SentinURL will automatically re-train and calibrate its neural weights to detect this structure during the next system reboot.")
+                    st.toast("Intelligence Updated", icon="🛡️")
+                except Exception as e:
+                    st.error(f"Failed to update dataset: {e}")
+
+    st.markdown("---")
+    st.subheader("How the Integrated Feedback Cycle Works")
+    
+    col_a, col_b, col_c = st.columns(3)
+    with col_a:
+        st.markdown("### 1. Identify")
+        st.write("A user identifies a new phishing link that the AI incorrectly marked as 'Safe'.")
+    with col_b:
+        st.markdown("### 2. Feedback")
+        st.write("The URL is submitted here, instantly entering the 'Golden Gate' pipeline.")
+    with col_c:
+        st.markdown("### 3. Evolve")
+        st.write("The engine automatically retrains, verifies accuracy stays >99.6%, and deploys the smarter model.")

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "updated_utc": "2026-03-11T21:57:45Z"
+    "updated_utc": "2026-03-18T20:22:56Z"
   },
   "items": {
     "tls:fbace2e60e1709e3c01b9941c2c126370c2e2302a9c67ff8d17299c355697015": {
@@ -2271,11 +2271,11 @@
       }
     },
     "tls:451ebbe1c8f95384bd1b076cb98f737936946559303dabc6072e8518f6c18367": {
-      "ts": 1773261025.4306958,
+      "ts": 1773865368.547295,
       "val": {
         "ok": true,
-        "notAfter": "Apr 27 08:36:41 2026 GMT",
-        "days_left": 46
+        "notAfter": "Apr 27 08:36:37 2026 GMT",
+        "days_left": 39
       }
     },
     "redir:ff8d78bffd0c42340d7ac8cc9f9f9dd251269ece84fc3b406190a2d00bc74d5b": {
@@ -19954,6 +19954,746 @@
     },
     "html:86429f74988e0864fe4883035e317d345a74b86fa2335675d21803be19497336": {
       "ts": 1773266265.0798597,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:10f54b19e7e6fd0e3ac5c41ea75a94131d28b5f97b53cbd5de105dbe3d20e3ae": {
+      "ts": 1773862612.0630505,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:d2225fa4d183dbc11e272d77ed46329e52a41c0ce7c2c00b04a4f814afd00be4": {
+      "ts": 1773862612.3994966,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:d2225fa4d183dbc11e272d77ed46329e52a41c0ce7c2c00b04a4f814afd00be4": {
+      "ts": 1773862612.6040602,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:870ad222e8c1fd90eb3150c1134b92381a82149ed53cddfb9e8fda15e09b739a": {
+      "ts": 1773862654.889702,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr 23 10:26:04 2026 GMT",
+        "days_left": 35
+      }
+    },
+    "redir:3ab4efcd310b037d4f6476abb05ab207f1c1d61da9b49eaf53e90e3d90092f25": {
+      "ts": 1773862655.7686615,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:3ab4efcd310b037d4f6476abb05ab207f1c1d61da9b49eaf53e90e3d90092f25": {
+      "ts": 1773862656.2970147,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:86a35c724ae145772bb87e6306fa1b43b059e99bfb47a9fd6ae082bac048d528": {
+      "ts": 1773863312.4287474,
+      "val": {
+        "ok": true,
+        "notAfter": "Apr  7 23:37:44 2026 GMT",
+        "days_left": 20
+      }
+    },
+    "redir:547aef8f832465342ed26ca8b6c3f1269289fa4a693fe3c57cecb7f678dc9eee": {
+      "ts": 1773863314.369222,
+      "val": {
+        "ok": true,
+        "final_url": "https://www.optus.com.au/shop/devicewarrtechinfo",
+        "chain": [
+          "http://www.optus.com.au/shop/devicewarrtechinfo",
+          "https://www.optus.com.au/shop/devicewarrtechinfo"
+        ],
+        "status": 503,
+        "redirects": 1
+      }
+    },
+    "html:547aef8f832465342ed26ca8b6c3f1269289fa4a693fe3c57cecb7f678dc9eee": {
+      "ts": 1773863318.7957294,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://www.optus.com.au/support/consumer-advice/devicewarrtechinfo",
+        "content_type": "text/html;charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": true,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "optus.com.au"
+        }
+      }
+    },
+    "tls:cce571a39a38c94e9d8a8644bbf21781e6eff9226843752cf75d6c9fd2b5d4e1": {
+      "ts": 1773863332.6986852,
+      "val": {
+        "ok": false,
+        "error": "tls: TimeoutError"
+      }
+    },
+    "redir:6b8fe7cdc3a08540d46ed825c9de9b2de698b3eed36951fbf5138fe76cc1dc25": {
+      "ts": 1773863333.1763074,
+      "val": {
+        "ok": true,
+        "final_url": "http://harrypotternotawizard.ws/3jjhbrba",
+        "chain": [
+          "http://harrypotternotawizard.ws/3jjhbrba"
+        ],
+        "status": 200,
+        "redirects": 0
+      }
+    },
+    "html:6b8fe7cdc3a08540d46ed825c9de9b2de698b3eed36951fbf5138fe76cc1dc25": {
+      "ts": 1773863333.6347702,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "http://harrypotternotawizard.ws/3jjhbrba",
+        "content_type": "text/html; charset=iso-8859-1",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "harrypotternotawizard.ws"
+        }
+      }
+    },
+    "tls:886b4e366c030a71ef20f7c07ca6f7812186e867ed1d7ae07b84a5b9876c520a": {
+      "ts": 1773863335.2244456,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:043cb31568ed27b5a904a71ba5b5aba04cf74f3c5e7cf301c2b84c32c81cfa3e": {
+      "ts": 1773863335.5456052,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:043cb31568ed27b5a904a71ba5b5aba04cf74f3c5e7cf301c2b84c32c81cfa3e": {
+      "ts": 1773863335.750019,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:9bc2452ade64ee23b12ae30550ca879f38ee9ea4d3a4d1b773525582490e8a4b": {
+      "ts": 1773863339.281007,
+      "val": {
+        "ok": false,
+        "error": "tls: SSLError"
+      }
+    },
+    "redir:ba992d68f62cd5bee7b0c00d7d80f79dbfed410b718894562a4a6e13b802bba9": {
+      "ts": 1773863340.0184872,
+      "val": {
+        "ok": true,
+        "final_url": "https://404.onet.pl/",
+        "chain": [
+          "http://mojejeze.republika.pl/87b3ff3rc",
+          "https://404.onet.pl/"
+        ],
+        "status": 404,
+        "redirects": 1
+      }
+    },
+    "html:ba992d68f62cd5bee7b0c00d7d80f79dbfed410b718894562a4a6e13b802bba9": {
+      "ts": 1773863340.9035108,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://404.onet.pl/",
+        "content_type": "text/html",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "onet.pl"
+        }
+      }
+    },
+    "redir:aa1b1def6667cb0e2b188ba54e0d81e396e7189dc823d68b64ee42b7a98c3d87": {
+      "ts": 1773863355.5855184,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:aa1b1def6667cb0e2b188ba54e0d81e396e7189dc823d68b64ee42b7a98c3d87": {
+      "ts": 1773863356.1995008,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:74918a42c17dc3b91c69927f24a9554ece7c2cb2694aa213ac70834fa130501a": {
+      "ts": 1773863364.0247545,
+      "val": {
+        "ok": false,
+        "error": "tls: SSLError"
+      }
+    },
+    "redir:86456afc485bd20d485c2ef263f0afc4975771ae6044ed688cf3f67b38bed9d2": {
+      "ts": 1773863364.2137384,
+      "val": {
+        "ok": true,
+        "final_url": "http://bushman-rest.com/j8fn3rg3",
+        "chain": [
+          "http://bushman-rest.com/j8fn3rg3"
+        ],
+        "status": 404,
+        "redirects": 0
+      }
+    },
+    "html:86456afc485bd20d485c2ef263f0afc4975771ae6044ed688cf3f67b38bed9d2": {
+      "ts": 1773863364.412743,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "http://bushman-rest.com/j8fn3rg3",
+        "content_type": "text/html; charset=iso-8859-1",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "bushman-rest.com"
+        }
+      }
+    },
+    "tls:f4f1388b0bf000145492572a080a8b8954133ee46bde97a06360f60b23727767": {
+      "ts": 1773864827.1968129,
+      "val": {
+        "ok": true,
+        "notAfter": "May 25 08:10:25 2026 GMT",
+        "days_left": 67
+      }
+    },
+    "redir:8156b26e0fd23be90cb0694c4ad772903a868d191ba845b0822bf2624409589b": {
+      "ts": 1773864827.7445645,
+      "val": {
+        "ok": true,
+        "final_url": "http://www.allandmedia.com/opencart/system/Cielo/index.html",
+        "chain": [
+          "http://www.allandmedia.com/opencart/system/Cielo/index.html"
+        ],
+        "status": 404,
+        "redirects": 0
+      }
+    },
+    "html:8156b26e0fd23be90cb0694c4ad772903a868d191ba845b0822bf2624409589b": {
+      "ts": 1773864828.106545,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "http://www.allandmedia.com/opencart/system/Cielo/index.html",
+        "content_type": "text/html",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "allandmedia.com"
+        }
+      }
+    },
+    "tls:3127e7ba83e018e427aba73e0d1d430be4731b94f0d839df09e671841c77d6d6": {
+      "ts": 1773864829.443247,
+      "val": {
+        "ok": true,
+        "notAfter": "Jun 14 23:02:54 2026 GMT",
+        "days_left": 88
+      }
+    },
+    "redir:589d2a869dac806748226367e07153787d5f0649a68201a8a7191e01814d7587": {
+      "ts": 1773864830.3029742,
+      "val": {
+        "ok": true,
+        "final_url": "http://www.distritabas.com.ar/index.php/survey/webscr.php?cmd=_login-run&dispatch=5885d80a13c0db1f1ff80d546411d7f8a8350c132bc41e0934cfc023d4e8f9e5bd76c88f5c3439f2e55b7639f529ccb3bd76c88f5c3439f2e55b7639f529ccb3",
+        "chain": [
+          "http://distritabas.com.ar/survey/webscr.php?cmd=_login-run&dispatch=5885d80a13c0db1f1ff80d546411d7f8a8350c132bc41e0934cfc023d4e8f9e5bd76c88f5c3439f2e55b7639f529ccb3bd76c88f5c3439f2e55b7639f529ccb3",
+          "http://www.distritabas.com.ar/index.php/survey/webscr.php?cmd=_login-run&dispatch=5885d80a13c0db1f1ff80d546411d7f8a8350c132bc41e0934cfc023d4e8f9e5bd76c88f5c3439f2e55b7639f529ccb3bd76c88f5c3439f2e55b7639f529ccb3"
+        ],
+        "status": 404,
+        "redirects": 1
+      }
+    },
+    "html:589d2a869dac806748226367e07153787d5f0649a68201a8a7191e01814d7587": {
+      "ts": 1773864831.1221254,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "http://www.distritabas.com.ar/index.php/survey/webscr.php?cmd=_login-run&dispatch=5885d80a13c0db1f1ff80d546411d7f8a8350c132bc41e0934cfc023d4e8f9e5bd76c88f5c3439f2e55b7639f529ccb3bd76c88f5c3439f2e55b7639f529ccb3",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "distritabas.com.ar"
+        }
+      }
+    },
+    "tls:b73ff754c8ab2902c4db33202a9aab2e55201670238efbb0e41357fc354a32d5": {
+      "ts": 1773864832.5859013,
+      "val": {
+        "ok": true,
+        "notAfter": "Jun 15 16:26:40 2026 GMT",
+        "days_left": 88
+      }
+    },
+    "redir:e050033e7382072b7c1133358f9c53d63196f9c68cb1ef451764c85c25611c71": {
+      "ts": 1773864834.7071972,
+      "val": {
+        "ok": true,
+        "final_url": "https://randexpr.com/css/123659854/125689545/security/login.php",
+        "chain": [
+          "http://randexpr.com/css/123659854/125689545/security/login.php",
+          "https://randexpr.com/css/123659854/125689545/security/login.php"
+        ],
+        "status": 404,
+        "redirects": 1
+      }
+    },
+    "html:e050033e7382072b7c1133358f9c53d63196f9c68cb1ef451764c85c25611c71": {
+      "ts": 1773864835.396359,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://randexpr.com/css/123659854/125689545/security/login.php",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "randexpr.com"
+        }
+      }
+    },
+    "tls:2bfac9d6db417c1d450c23ecf36b244bb7fea01873b29320a3c38f5d07d3b117": {
+      "ts": 1773864836.6551564,
+      "val": {
+        "ok": true,
+        "notAfter": "May 13 23:40:36 2026 GMT",
+        "days_left": 56
+      }
+    },
+    "redir:5810d2141ea4653fa6615027b40de1a3addfddd6dd8f6c0d6a3317e6a13ae1b6": {
+      "ts": 1773864840.7813096,
+      "val": {
+        "ok": true,
+        "final_url": "http://tropismesgallery.com/catalog/vbvamlaklmaklmze",
+        "chain": [
+          "http://www.tropismesgallery.com/catalog/vbvamlaklmaklmze",
+          "http://tropismesgallery.com/catalog/vbvamlaklmaklmze"
+        ],
+        "status": 404,
+        "redirects": 1
+      }
+    },
+    "html:5810d2141ea4653fa6615027b40de1a3addfddd6dd8f6c0d6a3317e6a13ae1b6": {
+      "ts": 1773864843.8704119,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "http://tropismesgallery.com/catalog/vbvamlaklmaklmze",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": true,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "tropismesgallery.com"
+        }
+      }
+    },
+    "redir:e81c98395ffbbbd7ef0762a14eb2d74f8d3511aad8c66a837fab05ad1836c9ac": {
+      "ts": 1773865297.4666388,
+      "val": {
+        "ok": true,
+        "final_url": "https://www.optus.com.au/shop/devicewarrtechinfo%3E",
+        "chain": [
+          "http://www.optus.com.au/shop/devicewarrtechinfo%3E",
+          "https://www.optus.com.au/shop/devicewarrtechinfo%3E"
+        ],
+        "status": 503,
+        "redirects": 1
+      }
+    },
+    "html:e81c98395ffbbbd7ef0762a14eb2d74f8d3511aad8c66a837fab05ad1836c9ac": {
+      "ts": 1773865300.8653939,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://www.optus.com.au/",
+        "content_type": "text/html;charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": true,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "optus.com.au"
+        }
+      }
+    },
+    "tls:36ff7b803fffb5e562df35f30721267433983e5f98b2692150dd206035c9122a": {
+      "ts": 1773865317.5668786,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:f4575ef881582049a8998d666d647ca9570ba42bb67b8963c9c67b16857bbafc": {
+      "ts": 1773865317.8126,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:f4575ef881582049a8998d666d647ca9570ba42bb67b8963c9c67b16857bbafc": {
+      "ts": 1773865318.0092247,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:1e1a68451fc1efc2263d1167bee9df0ac199f19f0fb8e9636d1a6ba5abd9c445": {
+      "ts": 1773865332.5497835,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:7245a15d7d7e4c250a1824108467a7cce15926965bc57d2980fcf9ce79e80371": {
+      "ts": 1773865332.8463461,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:7245a15d7d7e4c250a1824108467a7cce15926965bc57d2980fcf9ce79e80371": {
+      "ts": 1773865333.0361156,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:e19cb1726c23d09f60ea5659228189a2ee2c998c2a8a511ebf157e9bde744aab": {
+      "ts": 1773865333.869102,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:91dcfbe8841e101afcb615b3d6a6dad7e278306ba6ef2ef978c49f144f2a0326": {
+      "ts": 1773865334.1562228,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:91dcfbe8841e101afcb615b3d6a6dad7e278306ba6ef2ef978c49f144f2a0326": {
+      "ts": 1773865334.3271165,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:88f2a40a90bbd8ee6fc6fb2a90de76e46b8c87f649203abd9be769402f68c801": {
+      "ts": 1773865335.1366713,
+      "val": {
+        "ok": false,
+        "error": "tls: SSLCertVerificationError"
+      }
+    },
+    "redir:f11d70e8a4c21a4873290ef6697e0eee1cd67995898e57df2b00ec9b09bac5ba": {
+      "ts": 1773865336.5196707,
+      "val": {
+        "ok": true,
+        "final_url": "https://www.otzywy.com",
+        "chain": [
+          "http://vklife.hut2.ru/",
+          "https://www.otzywy.com"
+        ],
+        "status": 200,
+        "redirects": 1
+      }
+    },
+    "html:f11d70e8a4c21a4873290ef6697e0eee1cd67995898e57df2b00ec9b09bac5ba": {
+      "ts": 1773865338.0809338,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://www.otzywy.com",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": true,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": "otzywy.com",
+          "page_reg": "otzywy.com"
+        }
+      }
+    },
+    "tls:2c86367e6f4e32643e14da65f8a178fff34c60bd01fe884663478cb748d528ac": {
+      "ts": 1773865342.17535,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:8ed2a7af7b9b2d2b2262fbebffe94a0c1732e9edaf2ea81ea37fed0cefffd9dd": {
+      "ts": 1773865342.5843916,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:8ed2a7af7b9b2d2b2262fbebffe94a0c1732e9edaf2ea81ea37fed0cefffd9dd": {
+      "ts": 1773865342.790453,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:64ac2b0d20b5220ee97bb18e0ae66ac41425069bac41e0141b098b39b772ecd7": {
+      "ts": 1773865345.3386524,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:4132cfa48c2102f64033a2ad86fa0488c30af7bbf4f7175965f5bfabd6fc4533": {
+      "ts": 1773865345.863078,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:4132cfa48c2102f64033a2ad86fa0488c30af7bbf4f7175965f5bfabd6fc4533": {
+      "ts": 1773865346.2723527,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:674741027b6cfbdf922959f4010430c8c1eb560a4ca68a721407f694984314be": {
+      "ts": 1773865360.3775487,
+      "val": {
+        "ok": false,
+        "error": "tls: SSLCertVerificationError"
+      }
+    },
+    "redir:9eb1cfb56e2b572e442d8e8db1d87a687ebebe41d8672a8f45cca5314c5ad4f2": {
+      "ts": 1773865360.891561,
+      "val": {
+        "ok": true,
+        "final_url": "http://cabscomputacion.com.mx/modules/Remax/index.htm",
+        "chain": [
+          "http://cabscomputacion.com.mx/modules/Remax/index.htm"
+        ],
+        "status": 404,
+        "redirects": 0
+      }
+    },
+    "html:9eb1cfb56e2b572e442d8e8db1d87a687ebebe41d8672a8f45cca5314c5ad4f2": {
+      "ts": 1773865361.361504,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "http://cabscomputacion.com.mx/modules/Remax/index.htm",
+        "content_type": "text/html; charset=iso-8859-1",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "cabscomputacion.com.mx"
+        }
+      }
+    },
+    "tls:61d3a7f858a9f30fb04ced8c8256e5373bdec9dbcee6859a79ccb66a41b2cf04": {
+      "ts": 1773865362.9063582,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:37b59cb3417c2fe747409cd8177e56535294cfdec730ecee12c193e42b9001bc": {
+      "ts": 1773865363.1853273,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:37b59cb3417c2fe747409cd8177e56535294cfdec730ecee12c193e42b9001bc": {
+      "ts": 1773865363.3543978,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:0b8997e6446d7c6fc1e60b3dbddc5bf438427077db1e9e224221cd7c5c36ac4f": {
+      "ts": 1773865365.3192642,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:c8610b0acf3631e093c454fe27cb58e1c5e87e1eed6b22a3736cf84ab4b454c7": {
+      "ts": 1773865365.5987546,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:c8610b0acf3631e093c454fe27cb58e1c5e87e1eed6b22a3736cf84ab4b454c7": {
+      "ts": 1773865365.8133576,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:9484c4ee4d364a6a3e3b0e49c3d283f868f9513184f230acbddda40cb6b746c1": {
+      "ts": 1773865366.5201793,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:d7021d46dc6c417e85b3b2c316dd4da9164ae4b6ae40ecd2a22ff5b7029d38ac": {
+      "ts": 1773865366.7889714,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:d7021d46dc6c417e85b3b2c316dd4da9164ae4b6ae40ecd2a22ff5b7029d38ac": {
+      "ts": 1773865366.9844575,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "redir:4048afc64eab6c689cf6b93aa7ecf680b0bcb91f9748541b87269870a5e41e6e": {
+      "ts": 1773865369.7051306,
+      "val": {
+        "ok": true,
+        "final_url": "https://docs.google.com/a/uic.edu/spreadsheet/viewform?formkey=dEp5dmQyMjU4SmxpenhtcHJaeFROQWc6MQ",
+        "chain": [
+          "http://docs.google.com/a/uic.edu/spreadsheet/viewform?formkey=dEp5dmQyMjU4SmxpenhtcHJaeFROQWc6MQ",
+          "https://docs.google.com/a/uic.edu/spreadsheet/viewform?formkey=dEp5dmQyMjU4SmxpenhtcHJaeFROQWc6MQ"
+        ],
+        "status": 404,
+        "redirects": 1
+      }
+    },
+    "html:4048afc64eab6c689cf6b93aa7ecf680b0bcb91f9748541b87269870a5e41e6e": {
+      "ts": 1773865370.9126399,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://docs.google.com/a/uic.edu/spreadsheet/viewform?formkey=dEp5dmQyMjU4SmxpenhtcHJaeFROQWc6MQ",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "google.com"
+        }
+      }
+    },
+    "tls:d0f650c747e264a5e53373c04c470dc7561b61513ee8261d1d35da96bcd9e5a6": {
+      "ts": 1773865371.9071045,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:31131c8b15f97c37dad503503ea2ae8182f4518be1c101db72b99b4541b472e9": {
+      "ts": 1773865372.1366847,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:31131c8b15f97c37dad503503ea2ae8182f4518be1c101db72b99b4541b472e9": {
+      "ts": 1773865372.3518236,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:a6e9f2a669cd75581776ce5011f736e3f8387657df72948e377807832a2aa49e": {
+      "ts": 1773865374.1238167,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:a5fc6ec673aaae551ee4dbace6da4d32bfadc3b07d06e761a46edc53e15c2099": {
+      "ts": 1773865374.5333607,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:a5fc6ec673aaae551ee4dbace6da4d32bfadc3b07d06e761a46edc53e15c2099": {
+      "ts": 1773865374.7742362,
+      "val": {
+        "ok": false,
+        "error": "html: ConnectionError"
+      }
+    },
+    "tls:e51f00bc9bccaca7009e6265c97177c14251868144120007f2da3ea6d6a2361d": {
+      "ts": 1773865375.966553,
+      "val": {
+        "ok": false,
+        "error": "tls: gaierror"
+      }
+    },
+    "redir:16b0a9263754f3675dc5c0af9b45181b6a075c44194964a9fd75ae1e667b048e": {
+      "ts": 1773865376.2690723,
+      "val": {
+        "ok": false,
+        "error": "redirect_check: ConnectionError"
+      }
+    },
+    "html:16b0a9263754f3675dc5c0af9b45181b6a075c44194964a9fd75ae1e667b048e": {
+      "ts": 1773865376.4844382,
       "val": {
         "ok": false,
         "error": "html: ConnectionError"

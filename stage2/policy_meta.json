@@ -8,9 +8,9 @@
     "w_stage2": 0.8
   },
   "bands": {
-    "SAFE_MAX": 0.05,
-    "SUSP_SAFE_MAX": 0.40,
-    "PHISH_MIN": 0.80
+    "SAFE_MAX": 0.008561865126997276,
+    "SUSP_SAFE_MAX": 0.14799700768419485,
+    "PHISH_MIN": 0.9101827568860764
   },
   "fp_target_on_safe_for_phish": 0.0002,
   "known_good_domains": [

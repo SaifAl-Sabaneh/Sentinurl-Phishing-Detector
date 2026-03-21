@@ -722,84 +722,97 @@ def get_vowel_consonant_ratio(s):
     return vowels / consonants
 
 def url_features(url: str) -> dict:
-    decoded = unquote(str(url))
-    low = decoded.lower()
+    try:
+        decoded = unquote(str(url))
+        low = decoded.lower()
 
-    p = safe_urlparse(normalize_url(decoded))
-    host_raw = (p.netloc or "").lower()
-    path = p.path or ""
-    query = p.query or ""
-    host_no_port = host_raw.split(":")[0] if host_raw else ""
-    port_present = 1 if (host_raw and ":" in host_raw) else 0
+        p = safe_urlparse(normalize_url(decoded))
+        host_raw = (p.netloc or "").lower()
+        path = p.path or ""
+        query = p.query or ""
+        host_no_port = host_raw.split(":")[0] if host_raw else ""
+        port_present = 1 if (host_raw and ":" in host_raw) else 0
 
-    digits = sum(c.isdigit() for c in decoded)
-    specials = sum((not c.isalnum()) for c in decoded)
+        digits = sum(c.isdigit() for c in decoded)
+        specials = sum((not c.isalnum()) for c in decoded)
 
-    host_tokens = [t for t in re.split(r"[.\-]", host_no_port) if t]
-    path_tokens = [t for t in path.split("/") if t]
-    query_params = [t for t in query.split("&") if t]
+        host_tokens = [t for t in re.split(r"[.\-]", host_no_port) if t]
+        path_tokens = [t for t in path.split("/") if t]
+        query_params = [t for t in query.split("&") if t]
 
-    max_host_token_len = max([len(t) for t in host_tokens]) if host_tokens else 0
-    max_path_token_len = max([len(t) for t in path_tokens]) if path_tokens else 0
+        max_host_token_len = max([len(t) for t in host_tokens]) if host_tokens else 0
+        max_path_token_len = max([len(t) for t in path_tokens]) if path_tokens else 0
 
-    tld = host_no_port.split(".")[-1] if "." in host_no_port else ""
+        tld = host_no_port.split(".")[-1] if "." in host_no_port else ""
 
-    redirect_like = 1 if re.search(r"(redirect|next|url|continue|dest|destination)=", low) else 0
-    double_slash_path = 1 if ("//" in path) else 0
+        redirect_like = 1 if re.search(r"(redirect|next|url|continue|dest|destination)=", low) else 0
+        double_slash_path = 1 if ("//" in path) else 0
 
-    has_login = 1 if sum(w in low for w in ["login", "signin", "verify", "secure", "account", "auth"]) > 0 else 0
-    has_finance = 1 if sum(w in low for w in ["bank", "pay", "billing", "invoice", "crypto", "bitcoin", "wallet"]) > 0 else 0
-    has_scam = 1 if sum(w in low for w in ["free", "bonus", "winner", "hack", "porn", "adware", "worm", "malware"]) > 0 else 0
+        has_login = 1 if sum(w in low for w in ["login", "signin", "verify", "secure", "account", "auth"]) > 0 else 0
+        has_finance = 1 if sum(w in low for w in ["bank", "pay", "billing", "invoice", "crypto", "bitcoin", "wallet"]) > 0 else 0
+        has_scam = 1 if sum(w in low for w in ["free", "bonus", "winner", "hack", "porn", "adware", "worm", "malware"]) > 0 else 0
 
-    return {
-        "url_len": len(decoded),
-        "host_len": len(host_no_port),
-        "path_len": len(path),
-        "query_len": len(query),
-        "max_host_token_len": max_host_token_len,
-        "max_path_token_len": max_path_token_len,
+        return {
+            "url_len": len(decoded),
+            "host_len": len(host_no_port),
+            "path_len": len(path),
+            "query_len": len(query),
+            "max_host_token_len": max_host_token_len,
+            "max_path_token_len": max_path_token_len,
 
-        "dots": decoded.count("."),
-        "hyphens": decoded.count("-"),
-        "slashes": decoded.count("/"),
-        "underscores": decoded.count("_"),
-        "digits": digits,
-        "specials": specials,
+            "dots": decoded.count("."),
+            "hyphens": decoded.count("-"),
+            "slashes": decoded.count("/"),
+            "underscores": decoded.count("_"),
+            "digits": digits,
+            "specials": specials,
 
-        "digit_ratio": digits / max(len(decoded), 1),
-        "special_ratio": specials / max(len(decoded), 1),
-        "vc_ratio_host": get_vowel_consonant_ratio(host_no_port),
+            "digit_ratio": digits / max(len(decoded), 1),
+            "special_ratio": specials / max(len(decoded), 1),
+            "vc_ratio_host": get_vowel_consonant_ratio(host_no_port),
 
-        "subdomains": host_no_port.count("."),
-        "host_tokens": len(host_tokens),
-        "path_tokens": len(path_tokens),
-        "query_params": len(query_params),
-        "path_depth": path.count("/"),
+            "subdomains": host_no_port.count("."),
+            "host_tokens": len(host_tokens),
+            "path_tokens": len(path_tokens),
+            "query_params": len(query_params),
+            "path_depth": path.count("/"),
 
-        "https": 1 if decoded.startswith("https") else 0,
-        "has_ipv4": has_ipv4(host_no_port),
-        "punycode": 1 if "xn--" in host_no_port else 0,
-        "at_count": decoded.count("@"),
-        "pct_count": decoded.count("%"),
-        "eq_count": decoded.count("="),
-        "port_present": port_present,
-        "double_slash_path": double_slash_path,
+            "https": 1 if decoded.startswith("https") else 0,
+            "has_ipv4": has_ipv4(host_no_port),
+            "punycode": 1 if "xn--" in host_no_port else 0,
+            "at_count": decoded.count("@"),
+            "pct_count": decoded.count("%"),
+            "eq_count": decoded.count("="),
+            "port_present": port_present,
+            "double_slash_path": double_slash_path,
 
-        "has_login": has_login,
-        "has_finance": has_finance,
-        "has_scam": has_scam,
-        "brand_hits": sum(1 for b in BRAND_KEYWORDS if b in low),
-        "suspicious_path": 1 if any(p in low for p in SUSPICIOUS_PATHS) else 0,
-        "redirect_like": redirect_like,
+            "has_login": has_login,
+            "has_finance": has_finance,
+            "has_scam": has_scam,
+            "brand_hits": sum(1 for b in BRAND_KEYWORDS if b in low),
+            "suspicious_path": 1 if any(p in low for p in SUSPICIOUS_PATHS) else 0,
+            "redirect_like": redirect_like,
 
-        "entropy_url": entropy(decoded),
-        "entropy_host": entropy(host_no_port),
-        "entropy_path": entropy(path),
-        "entropy_query": entropy(query),
+            "entropy_url": entropy(decoded),
+            "entropy_host": entropy(host_no_port),
+            "entropy_path": entropy(path),
+            "entropy_query": entropy(query),
 
-        "risky_tld": 1 if tld in RISKY_TLDS else 0,
-        "top_domain": 1 if host_no_port in TOP_DOMAINS else 0,
-    }
+            "risky_tld": 1 if tld in RISKY_TLDS else 0,
+            "top_domain": 1 if host_no_port in TOP_DOMAINS else 0,
+        }
+    except Exception:
+        # FAIL-SAFE: Return zeroed features for extremely malformed URLs
+        return {k: 0 for k in [
+            "url_len", "host_len", "path_len", "query_len", "max_host_token_len", "max_path_token_len",
+            "dots", "hyphens", "slashes", "underscores", "digits", "specials",
+            "digit_ratio", "special_ratio", "vc_ratio_host", "subdomains", "host_tokens",
+            "path_tokens", "query_params", "path_depth", "https", "has_ipv4", "punycode",
+            "at_count", "pct_count", "eq_count", "port_present", "double_slash_path",
+            "has_login", "has_finance", "has_scam", "brand_hits", "suspicious_path",
+            "redirect_like", "entropy_url", "entropy_host", "entropy_path", "entropy_query",
+            "risky_tld", "top_domain"
+        ]}
 
 
 # =========================================================
@@ -1471,14 +1484,18 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
     
     # ENHANCED: Regional/Institutional/Government suffix bonus with stronger effect
     if is_institution_suffix(suf) and feats.get("redirect_like", 0) == 0 and feats.get("punycode", 0) == 0:
-        reasons.append(f"Trusted institutional/government suffix (.{suf}) detected.")
         # Strong trust bonus for institutional domains
-        if p1 < 0.10:
-            score = min(score, 0.08)  # Very strong trust
-        elif p1 < 0.30:
-            score = min(score, 0.20)  # Strong trust
+        if (0.6 * p1 + 0.4 * p2) > 0.70 or p1 > 0.85 or p2 > 0.85:
+            reasons.append(f"Institutional domain (.{suf}) bypassed: Models highly confident of compromise.")
+            bypass_fail_safe = True
         else:
-            score = min(score, 0.35)  # Moderate trust
+            reasons.append(f"Trusted institutional/government suffix (.{suf}) detected.")
+            if p1 < 0.10:
+                score = min(score, 0.08)  # Very strong trust
+            elif p1 < 0.30:
+                score = min(score, 0.20)  # Strong trust
+            else:
+                score = min(score, 0.35)  # Moderate trust
     
     # ENHANCED: Country-code TLD trust (most ccTLDs are regulated)
     # Common legitimate ccTLDs

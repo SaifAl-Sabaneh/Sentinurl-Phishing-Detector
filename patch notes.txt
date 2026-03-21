@@ -4,5 +4,9 @@ patch notes for sentiurl:
 made the streamlit dashboard live and working ( test it with people ) 
 updated the accuracy on the offline model from 89.1% to 99.14% 
 updated the accuracy on the online model from 98.4% to 99% using the api's 
+we added a continuous learning model so that it keeps learning from every link that is attached to it 
+
 
 " Challenges we faced " 
+we faced an issue that when a phishing link had and edu or gov in the url the model would flag it as safe when its phishing 
+we faced a challenge where we needed to keep the accuracy high when retraining the models 1 and 2 after we added the continuous learning algorithm 
