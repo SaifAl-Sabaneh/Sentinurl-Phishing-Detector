@@ -557,10 +557,15 @@ with tab_scan:
                             # We check for positive keywords and the overall status to avoid scary red boxes on safe sites
                             for reason in reasons:
                                 r_low = reason.lower()
+                                # Negative keywords (High Priority - Red)
+                                negative_keywords = ["phishing", "threat", "attack", "malicious", "high risk", "critical", "danger", "suspicious"]
+                                # Positive keywords (Normal Priority - Green/Blue)
                                 positive_keywords = ["safe", "clean", "prevent", "valid", "trusted", "verified", "allowlist", "good sign", "low risk"]
                                 
-                                if any(kw in r_low for kw in positive_keywords):
-                                    if "allowlist" in r_low or "safe" in r_low or "verified" in r_low:
+                                if any(kw in r_low for kw in negative_keywords):
+                                    st.error(f"⚠️ {reason}")
+                                elif any(kw in r_low for kw in positive_keywords):
+                                    if "allowlist" in r_low or "safe" in r_low or "verified" in r_low or "established" in r_low:
                                         st.success(f"✅ {reason}")
                                     else:
                                         st.info(f"ℹ️ {reason}")
