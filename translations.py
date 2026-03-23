@@ -59,7 +59,17 @@ TRANSLATIONS = {
         "qr_processing": "Extracting optical payload from QR code...",
         "qr_found_safe": "Extracted Successfully!",
         "qr_found_url": "Extracted Payload:",
-        "qr_analyze_btn": "Transfer Payload to Scanning Engine"
+        "qr_analyze_btn": "Transfer Payload to Scanning Engine",
+        "flow_input": "Target URL Input",
+        "flow_layer_1": "Layer 1: Global Allowlist",
+        "flow_layer_2": "Layer 2: Threat Intelligence",
+        "flow_layer_3": "Layer 6: Fused AI Engine (NLP + Structural)",
+        "flow_layer_4": "Layer 10: Forensic Audit (WHOIS, Entropy)",
+        "flow_match": "Match",
+        "flow_no_match": "No Match",
+        "flow_known": "Known Threat",
+        "flow_unknown": "Unknown / Zero-day",
+        "flow_consensus": "Consensus Logic"
     },
     "Arabic": {
         "title": "SentinURL | استخبارات التهديدات المتقدمة",
@@ -119,6 +129,16 @@ TRANSLATIONS = {
         "qr_processing": "جاري استخراج البيانات من الرمز...",
         "qr_found_safe": "تم استخراج الرابط بنجاح!",
         "qr_found_url": "البيانات المستخرجة:",
-        "qr_analyze_btn": "نقل الرابط إلى محرك الفحص"
+        "qr_analyze_btn": "نقل الرابط إلى محرك الفحص",
+        "flow_input": "مدخل الرابط المستهدف",
+        "flow_layer_1": "الطبقة 1: القائمة البيضاء العالمية",
+        "flow_layer_2": "الطبقة 2: استخبارات التهديدات",
+        "flow_layer_3": "الطبقة 6: محرك الذكاء الاصطناعي المصهر",
+        "flow_layer_4": "الطبقة 10: التدقيق الجنائي (WHOIS، الإنتروبيا)",
+        "flow_match": "مطابق",
+        "flow_no_match": "غير مطابق",
+        "flow_known": "تهديد معروف",
+        "flow_unknown": "غير معروف / يوم الصفر",
+        "flow_consensus": "منطق الإجماع"
     }
 }
