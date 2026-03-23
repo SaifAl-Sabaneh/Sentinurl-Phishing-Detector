@@ -1286,10 +1286,33 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
     malware_exts = {'.exe', '.msi', '.apk', '.bat', '.vbs', '.scr', '.zip', '.rar', '.iso', '.7z'}
     has_malware_ext = any(low_u.endswith(ext) or f"{ext}?" in low_u for ext in malware_exts)
     
+    # 2b. Granular Directory & Asset Heuristics (Zero-Day Hardening)
+    is_wp_abuse = ('.php' in path_low or '.js' in path_low) and ('/wp-includes/' in path_low or '/wp-content/' in path_low or '/wp-admin/' in path_low)
+    is_upload_abuse = ('.php' in path_low or '.js' in path_low) and ('/upload/' in path_low or '/media/' in path_low or '/assets/' in path_low)
+    is_short_mal_name = bool(re.search(r'/[a-z0-9]\.php', path_low)) or bool(re.search(r'/[a-z0-9]\.js', path_low))
+    
+    # 2c. Naked Asset Downloads (Zero-Day droplets)
+    high_risk_asset_exts = {'.bin', '.pfm', '.sea', '.wav', '.aca', '.dsp', '.mso', '.arc', '.sh4', '.mips', '.armv7l', '.armv6l', '.i586', '.i686', '.mipsel'}
+    is_naked_asset = any(path_low.endswith(ext) or f"{ext}?" in path_low for ext in high_risk_asset_exts)
+    
     # Combined Bypass Logic
-    bypass_fail_safe = susp_path_detected or brand_in_path_unrelated or is_ip or is_github_abuse or is_blob_abuse or has_malware_ext
+    bypass_fail_safe = susp_path_detected or brand_in_path_unrelated or is_ip or is_github_abuse or is_blob_abuse or has_malware_ext or is_wp_abuse or is_upload_abuse or is_short_mal_name or is_naked_asset
 
     # Apply Escalations
+    if is_naked_asset:
+        reasons.append("High-risk raw asset/payload detected on non-standard host.")
+        score = max(score, 0.35)
+    if is_wp_abuse:
+        reasons.append("Potential compromised site: active script detected in sensitive Wordpress directory.")
+        score = max(score, 0.45) if score < 0.45 else score + 0.10
+    
+    if is_upload_abuse:
+        reasons.append("Potential compromised site: script execution detected in user upload directory.")
+        score = max(score, 0.50) if score < 0.50 else score + 0.10
+
+    if is_short_mal_name:
+        reasons.append("Suspiciously short filename (commonly associated with web shells/malware droplets).")
+        score = max(score, 0.40)
     if brand_in_path_unrelated:
         reasons.append(f"Deceptive brand reference in path: '{path_brands[0]}' on unrelated domain.")
         score = max(score, 0.70)
@@ -1346,8 +1369,8 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
     # 3. Combined Fail-Safe Resolution (Now with bypass and threshold)
     if not bypass_fail_safe and gsb_clean and tls_valid and domain_old:
         # Strongest triple validation: GSB clean + valid TLS + established domain
-        # ONLY override to 0.0 if ML isn't highly confident (threshold 0.40)
-        if score < 0.40:
+        # ONLY override to 0.0 if ML isn't highly confident (threshold 0.25)
+        if score < 0.25:
             years = domain_age // 365
             reasons.append(f"Triple-verified safe: GSB + TLS + established domain ({years} yrs).")
             score = 0.0
@@ -1355,11 +1378,11 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
             reasons.append("GSB/TLS/Age validation suggests safety, but ML confidence overrides (Potential compromised site).")
             
     elif not bypass_fail_safe and gsb_clean and tls_valid:
-        if score < 0.40:
+        if score < 0.25:
             reasons.append("GSB + TLS validation confirms site appears safe.")
             score = 0.0
     elif not bypass_fail_safe and gsb_clean and domain_old:
-        if score < 0.40:
+        if score < 0.25:
             reasons.append("GSB + established domain confirms safety.")
             score = 0.0
     elif gsb_clean:
@@ -1417,12 +1440,15 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
         elif not bypass_fail_safe and age > 365:
             years = age // 365
             reasons.append(f"Domain has established reputation ({years} year{'s' if years > 1 else ''} old).")
-            # Only reduce if it's not already a confirmed threat
-            if score < 0.60:
+            # Only reduce if ML is below the new 'Suspicious' threshold (0.25)
+            # This allows detection of Compromised Sites (Old domain + ML Risk)
+            if score < 0.25:
                 score = min(score, 0.10)
+            else:
+                reasons.append("Detection persists due to structural/textual risk on established domain (Potential Compromised Site).")
         elif not bypass_fail_safe and age > 180:
             reasons.append(f"Domain has moderate history ({age} days old).")
-            if score < 0.60:
+            if score < 0.25:
                 score = min(score, 0.25)
 
     red = online.get("redir")

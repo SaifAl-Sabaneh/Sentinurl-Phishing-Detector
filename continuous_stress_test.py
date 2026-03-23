@@ -153,8 +153,8 @@ def run_continuous_test(batch_size=200000):
     
     final_probs = np.array(final_probs)
     
-    # Accuracy Metric (Aligned with SUSP_SAFE_MAX = 0.40)
-    THRESHOLD = 0.40
+    # Accuracy Metric (Aligned with SUSP_SAFE_MAX = 0.25)
+    THRESHOLD = 0.25
     caught = int(np.sum(final_probs >= THRESHOLD))
     missed = len(test_payload) - caught
     acc = (caught / len(test_payload)) * 100
