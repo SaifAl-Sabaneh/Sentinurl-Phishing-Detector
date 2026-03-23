@@ -11,9 +11,21 @@ class SentinURL_Report(FPDF):
         super().cell(w, h, self._sanitize(txt), *args, **kwargs)
         
     def multi_cell(self, w, h, txt, *args, **kwargs):
-        # Prevent FPDF "Not enough horizontal space" crash for very long words (e.g., URLs)
-        wrapped_txt = textwrap.fill(self._sanitize(txt), width=90)
-        super().multi_cell(w, h, wrapped_txt, *args, **kwargs)
+        # Dynamically calculate conservative width based on current page width (minus margins)
+        # Standard A4 is ~210mm. 190mm is a safe content area.
+        # Average char width for Helvetica at size 10 is ~2mm.
+        try:
+            effective_width = (self.w - self.l_margin - self.r_margin)
+            chars_per_line = int(effective_width / 2.1) # Conservative estimate
+            wrapped_txt = textwrap.fill(self._sanitize(txt), width=chars_per_line)
+            super().multi_cell(w, h, wrapped_txt, *args, **kwargs)
+        except Exception:
+            # Absolute fallback to prevent dashboard crash
+            try:
+                # If dynamic fails, try a very short wrap
+                super().multi_cell(w, h, textwrap.fill(self._sanitize(txt), width=40), *args, **kwargs)
+            except Exception:
+                pass
 
     def header(self):
         # Logo placeholder or text
