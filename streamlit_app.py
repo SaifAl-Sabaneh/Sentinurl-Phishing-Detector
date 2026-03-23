@@ -105,6 +105,8 @@ def format_engine_name(engine_id):
     return mapping.get(engine_id, engine_id.replace("_", " ").title())
 
 def create_gauge_chart(score):
+    # Determine colors based on Streamlit's base theme if possible, otherwise use safe neutrals
+    # We use a trick to make it look good in both but prioritize the 'SentinURL' dark look
     color = "#2ecc71" # Neon Safe Green
     if score > 75:
         color = "#e74c3c" # Threat Red
@@ -115,13 +117,12 @@ def create_gauge_chart(score):
         mode = "gauge+number",
         value = score,
         domain = {'x': [0, 1], 'y': [0, 1]},
-        title = {'text': "Phishing Risk %", 'font': {'size': 20, 'color': 'white'}},
+        title = {'text': "Phishing Risk %", 'font': {'size': 20}},
         gauge = {
-            'axis': {'range': [None, 100], 'tickwidth': 1, 'tickcolor': "white"},
+            'axis': {'range': [None, 100], 'tickwidth': 1},
             'bar': {'color': color, 'thickness': 0.8},
-            'bgcolor': "rgba(0,0,0,0)",
+            'bgcolor': "rgba(128, 128, 128, 0.1)",
             'borderwidth': 2,
-            'bordercolor': "white",
             'steps': [
                 {'range': [0, 35], 'color': 'rgba(46, 204, 113, 0.2)'},
                 {'range': [35, 75], 'color': 'rgba(243, 156, 18, 0.2)'},
@@ -137,7 +138,11 @@ def create_gauge_chart(score):
     fig.update_layout(
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
-        font={'color': "white", 'family': "Outfit, sans-serif"},
+        # Use template="plotly_dark" by default if not specialized, 
+        # but here we just remove hardcoded font color to let Plotly/Streamlit negotiate
+        # Or better: use a color that is almost always visible like a mid-gray if unsure, 
+        # but Streamlit usually handles 'None' or 'template' well.
+        font={'family': "Outfit, sans-serif"},
         height=320,
         margin=dict(l=30, r=30, t=50, b=20)
     )
