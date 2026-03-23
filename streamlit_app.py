@@ -553,9 +553,17 @@ with tab_scan:
                         if not reasons:
                              st.success("No suspicious indicators found.")
                         else:
+                            # Enhanced coloring logic for better user intuition (XAI)
+                            # We check for positive keywords and the overall status to avoid scary red boxes on safe sites
                             for reason in reasons:
-                                if "Low" in reason or "Safe" in reason or "clean" in reason.lower() or "prevent" in reason.lower():
-                                    st.info(f"ℹ️ {reason}")
+                                r_low = reason.lower()
+                                positive_keywords = ["safe", "clean", "prevent", "valid", "trusted", "verified", "allowlist", "good sign", "low risk"]
+                                
+                                if any(kw in r_low for kw in positive_keywords):
+                                    if "allowlist" in r_low or "safe" in r_low or "verified" in r_low:
+                                        st.success(f"✅ {reason}")
+                                    else:
+                                        st.info(f"ℹ️ {reason}")
                                 else:
                                     st.error(f"⚠️ {reason}")
                         
