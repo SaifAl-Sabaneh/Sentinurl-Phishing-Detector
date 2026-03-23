@@ -105,33 +105,39 @@ def format_engine_name(engine_id):
     return mapping.get(engine_id, engine_id.replace("_", " ").title())
 
 def create_gauge_chart(score):
-    color = "#2ecc71" # Safe Green
-    if score > 85:
-        color = "#e74c3c" # Phishing Red
-    elif score > 15:
+    color = "#2ecc71" # Neon Safe Green
+    if score > 75:
+        color = "#e74c3c" # Threat Red
+    elif score > 35:
         color = "#f39c12" # Warning Orange
         
     fig = go.Figure(go.Indicator(
         mode = "gauge+number",
         value = score,
         domain = {'x': [0, 1], 'y': [0, 1]},
+        title = {'text': "Phishing Risk %", 'font': {'size': 20, 'color': 'white'}},
         gauge = {
-            'axis': {'range': [None, 100], 'tickwidth': 1, 'tickcolor': "darkblue"},
-            'bar': {'color': color, 'thickness': 0.75},
-            'bgcolor': "white",
+            'axis': {'range': [None, 100], 'tickwidth': 1, 'tickcolor': "white"},
+            'bar': {'color': color, 'thickness': 0.8},
+            'bgcolor': "rgba(0,0,0,0)",
             'borderwidth': 2,
-            'bordercolor': "gray",
+            'bordercolor': "white",
             'steps': [
-                {'range': [0, 15], 'color': 'rgba(46, 204, 113, 0.2)'},
-                {'range': [15, 85], 'color': 'rgba(243, 156, 18, 0.2)'},
-                {'range': [85, 100], 'color': 'rgba(231, 76, 60, 0.2)'}
+                {'range': [0, 35], 'color': 'rgba(46, 204, 113, 0.2)'},
+                {'range': [35, 75], 'color': 'rgba(243, 156, 18, 0.2)'},
+                {'range': [75, 100], 'color': 'rgba(231, 76, 60, 0.2)'}
             ],
+            'threshold': {
+                'line': {'color': "red", 'width': 4},
+                'thickness': 0.75,
+                'value': 75}
         }
     ))
     
     fig.update_layout(
         paper_bgcolor="rgba(0,0,0,0)",
-        font={'color': "darkblue", 'family': "Arial", 'size': 16},
+        plot_bgcolor="rgba(0,0,0,0)",
+        font={'color': "white", 'family': "Outfit, sans-serif"},
         height=320,
         margin=dict(l=30, r=30, t=50, b=20)
     )
