@@ -105,67 +105,40 @@ def format_engine_name(engine_id):
     return mapping.get(engine_id, engine_id.replace("_", " ").title())
 
 def create_gauge_chart(score):
-    import plotly.graph_objects as go
+    color = "green"
+    if score > 70:
+        color = "red"
+    elif score > 40:
+        color = "orange"
+        
     fig = go.Figure(go.Indicator(
         mode = "gauge+number",
         value = score,
         domain = {'x': [0, 1], 'y': [0, 1]},
-        title = {'text': "Phishing Risk %", 'font': {'size': 18}},
+        title = {'text': "Phishing Probability", 'font': {'size': 20}},
         gauge = {
-            'axis': {'range': [None, 100], 'tickwidth': 1, 'tickcolor': "darkblue"},
-            'bar': {'color': "#2E86C1"},
-            'bgcolor': "white",
+            'axis': {'range': [None, 100], 'tickwidth': 1},
+            'bar': {'color': color},
+            'bgcolor': "rgba(0,0,0,0)",
             'borderwidth': 2,
-            'bordercolor': "gray",
             'steps': [
-                {'range': [0, 15], 'color': '#D5F5E3'},
-                {'range': [15, 85], 'color': '#FCF3CF'},
-                {'range': [85, 100], 'color': '#FADBD8'}],
+                {'range': [0, 40], 'color': 'rgba(46, 204, 113, 0.3)'},
+                {'range': [40, 70], 'color': 'rgba(243, 156, 18, 0.3)'},
+                {'range': [70, 100], 'color': 'rgba(231, 76, 60, 0.3)'}],
             'threshold': {
                 'line': {'color': "red", 'width': 4},
                 'thickness': 0.75,
-                'value': 92.56}}))
+                'value': 75}
+        }
+    ))
     
-    fig.update_layout(paper_bgcolor = "white", font = {'color': "darkblue", 'family': "Arial"}, height=330)
+    fig.update_layout(
+        paper_bgcolor="rgba(0,0,0,0)",
+        font={'family': "Arial"},
+        height=300,
+        margin=dict(l=20, r=20, t=50, b=20)
+    )
     return fig
-
-def render_neural_flow(verdict, score, reasons, lang):
-    """Generates a Graphviz DOT string for decision visualization."""
-    is_safe = str(verdict).lower() in ["safe", "low risk"]
-    color = "#27AE60" if is_safe else "#C0392B"
-    bg_color = "#D4EFDF" if is_safe else "#FADBD8"
-    
-    node_style = 'node [fontname="Segoe UI, Helvetica", shape=rect, style="filled,rounded", color="#EBF5FB", fillcolor="#EBF5FB", fontsize=10]'
-    
-    # Use localized labels from translations.py
-    flow_steps = [
-        'rankdir=TB',
-        node_style,
-        f'CONF [label="{str(verdict).upper()}\\nRisk: {score}%", shape=doubleoctagon, fillcolor="{bg_color}", color="{color}", penwidth=2]',
-        f'URL [label="{lang.get("flow_input", "Target URL")}", shape=ellipse, fillcolor="#F4F6F7", color="#CCD1D1"]',
-        f'L1 [label="{lang.get("flow_layer_1", "Layer 1")}"]',
-        f'L2 [label="{lang.get("flow_layer_2", "Layer 2")}"]',
-        f'L3 [label="{lang.get("flow_layer_3", "Layer 6")}"]',
-        f'L4 [label="{lang.get("flow_layer_4", "Layer 10")}"]'
-    ]
-    
-    # Logical Connections
-    flow_steps.append('URL -> L1')
-    
-    reasons_str = " ".join(reasons or []).lower()
-    if "allowlist" in reasons_str:
-        flow_steps.append(f'L1 -> CONF [label="{lang.get("flow_match", "Match")}", color="#27AE60", fontcolor="#27AE60", penwidth=2]')
-    else:
-        flow_steps.append(f'L1 -> L2 [label="{lang.get("flow_no_match", "No Match")}"]')
-        
-        if "threat signature" in reasons_str or "database" in reasons_str:
-            flow_steps.append(f'L2 -> CONF [label="{lang.get("flow_known", "Known Threat")}", color="#C0392B", fontcolor="#C0392B", penwidth=2]')
-        else:
-            flow_steps.append(f'L2 -> L3 [label="{lang.get("flow_unknown", "Unknown")}"]')
-            flow_steps.append('L3 -> L4')
-            flow_steps.append(f'L4 -> CONF [label="{lang.get("flow_consensus", "Consensus")}"]')
-            
-    return f"digraph G {{ {'; '.join(flow_steps)} }}"
 
 # --- Sidebar UI ---
 with st.sidebar:
@@ -460,7 +433,7 @@ with tab_scan:
                 
                 try:
                     # ML Engine Calls
-                    label, score_prob, decision_by, reasons, p1, p2, whois_data, geo_info, neural_analysis = predict_ultimate(url_input)
+                    label, score_prob, decision_by, reasons, p1, p2, whois_data, geo_info, _ = predict_ultimate(url_input)
                     extracted_feats = url_features(url_input)  # New Feature 3 logic
                     
                     # Check Local Allowlist
@@ -599,18 +572,7 @@ with tab_scan:
                                 else:
                                     st.error(f"⚠️ {reason}")
                         
-                        # Phase 4 Expansion: Neural Breakdown
-                        if neural_analysis:
-                            with st.expander(lang["neural_breakdown"], expanded=True):
-                                st.write(lang["neural_desc"])
-                                dot_code = render_neural_flow(label, risk_score_percent, reasons, lang)
-                                st.graphviz_chart(dot_code)
-                                
-                                st.markdown("---")
-                                st.write("**Detailed Risk Markers:**")
-                                for marker in neural_analysis:
-                                    risk_color = "🔴" if marker["risk"] == "Critical" else "🟠" if marker["risk"] == "High" else "🟡"
-                                    st.markdown(f"**{risk_color} {marker['factor']}**: {marker['value']}")
+                        # Deep Analysis reasons display (Neural Breakdown removed)
                                     
                     st.markdown("---")
                     st.subheader(lang["deep_dive"])
@@ -692,7 +654,7 @@ with tab_scan:
                     # Export Report (PDF Expansion)
                     st.markdown("---")
                     with st.columns([1, 4])[0]:
-                        pdf_data = generate_pdf_report(url_input, status_str, risk_score_percent, reasons, neural_analysis, domain)
+                        pdf_data = generate_pdf_report(url_input, status_str, risk_score_percent, reasons, domain)
                         st.download_button(
                             label=lang["download_report"],
                             data=pdf_data,
