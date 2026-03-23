@@ -116,6 +116,7 @@ def create_gauge_chart(score):
     fig = go.Figure(go.Indicator(
         mode = "gauge+number",
         value = score,
+        number = {'suffix': "%"},
         domain = {'x': [0, 1], 'y': [0, 1]},
         title = {'text': "Phishing Risk %", 'font': {'size': 20}},
         gauge = {
