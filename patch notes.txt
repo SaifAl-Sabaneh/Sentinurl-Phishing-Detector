@@ -5,7 +5,20 @@ made the streamlit dashboard live and working ( test it with people )
 updated the accuracy on the offline model from 89.1% to 99.14% 
 updated the accuracy on the online model from 98.4% to 99% using the api's 
 we added a continuous learning model so that it keeps learning from every link that is attached to it 
+we added a feature where if a link was phishing and the system detected that it was safe , we added a button in the streamlit dashboard so that the user can add it into the csv file so that the retraining would learn from it the next day so that the model wont miss it or anything like it ever again 
+we added a Model Versioning & Rollback: Every time the AI retrains, we will save the old weights in an archive/ folder. If a retrain ever performs poorly, you can instantly "Rollback" to yesterday's brain with one click.
+we added a Crash-Proof Sanitization: We will wrap the core engine in a safety layer. If someone submits a "toxic" or malformed URL that would normally crash a Python string-parser, the engine will handle it gracefully and return "Suspicious" instead of crashing.
+The "Unblock" Feedback Loop: Just as we have a "Report Phishing" button, I'll add a "This is actually Safe" button. This creates a Local Allowlist that overrides the AI, letting you protect your own favorite websites immediately if the AI makes a mistake.
+we added a portable python code so that when the project is moved from one computer to another, running the code will make sure that all files will run perfectly and smoothly 
+we added a full English / Arabic translation engine
+The Quishing Analysis feature is now live and fully integrated!
 
+What I added:
+
+OpenCV Hardware-Free Engine: Installed opencv-python-headless instead of traditional desktop libraries. This ensures it extracts URLs from QR images instantly without requiring local runtime installations.
+QR Analyzer Tab: A stunning dedicated tab where users can upload a QR image (PNG, JPG).
+Automatic Transfer Pipeline: The UI extracts the raw payload, validates it, and provides a "Deep Analyze Extracted URL" button. Pressing this instantly pipes the hidden URL straight into the SentinURL Machine Learning engine for a final verdict.
+Full Localization: The entire feature is natively translated to both English and Arabic.
 
 " Challenges we faced " 
 we faced an issue that when a phishing link had and edu or gov in the url the model would flag it as safe when its phishing 

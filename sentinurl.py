@@ -805,7 +805,7 @@ if __name__ == "__main__":
                 
                 # Run ultimate prediction
                 t0 = time.perf_counter()
-                lbl, p, src, reasons, p1, p2, whois_data, online = predict_ultimate(u)
+                lbl, p, src, reasons, p1, p2, whois_data, geo_info, neural_analysis = predict_ultimate(u)
                 elapsed_ms = (time.perf_counter() - t0) * 1000
                 
                 # Update statistics

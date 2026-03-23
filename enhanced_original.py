@@ -647,7 +647,7 @@ BASE_ALLOW = {
     "paypal.com", "wikipedia.org", "bbc.com", "cnn.com", "nytimes.com",
     "facebook.com", "instagram.com", "twitter.com", "linkedin.com",
     "reddit.com", "example.com", "example.org", "example.net",
-    "gamersfirst.com", "popcornmovies.org",
+    "gamersfirst.com", "popcornmovies.org", "steampowered.com", "steamcommunity.com",
     # Financial services
     "americanexpress.com", "visa.com", "mastercard.com",
     "chase.com", "wellsfargo.com", "bankofamerica.com", "citibank.com",
@@ -729,7 +729,13 @@ def url_features(url: str) -> dict:
         p = safe_urlparse(normalize_url(decoded))
         host_raw = (p.netloc or "").lower()
         path = p.path or ""
-        query = p.query or ""
+        
+        # CLEANUP: Remove common ad-tracking parameters that spike entropy (gclid, gad_source, etc.)
+        query_raw = p.query or ""
+        query_clean = re.sub(r"(gclid|gad_source|gad|gclsrc|utm_source|utm_medium|utm_campaign)=[^&]+", "", query_raw)
+        query_clean = query_clean.strip("&")
+        
+        query = query_clean
         host_no_port = host_raw.split(":")[0] if host_raw else ""
         port_present = 1 if (host_raw and ":" in host_raw) else 0
 
