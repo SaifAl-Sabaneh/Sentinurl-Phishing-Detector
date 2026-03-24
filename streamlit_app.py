@@ -519,7 +519,7 @@ with tab_scan:
                     # False Positive Override Button (Visible if not Safe and not already Whitelisted)
                     if (is_phishing or is_suspicious) and not local_safe:
                         st.markdown(" ")
-                        if st.button(f"🛡️ This is actually Safe (Mark as False Positive)", help="This will add the domain to your local allowlist and override the AI verdict."):
+                        if st.button(f"🛡️ This is actually Safe", help="This will add the domain to your local allowlist and override the AI verdict."):
                             add_to_allowlist(domain)
                             st.success(f"Domain '{domain}' added to local allowlist. Re-scan to see the update!")
                             st.rerun()
