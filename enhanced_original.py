@@ -653,7 +653,7 @@ BASE_ALLOW = {
     "chase.com", "wellsfargo.com", "bankofamerica.com", "citibank.com",
     # Streaming & Communication
     "netflix.com", "zoom.us", "spotify.com", "slack.com", "discord.com",
-    "twitch.tv", "hulu.com", "disney.com", "disneyplus.com",
+    "twitch.tv", "hulu.com", "disney.com", "disneyplus.com", "streamlit.app",
     # E-commerce
     "ebay.com", "walmart.com", "target.com", "bestbuy.com", "etsy.com",
     # Tech companies
