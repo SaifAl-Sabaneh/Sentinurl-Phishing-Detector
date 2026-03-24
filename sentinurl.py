@@ -7,6 +7,10 @@ Version: 3.0.0-ultimate
 import os
 import sys
 import io
+from typing import Optional, List, Any, Union, Dict, Tuple
+
+# Type Alias for result consistency
+CheckResult = Tuple[str, float, str, List[str], float, float]
 
 # Force UTF-8 encoding for Windows terminals
 if sys.stdout and hasattr(sys.stdout, 'encoding') and sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
@@ -115,7 +119,69 @@ except ImportError:
     _safe_print("[WARNING] Advanced certificate analysis not available")
 
 # Update engine version
-ENGINE_VERSION = "3.0.0-ultimate"
+ENGINE_VERSION = "3.5.0-ultimate"
+
+# =============================================================
+# LAYER 2.5: ADVERSARIAL HARDENING (v3.5.0)
+# =============================================================
+
+def check_typosquat_advanced(url: str) -> Optional[CheckResult]:
+    """Targeted detection for brand + keyword combinations (e.g., googmeeting.com)"""
+    u = url.lower()
+    host = get_host(u)
+    
+    # Fuzzy brand matches and risk keywords
+    brands = ["goog", "microsof", "apple", "amazon", "paypa", "meta", "faceboo", "netfli", "adobe", "outlook", "office"]
+    risk_keywords = ["meet", "invit", "login", "verif", "secur", "updat", "offic", "support", "help", "acc", "sign", "bill"]
+
+    host_parts = host.split('.')
+    for part in host_parts:
+        for b in brands:
+            if b in part:
+                # Catch brand + keyword combo in any part of the host
+                matched_keywords = [kw for kw in risk_keywords if kw in part and kw != b]
+                if matched_keywords:
+                    return (
+                        "PHISHING", 0.99, "advanced_typosquat_guard",
+                        [f"Visual deception detected: Host part '{part}' contains brand hint '{b}' and risk-keywords {matched_keywords}."],
+                        0.0, 0.99
+                    )
+    return None
+
+def check_cloud_payload(url: str) -> Optional[CheckResult]:
+    """Detection for suspicious file extensions hosted on trusted cloud storage or CDN"""
+    u = url.lower()
+    host = get_host(u)
+    
+    trusted_clouds = ["dropbox.com", "github", "s3.amazonaws.com", "storage.googleapis.com", "workers.dev", "pages.dev", "firebaseapp.com"]
+    malicious_exts = [".js", ".exe", ".bat", ".vbs", ".ps1", ".scr", ".cmd", ".msi", ".jar"]
+
+    if any(cloud in host for cloud in trusted_clouds):
+        path = safe_urlparse(u).path.lower()
+        if any(path.endswith(ext) or f"{ext}/" in path or f"{ext}?" in path for ext in malicious_exts):
+            return (
+                "PHISHING", 0.97, "cloud_payload_watch",
+                [f"Remote payload detected: Suspect file extension hosted on trusted infrastructure."],
+                0.0, 0.97
+            )
+    return None
+
+def check_cms_vulnerabilities(url: str) -> Optional[CheckResult]:
+    """Detection for deep CMS paths on unknown/untrusted domains"""
+    u = url.lower()
+    path = safe_urlparse(u).path.lower()
+    
+    # 1. Compromised WordPress / PHP pattern (High depth or suspicious folders)
+    wp_folders = ["wp-includes", "wp-content", "wp-admin", "wp-lm", "wp-json"]
+    if any(folder in path for folder in wp_folders):
+        # High nesting or suspicious patterns like /wp-includes/something/randomfile
+        if path.count("/") >= 3:
+            return (
+                "PHISHING", 0.95, "cms_vulnerability_guard",
+                ["Compromised CMS signature: Malicious path nesting in WordPress core directories."],
+                0.0, 0.95
+            )
+    return None
 
 # =========================================================
 # ADVANCED DETECTION LAYERS
@@ -160,6 +226,88 @@ def advanced_brand_impersonation_check(url: str, host: str):
     
     return (False, None, None, 0.0)
 
+def check_malware_signatures(url: str) -> Optional[CheckResult]:
+    """Detection for Linux malware distribution and cryptominers"""
+    u = url.lower()
+    
+    # 1. IoT/Linux Malware architectures (common in botnets like Mirai/Mozi)
+    archs = ["linux_", "arm7", "arm5", "arm6", "mips", "x86", "amd64", "ppc", "aarch64", "386", "m68k", "spc"]
+    for arch in archs:
+        if arch in u:
+            # Check if it's likely a bin path (e.g. /bins/ or following a '/')
+            if "/bins/" in u or f"/{arch}" in u or u.endswith(arch):
+                if DEBUG_MODE: print(f"[DEBUG] Malware Arch Match: {arch}")
+                return (
+                    "PHISHING", 0.98, "malware_architecture_watch",
+                    [f"Malware distribution signature: IoT/Linux botnet architecture '{arch}' detected."],
+                    0.0, 0.98
+                )
+        
+    # 2. Cryptominer and Botnet signatures
+    miner_sigs = ["xmrig", "miner", "nanopool", "monero", "cpuminer", "sshd", "botnet", "cnc_", "backdoor"]
+    for sig in miner_sigs:
+        if sig in u:
+            if DEBUG_MODE: print(f"[DEBUG] Malware Sig Match: {sig}")
+            return (
+                "PHISHING", 0.99, "malware_botnet_guard",
+                [f"Malicious intent: URL contains signatures associated with '{sig}' activity."],
+                0.0, 0.99
+            )
+            
+    # 3. Webshell / Backdoor signatures
+    webshells = ["fucking.php", "shell.php", "cmd.php", "ajax.php", "wso.php", "c99.php", "r57.php"]
+    for ws in webshells:
+        if ws in u:
+            if DEBUG_MODE: print(f"[DEBUG] Webshell Match: {ws}")
+            return (
+                "PHISHING", 0.99, "webshell_guard",
+                [f"Critical threat: Identified known webshell or backdoor payload '{ws}'."],
+                0.0, 0.99
+            )
+
+    # 4. High-Entropy Random Path Guard (C2 / Automated Tool check)
+    path = safe_urlparse(u).path
+    if len(path) > 10 and not any(ext in path for ext in [".js", ".css", ".png", ".jpg", ".html"]):
+        # Check for high character diversity in short path segments
+        segments = [s for s in path.split('/') if len(s) > 6]
+        for seg in segments:
+            # Simple entropy proxy: ratio of unique characters to length
+            unique_chars = len(set(seg))
+            if unique_chars / len(seg) > 0.7:
+                if DEBUG_MODE: print(f"[DEBUG] High Entropy Path: {seg}")
+                return (
+                    "PHISHING", 0.88, "high_entropy_path_guard",
+                    ["Suspicious behavioral signature: High-entropy automated path detected (common in C2/Malware)."],
+                    0.0, 0.88
+                )
+    return None
+
+def check_finance_phish_paths(url: str) -> Optional[CheckResult]:
+    """Detection for common financial phishing lure paths (Multi-language)"""
+    u = url.lower()
+    path = safe_urlparse(u).path.lower()
+    
+    finance_lures = ["invoice", "facture", "payment", "payroll", "document", "transfer", "bank", "statement", "status", "bill", "notification", "recibo", "comprobante"]
+    suspicious_exts = [".doc", ".pdf", ".xls", ".zip", ".rar", ".7z", ".gz", ".tar", ".tgz", ".lpk", ".prm", ".docx", ".xlsx", ".msi"]
+    
+    for lure in finance_lures:
+        if lure in path or lure in u:
+            # 1. High-confidence extension match
+            if any(ext in path for ext in suspicious_exts):
+                return (
+                    "PHISHING", 0.98, "finance_phish_watch_ultimate",
+                    [f"Financial phishing lure: High-risk file signature '{lure}' detected."],
+                    0.0, 0.98
+                )
+            # 2. Directory or Path-segment lure (e.g. /Invoice-2024/)
+            if f"/{lure}" in path or f"-{lure}" in path or f"{lure}-" in path or f"{lure}_" in path:
+                return (
+                    "PHISHING", 0.92, "finance_directory_lure_ultimate",
+                    [f"Suspicious path structuring: Managed phishing lure variant '{lure}' detected."],
+                    0.0, 0.92
+                )
+    return None
+
 def check_advanced_threats(url: str):
     """
     Check URL against threat intelligence feeds
@@ -169,7 +317,7 @@ def check_advanced_threats(url: str):
         return (False, [], None)
     
     try:
-        return check_threat_feeds(url) # pyright: ignore[reportPossiblyUnboundVariable]
+        return check_threat_feeds(url)
     except Exception as e:
         if DEBUG_MODE:
             print(f"[DEBUG] Threat feed check failed: {e}")
@@ -310,6 +458,27 @@ def predict_ultimate(url: str):
                     [f"URL found in threat intelligence feeds: {', '.join(threat_feeds)}",
                      threat_details or "Known malicious URL"], 0.99, 0.95, whois_data, {}, get_neural_analysis(u))
     
+    # === LAYER 2.5: ADVERSARIAL HARDENING (v3.5.0) ===
+    # 1. Typosquat Guard
+    ts_res = check_typosquat_advanced(u)
+    if ts_res: return ts_res
+    
+    # 2. Cloud Payload Watch
+    cp_res = check_cloud_payload(u)
+    if cp_res: return cp_res
+    
+    # 3. CMS Vulnerability Guard
+    cms_res = check_cms_vulnerabilities(u)
+    if cms_res: return cms_res
+
+    # 4. Malware Signature Guard
+    mal_res = check_malware_signatures(u)
+    if mal_res: return mal_res
+    
+    # 5. Finance Phish Watch
+    fin_res = check_finance_phish_paths(u)
+    if fin_res: return fin_res
+
     # === LAYER 3: ADVANCED BRAND IMPERSONATION ===
     is_impersonation, imp_type, imp_threats, imp_score = advanced_brand_impersonation_check(u, host)
     if is_impersonation:

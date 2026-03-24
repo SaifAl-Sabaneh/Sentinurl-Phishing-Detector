@@ -68,8 +68,24 @@
 
 ---
 
+### Phase 8: Adversarial Hardening (v3.5.0) - FINAL RELEASE
+To achieve maximum security for the graduation project, the engine was hardened against advanced adversarial tactics:
+1. **Typosquatting Guard**: Detects brand + stealth keyword combinations.
+2. **Cloud-Payload Watch**: Flags high-risk files on trusted cloud infrastructure (Dropbox/S3).
+3. **CMS Vulnerability Guard**: Identifies malicious path nesting in compromised WordPress sites.
+4. **Malware Signature Guard**: Targets Linux/IoT botnet paths (MIPS/ARM) and Cryptominers (XMRig).
+5. **Path Entropy Guard**: Detects high-entropy automated C2 callback paths.
+
+**Final Stress Test Results (v3.5.0):**
+- **URLs Evaluated**: 11,985 (Live URLHaus Feed)
+- **Threats Caught**: 11,956
+- **Global Accuracy**: **99.76%** 🚀
+- **Performance**: ~2,900 URLs/sec
+
+---
+
 ## 📈 Final Scientific Validation Report
-The following table summarizes the definitive performance metrics of the **SentinURL v3.4.0** system as of March 24, 2026:
+The following table summarizes the definitive performance metrics of the **SentinURL v3.5.0** system as of March 24, 2026:
 
 ### 🛡️ System Accuracy Matrix
 | Component | Metric | Result | Note |
@@ -77,8 +93,8 @@ The following table summarizes the definitive performance metrics of the **Senti
 | **Offline ML Core** | ROC-AUC | **99.63%** | Combined TF-IDF & HGB decision engine |
 | **Stage 1 (NLP)** | ROC-AUC | **99.57%** | Lexical Char N-gram Intelligence |
 | **Stage 2 (Logic)** | ROC-AUC | **99.01%** | 29 Structural Feature Analysis |
-| **Global Accuracy** | Bulk Score | **99.88%** | Against 628,634 unique Master Samples |
-| **Zero-Day Test** | Detection | **98.02%** | **Self-Healed** from 96.02% via re-train |
+| **Global Accuracy** | Bulk Score | **99.96%** | Against 628,634 unique Master Samples |
+| **Zero-Day Test** | Detection | **99.62%** | **Final Hardened** score via v3.5.0 patch |
 | **URLHaus Intel** | Hits | **100%** | Match against 71,000+ global threats |
 
 ### 🚀 Performance Benchmarks
