@@ -505,12 +505,6 @@ with tab_scan:
                             <div style="font-size: 1.2rem; opacity: 0.9;">{lang['susp_desc']}</div>
                         </div>
                         """, unsafe_allow_html=True)
-                        
-                        if not local_safe:
-                            if st.button(f"🛡️ This is actually Safe (Mark as False Positive)", help="This will add the domain to your local allowlist and override the AI verdict."):
-                                add_to_allowlist(domain)
-                                st.success(f"Domain '{domain}' added to local allowlist. Re-scan to see the update!")
-                                st.rerun()
                     else:
                         st.markdown(f"""
                         <div class="result-box-safe">
@@ -521,6 +515,14 @@ with tab_scan:
                         if lottie_safe:
                             with st.columns([1,2,1])[1]:
                                  st_lottie(lottie_safe, height=150, key="safe_anim")
+
+                    # False Positive Override Button (Visible if not Safe and not already Whitelisted)
+                    if (is_phishing or is_suspicious) and not local_safe:
+                        st.markdown(" ")
+                        if st.button(f"🛡️ This is actually Safe (Mark as False Positive)", help="This will add the domain to your local allowlist and override the AI verdict."):
+                            add_to_allowlist(domain)
+                            st.success(f"Domain '{domain}' added to local allowlist. Re-scan to see the update!")
+                            st.rerun()
 
                     mcol1, mcol2, mcol3, mcol4 = st.columns(4)
                     
