@@ -5,11 +5,12 @@
 ---
 
 ## 🚀 Key Highlights & Performance
-*   **🏆 99.88% Global Accuracy:** Validated against a massive core dataset of **629,000+ unique URLs**.
+*   **🏆 99.88% Global Accuracy:** Validated via **5-Fold Stratified Cross-Validation** against a massive core dataset of **629,000+ unique URLs**.
 *   **🧬 98.02% Zero-Day Detection:** Exceptional performance on live, unseen malware (Post-Adversarial Hardening).
 *   **🧠 Neural Explainability:** Real-time mathematical breakdown of *why* a URL was flagged (Idea #1).
 *   **🛡️ Honeypot Logic:** Proactive age-based tracking to detect "Baby Domains" before they strike.
 *   **🔄 Dynamic Learning:** An automated retraining loop ("Golden Gate") that immunizes the system against missed threats.
+*   **🎯 v3.4.0 Intelligence:** Now integrated with **URLHaus Live Feeds** for instant malware-path blocking.
 
 ---
 
@@ -27,8 +28,9 @@ SentinURL doesn't just look for keywords; it understands the "DNA" of a URL usin
 ---
 
 ## 🛡️ Multi-Layered Protection Strategy
-SentinURL employs **11 Active Protection Layers**:
+SentinURL employs **12 Active Protection Layers**:
 *   **Allowlisting:** Trusted domain priorities (including Jordanian Institutional support).
+*   **URLHaus Intelligence Layer:** Real-time global malware feed integration (v3.4.0).
 *   **Threat Intelligence:** Integrated live feeds for known malware signatures.
 *   **Neural Analysis:** Real-time structural and intentional risk markers.
 *   **Visual Similarity (Typosquatting):** Detects "brand-lookalike" domains.

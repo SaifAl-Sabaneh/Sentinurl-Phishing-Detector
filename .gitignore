@@ -34,3 +34,10 @@ tested.csv
 
 # Security
 Google API Key.txt
+
+# Threat Cache
+urlhaus_cache.txt
+stage2/urlhaus_cache.txt
+
+# Model Archives (Heavy binary files)
+models/archive/
