@@ -10,7 +10,7 @@ from urllib.request import urlretrieve
 from concurrent.futures import ThreadPoolExecutor
 
 warnings.filterwarnings('ignore')
-sys.path.append('.')
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from enhanced_original import url_features, fuse_evidence, get_host, safe_urlparse
 from sentinurl import (
     check_typosquat_advanced, check_cloud_payload, 
@@ -29,10 +29,13 @@ def fetch_urlhaus():
     try:
         urlretrieve(urlhaus_csv, local_file)
         df = pd.read_csv(local_file, skiprows=8, quotechar='"')
-        urls = df.iloc[:, 2].dropna().tolist()
+        # Drop rows missing URL or Date
+        df = df.dropna(subset=[df.columns[1], df.columns[2]])
+        # Return list of tuples: (url, dateadded)
+        urls_dates = list(zip(df.iloc[:, 2], df.iloc[:, 1]))
         if os.path.exists(local_file):
             os.remove(local_file)
-        return urls
+        return urls_dates
     except Exception:
         return []
 
@@ -88,7 +91,7 @@ def generate_reason(url, s1_prob, s2_prob, final_prob, threshold=0.25):
 # ==========================================
 # 3. CORE EXECUTION ENGINE
 # ==========================================
-def run_continuous_test(batch_size=200000):
+def run_continuous_test(batch_size=50000):
     print("\n" + "="*60)
     print(f" SENTINURL CONTINUOUS NEURAL STRESS TEST ({batch_size} URLs)")
     print("="*60)
@@ -96,27 +99,30 @@ def run_continuous_test(batch_size=200000):
     # Load Models
     print("[*] Booting Stage 1 & Stage 2 Mathematical Arrays...")
     try:
-        tfidf = joblib.load("stage1/tfidf.joblib")
-        logreg = joblib.load("stage1/calibrated_logreg.joblib")
-        s2_model = joblib.load("stage2/stage2_hgb.joblib")
-        s2_cols = joblib.load("stage2/stage2_feature_columns.joblib")
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        tfidf = joblib.load(os.path.join(current_dir, "stage1/tfidf.joblib"))
+        logreg = joblib.load(os.path.join(current_dir, "stage1/calibrated_logreg.joblib"))
+        s2_model = joblib.load(os.path.join(current_dir, "stage2/stage2_hgb.joblib"))
+        s2_cols = joblib.load(os.path.join(current_dir, "stage2/stage2_feature_columns.joblib"))
     except Exception as e:
         print(f"[!] Critical Error loading models: {e}")
         return
 
     # Generate Payload
     print(f"[*] Fetching live malware data from URLHaus (100% Live Mode)...")
-    live_urls = fetch_urlhaus()
+    live_data = fetch_urlhaus()
     
-    if not live_urls:
+    if not live_data:
         print("[!] No live URLs found in URLHaus feed. Aborting test.")
         return
 
     # Respect batch size limit
-    num_to_test = min(len(live_urls), batch_size)
-    test_payload = random.sample(live_urls, num_to_test)
+    num_to_test = min(len(live_data), batch_size)
+    test_payload_data = random.sample(live_data, num_to_test)
+    test_payload = [item[0] for item in test_payload_data]
+    test_dates = [str(item[1]) for item in test_payload_data]
     
-    print(f"    - Live Academic Malware Found: {len(live_urls):,}")
+    print(f"    - Live Academic Malware Found: {len(live_data):,}")
     print(f"    - Selected for this Batch    : {len(test_payload):,}")
     print(f"    - Mode                       : LIVE ONLY")
     
@@ -190,20 +196,22 @@ def run_continuous_test(batch_size=200000):
     print("[*] Compiling results into CSV...")
     run_timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
     rows = []
-    for url, s1p, s2p, fp in zip(test_payload, s1_probs, s2_probs, final_probs):
+    for url, dateadded, s1p, s2p, fp in zip(test_payload, test_dates, s1_probs, s2_probs, final_probs):
         label = "Phishing" if fp >= THRESHOLD else "Safe"
         reason = generate_reason(url, float(s1p), float(s2p), float(fp), THRESHOLD)
         rows.append({
+            "Real_Threat_Timestamp": dateadded,
             "Run_Timestamp": run_timestamp,
             "URL": url,
             "Classification": label,
-            "Confidence_Score": f"{float(fp)*100:.2f}%",
-            "Stage1_Text_Score": f"{float(s1p)*100:.2f}%",
-            "Stage2_Structure_Score": f"{float(s2p)*100:.2f}%",
+            "Confidence_Score (%)": round(float(fp) * 100, 2),
+            "Stage1_Text_Score (%)": round(float(s1p) * 100, 2),
+            "Stage2_Structure_Score (%)": round(float(s2p) * 100, 2),
             "Reason": reason,
         })
 
-    csv_path = "stress_test_results.csv"
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    csv_path = os.path.join(current_dir, "stress_test_results.csv")
     results_df = pd.DataFrame(rows)
     file_exists = os.path.exists(csv_path)
     results_df.to_csv(csv_path, mode="a", index=False, header=not file_exists, encoding="utf-8-sig")
