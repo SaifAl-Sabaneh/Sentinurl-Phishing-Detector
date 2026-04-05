@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentinURL Extension</title>
+    <link rel="stylesheet" href="popup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🛡️ SentinURL</div>
+            <div class="status-badge" id="status-badge">Scanning...</div>
+        </header>
+
+        <section class="main-card" id="main-card">
+            <h1 id="domain-name">Loading...</h1>
+            <div class="risk-circle" id="risk-circle">
+                <span id="risk-score">--%</span>
+                <p>RISK</p>
+            </div>
+        </section>
+
+        <section class="details">
+            <h3>Engine Analysis</h3>
+            <ul id="analysis-list">
+                <li>Waiting for API response...</li>
+            </ul>
+            
+            <div class="metrics">
+                <div class="metric">
+                    <span class="label">Stage 1 ML</span>
+                    <span class="val" id="ml1-val">--</span>
+                </div>
+                <div class="metric">
+                    <span class="label">Stage 2 ML</span>
+                    <span class="val" id="ml2-val">--</span>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <button id="rescan-btn">Scan Current Page</button>
+        </footer>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
