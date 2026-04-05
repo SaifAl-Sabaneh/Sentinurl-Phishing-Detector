@@ -459,24 +459,30 @@ def predict_ultimate(url: str):
                      threat_details or "Known malicious URL"], 0.99, 0.95, whois_data, {}, get_neural_analysis(u))
     
     # === LAYER 2.5: ADVERSARIAL HARDENING (v3.5.0) ===
+    def _pad_l25(res):
+        if res:
+            lbl, sc, src, rsn, p1x, p2x = res
+            return (lbl, sc, src, rsn, p1x, p2x, whois_data, {}, get_neural_analysis(u))
+        return None
+
     # 1. Typosquat Guard
-    ts_res = check_typosquat_advanced(u)
+    ts_res = _pad_l25(check_typosquat_advanced(u))
     if ts_res: return ts_res
     
     # 2. Cloud Payload Watch
-    cp_res = check_cloud_payload(u)
+    cp_res = _pad_l25(check_cloud_payload(u))
     if cp_res: return cp_res
     
     # 3. CMS Vulnerability Guard
-    cms_res = check_cms_vulnerabilities(u)
+    cms_res = _pad_l25(check_cms_vulnerabilities(u))
     if cms_res: return cms_res
 
     # 4. Malware Signature Guard
-    mal_res = check_malware_signatures(u)
+    mal_res = _pad_l25(check_malware_signatures(u))
     if mal_res: return mal_res
     
     # 5. Finance Phish Watch
-    fin_res = check_finance_phish_paths(u)
+    fin_res = _pad_l25(check_finance_phish_paths(u))
     if fin_res: return fin_res
 
     # === LAYER 3: ADVANCED BRAND IMPERSONATION ===
