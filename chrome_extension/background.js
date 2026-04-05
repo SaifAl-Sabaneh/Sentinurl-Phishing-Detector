@@ -13,6 +13,10 @@ chrome.webNavigation.onBeforeNavigate.addListener(async (details) => {
     // Ignore chrome:// or internal extensions
     if (!url.startsWith('http')) return;
 
+    // Immediately set a loading badge
+    chrome.action.setBadgeText({ text: "...", tabId: details.tabId });
+    chrome.action.setBadgeBackgroundColor({ color: "#aaaaaa", tabId: details.tabId });
+
     try {
         console.log(`SentinURL intercepted: ${url}`);
         
@@ -63,15 +67,7 @@ chrome.webNavigation.onBeforeNavigate.addListener(async (details) => {
     }
 });
 
-// Clean up storage and reset badges when a tab is closed
+// Clean up storage when a tab is closed
 chrome.tabs.onRemoved.addListener((tabId) => {
     chrome.storage.local.remove("status_" + tabId);
-});
-
-// Clear badge when navigating away occasionally (keeps UI clean)
-chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
-    if (changeInfo.status === 'loading') {
-        chrome.action.setBadgeText({ text: "...", tabId: tabId });
-        chrome.action.setBadgeBackgroundColor({ color: "#aaaaaa", tabId: tabId });
-    }
 });
