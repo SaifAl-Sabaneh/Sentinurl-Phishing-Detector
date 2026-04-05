@@ -3,6 +3,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         createBlockOverlay(request.riskData);
     } else if (request.action === "show_safe") {
         showSafeToast(request.riskData);
+    } else if (request.action === "show_bypassed") {
+        showBypassToast(request.riskData);
     }
 });
 
@@ -42,6 +44,43 @@ function showSafeToast(riskData) {
         toast.style.right = "-400px";
         setTimeout(() => toast.remove(), 600);
     }, 3500);
+}
+
+function showBypassToast(riskData) {
+    if (document.getElementById("sentinurl-bypass-toast")) return;
+
+    const toast = document.createElement("div");
+    toast.id = "sentinurl-bypass-toast";
+    
+    // Smooth modern glassmorphism UI - ORANGE WARNING
+    toast.style.cssText = `
+        position: fixed; top: 20px; right: -400px; width: 320px;
+        background: rgba(13, 17, 23, 0.9); backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 152, 0, 0.5); border-left: 4px solid #ff9800;
+        color: white; font-family: 'Segoe UI', system-ui, sans-serif;
+        padding: 15px 20px; border-radius: 8px; z-index: 999999999;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        transition: right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: flex; align-items: center; gap: 15px;
+    `;
+
+    toast.innerHTML = `
+        <div style="font-size: 24px;">⚠️</div>
+        <div>
+            <div style="font-weight: bold; font-size: 14px; margin-bottom: 2px; color: #ff9800;">SentinURL Bypass Active</div>
+            <div style="font-size: 12px; color: #8b949e;">You are browsing a dangerous page.</div>
+        </div>
+    `;
+
+    document.documentElement.appendChild(toast);
+
+    setTimeout(() => { toast.style.right = "20px"; }, 100);
+
+    // Bypassed tag stays on screen longer (5.5 seconds) to remind them of the risk
+    setTimeout(() => {
+        toast.style.right = "-400px";
+        setTimeout(() => toast.remove(), 600);
+    }, 5500);
 }
 
 function createBlockOverlay(riskData) {
@@ -98,6 +137,8 @@ function createBlockOverlay(riskData) {
     });
 
     document.getElementById("sentinurl-proceed-button").addEventListener("click", () => {
-        alert("This feature is disabled for your safety during the defense demo!");
+        // Send a message to background.js to whitelist this domain, then automatically reload
+        document.getElementById("sentinurl-proceed-button").innerText = "Bypassing... Please wait.";
+        chrome.runtime.sendMessage({ action: "allow_bypass", url: window.location.href });
     });
 }
