@@ -1,5 +1,5 @@
 // CHANGE THIS to your deployed URL when moving to production!
-const API_URL = "http://localhost:8000/scan";
+const API_URL = "http://localhost:8345/scan";
 
 // Keep track of scanned URLs to avoid re-scanning on every internal navigation
 const scanCache = {};

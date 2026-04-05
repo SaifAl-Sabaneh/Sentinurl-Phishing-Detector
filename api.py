@@ -57,4 +57,4 @@ async def scan_url(request: URLRequest):
 if __name__ == "__main__":
     import uvicorn
     # Start the server locally on port 8000
-    uvicorn.run("api:app", host="0.0.0.0", port=8000, reload=False)
+    uvicorn.run("api:app", host="0.0.0.0", port=8345, reload=False)

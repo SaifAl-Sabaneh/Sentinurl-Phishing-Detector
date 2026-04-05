@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
     // CHANGE THIS to your deployed URL when moving to production!
-    const API_URL = "http://localhost:8000/scan";
+    const API_URL = "http://localhost:8345/scan";
 
     const domainTitle = document.getElementById('domain-name');
     const badge = document.getElementById('status-badge');
@@ -27,29 +27,33 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Try getting cached result first
         chrome.storage.local.get(["status_" + tab.id], async (res) => {
-            let riskData;
-            
-            if (res["status_" + tab.id]) {
-                riskData = res["status_" + tab.id].riskData;
-                updateUI(riskData);
-            } else {
-                // If not cached, fetch it
-                domainTitle.innerText = url.hostname + "\n(Loading...)";
-                const response = await fetch(API_URL, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ url: tab.url })
-                });
-                const data = await response.json();
-                updateUI(data.data);
+            try {
+                let riskData;
+                
+                if (res["status_" + tab.id]) {
+                    riskData = res["status_" + tab.id].riskData;
+                    updateUI(riskData);
+                } else {
+                    // If not cached, fetch it
+                    domainTitle.innerText = url.hostname + "\n(Loading...)";
+                    const response = await fetch(API_URL, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ url: tab.url })
+                    });
+                    const data = await response.json();
+                    updateUI(data.data);
+                }
+            } catch (err) {
+                console.error(err);
+                domainTitle.innerText = "SentinURL API Offline";
+                badge.innerText = "ERROR";
+                reasonsList.innerHTML = `<li>Ensure your local API is running on localhost:8000</li>`;
             }
         });
 
     } catch (err) {
-        console.error(err);
-        domainTitle.innerText = "SentinURL API Offline";
-        badge.innerText = "ERROR";
-        reasonsList.innerHTML = `<li>Ensure your local API is running on localhost:8000</li>`;
+        console.error("Tab query failed:", err);
     }
 
     function updateUI(data) {
