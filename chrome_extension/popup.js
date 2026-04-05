@@ -77,6 +77,36 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
+    // Manual Input Scan button
+    document.getElementById('manual-scan-btn').addEventListener('click', async () => {
+        const manualInput = document.getElementById('manual-url').value.trim();
+        if (!manualInput) return;
+        
+        let targetUrl = manualInput;
+        if (!targetUrl.startsWith('http://') && !targetUrl.startsWith('https://')) {
+            targetUrl = 'http://' + targetUrl;
+        }
+
+        try {
+            const parsedUrl = new URL(targetUrl);
+            domainTitle.innerText = parsedUrl.hostname + "\n(Loading...)";
+            reasonsList.innerHTML = "<li>Scanning custom URL via Engine...</li>";
+            
+            const response = await fetch(API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ url: targetUrl })
+            });
+            const data = await response.json();
+            updateUI(data.data);
+        } catch(err) {
+            console.error(err);
+            domainTitle.innerText = "Scan Failed";
+            badge.innerText = "ERROR";
+            reasonsList.innerHTML = `<li>Invalid URL or API Offline.</li>`;
+        }
+    });
+
     // Manual Scan button
     document.getElementById('rescan-btn').addEventListener('click', () => {
         domainTitle.innerText = "Re-scanning...";

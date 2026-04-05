@@ -41,7 +41,11 @@
         </section>
 
         <footer>
-            <button id="rescan-btn">Scan Current Page</button>
+            <div class="manual-scan">
+                <input type="text" id="manual-url" placeholder="Paste link before visiting..." autocomplete="off">
+                <button id="manual-scan-btn">Scan Link</button>
+            </div>
+            <button id="rescan-btn" class="secondary-btn">Scan Current Page</button>
         </footer>
     </div>
     <script src="popup.js"></script>
