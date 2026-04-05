@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    // CHANGE THIS to your deployed URL when moving to production!
-    const API_URL = "http://localhost:8345/scan";
+    // Production Deployed URL
+    const API_URL = "https://sentinurl-phishing-detector.onrender.com/scan";
 
     const domainTitle = document.getElementById('domain-name');
     const badge = document.getElementById('status-badge');
