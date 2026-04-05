@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function updateUI(data) {
-        domainTitle.innerText = new URL(data.url || document.getElementById('domain-name').innerText.replace('\n(Loading...)','')).hostname;
+        domainTitle.innerText = document.getElementById('domain-name').innerText.replace('\n(Loading...)', '');
         
         const scorePct = Math.round(data.score * 100);
         scoreText.innerText = scorePct + "%";
