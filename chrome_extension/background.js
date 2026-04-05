@@ -35,8 +35,11 @@ chrome.webNavigation.onBeforeNavigate.addListener(async (details) => {
         // Save current tab status for popup
         chrome.storage.local.set({ ["status_" + details.tabId]: { url, riskData } });
 
-        // If high risk or phishing, inject our content script to overlay the red screen
+        // Change extension icon badge to show passive results
         if (riskData.label === "PHISHING" || riskData.label === "HIGH RISK") {
+            chrome.action.setBadgeText({ text: "RISK", tabId: details.tabId });
+            chrome.action.setBadgeBackgroundColor({ color: "#d93025", tabId: details.tabId });
+            
             console.log("THREAT DETECTED. Blocking page...");
             chrome.scripting.executeScript({
                 target: { tabId: details.tabId },
@@ -50,13 +53,25 @@ chrome.webNavigation.onBeforeNavigate.addListener(async (details) => {
                     }).catch(err => console.log("Message error (normal on fast redirects):", err));
                 }, 100);
             });
+        } else {
+            // Passive Safe Indication
+            chrome.action.setBadgeText({ text: "SAFE", tabId: details.tabId });
+            chrome.action.setBadgeBackgroundColor({ color: "#3fb950", tabId: details.tabId });
         }
     } catch (error) {
         console.error("SentinURL API unreachable or failed:", error);
     }
 });
 
-// Clean up storage when a tab is closed
+// Clean up storage and reset badges when a tab is closed
 chrome.tabs.onRemoved.addListener((tabId) => {
     chrome.storage.local.remove("status_" + tabId);
+});
+
+// Clear badge when navigating away occasionally (keeps UI clean)
+chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
+    if (changeInfo.status === 'loading') {
+        chrome.action.setBadgeText({ text: "...", tabId: tabId });
+        chrome.action.setBadgeBackgroundColor({ color: "#aaaaaa", tabId: tabId });
+    }
 });
