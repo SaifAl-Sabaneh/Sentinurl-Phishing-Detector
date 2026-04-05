@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 console.error(err);
                 domainTitle.innerText = "SentinURL API Offline";
                 badge.innerText = "ERROR";
-                reasonsList.innerHTML = `<li>Ensure your local API is running on localhost:8000</li>`;
+                reasonsList.innerHTML = `<li>Ensure your local API is running on localhost:8345</li>`;
             }
         });
 
@@ -82,13 +82,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         domainTitle.innerText = "Re-scanning...";
         reasonsList.innerHTML = "<li>Forcing a fresh scan...</li>";
         chrome.tabs.query({ active: true, currentWindow: true }, async (tabs) => {
-            const response = await fetch(API_URL, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ url: tabs[0].url })
-            });
-            const data = await response.json();
-            updateUI(data.data);
+            try {
+                const response = await fetch(API_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ url: tabs[0].url })
+                });
+                const data = await response.json();
+                updateUI(data.data);
+            } catch(err) {
+                console.error(err);
+                domainTitle.innerText = "SentinURL API Offline";
+                badge.innerText = "ERROR";
+                reasonsList.innerHTML = `<li>Ensure your local API is running on localhost:8345</li>`;
+            }
         });
     });
 });
