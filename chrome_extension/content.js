@@ -1,8 +1,48 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === "block_page") {
         createBlockOverlay(request.riskData);
+    } else if (request.action === "show_safe") {
+        showSafeToast(request.riskData);
     }
 });
+
+function showSafeToast(riskData) {
+    if (document.getElementById("sentinurl-safe-toast")) return;
+
+    const toast = document.createElement("div");
+    toast.id = "sentinurl-safe-toast";
+    
+    // Smooth modern glassmorphism UI
+    toast.style.cssText = `
+        position: fixed; top: 20px; right: -400px; width: 320px;
+        background: rgba(13, 17, 23, 0.9); backdrop-filter: blur(10px);
+        border: 1px solid rgba(63, 185, 80, 0.5); border-left: 4px solid #3fb950;
+        color: white; font-family: 'Segoe UI', system-ui, sans-serif;
+        padding: 15px 20px; border-radius: 8px; z-index: 999999999;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        transition: right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: flex; align-items: center; gap: 15px;
+    `;
+
+    toast.innerHTML = `
+        <div style="font-size: 24px;">🛡️</div>
+        <div>
+            <div style="font-weight: bold; font-size: 14px; margin-bottom: 2px;">SentinURL Secured</div>
+            <div style="font-size: 12px; color: #8b949e;">Site scanned & verified safe</div>
+        </div>
+    `;
+
+    document.documentElement.appendChild(toast);
+
+    // Slide in
+    setTimeout(() => { toast.style.right = "20px"; }, 100);
+
+    // Slide out after 3.5 seconds
+    setTimeout(() => {
+        toast.style.right = "-400px";
+        setTimeout(() => toast.remove(), 600);
+    }, 3500);
+}
 
 function createBlockOverlay(riskData) {
     // If it already exists, don't create it again

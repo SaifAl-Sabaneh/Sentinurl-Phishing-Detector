@@ -43,25 +43,26 @@ chrome.webNavigation.onBeforeNavigate.addListener(async (details) => {
         if (riskData.label === "PHISHING" || riskData.label === "HIGH RISK") {
             chrome.action.setBadgeText({ text: "RISK", tabId: details.tabId });
             chrome.action.setBadgeBackgroundColor({ color: "#d93025", tabId: details.tabId });
-            
             console.log("THREAT DETECTED. Blocking page...");
-            chrome.scripting.executeScript({
-                target: { tabId: details.tabId },
-                files: ['content.js']
-            }, () => {
-                // After executing the script, send a message to trigger the block
-                setTimeout(() => {
-                    chrome.tabs.sendMessage(details.tabId, {
-                        action: "block_page",
-                        riskData: riskData
-                    }).catch(err => console.log("Message error (normal on fast redirects):", err));
-                }, 100);
-            });
         } else {
-            // Passive Safe Indication
             chrome.action.setBadgeText({ text: "SAFE", tabId: details.tabId });
             chrome.action.setBadgeBackgroundColor({ color: "#3fb950", tabId: details.tabId });
         }
+
+        // Always inject content script to show on-page UI
+        chrome.scripting.executeScript({
+            target: { tabId: details.tabId },
+            files: ['content.js']
+        }, () => {
+            setTimeout(() => {
+                const actionType = (riskData.label === "PHISHING" || riskData.label === "HIGH RISK") ? "block_page" : "show_safe";
+                chrome.tabs.sendMessage(details.tabId, {
+                    action: actionType,
+                    riskData: riskData
+                }).catch(err => console.log("Message error context:", err));
+            }, 100);
+        });
+
     } catch (error) {
         console.error("SentinURL API unreachable or failed:", error);
     }
