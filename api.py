@@ -56,5 +56,6 @@ async def scan_url(request: URLRequest):
 
 if __name__ == "__main__":
     import uvicorn
-    # Start the server locally on port 8000
-    uvicorn.run("api:app", host="0.0.0.0", port=8345, reload=False)
+    # Start the server (Reads PORT from Render.com env, defaults to 8345 locally)
+    port = int(os.environ.get("PORT", 8345))
+    uvicorn.run("api:app", host="0.0.0.0", port=port, reload=False)
