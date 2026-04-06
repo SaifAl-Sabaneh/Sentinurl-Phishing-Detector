@@ -267,13 +267,13 @@ def check_malware_signatures(url: str) -> Optional[CheckResult]:
 
     # 4. High-Entropy Random Path Guard (C2 / Automated Tool check)
     path = safe_urlparse(u).path
-    if len(path) > 10 and not any(ext in path for ext in [".js", ".css", ".png", ".jpg", ".html"]):
-        # Check for high character diversity in short path segments
-        segments = [s for s in path.split('/') if len(s) > 6]
+    if len(path) > 15 and not any(ext in path for ext in [".js", ".css", ".png", ".jpg", ".html", ".aspx", ".php"]):
+        # Check for high character diversity in long path segments (prevents flagging standard ASP.NET session strings)
+        segments = [s for s in path.split('/') if len(s) > 25]
         for seg in segments:
             # Simple entropy proxy: ratio of unique characters to length
             unique_chars = len(set(seg))
-            if unique_chars / len(seg) > 0.7:
+            if unique_chars / len(seg) > 0.75:
                 if DEBUG_MODE: print(f"[DEBUG] High Entropy Path: {seg}")
                 return (
                     "PHISHING", 0.88, "high_entropy_path_guard",
