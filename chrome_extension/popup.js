@@ -74,15 +74,49 @@ document.addEventListener('DOMContentLoaded', async () => {
                     riskData = res["status_" + tab.id].riskData;
                     updateUI(riskData);
                 } else {
-                    // If not cached, fetch it
-                    domainTitle.innerText = url.hostname + "\n(Loading...)";
-                    const response = await fetch(API_URL, {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ url: tab.url })
-                    });
-                    const data = await response.json();
-                    updateUI(data.data);
+                    // No cached result — API might be cold starting on Render
+                    domainTitle.innerText = url.hostname;
+                    badge.innerText = "⏳ Waking up...";
+                    reasonsList.innerHTML = "<li>🌐 Connecting to SentinURL Cloud API...<br><small style='color:#555'>This may take ~30s on first load</small></li>";
+
+                    // Abort if API takes more than 25 seconds (Render cold start worst case)
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 25000);
+
+                    try {
+                        const response = await fetch(API_URL, {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ url: tab.url }),
+                            signal: controller.signal
+                        });
+                        clearTimeout(timeoutId);
+                        const data = await response.json();
+                        updateUI(data.data);
+                    } catch (fetchErr) {
+                        clearTimeout(timeoutId);
+                        if (fetchErr.name === 'AbortError') {
+                            // Cold start timeout — show helpful retry message
+                            domainTitle.innerText = url.hostname;
+                            badge.innerText = "⏳ Cold Start";
+                            badge.className = "status-badge";
+                            reasonsList.innerHTML = `
+                                <li style="list-style:none; padding:0; margin:0;">
+                                    <div style="text-align:center; padding: 8px 0;">
+                                        <div style="font-size:22px; margin-bottom:6px;">☁️</div>
+                                        <div style="color:#c9d1d9; font-weight:600; margin-bottom:4px;">API is waking up</div>
+                                        <div style="color:#8b949e; font-size:12px; margin-bottom:12px;">Render free-tier servers sleep after 15min of inactivity. This takes ~30 seconds on first use.</div>
+                                        <button id="retry-btn" style="width:auto; padding:8px 20px; font-size:13px; border-radius:6px;">🔄 Retry Now</button>
+                                    </div>
+                                </li>`;
+                            document.getElementById('retry-btn')?.addEventListener('click', () => {
+                                chrome.storage.local.remove("status_" + tab.id);
+                                window.location.reload();
+                            });
+                        } else {
+                            throw fetchErr;
+                        }
+                    }
                 }
             } catch (err) {
                 console.error(err);
