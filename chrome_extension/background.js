@@ -25,6 +25,14 @@ chrome.webNavigation.onBeforeNavigate.addListener(async (details) => {
     // Ignore chrome:// or internal extensions
     if (!url.startsWith('http')) return;
 
+    // === TOGGLE GATE: Respect user's auto-scan preference ===
+    const { autoScanEnabled } = await chrome.storage.local.get(['autoScanEnabled']);
+    if (autoScanEnabled === false) {
+        // Clear badge so the icon looks neutral when scanning is off
+        chrome.action.setBadgeText({ text: "", tabId: details.tabId });
+        return;
+    }
+
     // Immediately set a loading badge
     chrome.action.setBadgeText({ text: "...", tabId: details.tabId });
     chrome.action.setBadgeBackgroundColor({ color: "#aaaaaa", tabId: details.tabId });

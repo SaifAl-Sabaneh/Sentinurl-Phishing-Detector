@@ -2,6 +2,46 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Production Deployed URL
     const API_URL = "https://sentinurl-phishing-detector.onrender.com/scan";
 
+    // =====================================================
+    // TOGGLE: Auto-Scan ON/OFF
+    // =====================================================
+    const toggleEl = document.getElementById('auto-scan-toggle');
+    const toggleLabel = document.getElementById('toggle-label');
+    const container = document.querySelector('.container');
+
+    // Load saved toggle state (default: ON)
+    const stored = await chrome.storage.local.get(['autoScanEnabled']);
+    const autoScanEnabled = stored.autoScanEnabled !== false; // default true
+    toggleEl.checked = autoScanEnabled;
+    updateToggleVisuals(autoScanEnabled);
+
+    // Listen for toggle clicks
+    toggleEl.addEventListener('change', async () => {
+        const isOn = toggleEl.checked;
+        await chrome.storage.local.set({ autoScanEnabled: isOn });
+        updateToggleVisuals(isOn);
+    });
+
+    function updateToggleVisuals(isOn) {
+        toggleLabel.textContent = isOn ? 'Auto' : 'Off';
+        toggleLabel.classList.toggle('active', isOn);
+        container.classList.toggle('extension-disabled', !isOn);
+
+        // Show or hide the disabled notice
+        const existingNotice = document.getElementById('disabled-notice');
+        if (!isOn && !existingNotice) {
+            const notice = document.createElement('div');
+            notice.id = 'disabled-notice';
+            notice.className = 'disabled-notice';
+            notice.innerHTML = '⏸ Auto-scan is <strong>OFF</strong>.<br>Use <strong>Scan Current Page</strong> to manually check this site.';
+            // Insert before footer
+            const footer = document.querySelector('footer');
+            container.insertBefore(notice, footer);
+        } else if (isOn && existingNotice) {
+            existingNotice.remove();
+        }
+    }
+
     const domainTitle = document.getElementById('domain-name');
     const badge = document.getElementById('status-badge');
     const riskCircle = document.getElementById('risk-circle');
