@@ -41,3 +41,19 @@ stage2/urlhaus_cache.txt
 
 # Model Archives (Heavy binary files)
 models/archive/
+
+# Temporary AI-extracted text dumps (not project code)
+docx_outline.txt
+pdf_extract.txt
+SentinURL_Cleaned.txt
+SentinURL_extracted.txt
+
+# One-off generated files & temp artifacts
+stress_test_analysis.md
+adversarial_mutants.csv
+tmp_qa.zip
+tmp_docx/
+reports/
+
+# Runtime data files
+retrain_log.txt
