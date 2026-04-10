@@ -1370,7 +1370,8 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
     if not bypass_fail_safe and gsb_clean and tls_valid and domain_old:
         # Strongest triple validation: GSB clean + valid TLS + established domain
         # ONLY override to 0.0 if ML isn't highly confident (threshold 0.25)
-        if score < 0.25:
+        # EXPERIMENTAL V3: Zero-Day Protection
+        if score < 0.25 and p2 < 0.30:
             years = domain_age // 365
             reasons.append(f"Triple-verified safe: GSB + TLS + established domain ({years} yrs).")
             score = 0.0
@@ -1378,21 +1379,21 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
             reasons.append("GSB/TLS/Age validation suggests safety, but ML confidence overrides (Potential compromised site).")
             
     elif not bypass_fail_safe and gsb_clean and tls_valid:
-        if score < 0.25:
+        if score < 0.25 and p2 < 0.30:
             reasons.append("GSB + TLS validation confirms site appears safe.")
             score = 0.0
     elif not bypass_fail_safe and gsb_clean and domain_old:
-        if score < 0.25:
+        if score < 0.25 and p2 < 0.30:
             reasons.append("GSB + established domain confirms safety.")
             score = 0.0
     elif gsb_clean:
         # GSB clean alone — reduce borderline scores
-        if score < 0.25:
+        if score < 0.25 and p2 < 0.30:
             reasons.append("GSB validation prevents false positive on borderline ML score.")
             score = min(score, 0.10)
     elif not bypass_fail_safe and tls_valid and domain_old:
         # TLS valid + old domain — moderate safety signal
-        if score < 0.25:
+        if score < 0.25 and p2 < 0.30:
             reasons.append("Valid TLS + established domain suggests legitimacy.")
             score = min(score, 0.15)
 
@@ -1540,18 +1541,21 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
         reasons.append(f"Regulated country-code TLD (.{suf}) with good reputation.")
         score = min(score, 0.40)
 
-    # ENHANCED: Better model disagreement handling
-    if abs(p1 - p2) > 0.6:
+    # ENHANCED: Better model disagreement handling (Experimental V2: reduced to 0.2)
+    if abs(p1 - p2) > 0.2:
         # If Stage1 says very safe but Stage2 disagrees, trust Stage1 more
         if p1 < 0.20 and p2 > 0.60:
-            score = 0.3 * p1 + 0.7 * p2  # Give more weight to Stage2 but still cap it
+            new_score = 0.3 * p1 + 0.7 * p2  # Give more weight to Stage2 but still cap it
+            score = max(score, new_score) # Protective additive
             reasons.append("Models disagree: URL analysis highly confident of safety; moderating feature-based concerns.")
         # If Stage2 says very safe but Stage1 disagrees, trust Stage2 more  
         elif p2 < 0.20 and p1 > 0.60:
-            score = 0.7 * p1 + 0.3 * p2
+            new_score = 0.7 * p1 + 0.3 * p2
+            score = max(score, new_score)
             reasons.append("Models disagree: Feature analysis suggests safety; moderating URL-based concerns.")
         else:
-            score = (p1 + p2) / 2
+            new_score = (p1 + p2) / 2
+            score = max(score, new_score)
             reasons.append("Models disagree significantly; using averaged score for safety.")
 
     # ── Content Analysis (only for ambiguous scores) ──
