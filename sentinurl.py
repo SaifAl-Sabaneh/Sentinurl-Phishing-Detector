@@ -71,7 +71,8 @@ except ImportError:
 # First, try to import from the same directory
 try:
     from enhanced_original import *
-    _safe_print("[OK] Core engine loaded from local directory")
+    import enhanced_original
+    _safe_print(f"[OK] Core engine loaded from: {enhanced_original.__file__}")
 except ImportError:
     # If not found, try from parent directory
     try:
@@ -274,6 +275,20 @@ def check_malware_signatures(url: str) -> Optional[CheckResult]:
             # Simple entropy proxy: ratio of unique characters to length
             unique_chars = len(set(seg))
             if unique_chars / len(seg) > 0.70:
+                host = get_host(u)
+                reg = registrable_domain(host) if host else ""
+                
+                # Check for reputable cloud/PaaS domains that use high-entropy auto-generated IDs
+                reputable_cloud = any(cloud in reg for cloud in ["render.com", "github.com", "githubusercontent.com", "amazonaws.com", "google.com", "vercel.app", "netlify.app", "azurewebsites.net"])
+                
+                if reputable_cloud:
+                    if DEBUG_MODE: print(f"[DEBUG] High Entropy Path on Reputable Cloud: {seg}")
+                    return (
+                        "LOW RISK", 0.35, "high_entropy_reputable_cloud_guard",
+                        [f"Automated path detected on reputable cloud platform ({reg}). Moderated risk applied."],
+                        0.0, 0.35
+                    )
+                
                 if DEBUG_MODE: print(f"[DEBUG] High Entropy Path: {seg}")
                 return (
                     "PHISHING", 0.88, "high_entropy_path_guard",
@@ -458,56 +473,11 @@ def predict_ultimate(url: str):
                     [f"URL found in threat intelligence feeds: {', '.join(threat_feeds)}",
                      threat_details or "Known malicious URL"], 0.99, 0.95, whois_data, {}, get_neural_analysis(u))
     
-    # === LAYER 2.5: ADVERSARIAL HARDENING (v3.5.0) ===
-    def _pad_l25(res):
-        if res:
-            lbl, sc, src, rsn, p1x, p2x = res
-            return (lbl, sc, src, rsn, p1x, p2x, whois_data, {}, get_neural_analysis(u))
-        return None
-
-    # 1. Typosquat Guard
-    ts_res = _pad_l25(check_typosquat_advanced(u))
-    if ts_res: return ts_res
-    
-    # 2. Cloud Payload Watch
-    cp_res = _pad_l25(check_cloud_payload(u))
-    if cp_res: return cp_res
-    
-    # 3. CMS Vulnerability Guard
-    cms_res = _pad_l25(check_cms_vulnerabilities(u))
-    if cms_res: return cms_res
-
-    # 4. Malware Signature Guard
-    mal_res = _pad_l25(check_malware_signatures(u))
-    if mal_res: return mal_res
-    
-    # 5. Finance Phish Watch
-    fin_res = _pad_l25(check_finance_phish_paths(u))
-    if fin_res: return fin_res
-
-    # === LAYER 3: ADVANCED BRAND IMPERSONATION ===
-    is_impersonation, imp_type, imp_threats, imp_score = advanced_brand_impersonation_check(u, host)
-    if is_impersonation:
-        return ("PHISHING", imp_score, "advanced_brand_impersonation",
-                imp_threats, 0.95, 0.90, whois_data, {}, get_neural_analysis(u))
-    
-    # === LAYER 4: HARD RULES ===
-    hr = hard_rules(u)
-    if hr is not None:
-        lbl, p, src, reasons, p1, p2, _ = hr
-        return (lbl, p, src, reasons, p1, p2, whois_data, {}, get_neural_analysis(u))
-    
-    # === LAYER 5: ORIGINAL BRAND DECEPTION ===
-    bd = brand_deception_rule(u)
-    if bd is not None:
-        lbl, p, src, reasons, p1, p2, _ = bd
-        return (lbl, p, src, reasons, p1, p2, whois_data, {}, get_neural_analysis(u))
-    
-    # === LAYER 6: ML MODELS ===
+    # === LAYER 2.4: ML MODELS (Dynamic Fusion) ===
     p1 = stage1_prob(u)
     p2 = stage2_prob(u)
     
-    # Enhanced Dynamic Fusion - Tuned for higher accuracy
+    # Tuned for higher accuracy
     # Stage 1 (URL Text Analysis) is empirically twice as accurate as Stage 2 (Numeric Features)
     if p1 < 0.05:
         p_ml = (0.95 * p1 + 0.05 * p2)
@@ -520,6 +490,44 @@ def predict_ultimate(url: str):
     else:
         # Default weight for uncertain bounds
         p_ml = (0.80 * p1 + 0.20 * p2) 
+    
+    # === LAYER 2.5: ADVERSARIAL HARDENING (v3.5.0) ===
+    # 1. Typosquat Guard
+    ts_res = check_typosquat_advanced(u)
+    if ts_res: 
+        lbl, sc, src, rsn, p1x, p2x = ts_res
+        reasons.extend(rsn)
+        p_ml = max(p_ml, sc)
+    
+    # 2. Cloud Payload Watch
+    cp_res = check_cloud_payload(u)
+    if cp_res:
+        lbl, sc, src, rsn, p1x, p2x = cp_res
+        reasons.extend(rsn)
+        p_ml = max(p_ml, sc)
+    
+    # 3. CMS Vulnerability Guard
+    cms_res = check_cms_vulnerabilities(u)
+    if cms_res:
+        lbl, sc, src, rsn, p1x, p2x = cms_res
+        reasons.extend(rsn)
+        p_ml = max(p_ml, sc)
+
+    # 4. Malware Signature Guard
+    mal_res = check_malware_signatures(u)
+    if mal_res:
+        lbl, sc, src, rsn, p1x, p2x = mal_res
+        reasons.extend(rsn)
+        p_ml = max(p_ml, sc)
+    
+    # 5. Finance Phish Watch
+    fin_res = check_finance_phish_paths(u)
+    if fin_res:
+        lbl, sc, src, rsn, p1x, p2x = fin_res
+        reasons.extend(rsn)
+        p_ml = max(p_ml, sc)
+
+    # === LAYER 3: ADVANCED BRAND IMPERSONATION ===
     
     feats = url_features(u)
     is_institution = is_institution_suffix(suf)
@@ -565,65 +573,14 @@ def predict_ultimate(url: str):
         lbl, p, src, inst_reasons = inst
         return (lbl, p, src, inst_reasons, p1, p2, whois_data, {}, [])
     
-    # === LAYER 10: EVIDENCE FUSION ===
-    lbl, score, src, fusion_reasons, p1x, p2x, geo_info = fuse_evidence(u, p_ml, p1, p2, online, whois_data)
-    
-    # === FAIL-SAFE: PREVENT FALSE POSITIVES ===
-    gsb_clean = online.get("gsb") and not online["gsb"].get("hit", False) and not online["gsb"].get("error")
-    tls_valid = online.get("tls") and online["tls"].get("ok")
-    domain_age = whois_data.get("age_days", 0) or 0
-    domain_old = domain_age > 365  # > 1 year
-    
-    # Strongest combo: GSB + TLS + established domain → fully SAFE + auto-allowlist
-    # ONLY override if ML isn't highly confident it's a zero-day (Now properly respects ML scores > 40%)
-    if gsb_clean and tls_valid and domain_old and score < 0.40:
-        years = domain_age // 365
-        fusion_reasons.append(f"Triple-verified safe: GSB clean + valid TLS + established domain ({years} yr{'s' if years > 1 else ''}).")
-        score = 0.0
-        lbl = band(score)
-        if reg and reg not in ALLOW_REG:
-            ALLOW_REG.add(reg)
-            fusion_reasons.append(f"Domain '{reg}' auto-added to trusted allowlist.")
-    elif gsb_clean and tls_valid and score < 0.40:
-        # GSB + TLS both clean — very strong, even without age data
-        fusion_reasons.append("GSB + TLS validation prevents false positive on borderline score.")
-        score = 0.0
-        lbl = band(score)
-        if reg and reg not in ALLOW_REG:
-            ALLOW_REG.add(reg)
-            fusion_reasons.append(f"Domain '{reg}' auto-added to trusted allowlist.")
-    elif gsb_clean and domain_old and score < 0.40:
-        # GSB clean + old domain
-        fusion_reasons.append("GSB + established domain verified as safe.")
-        score = 0.0
-        lbl = band(score)
-        if reg and reg not in ALLOW_REG:
-            ALLOW_REG.add(reg)
-            fusion_reasons.append(f"Domain '{reg}' auto-added to trusted allowlist.")
-    elif gsb_clean and score > 0.10 and score < 0.25:
-        # GSB alone — authoritative on borderline predictions
-        fusion_reasons.append("Google Safe Browsing validation prevents false positive.")
-        score = min(score, 0.10)
-        lbl = band(score)
-    elif score >= 0.75:
-        # ZERO-DAY HANDLING: AI represents structural threat regardless of GSB/TLS blind spots
-        if gsb_clean or tls_valid:
-             fusion_reasons.append("High ML confidence overrides GSB/TLS clean status (Possible Zero-Day).")
-    
-    # Dynamic allowlisting for verified safe sites (threshold raised to catch more)
-    # ONLY allowlist if it's truly verified safe (e.g. score < 0.05) to prevent
-    # advanced zero-days from poisoning the in-memory allowlist for other users.
-    if score < 0.05 and lbl in ("SAFE", "LOW RISK") and reg and reg not in ALLOW_REG:
-        ALLOW_REG.add(reg)
-        fusion_reasons.append("Site verified as highly SAFE; added to session allowlist.")
-    
-    # Combine all reasons
-    all_reasons = reasons + fusion_reasons
+    # === LAYER 10: EVIDENCE FUSION & COORDINATION ===
+    # All reputation-aware and fail-safe logic is now centralized in fuse_evidence
+    lbl, score, src, reasons, p1x, p2x, geo_info = fuse_evidence(u, p_ml, p1, p2, online, whois_data)
     
     # === LAYER 11: NEURAL EXPLAINABILITY (Phase 4) ===
     neural_analysis = get_neural_analysis(u)
     
-    return (lbl, score, src, all_reasons, p1, p2, whois_data, geo_info, neural_analysis)
+    return (lbl, score, src, reasons, p1, p2, whois_data, {}, neural_analysis)
 
 def get_neural_analysis(url: str):
     """
