@@ -1445,10 +1445,16 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
         bypass_fail_safe = True
 
     # Malware Keywords
-    malware_keywords = {'crack', 'unlocker', 'patch', 'bot', 'checker', 'autofarm', 'injector', 'setup', 'update', 'install', 'loader'}
-    if any(k in low_u for k in malware_keywords):
+    malware_keywords_strict = {'crack', 'unlocker', 'bot', 'checker', 'autofarm', 'injector', 'loader'}
+    malware_keywords_context = {'patch', 'setup', 'update', 'install'}
+    
+    if any(k in low_u for k in malware_keywords_strict):
         reasons.append("Malware-associated terminology found in URL.")
         score = max(score, 0.75)
+        bypass_fail_safe = True
+    elif any(k in low_u for k in malware_keywords_context) and has_malware_ext:
+        reasons.append("Malware-associated terminology combined with executable extension.")
+        score = max(score, 0.85)
         bypass_fail_safe = True
 
     if is_high_entropy:
@@ -1841,7 +1847,7 @@ def predict(url: str):
         lbl, p, src, reasons = inst
         return (lbl, p, src, reasons, p1, p2, whois_data)
 
-    lbl, score, src, reasons, p1x, p2x = fuse_evidence(u, p_ml, p1, p2, online, whois_data)
+    lbl, score, src, reasons, p1x, p2x, geo = fuse_evidence(u, p_ml, p1, p2, online, whois_data)
     
     # DYNAMIC ALLOWLISTING
     # If a site is highly safe (Score < 10% and Label is SAFE), trust it for this session
