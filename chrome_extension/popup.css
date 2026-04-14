@@ -1,7 +1,8 @@
-body {
+html, body {
     margin: 0;
     padding: 0;
     width: 350px;
+    min-height: 480px; /* Fixed Opera GX rendering issue */
     font-family: 'Inter', sans-serif;
     background-color: #0d1117;
     color: #e6edf3;

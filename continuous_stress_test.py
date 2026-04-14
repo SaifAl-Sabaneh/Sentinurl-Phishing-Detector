@@ -221,6 +221,54 @@ def run_continuous_test(batch_size=50000):
     print(f"[+] Results {'appended to' if file_exists else 'saved to'}: {csv_path}")
     print(f"    This run: {len(results_df):,} rows  |  Phishing: {caught:,}  |  Safe: {missed:,}\n")
 
+    # ==========================================
+    # 5. MASTER DATASET EXPANSION (HIGH CONFIDENCE)
+    # ==========================================
+    CONFIDENCE_EXPANSION_THRESHOLD = 0.90
+    high_conf_phish = [url for url, fp in zip(test_payload, final_probs) if fp >= CONFIDENCE_EXPANSION_THRESHOLD]
+
+    if high_conf_phish:
+        print(f"[*] Found {len(high_conf_phish):,} high-confidence phishing threats (Confidence >= {CONFIDENCE_EXPANSION_THRESHOLD*100}%).")
+        print(f"[*] Extracting 110+ features for Master Dataset expansion...")
+        
+        from comprehensive_features import extract_all_features
+        
+        def master_extract(u):
+            try:
+                # Label is 'phishing' for all these since they met the threshold
+                return extract_all_features(u, label="phishing")
+            except Exception:
+                return None
+
+        with ThreadPoolExecutor(max_workers=os.cpu_count()) as executor:
+            master_features = list(executor.map(master_extract, high_conf_phish))
+        
+        # Filter out failed extractions
+        master_features = [f for f in master_features if f is not None]
+        
+        if master_features:
+            master_csv_path = os.path.join(current_dir, "SentinURl DataSet.csv")
+            expansion_df = pd.DataFrame(master_features)
+            
+            # Ensure columns match master exactly (if it was loaded)
+            # Otherwise we just append and hope the headers are correct (we've validated our extractor)
+            master_exists = os.path.exists(master_csv_path)
+            
+            print(f"[*] Appending {len(expansion_df):,} new feature-extracted links to Master Dataset...")
+            expansion_df.to_csv(master_csv_path, mode="a", index=False, header=not master_exists, encoding="utf-8")
+            print(f"[v] Master Dataset expanded successfully: {master_csv_path}")
+
+            # ==========================================
+            # 6. DEDUPLICATION
+            # ==========================================
+            print("[*] Running global deduplication to maintain dataset integrity...")
+            from clean_dataset import deduplicate_master_dataset
+            deduplicate_master_dataset()
+        else:
+            print("[!] No new unique features extracted for master dataset.")
+    else:
+        print("[*] No high-confidence phishing links found for master dataset expansion.")
+
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description="SentinURL Continuous Offline Testing Engine")

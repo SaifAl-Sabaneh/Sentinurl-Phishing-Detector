@@ -161,7 +161,7 @@ CRED_INTENT_WORDS = [
     "recover", "reset", "unlock"
 ]
 
-REDIRECT_PARAM_PAT = re.compile(r"(redirect|next|url|continue|dest|destination|return|callback)=", re.IGNORECASE)
+REDIRECT_PARAM_PAT = re.compile(r"(redirect|next|url|continue|dest|destination|return|callback|samlrequest|sso_reload)=", re.IGNORECASE)
 
 RISKY_TLDS = {"tk", "ml", "ga", "cf", "gq"}
 SHORTENERS = {"bit.ly", "tinyurl.com", "t.co", "goo.gl", "is.gd", "cutt.ly"}
@@ -771,6 +771,10 @@ def is_allowlisted_reg_domain(url: str) -> bool:
         if abused in host:
             return False  # Force it through the ML engine!
             
+    # SAML / Open Redirect Payload Check
+    if re.search(r"(redirect|next|url|continue|dest|destination|return|callback|samlrequest|sso_reload)=", u):
+        return False  # Force deep dive tracing on Identity Providers!
+            
     return True
 
 
@@ -823,7 +827,7 @@ def url_features(url: str) -> dict:
 
         tld = host_no_port.split(".")[-1] if "." in host_no_port else ""
 
-        redirect_like = 1 if re.search(r"(redirect|next|url|continue|dest|destination)=", low) else 0
+        redirect_like = 1 if re.search(r"(redirect|next|url|continue|dest|destination|return|callback|samlrequest|sso_reload)=", low) else 0
         double_slash_path = 1 if ("//" in path) else 0
 
         has_login = 1 if sum(w in low for w in ["login", "signin", "verify", "secure", "account", "auth"]) > 0 else 0

@@ -915,6 +915,20 @@ with tab_stats:
             st.plotly_chart(fig2, use_container_width=True)
             
         st.write("### Raw History Log")
+        st.dataframe(hist_stats, use_container_width=True)
+        
+        st.markdown("---")
+        st.write("### 🤖 Automated Retraining Logs")
+        st.write("Monitor the results of the background nightly model retraining to see if the AI successfully deployed new weights.")
+        
+        log_path = os.path.join(current_dir, "retrain_log.txt")
+        if os.path.exists(log_path):
+            with open(log_path, "r", encoding="utf-8") as f:
+                log_data = f.read()
+            st.text_area("CI/CD Deployment History", log_data, height=350, help="This log shows every background model training cycle and whether the Golden Gate threshold was passed.")
+        else:
+            st.info("No model retraining cycles have been logged yet.")
+
 # ==========================================
 # TAB 4: REPORT THREAT (FEEDBACK LOOP)
 # ==========================================
