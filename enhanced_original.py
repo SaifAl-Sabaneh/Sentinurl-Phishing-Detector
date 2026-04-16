@@ -1489,15 +1489,13 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
         
         # PROTECTION: Never allow early "SAFE" return if it's a known hosting abuse pattern
         if is_reputable and not is_hosting_abuse:
-            # Force NLP Suppression for Reputable Systems
-            # (Relaxed threshold: Since platform is strictly trusted and has no payloads, we trust p2 up to 0.65)
-            if p2 < 0.65:
-                # Force completely SAFE score
-                return ("SAFE", 0.01, "reputable_platform_safe", 
-                        reasons + [f"Reputable platform verified ({reg_domain}). NLP/Anomaly limits suppressed."],
-                        p1, p2, {})
+            # Force completely SAFE score for verified platforms that lack payload markers
+            return ("SAFE", 0.01, "reputable_platform_safe", 
+                    reasons + [f"Reputable platform verified ({reg_domain}). NLP/Anomaly limits suppressed."],
+                    p1, p2, {})
 
-            # High-confidence override for verified platforms
+        # GLOBAL DOMAIN TRUST OVERRIDE (For any normal business site)
+        if not is_hosting_abuse:
             if domain_age > 3650: # > 10 years
                 threshold_score = 0.90
             else:
