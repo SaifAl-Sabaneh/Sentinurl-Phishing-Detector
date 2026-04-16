@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "updated_utc": "2026-04-14T20:59:53Z"
+    "updated_utc": "2026-04-16T10:15:43Z"
   },
   "items": {
     "tls:fbace2e60e1709e3c01b9941c2c126370c2e2302a9c67ff8d17299c355697015": {
@@ -20731,11 +20731,11 @@
       }
     },
     "tls:55c4e8012a7a5c38905cd7759f14b6c3873a0d7510a0224b3954d04cb201a854": {
-      "ts": 1775831165.5525265,
+      "ts": 1776334259.7153666,
       "val": {
         "ok": true,
         "notAfter": "Jun 10 05:50:19 2026 GMT",
-        "days_left": 60
+        "days_left": 54
       }
     },
     "tls:4c508dee715339ae4640bd422e028235ae5f0aa67f8456962b5d8278e615301c": {
@@ -20743,6 +20743,72 @@
       "val": {
         "ok": false,
         "error": "tls: gaierror"
+      }
+    },
+    "redir:95ae604d69625514c0e21cb92c9a948427cdc8ea1b22a168ec79b15ce035986d": {
+      "ts": 1776334541.0562856,
+      "val": {
+        "ok": true,
+        "final_url": "https://u.gg/lol/champions/caitlyn/build",
+        "chain": [
+          "https://u.gg/lol/champions/caitlyn/build"
+        ],
+        "status": 200,
+        "redirects": 0
+      }
+    },
+    "tls:fe41323a5b17abdb6597d235f46c1e85f14ee1b53569eff7c8fd3ee2fbff58b5": {
+      "ts": 1776334541.5919309,
+      "val": {
+        "ok": true,
+        "notAfter": "Aug 15 23:59:59 2026 GMT",
+        "days_left": 121
+      }
+    },
+    "html:95ae604d69625514c0e21cb92c9a948427cdc8ea1b22a168ec79b15ce035986d": {
+      "ts": 1776334543.2932825,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://u.gg/lol/champions/caitlyn/build",
+        "content_type": "text/html",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "u.gg"
+        }
+      }
+    },
+    "redir:de4385a2d9525298770f5292285ce3c2cd04749773d50d2e5465254915bfd584": {
+      "ts": 1776334259.2557342,
+      "val": {
+        "ok": true,
+        "final_url": "https://dashboard.render.com/web/srv-d799t98ule4c73ajb70g/logs?r=1h",
+        "chain": [
+          "https://dashboard.render.com/web/srv-d799t98ule4c73ajb70g/logs?r=1h"
+        ],
+        "status": 200,
+        "redirects": 0
+      }
+    },
+    "html:de4385a2d9525298770f5292285ce3c2cd04749773d50d2e5465254915bfd584": {
+      "ts": 1776334261.32384,
+      "val": {
+        "ok": true,
+        "html": true,
+        "final_url": "https://dashboard.render.com/web/srv-d799t98ule4c73ajb70g/logs?r=1h",
+        "content_type": "text/html; charset=utf-8",
+        "signals": {
+          "has_form": false,
+          "has_password": false,
+          "has_login_words": false,
+          "external_form_action": false,
+          "action_reg": null,
+          "page_reg": "render.com"
+        }
       }
     }
   }

@@ -1338,8 +1338,8 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
     # =========================================================
     
     # 1. Google Safe Browsing and Certificate Validity
-    gsb_clean = online.get("gsb") and not online["gsb"].get("hit", False) and not online["gsb"].get("error")
-    tls_valid = online.get("tls") and online["tls"].get("ok")
+    gsb_clean = not (online.get("gsb", {}) or {}).get("hit", False)
+    tls_valid = online.get("tls", {}).get("ok", False)
     domain_age = whois_data.get("age_days", 0) or 0
     domain_old = domain_age > 365  # > 1 year
 
@@ -1479,11 +1479,22 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
         # Strongest triple validation: GSB clean + valid TLS + established domain
         # EXPERIMENTAL V3: Zero-Day Protection (99.51% Recovery)
         # REP-AWARE: Established domains (>3 yrs) get higher threshold, especially if >10 yrs
-        reputable_platforms = {"render.com", "vercel.com", "netlify.com", "digitalocean.com", "heroku.com", "github.com", "microsoft.com", "google.com", "amazon.com", "cloudflare.com"}
+        reputable_platforms = {
+            "render.com", "vercel.com", "netlify.com", "digitalocean.com", "heroku.com", 
+            "github.com", "microsoft.com", "google.com", "amazon.com", "cloudflare.com",
+            "riotgames.com", "leagueoflegends.com", "steampowered.com", "epicgames.com",
+            "u.gg", "op.gg", "twitch.tv", "reddit.com", "discord.com"
+        }
         is_reputable = reg_domain in reputable_platforms
         
         # PROTECTION: Never allow early "SAFE" return if it's a known hosting abuse pattern
         if is_reputable and not is_hosting_abuse:
+            # Force NLP Suppression for Reputable Systems
+            if p2 < 0.40:
+                return ("SAFE", 0.01, "reputable_platform_safe", 
+                        reasons + [f"Reputable platform verified ({reg_domain}). NLP anomalies suppressed."],
+                        p1, p2, {})
+
             # High-confidence override for verified platforms
             if domain_age > 3650: # > 10 years
                 threshold_score = 0.90
@@ -1492,9 +1503,16 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
             
             if score < threshold_score and p2 < 0.40:
                 years = domain_age // 365
-                return ("SAFE", 0.0, "triple_verified_safe", 
+                return ("SAFE", 0.01, "triple_verified_safe", 
                         reasons + [f"Triple-verified safe: GSB + TLS + established domain ({years} yrs)."],
                         p1, p2, {})
+
+        # DYNAMIC NLP MODERATION (For established sites not in reputable_platforms)
+        if not is_reputable and not is_hosting_abuse:
+            if domain_age > 730 and p1 > 0.80 and p2 < 0.40:
+                # Structural model says safe, NLP panicked, but site is > 2 years old
+                score = (0.4 * p1) + (0.6 * p2)
+                reasons.append("NLP penalty suppressed due to established domain age (>2 yrs).")
 
     # =========================================================
     # END FAIL-SAFE
