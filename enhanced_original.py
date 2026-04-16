@@ -1329,8 +1329,8 @@ def should_escalate_online(ml_risk: float, feats: dict) -> bool:
 # =========================================================
 # Fuse evidence
 # =========================================================
-def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, whois_data: dict):
-    reasons = []
+def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, whois_data: dict, incoming_reasons=None):
+    reasons = incoming_reasons.copy() if incoming_reasons else []
     score = float(p_ml)
 
     # =========================================================
@@ -1490,9 +1490,11 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
         # PROTECTION: Never allow early "SAFE" return if it's a known hosting abuse pattern
         if is_reputable and not is_hosting_abuse:
             # Force NLP Suppression for Reputable Systems
-            if p2 < 0.40:
+            # (Relaxed threshold: Since platform is strictly trusted and has no payloads, we trust p2 up to 0.65)
+            if p2 < 0.65:
+                # Force completely SAFE score
                 return ("SAFE", 0.01, "reputable_platform_safe", 
-                        reasons + [f"Reputable platform verified ({reg_domain}). NLP anomalies suppressed."],
+                        reasons + [f"Reputable platform verified ({reg_domain}). NLP/Anomaly limits suppressed."],
                         p1, p2, {})
 
             # High-confidence override for verified platforms

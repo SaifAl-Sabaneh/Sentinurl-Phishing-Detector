@@ -575,12 +575,12 @@ def predict_ultimate(url: str):
     
     # === LAYER 10: EVIDENCE FUSION & COORDINATION ===
     # All reputation-aware and fail-safe logic is now centralized in fuse_evidence
-    lbl, score, src, reasons, p1x, p2x, geo_info = fuse_evidence(u, p_ml, p1, p2, online, whois_data)
+    lbl, score, src, final_reasons, p1x, p2x, geo_info = fuse_evidence(u, p_ml, p1, p2, online, whois_data, reasons)
     
     # === LAYER 11: NEURAL EXPLAINABILITY (Phase 4) ===
     neural_analysis = get_neural_analysis(u)
     
-    return (lbl, score, src, reasons, p1, p2, whois_data, {}, neural_analysis)
+    return (lbl, score, src, final_reasons, p1, p2, whois_data, {}, neural_analysis)
 
 def get_neural_analysis(url: str):
     """
