@@ -1524,18 +1524,28 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
             # PROTECTION: For extremely established domains (>10 yrs), we override ML even if it's high
             # unless a 'Hard Signal' (bypass_fail_safe) is present.
             is_very_old = domain_age > 3650
-            if (score < threshold_score and p2 < 0.40) or (is_very_old and not bypass_fail_safe):
+            if (is_very_old and not bypass_fail_safe):
                 years = domain_age // 365
-                return ("SAFE", 0.01, "triple_verified_safe", 
+                return ("SAFE", 0.01, "triple_verified_safe_legacy", 
                         reasons + [f"Triple-verified safe: GSB + TLS + highly established domain ({years} yrs). ML scores suppressed by reputation gravity."],
                         p1, p2, {})
+            
+            # REPUTATION GRAVITY: For established domains (>1 yr), cap the score at LOW RISK 
+            # if no hard signals are present, even if models disagree or panic.
+            if domain_age > 365 and not bypass_fail_safe:
+                if score >= 0.50:
+                    capped_score = 0.35 # Just at the top of SUSTAINABLE RISK / LOW RISK
+                    reasons.append(f"Reputation Gravity: Risk reduced from {score*100:.0f}% to {capped_score*100:.0f}% for established domain ({(domain_age//365)} yrs).")
+                    score = capped_score
 
         # DYNAMIC NLP MODERATION (For established sites not in reputable_platforms)
         if not is_reputable and not is_hosting_abuse:
-            if domain_age > 730 and p1 > 0.80 and p2 < 0.40:
-                # Structural model says safe, NLP panicked, but site is > 2 years old
+            # Established domains (>1 year) with valid TLS should not trigger extreme NLP panic
+            # for branding keywords like 'secure' or 'safe'.
+            if domain_age > 365 and p1 > 0.80 and p2 < 0.60:
+                # Structural model is relatively calm, NLP panicked, but site is > 1 year old
                 score = (0.4 * p1) + (0.6 * p2)
-                reasons.append("NLP penalty suppressed due to established domain age (>2 yrs).")
+                reasons.append("NLP penalty suppressed due to established domain age (>1 yr).")
 
     # =========================================================
     # END FAIL-SAFE
