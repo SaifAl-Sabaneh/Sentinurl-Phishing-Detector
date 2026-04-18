@@ -132,7 +132,7 @@ try:
     _safe_print("Policy loaded successfully.")
 except Exception as e:
     _safe_print(f"Error loading policy: {e}")
-    policy = {"bands": {"SAFE_MAX": 0.01, "SUSP_SAFE_MAX": 0.5, "PHISH_MIN": 0.9}, "fusion": {"w_stage1": 0.2, "w_stage2": 0.8}}
+    policy = {"bands": {"SAFE_MAX": 0.15, "SUSP_SAFE_MAX": 0.50, "PHISH_MIN": 0.90}, "fusion": {"w_stage1": 0.2, "w_stage2": 0.8}}
 
 SAFE_MAX = float(policy["bands"]["SAFE_MAX"])
 SUSP_SAFE_MAX = float(policy["bands"]["SUSP_SAFE_MAX"])
@@ -1530,12 +1530,12 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
                         reasons + [f"Triple-verified safe: GSB + TLS + highly established domain ({years} yrs). ML scores suppressed by reputation gravity."],
                         p1, p2, {})
             
-            # REPUTATION GRAVITY: For established domains (>1 yr), cap the score at LOW RISK 
+            # REPUTATION GRAVITY: For established domains (>1 yr), force the verdict to SAFE
             # if no hard signals are present, even if models disagree or panic.
             if domain_age > 365 and not bypass_fail_safe:
-                if score >= 0.50:
-                    capped_score = 0.35 # Just at the top of SUSTAINABLE RISK / LOW RISK
-                    reasons.append(f"Reputation Gravity: Risk reduced from {score*100:.0f}% to {capped_score*100:.0f}% for established domain ({(domain_age//365)} yrs).")
+                if score >= 0.10:
+                    capped_score = 0.08 # Solidly in SAFE territory
+                    reasons.append(f"Reputation Gravity: AI score ({score*100:.0f}%) suppressed for established domain ({(domain_age//365)} yrs).")
                     score = capped_score
 
         # DYNAMIC NLP MODERATION (For established sites not in reputable_platforms)
