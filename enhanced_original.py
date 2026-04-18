@@ -1373,11 +1373,20 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
     drive_payload = 'drive.google.com' in host_low and ('/uc' in path_low or 'export=download' in low_u)
     discord_payload = ('discordapp' in host_low or 'discord.com' in host_low) and ('/attachments/' in path_low or '/cdn/' in path_low)
     
-    is_hosting_abuse = is_hosting_subdomain and (drive_payload or discord_payload or is_github_abuse or is_blob_abuse)
+    is_hosting_abuse = is_hosting_subdomain or is_github_abuse or is_blob_abuse
     
-    # Malware Exts
-    malware_exts = {'.exe', '.msi', '.apk', '.bat', '.vbs', '.scr', '.zip', '.rar', '.iso', '.7z', '.bin', '.js'}
-    has_malware_ext = any(low_u.endswith(ext) or f"{ext}?" in low_u for ext in malware_exts)
+    # Malware Exts (includes Windows shortcut/script types used in malware delivery)
+    malware_exts = {'.exe', '.msi', '.apk', '.bat', '.vbs', '.scr', '.zip', '.rar', '.iso', '.7z', '.bin', '.js', '.lnk', '.ps1', '.cmd', '.hta', '.pif', '.reg'}
+    has_malware_ext = any(low_u.endswith(ext) or f"{ext}?" in low_u or f"{ext}#" in low_u for ext in malware_exts)
+    
+    # Disguised Installer Detection: image/text extensions hiding MSI/setup/installer payloads
+    innocent_exts = {'.png', '.jpg', '.jpeg', '.gif', '.bmp', '.webp', '.txt', '.ico'}
+    disguise_keywords = {'msi', 'setup', 'installer', 'install', 'payload', 'dropper'}
+    path_filename = path_low.split('/')[-1] if '/' in path_low else path_low
+    has_disguised_installer = (
+        any(path_filename.endswith(ext) for ext in innocent_exts) and
+        any(kw in path_filename for kw in disguise_keywords)
+    )
     
     # WP / Upload Abuse
     is_wp_abuse = ('.php' in path_low or '.js' in path_low) and ('/wp-includes/' in path_low or '/wp-content/' in path_low or '/wp-admin/' in path_low)
@@ -1393,8 +1402,11 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
     path_entropy = entropy(path_low)
     is_high_entropy = (len(host_low) > 15 and host_entropy > 4.2) or (len(path_low) > 40 and path_entropy > 4.5)
 
+    # Google Docs / Drive direct-download abuse (uc?export=download is a known malware delivery vector)
+    is_gdocs_payload = ('docs.google.com' in host_low or 'drive.google.com' in host_low) and ('export=download' in low_u or '/uc?' in low_u or '/uc?' in path_low)
+    
     # --- Combined Bypass Logic (Hardened) ---
-    bypass_fail_safe = susp_path_detected or brand_in_path_unrelated or is_ip or is_github_abuse or is_blob_abuse or has_malware_ext or is_wp_abuse or is_upload_abuse or is_short_mal_name or is_naked_asset or is_hosting_abuse
+    bypass_fail_safe = susp_path_detected or brand_in_path_unrelated or is_ip or is_github_abuse or is_blob_abuse or has_malware_ext or is_wp_abuse or is_upload_abuse or is_short_mal_name or is_naked_asset or is_hosting_abuse or has_disguised_installer or is_gdocs_payload
     
     # --- Apply Escalations & Immediate Returns ---
     if is_github_abuse:
@@ -1408,6 +1420,14 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
     if has_malware_ext:
         reasons.append("Critical: URL points directly to an executable or malware payload.")
         return ("PHISHING", 0.99, "online_malware_file", reasons, p1, p2, {})
+
+    if has_disguised_installer:
+        reasons.append(f"Disguised installer: malware payload hidden inside an image/text file ('{path_filename}').")
+        return ("PHISHING", 0.97, "online_disguised_installer", reasons, p1, p2, {})
+
+    if is_gdocs_payload:
+        reasons.append("Google Docs/Drive direct-download abuse: uc?export=download is a known malware delivery pattern.")
+        return ("PHISHING", 0.96, "online_gdocs_payload", reasons, p1, p2, {})
 
     if is_naked_asset:
         reasons.append("High-risk raw asset/payload detected on non-standard host.")

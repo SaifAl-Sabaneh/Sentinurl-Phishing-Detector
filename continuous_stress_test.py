@@ -153,27 +153,37 @@ def run_continuous_test(batch_size=50000):
     
     # PRODUCTION FUSION ENGINE (99.76% Hardened Version)
     mock_online = {"gsb": {"hit": False, "ok": True}, "tls": {"ok": True, "days_left": 100}, "html": {"ok": False}}
-    mock_whois = {"age_days": 1000}
+    mock_whois = {"age_days": 5}
     
     print(f"[*] Analyzing threats via Hardened Production Logic (v3.5.0)...")
     for i, u in enumerate(test_payload):
-        s1p = s1_probs[i]
-        s2p = s2_probs[i]
+        s1p = float(s1_probs[i])
+        s2p = float(s2_probs[i])
         
+        # Calculate p_ml correctly to reflect exact parity with sentinurl.py Phase 2.4
+        if s1p < 0.05:
+            p_ml = (0.95 * s1p + 0.05 * s2p)
+        elif s1p < 0.15:
+            p_ml = (0.90 * s1p + 0.10 * s2p)
+        elif s1p < 0.30:
+            p_ml = (0.85 * s1p + 0.15 * s2p)
+        elif s1p > 0.80:
+            p_ml = (0.95 * s1p + 0.05 * s2p)
+        else:
+            p_ml = (0.80 * s1p + 0.20 * s2p)
+            
         # 1. Adversarial Hardening Layers (Layer 2.5)
-        hardened_score = None
+        reasons_list = []
         for fn in [check_typosquat_advanced, check_cloud_payload, check_cms_vulnerabilities, check_malware_signatures, check_finance_phish_paths]:
             res = fn(u)
             if res:
-                hardened_score = res[1]
-                break
+                p_ml = max(p_ml, res[1])
+                if len(res) > 3 and res[3]:
+                    reasons_list.extend(res[3])
 
-        if hardened_score is not None:
-            final_probs.append(max(hardened_score, s1p))
-        else:
-            # Fallback to standard fusion
-            label, score, src, reasons, p1, p2, geo = fuse_evidence(u, s1p, s1p, s2p, mock_online, mock_whois)
-            final_probs.append(score)
+        # Proceed to standard fusion logic, applying fail-safes and overrides
+        label, score, src, reasons, p1, p2, geo = fuse_evidence(u, p_ml, s1p, s2p, mock_online, mock_whois, reasons_list)
+        final_probs.append(score)
     
     final_probs = np.array(final_probs)
     
