@@ -1363,17 +1363,13 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
     susp_path_patterns = [r'/wp-content/', r'/wp-includes/', r'/cmd/', r'/bin/', r'/shell/', r'/upload/', r'/media/', r'/assets/', r'/\.env', r'/\.git', r'/api/v', r'/cgi-bin/', r'/verify', r'/secure', r'/login', r'/account', r'/update', r'/validate', r'/auth/']
     susp_path_detected = any(re.search(p, path_low) for p in susp_path_patterns)
     
-    # Hosting Abuse (RESTORED FULL SCOPE)
+    # Hosting Abuse (Refined: Only considered abuse if a threat signal is present)
     is_github_abuse = ('github.com' in host_low or 'raw.githubusercontent.com' in host_low) and any(x in path_low for x in ['/raw/', '/releases/download/', '/user-attachments/', '/blob/', '/gist/'])
     is_blob_abuse = any(x in host_low for x in ['blob.core.windows.net', 'storage.googleapis.com', 's3.amazonaws.com', 'wsimg.com', 'web.app', 'firebaseapp.com'])
     
     # Trusted Hosting Platforms (Reputable domains used for anonymous payload delivery)
     hosting_subdomains = {'drive.google.com', 'docs.google.com', 'cdn.discordapp.com', 'attachments.discordapp.net', 'dropbox.com', 'onedrive.live.com', 'sharepoint.com'}
     is_hosting_subdomain = any(sub in host_low for sub in hosting_subdomains)
-    drive_payload = 'drive.google.com' in host_low and ('/uc' in path_low or 'export=download' in low_u)
-    discord_payload = ('discordapp' in host_low or 'discord.com' in host_low) and ('/attachments/' in path_low or '/cdn/' in path_low)
-    
-    is_hosting_abuse = is_hosting_subdomain or is_github_abuse or is_blob_abuse
     
     # Malware Exts (includes Windows shortcut/script types used in malware delivery)
     malware_exts = {'.exe', '.msi', '.apk', '.bat', '.vbs', '.scr', '.zip', '.rar', '.iso', '.7z', '.bin', '.js', '.lnk', '.ps1', '.cmd', '.hta', '.pif', '.reg'}
@@ -1405,6 +1401,10 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
     # Google Docs / Drive direct-download abuse (uc?export=download is a known malware delivery vector)
     is_gdocs_payload = ('docs.google.com' in host_low or 'drive.google.com' in host_low) and ('export=download' in low_u or '/uc?' in low_u or '/uc?' in path_low)
     
+    # SIGNAL-BASED HOSTING ABUSE: Only bypass fail-safe if the hosting URL also shows threat indicators
+    is_hosting_signal = has_malware_ext or is_gdocs_payload or is_naked_asset or has_disguised_installer or is_wp_abuse or is_upload_abuse or is_short_mal_name or is_high_entropy or susp_path_detected
+    is_hosting_abuse = (is_hosting_subdomain or is_github_abuse or is_blob_abuse) and is_hosting_signal
+
     # --- Combined Bypass Logic (Hardened) ---
     bypass_fail_safe = susp_path_detected or brand_in_path_unrelated or is_ip or is_github_abuse or is_blob_abuse or has_malware_ext or is_wp_abuse or is_upload_abuse or is_short_mal_name or is_naked_asset or is_hosting_abuse or has_disguised_installer or is_gdocs_payload
     
@@ -1521,10 +1521,13 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
             else:
                 threshold_score = 0.75
             
-            if score < threshold_score and p2 < 0.40:
+            # PROTECTION: For extremely established domains (>10 yrs), we override ML even if it's high
+            # unless a 'Hard Signal' (bypass_fail_safe) is present.
+            is_very_old = domain_age > 3650
+            if (score < threshold_score and p2 < 0.40) or (is_very_old and not bypass_fail_safe):
                 years = domain_age // 365
                 return ("SAFE", 0.01, "triple_verified_safe", 
-                        reasons + [f"Triple-verified safe: GSB + TLS + established domain ({years} yrs)."],
+                        reasons + [f"Triple-verified safe: GSB + TLS + highly established domain ({years} yrs). ML scores suppressed by reputation gravity."],
                         p1, p2, {})
 
         # DYNAMIC NLP MODERATION (For established sites not in reputable_platforms)
@@ -1635,22 +1638,33 @@ def fuse_evidence(url: str, p_ml: float, p1: float, p2: float, online: dict, who
         reasons.append(f"Regulated country-code TLD (.{suf}) with good reputation.")
         score = min(score, 0.40)
 
-    # ENHANCED: Better model disagreement handling (Experimental V2: reduced to 0.2)
+    # ENHANCED: Better model disagreement handling (Reputation-Aware)
     if abs(p1 - p2) > 0.2:
-        # If Stage1 says very safe but Stage2 disagrees, trust Stage1 more
-        if p1 < 0.20 and p2 > 0.60:
-            new_score = 0.3 * p1 + 0.7 * p2  # Give more weight to Stage2 but still cap it
-            score = max(score, new_score) # Protective additive
-            reasons.append("Models disagree: URL analysis highly confident of safety; moderating feature-based concerns.")
-        # If Stage2 says very safe but Stage1 disagrees, trust Stage2 more  
-        elif p2 < 0.20 and p1 > 0.60:
-            new_score = 0.7 * p1 + 0.3 * p2
-            score = max(score, new_score)
-            reasons.append("Models disagree: Feature analysis suggests safety; moderating URL-based concerns.")
+        # If the domain is established, be much more skeptical of the 'Dangerous' model's score
+        if domain_age > 1825: # > 5 years
+            # Use a conservative average that favors safety if no hard bypass is active
+            if not bypass_fail_safe:
+                new_score = (min(p1, p2) * 0.7) + (max(p1, p2) * 0.3)
+                score = min(score, new_score)
+                reasons.append(f"Models disagree on established domain ({domain_age // 365} yrs); prioritizing reputation-safe score.")
+            else:
+                score = (p1 + p2) / 2
+                reasons.append("Models disagree significantly; using averaged score due to active threat signals.")
         else:
-            new_score = (p1 + p2) / 2
-            score = max(score, new_score)
-            reasons.append("Models disagree significantly; using averaged score for safety.")
+            # If Stage1 says very safe but Stage2 disagrees, trust Stage1 more
+            if p1 < 0.20 and p2 > 0.60:
+                new_score = 0.3 * p1 + 0.7 * p2  # Give more weight to Stage2 but still cap it
+                score = max(score, new_score) # Protective additive
+                reasons.append("Models disagree: URL analysis highly confident of safety; moderating feature-based concerns.")
+            # If Stage2 says very safe but Stage1 disagrees, trust Stage2 more  
+            elif p2 < 0.20 and p1 > 0.60:
+                new_score = 0.7 * p1 + 0.3 * p2
+                score = max(score, new_score)
+                reasons.append("Models disagree: Feature analysis suggests safety; moderating URL-based concerns.")
+            else:
+                new_score = (p1 + p2) / 2
+                score = max(score, new_score)
+                reasons.append("Models disagree significantly; using averaged score for safety.")
 
     # ── Content Analysis (only for ambiguous scores) ──
     if CONTENT_ANALYZER_AVAILABLE and 0.30 <= score <= 0.80:

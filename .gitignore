@@ -57,3 +57,6 @@ reports/
 
 # Runtime data files
 retrain_log.txt
+
+# Brain Scratch
+scratch/
