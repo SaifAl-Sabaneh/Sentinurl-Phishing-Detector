@@ -2,8 +2,8 @@ PROPRIETARY LICENSE - ALL RIGHTS RESERVED
 
 Project: SentinURL Phishing Detector
 Author: Saif Al-Sabaneh
-Version: 3.0.0
-Date: March 16, 2026
+Version: 3.5.1
+Date: April 18, 2026
 
 1. OWNERSHIP & COPYRIGHT
 This software, including but not limited to all source code (.py), pre-trained machine learning models (.joblib, .pkl), documentation (.pdf), datasets, and user interface designs (the "Work"), is the exclusive intellectual property of Saif Al-Sabaneh. All rights are reserved under international copyright laws.
@@ -16,7 +16,8 @@ Permission is NOT granted for any individual or entity to:
 a) Modify, adapt, or create derivative works based upon the Work.
 b) Redistribute, publish, sublicense, or sell copies of the Work in any form.
 c) Use the pre-trained machine learning models in any production or commercial environment without explicit written authorization from the Author.
-d) Remove or obscure this copyright notice.
+d) Extract model weights or architecture for the purpose of reverse engineering or competing products.
+e) Remove or obscure this copyright notice.
 
 4. PERMITTED USE (VIEWING ONLY)
 Permission is granted to users of GitHub and Streamlit Cloud to VIEW the source code for the sole purposes of:

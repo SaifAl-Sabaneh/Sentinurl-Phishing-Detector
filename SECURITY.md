@@ -1,33 +1,24 @@
+# Security Policy
 
-PROPRIETARY LICENSE - ALL RIGHTS RESERVED
+## Supported Versions
 
-Project: SentinURL Phishing Detector
-Author: Saif Al-Sabaneh
-Version: 3.0.0
-Date: March 16, 2026
+SentinURL is actively maintained at its current version.
 
-1. OWNERSHIP & COPYRIGHT
-This software, including but not limited to all source code (.py), pre-trained machine learning models (.joblib, .pkl), documentation (.pdf), datasets, and user interface designs (the "Work"), is the exclusive intellectual property of Saif Al-Sabaneh. All rights are reserved under international copyright laws.
+| Version | Supported          |
+| ------- | ------------------ |
+| 3.5.x   | :white_check_mark: |
+| < 3.5   | :x:                |
 
-2. ACADEMIC INTEGRITY & ANTI-PLAGIARISM NOTICE
-This Work is presented as a Graduation Project for academic evaluation. Any unauthorized use, copying, or representation of this project (in whole or in part) as the work of another individual for academic credit, submission to any educational institution, or publication is strictly prohibited. Such actions constitute academic plagiarism and intellectual property theft.
+## Reporting a Vulnerability
 
-3. USAGE RESTRICTIONS
-Permission is NOT granted for any individual or entity to:
-a) Modify, adapt, or create derivative works based upon the Work.
-b) Redistribute, publish, sublicense, or sell copies of the Work in any form.
-c) Use the pre-trained machine learning models in any production or commercial environment without explicit written authorization from the Author.
-d) Remove or obscure this copyright notice.
+We take the security of SentinURL seriously. If you believe you have found a security vulnerability, please do NOT open a GitHub issue. Instead, please report it via one of the following methods:
 
-4. PERMITTED USE (VIEWING ONLY)
-Permission is granted to users of GitHub and Streamlit Cloud to VIEW the source code for the sole purposes of:
-a) Personal non-commercial evaluation.
-b) Peer review and academic assessment.
-c) Demonstration of the system's functionality.
+1.  **Direct Contact:** Reach out to Saif Al-Sabaneh via LinkedIn or GitHub direct messaging.
+2.  **Email:** [saifasabaneh@gmail.com] (Placeholder - update as needed)
 
-5. NO WARRANTY
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHOR OR COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+When reporting, please include:
+- A description of the vulnerability.
+- Steps to reproduce the issue.
+- Potential impact.
 
-(c) 2026 Saif Al-Sabaneh. All Rights Reserved.
-    
-Contact: [Saif Al-Sabaneh] via GitHub for licensing inquiries.
+We will acknowledge receipt of your report within 48 hours and provide a timeline for a resolution. Thank you for helping keep SentinURL secure.

@@ -1,8 +1,8 @@
 # 🛡️ SentinURL: AI-Driven Phishing Detection & Risk Intelligence
 
-![Version](https://img.shields.io/badge/Version-3.6.0-blue)
+![Version](https://img.shields.io/badge/Version-3.5.1-blue)
 ![Accuracy](https://img.shields.io/badge/Accuracy-99.55%25-green)
-![License](https://img.shields.io/badge/License-Creative_Commons-orange)
+![License](https://img.shields.io/badge/License-Proprietary-red)
 ![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
 
 **SentinURL** is an enterprise-grade threat intelligence engine that leverages a multi-stage Machine Learning architecture to neutralize zero-day phishing and malware campaigns in real-time. Designed at the intersection of **Cybersecurity** and **Business Intelligence**, it transforms raw URL telemetry into actionable defensive insights.
