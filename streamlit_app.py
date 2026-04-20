@@ -15,6 +15,7 @@ from datetime import datetime
 from translations import TRANSLATIONS
 from pdf_generator import generate_pdf_report
 from qr_decoder import extract_url_from_qr
+from history_logger import log_scan, get_history_df
 
 # Add current directory to path
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -78,18 +79,28 @@ lottie_warning = load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_T
 
 # --- Helper Functions ---
 def load_history():
-    if os.path.exists(HISTORY_FILE):
-        try:
-            return pd.read_csv(HISTORY_FILE)
-        except:
-            pass
-    return pd.DataFrame(columns=["timestamp", "domain", "url", "status", "risk_score_percent", "decision_by"])
+    return get_history_df()
 
 def save_history(record_dict):
-    df = load_history()
-    new_row = pd.DataFrame([record_dict])
-    df = pd.concat([df, new_row], ignore_index=True)
-    df.to_csv(HISTORY_FILE, index=False)
+    # Try to get User-Agent from headers
+    user_agent = "Streamlit User"
+    try:
+        from streamlit.web.server.websocket_headers import _get_websocket_headers
+        headers = _get_websocket_headers()
+        if headers:
+            user_agent = headers.get("User-Agent", "Streamlit User")
+    except:
+        pass
+        
+    log_scan(
+        url=record_dict.get("url", "N/A"),
+        domain=record_dict.get("domain", "N/A"),
+        status=record_dict.get("status", "Unknown"),
+        score=record_dict.get("risk_score_percent", 0),
+        engine=record_dict.get("decision_by", "Unknown"),
+        user_agent=user_agent,
+        source="Streamlit Dashboard"
+    )
 
 def format_engine_name(engine_id):
     engine_id = str(engine_id)
@@ -172,23 +183,18 @@ with st.sidebar:
     else:
         # Show last 5
         recent_hist = hist_df.tail(5).iloc[::-1]
-        for _, row in recent_hist.iterrows():
-            is_phish = row['status'].lower() == 'phishing'
-            card_class = "history-card-phish" if is_phish else "history-card-safe"
-            icon = "🚨" if is_phish else "✅"
-            
             st.markdown(f'''
             <div style="border-left: 4px solid {'#e74c3c' if is_phish else '#2ecc71'}; padding-left: 10px; margin-bottom: 10px; color: var(--text-color);">
-                <b>{icon} {row["domain"]}</b><br>
-                <small>{row["timestamp"]}</small>
+                <b>{icon} {row["Domain"]}</b><br>
+                <small>{row["Timestamp"]}</small>
             </div>
             ''', unsafe_allow_html=True)
             
     st.markdown("---")
     
     if st.button(lang["clear_history"]):
-        if os.path.exists(HISTORY_FILE):
-            os.remove(HISTORY_FILE)
+        if os.path.exists("global_scan_history.csv"):
+            os.remove("global_scan_history.csv")
             st.rerun()
 
     st.markdown("---")
@@ -471,9 +477,8 @@ with tab_scan:
                         else:
                             status_str = "Safe"
                     
-                    # Persist to disk (Feature 2 logic)
+                    # Persist to disk
                     save_history({
-                        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                         "domain": domain,
                         "url": url_input,
                         "status": status_str,
@@ -880,7 +885,7 @@ with tab_stats:
         stcol1, stcol2, stcol3 = st.columns(3)
         
         total_scans = len(hist_stats)
-        phishing_hits = len(hist_stats[hist_stats['status'] == 'Phishing'])
+        phishing_hits = len(hist_stats[hist_stats['Status'].str.lower() == 'phishing'])
         safe_hits = total_scans - phishing_hits
         
         stcol1.metric(lang["total_scanned_metric"], total_scans)
@@ -905,7 +910,7 @@ with tab_stats:
             
         with c2:
             st.markdown("### Top Detection Engines")
-            engine_counts = hist_stats['decision_by'].value_counts().reset_index()
+            engine_counts = hist_stats['Engine'].value_counts().reset_index()
             engine_counts.columns = ['Engine', 'Count']
             
             fig2 = px.bar(engine_counts, x='Engine', y='Count', text='Count',
@@ -916,6 +921,16 @@ with tab_stats:
             
         st.write("### Raw History Log")
         st.dataframe(hist_stats, use_container_width=True)
+        
+        # Download Button for Excel/CSV
+        csv_download = hist_stats.to_csv(index=False).encode('utf-8')
+        st.download_button(
+            label="📊 Download Global History (for Excel)",
+            data=csv_download,
+            file_name=f"SentinURL_Global_History_{datetime.now().strftime('%Y%m%d')}.csv",
+            mime="text/csv",
+            type="primary"
+        )
         
         st.markdown("---")
         st.write("### 🤖 Automated Retraining Logs")
