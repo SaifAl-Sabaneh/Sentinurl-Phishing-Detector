@@ -15,7 +15,7 @@ from datetime import datetime
 from translations import TRANSLATIONS
 from pdf_generator import generate_pdf_report
 from qr_decoder import extract_url_from_qr
-from history_logger import log_scan, get_history_df
+from history_logger import log_scan, get_history_df, HISTORY_FILE, get_last_error
 
 # Add current directory to path
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -197,7 +197,6 @@ with st.sidebar:
     st.markdown("---")
     
     with st.sidebar.expander("🛠️ System Debug & Diagnostics"):
-        from history_logger import HISTORY_FILE, get_last_error, get_history_df
         st.write(f"**CWD:** `{os.getcwd()}`")
         st.write(f"**Log Path:** `{HISTORY_FILE}`")
         
