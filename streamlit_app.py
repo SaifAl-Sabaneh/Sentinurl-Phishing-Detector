@@ -196,9 +196,31 @@ with st.sidebar:
             
     st.markdown("---")
     
-    if st.button(lang["clear_history"]):
-        if os.path.exists("global_scan_history.csv"):
-            os.remove("global_scan_history.csv")
+    with st.sidebar.expander("🛠️ System Debug & Diagnostics"):
+        from history_logger import HISTORY_FILE, get_last_error, get_history_df
+        st.write(f"**CWD:** `{os.getcwd()}`")
+        st.write(f"**Log Path:** `{HISTORY_FILE}`")
+        
+        exists = os.path.exists(HISTORY_FILE)
+        st.write(f"**Log Exists:** {'✅ Yes' if exists else '❌ No'}")
+        if exists:
+            st.write(f"**File Size:** {os.path.getsize(HISTORY_FILE) / 1024:.2f} KB")
+        
+        last_err = get_last_error()
+        if last_err:
+            st.error(f"Last Error: {last_err}")
+        else:
+            st.success("No active logger errors.")
+
+        if st.button("🧪 Test Logging Now"):
+            save_history({
+                "domain": "debug-test.com",
+                "url": "https://debug-test.com/check",
+                "status": "Safe",
+                "risk_score_percent": 0,
+                "decision_by": "Debug-Tool"
+            })
+            st.info("Test record sent to logger. Check Raw History below.")
             st.rerun()
 
     st.markdown("---")

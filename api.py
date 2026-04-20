@@ -75,6 +75,22 @@ async def scan_url(request_data: URLRequest, request: Request):
         traceback.print_exc()
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/debug/history")
+async def debug_history():
+    """Hidden diagnostic endpoint to verify if the API is logging correctly."""
+    from history_logger import get_history_df, HISTORY_FILE, get_last_error
+    try:
+        df = get_history_df()
+        return {
+            "exists": os.path.exists(HISTORY_FILE),
+            "file_path": HISTORY_FILE,
+            "last_error": get_last_error(),
+            "total_rows": len(df),
+            "last_15_rows": df.tail(15).to_dict(orient="records")
+        }
+    except Exception as e:
+        return {"error": str(e)}
+
 if __name__ == "__main__":
     import uvicorn
     # Start the server (Reads PORT from Render.com env, defaults to 8345 locally)

@@ -3,8 +3,17 @@ import os
 from datetime import datetime, timedelta
 import threading
 
-HISTORY_FILE = "global_scan_history.csv"
+# Use an absolute path relative to the directory of this file
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+HISTORY_FILE = os.path.join(BASE_DIR, "global_scan_history.csv")
 LOCK = threading.Lock()
+
+# Diagnostic tracking
+LAST_LOG_ERROR = None
+
+def get_last_error():
+    global LAST_LOG_ERROR
+    return LAST_LOG_ERROR
 
 def initialize_history():
     """Ensure the history file exists with correct headers."""
@@ -17,6 +26,7 @@ def initialize_history():
 
 def prune_old_logs(days=30):
     """Remove entries older than the specified number of days."""
+    global LAST_LOG_ERROR
     if not os.path.exists(HISTORY_FILE):
         return
 
@@ -36,10 +46,12 @@ def prune_old_logs(days=30):
         if len(df_pruned) < len(df):
             df_pruned.to_csv(HISTORY_FILE, index=False)
     except Exception as e:
+        LAST_LOG_ERROR = f"Prune error: {str(e)}"
         print(f"Error pruning logs: {e}")
 
 def log_scan(url, domain, status, score, engine, user_agent, source):
     """Log a scan result thread-safely and prune old logs."""
+    global LAST_LOG_ERROR
     initialize_history()
     
     with LOCK:
@@ -65,15 +77,21 @@ def log_scan(url, domain, status, score, engine, user_agent, source):
             if random.random() < 0.10: # 10% chance per scan to run pruning
                 prune_old_logs(days=30)
             
+            # Clear last error on success
+            LAST_LOG_ERROR = None
+            
         except Exception as e:
+            LAST_LOG_ERROR = f"Log error: {str(e)}"
             print(f"Error logging scan: {e}")
 
 def get_history_df():
     """Load the history as a DataFrame."""
+    global LAST_LOG_ERROR
     if os.path.exists(HISTORY_FILE):
         try:
             return pd.read_csv(HISTORY_FILE)
-        except:
+        except Exception as e:
+            LAST_LOG_ERROR = f"Read error: {str(e)}"
             pass
     return pd.DataFrame(columns=[
         "Timestamp", "URL", "Domain", "Status", 
