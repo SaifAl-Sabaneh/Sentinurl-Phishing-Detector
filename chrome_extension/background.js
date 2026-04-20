@@ -47,9 +47,11 @@ chrome.webNavigation.onBeforeNavigate.addListener(async (details) => {
             const response = await fetch(API_URL, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "X-SentinURL-Source": "Extension-Auto"
                 },
-                body: JSON.stringify({ url: url })
+                body: JSON.stringify({ url: url }),
+                keepalive: true // Ensure request completes during navigation
             });
             const data = await response.json();
             riskData = data.data;

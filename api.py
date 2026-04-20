@@ -38,6 +38,8 @@ async def scan_url(request_data: URLRequest, request: Request):
         
         # Log the scan to global history
         try:
+            # Check for a specific source header from the extension
+            source_header = request.headers.get("X-SentinURL-Source", "API (Extension)")
             user_agent = request.headers.get("User-Agent", "Unknown")
             parsed_url = urlparse(request_data.url)
             domain = parsed_url.netloc or request_data.url
@@ -48,7 +50,7 @@ async def scan_url(request_data: URLRequest, request: Request):
                 score=round(score * 100, 2),
                 engine=src,
                 user_agent=user_agent,
-                source="API (Extension)"
+                source=source_header
             )
         except Exception as log_err:
             print(f"Logging error (non-fatal): {log_err}")

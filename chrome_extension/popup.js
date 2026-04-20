@@ -86,7 +86,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                     try {
                         const response = await fetch(API_URL, {
                             method: "POST",
-                            headers: { "Content-Type": "application/json" },
+                            headers: { 
+                                "Content-Type": "application/json",
+                                "X-SentinURL-Source": "Extension-Manual"
+                            },
                             body: JSON.stringify({ url: tab.url }),
                             signal: controller.signal
                         });
@@ -168,7 +171,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             const response = await fetch(API_URL, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: { 
+                    "Content-Type": "application/json",
+                    "X-SentinURL-Source": "Extension-Manual"
+                },
                 body: JSON.stringify({ url: targetUrl })
             });
             const data = await response.json();
@@ -189,7 +195,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             try {
                 const response = await fetch(API_URL, {
                     method: "POST",
-                    headers: { "Content-Type": "application/json" },
+                    headers: { 
+                        "Content-Type": "application/json",
+                        "X-SentinURL-Source": "Extension-Manual"
+                    },
                     body: JSON.stringify({ url: tabs[0].url })
                 });
                 const data = await response.json();

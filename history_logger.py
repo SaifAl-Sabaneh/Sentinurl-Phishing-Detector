@@ -60,9 +60,10 @@ def log_scan(url, domain, status, score, engine, user_agent, source):
             df_new = pd.DataFrame([new_record])
             df_new.to_csv(HISTORY_FILE, mode='a', header=False, index=False)
             
-            # Periodically prune (e.g., every time or every X calls)
-            # For simplicity and small scale, we prune on every write
-            prune_old_logs(days=30)
+            # Periodically prune (e.g., every 10 scan writes) to optimize performance
+            import random
+            if random.random() < 0.10: # 10% chance per scan to run pruning
+                prune_old_logs(days=30)
             
         except Exception as e:
             print(f"Error logging scan: {e}")
