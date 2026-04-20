@@ -87,10 +87,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                         const response = await fetch(API_URL, {
                             method: "POST",
                             headers: { 
-                                "Content-Type": "application/json",
-                                "X-SentinURL-Source": "Extension-Manual"
+                                "Content-Type": "application/json"
                             },
-                            body: JSON.stringify({ url: tab.url }),
+                            body: JSON.stringify({ 
+                                url: tab.url,
+                                source: "Extension-Manual"
+                            }),
                             signal: controller.signal
                         });
                         clearTimeout(timeoutId);
@@ -172,10 +174,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             const response = await fetch(API_URL, {
                 method: "POST",
                 headers: { 
-                    "Content-Type": "application/json",
-                    "X-SentinURL-Source": "Extension-Manual"
+                    "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ url: targetUrl })
+                body: JSON.stringify({ 
+                    url: targetUrl,
+                    source: "Extension-Manual"
+                })
             });
             const data = await response.json();
             updateUI(data.data);
@@ -196,10 +200,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const response = await fetch(API_URL, {
                     method: "POST",
                     headers: { 
-                        "Content-Type": "application/json",
-                        "X-SentinURL-Source": "Extension-Manual"
+                        "Content-Type": "application/json"
                     },
-                    body: JSON.stringify({ url: tabs[0].url })
+                    body: JSON.stringify({ 
+                        url: tabs[0].url,
+                        source: "Extension-Manual"
+                    })
                 });
                 const data = await response.json();
                 updateUI(data.data);
