@@ -183,6 +183,10 @@ with st.sidebar:
     else:
         # Show last 5
         recent_hist = hist_df.tail(5).iloc[::-1]
+        for _, row in recent_hist.iterrows():
+            is_phish = str(row['Status']).lower() == 'phishing'
+            icon = "🚨" if is_phish else "✅"
+            
             st.markdown(f'''
             <div style="border-left: 4px solid {'#e74c3c' if is_phish else '#2ecc71'}; padding-left: 10px; margin-bottom: 10px; color: var(--text-color);">
                 <b>{icon} {row["Domain"]}</b><br>
