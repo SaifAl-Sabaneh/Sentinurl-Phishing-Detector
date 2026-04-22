@@ -109,7 +109,7 @@ except Exception:
 
 # ── Config ────────────────────────────────────────────────────────────────────
 BASE_DIR      = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATASET_PATH  = os.path.join(os.path.dirname(BASE_DIR), "steps", "Merged Files.csv")
+DATASET_PATH  = os.path.join(BASE_DIR, "data", "raw", "SentinURl DataSet.csv")
 S1_TFIDF      = os.path.join(BASE_DIR, os.path.join("models", "stage1"), "tfidf.joblib")
 S1_MODEL      = os.path.join(BASE_DIR, os.path.join("models", "stage1"), "calibrated_logreg.joblib")
 S2_MODEL      = os.path.join(BASE_DIR, os.path.join("models", "stage2"), "stage2_hgb.joblib")
@@ -139,7 +139,7 @@ print("      Stage 2: HistGradientBoosting         [OK]\n")
 
 # ── Load dataset ──────────────────────────────────────────────────────────────
 print("[2/5] Loading dataset...")
-df = pd.read_csv(DATASET_PATH, encoding="latin1", low_memory=False, usecols=["url", "Type"])
+df = pd.read_csv(DATASET_PATH, encoding="latin1", low_memory=False, usecols=["URL", "Type"])
 df.columns = ["url", "Type"]
 df["url"]  = df["url"].astype(str).str.strip()
 df["Type"] = df["Type"].astype(str).str.strip().str.lower()

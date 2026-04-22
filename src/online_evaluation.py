@@ -34,7 +34,7 @@ from sklearn.metrics import (
 
 # ── Config ────────────────────────────────────────────────────────────────────
 BASE_DIR     = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATASET_PATH = os.path.join(os.path.dirname(BASE_DIR), "steps", "Merged Files.csv")
+DATASET_PATH = os.path.join(BASE_DIR, "data", "raw", "SentinURl DataSet.csv")
 GSB_KEY      = os.environ.get("SENTINURL_GSB_API_KEY", "")
 
 N_PHISHING   = 140
@@ -53,12 +53,16 @@ print("="*65 + "\n")
 
 # ── Load dataset ──────────────────────────────────────────────────────────────
 print("[1/4] Loading dataset and sampling 200 URLs...")
-df = pd.read_csv(DATASET_PATH, encoding="latin1", low_memory=False, usecols=["url","Type"])
+df = pd.read_csv(DATASET_PATH, encoding="latin1", low_memory=False, usecols=["URL","Type"])
+df.columns = ["url", "Type"]
 df["url"]   = df["url"].astype(str).str.strip()
 df["label"] = df["Type"].astype(str).str.lower().apply(lambda x: 1 if "phish" in x else 0)
 
-phish_df = df[df["label"]==1].sample(n=N_PHISHING, random_state=RANDOM_SEED)
-safe_df  = df[df["label"]==0].sample(n=N_SAFE,     random_state=RANDOM_SEED)
+n_phish_sample = min(N_PHISHING, len(df[df["label"]==1]))
+n_safe_sample  = min(N_SAFE, len(df[df["label"]==0]))
+
+phish_df = df[df["label"]==1].sample(n=n_phish_sample, random_state=RANDOM_SEED)
+safe_df  = df[df["label"]==0].sample(n=n_safe_sample,  random_state=RANDOM_SEED)
 
 eval_df  = pd.concat([phish_df, safe_df]).sample(frac=1, random_state=RANDOM_SEED).reset_index(drop=True)
 urls     = eval_df["url"].tolist()
