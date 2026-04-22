@@ -103,10 +103,10 @@ def run_continuous_test(batch_size=50000):
     print("[*] Booting Stage 1 & Stage 2 Mathematical Arrays...")
     try:
         current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        tfidf = joblib.load(os.path.join(current_dir, "stage1/tfidf.joblib"))
-        logreg = joblib.load(os.path.join(current_dir, "stage1/calibrated_logreg.joblib"))
-        s2_model = joblib.load(os.path.join(current_dir, "stage2/stage2_hgb.joblib"))
-        s2_cols = joblib.load(os.path.join(current_dir, "stage2/stage2_feature_columns.joblib"))
+        tfidf = joblib.load(os.path.join(current_dir, "models", "stage1", "tfidf.joblib"))
+        logreg = joblib.load(os.path.join(current_dir, "models", "stage1", "calibrated_logreg.joblib"))
+        s2_model = joblib.load(os.path.join(current_dir, "models", "stage2", "stage2_hgb.joblib"))
+        s2_cols = joblib.load(os.path.join(current_dir, "models", "stage2", "stage2_feature_columns.joblib"))
     except Exception as e:
         print(f"[!] Critical Error loading models: {e}")
         return
