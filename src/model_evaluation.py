@@ -28,7 +28,7 @@ from sklearn.metrics import (
 )
 
 warnings.filterwarnings("ignore")
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # ── Import feature extractor from existing codebase ──────────────────────────
 try:
@@ -108,12 +108,12 @@ except Exception:
 
 
 # ── Config ────────────────────────────────────────────────────────────────────
-BASE_DIR      = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR      = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATASET_PATH  = os.path.join(os.path.dirname(BASE_DIR), "steps", "Merged Files.csv")
-S1_TFIDF      = os.path.join(BASE_DIR, "stage1", "tfidf.joblib")
-S1_MODEL      = os.path.join(BASE_DIR, "stage1", "calibrated_logreg.joblib")
-S2_MODEL      = os.path.join(BASE_DIR, "stage2", "stage2_hgb.joblib")
-S2_COLS       = os.path.join(BASE_DIR, "stage2", "stage2_feature_columns.joblib")
+S1_TFIDF      = os.path.join(BASE_DIR, os.path.join("models", "stage1"), "tfidf.joblib")
+S1_MODEL      = os.path.join(BASE_DIR, os.path.join("models", "stage1"), "calibrated_logreg.joblib")
+S2_MODEL      = os.path.join(BASE_DIR, os.path.join("models", "stage2"), "stage2_hgb.joblib")
+S2_COLS       = os.path.join(BASE_DIR, os.path.join("models", "stage2"), "stage2_feature_columns.joblib")
 
 N_PHISHING    = 70_000
 N_SAFE        = 30_000

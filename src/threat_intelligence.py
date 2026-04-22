@@ -7,8 +7,8 @@ class URLHausFeed:
     def __init__(self, cache_file=None):
         if cache_file is None:
             # Try to put it in a 'stage2' or 'logs' directory if they exist
-            if os.path.exists("stage2"):
-                self.cache_file = os.path.join("stage2", "urlhaus_cache.txt")
+            if os.path.exists(os.path.join("models", "stage2")):
+                self.cache_file = os.path.join(os.path.join("models", "stage2"), "urlhaus_cache.txt")
             elif os.path.exists("logs"):
                 self.cache_file = os.path.join("logs", "urlhaus_cache.txt")
             else:

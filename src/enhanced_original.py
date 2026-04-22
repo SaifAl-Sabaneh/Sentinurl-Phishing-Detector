@@ -74,9 +74,9 @@ ENGINE_VERSION = "2.2.3-protect-enhanced"
 # =========================================================
 # MODEL PATHS
 # =========================================================
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STAGE1_DIR = os.path.join(BASE_DIR, "stage1")
-STAGE2_DIR = os.path.join(BASE_DIR, "stage2")
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STAGE1_DIR = os.path.join(BASE_DIR, os.path.join("models", "stage1"))
+STAGE2_DIR = os.path.join(BASE_DIR, os.path.join("models", "stage2"))
 S1_TFIDF_PATH = os.path.join(STAGE1_DIR, "tfidf.joblib")
 S1_MODEL_PATH = os.path.join(STAGE1_DIR, "calibrated_logreg.joblib")
 

@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-MASTER_DATASET = "SentinURl DataSet.csv"
+MASTER_DATASET = os.path.join("data", "raw", "SentinURl DataSet.csv")
 
 def deduplicate_master_dataset():
     """Reads the master dataset, removes duplicate URLs, and saves it back."""

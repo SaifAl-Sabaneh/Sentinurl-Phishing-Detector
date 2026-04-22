@@ -5,7 +5,7 @@ import sys
 import os
 
 # Ensure the local modules can be imported
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from sentinurl import predict_ultimate
 from history_logger import log_scan
 from urllib.parse import urlparse

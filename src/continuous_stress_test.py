@@ -10,7 +10,7 @@ from urllib.request import urlretrieve
 from concurrent.futures import ThreadPoolExecutor
 
 warnings.filterwarnings('ignore')
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from enhanced_original import url_features, fuse_evidence, get_host, safe_urlparse
 from sentinurl import (
     check_typosquat_advanced, check_cloud_payload, 
@@ -102,7 +102,7 @@ def run_continuous_test(batch_size=50000):
     # Load Models
     print("[*] Booting Stage 1 & Stage 2 Mathematical Arrays...")
     try:
-        current_dir = os.path.dirname(os.path.abspath(__file__))
+        current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         tfidf = joblib.load(os.path.join(current_dir, "stage1/tfidf.joblib"))
         logreg = joblib.load(os.path.join(current_dir, "stage1/calibrated_logreg.joblib"))
         s2_model = joblib.load(os.path.join(current_dir, "stage2/stage2_hgb.joblib"))
@@ -223,8 +223,8 @@ def run_continuous_test(batch_size=50000):
             "Reason": reason,
         })
 
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    csv_path = os.path.join(current_dir, "stress_test_results.csv")
+    current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    csv_path = os.path.join(current_dir, os.path.join("data", "processed", "stress_test_results.csv"))
     results_df = pd.DataFrame(rows)
     file_exists = os.path.exists(csv_path)
     results_df.to_csv(csv_path, mode="a", index=False, header=not file_exists, encoding="utf-8-sig")
@@ -257,7 +257,7 @@ def run_continuous_test(batch_size=50000):
         master_features = [f for f in master_features if f is not None]
         
         if master_features:
-            master_csv_path = os.path.join(current_dir, "SentinURl DataSet.csv")
+            master_csv_path = os.path.join(current_dir, os.path.join("data", "raw", "SentinURl DataSet.csv"))
             expansion_df = pd.DataFrame(master_features)
             
             # Ensure columns match master exactly (if it was loaded)

@@ -340,7 +340,7 @@ def generate_report_from_session(log_obj):
 
     # 3. Save resulting HTML
     # create the reports directory if it doesn't already exist
-    reports_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "reports")
+    reports_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "reports")
     os.makedirs(reports_dir, exist_ok=True)
     
     file_path = os.path.join(reports_dir, f"SentinURL_Report_{date_str}.html")

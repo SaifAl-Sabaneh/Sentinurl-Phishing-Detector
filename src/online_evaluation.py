@@ -18,7 +18,7 @@ import hashlib
 import requests
 
 warnings.filterwarnings("ignore")
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from enhanced_original import (
     url_features, stage1_prob, stage2_prob,
@@ -33,7 +33,7 @@ from sklearn.metrics import (
 )
 
 # ── Config ────────────────────────────────────────────────────────────────────
-BASE_DIR     = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR     = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATASET_PATH = os.path.join(os.path.dirname(BASE_DIR), "steps", "Merged Files.csv")
 GSB_KEY      = os.environ.get("SENTINURL_GSB_API_KEY", "")
 

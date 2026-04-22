@@ -4,8 +4,8 @@ from datetime import datetime, timedelta
 import threading
 
 # Use an absolute path relative to the directory of this file
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-HISTORY_FILE = os.path.join(BASE_DIR, "global_scan_history.csv")
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+HISTORY_FILE = os.path.join(BASE_DIR, os.path.join("data", "processed", "global_scan_history.csv"))
 LOCK = threading.Lock()
 
 # Diagnostic tracking

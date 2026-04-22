@@ -20,15 +20,15 @@ from sklearn.ensemble import HistGradientBoostingClassifier
 # =========================================================
 # CONFIG
 # =========================================================
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(BASE_DIR)
 
 # Check multiple possible locations for the dataset
 possible_paths = [
     os.path.join(BASE_DIR, "Master_SentinURL_Dataset.csv"),
     os.path.join(BASE_DIR, "Merged_Ultimate_Dataset.csv"),
-    os.path.join(PROJECT_ROOT, "Backup work", "Phishing Dataset.csv"),
-    os.path.join(PROJECT_ROOT, "Phishing Dataset.csv")
+    os.path.join(PROJECT_ROOT, "Backup work", os.path.join("data", "raw", "Phishing Dataset.csv")),
+    os.path.join(PROJECT_ROOT, os.path.join("data", "raw", "Phishing Dataset.csv"))
 ]
 DATASET_PATH = None
 for p in possible_paths:
@@ -43,9 +43,9 @@ print(f"Using dataset: {DATASET_PATH}")
 RANDOM_SEED = 42
 
 SAVE_DIR_STAGE1 = os.path.join(BASE_DIR, "stage1_sandbox")
-LIVE_DIR_STAGE1 = os.path.join(BASE_DIR, "stage1")
+LIVE_DIR_STAGE1 = os.path.join(BASE_DIR, os.path.join("models", "stage1"))
 SAVE_DIR_STAGE2 = os.path.join(BASE_DIR, "stage2_sandbox")
-LIVE_DIR_STAGE2 = os.path.join(BASE_DIR, "stage2")
+LIVE_DIR_STAGE2 = os.path.join(BASE_DIR, os.path.join("models", "stage2"))
 os.makedirs(SAVE_DIR_STAGE1, exist_ok=True)
 os.makedirs(SAVE_DIR_STAGE2, exist_ok=True)
 
