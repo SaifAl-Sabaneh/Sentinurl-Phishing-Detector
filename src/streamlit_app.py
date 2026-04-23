@@ -18,8 +18,9 @@ from qr_decoder import extract_url_from_qr
 from history_logger import log_scan, get_history_df, HISTORY_FILE, get_last_error
 
 # Add current directory to path
-current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, current_dir)
+SRC_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SRC_DIR)
+sys.path.insert(0, SRC_DIR)
 
 # Suppress backend model loading prints to keep the terminal clean
 import sys, os
@@ -36,8 +37,8 @@ with SuppressPrints():
     from enhanced_original import url_features
 
 # --- Constants & State ---
-HISTORY_FILE = os.path.join("data", "processed", "scan_history.csv")
-LOCAL_ALLOWLIST = os.path.join("data", "processed", "local_allowlist.json")
+HISTORY_FILE = os.path.join(PROJECT_ROOT, "data", "processed", "scan_history.csv")
+LOCAL_ALLOWLIST = os.path.join(PROJECT_ROOT, "data", "processed", "local_allowlist.json")
 
 if not os.path.exists(LOCAL_ALLOWLIST):
     with open(LOCAL_ALLOWLIST, "w") as f:
@@ -360,9 +361,7 @@ tab_scan, tab_qr, tab_batch, tab_stats, tab_report = st.tabs([lang["scan_tab"], 
 # --- Data Loading for Generator ---
 @st.cache_data
 def load_url_dataset():
-    # current_dir is defined at the top of the file
-    parent_dir = os.path.dirname(current_dir)
-    dataset_path = os.path.join(parent_dir, os.path.join("data", "raw", "Phishing Dataset.csv"))
+    dataset_path = os.path.join(PROJECT_ROOT, "data", "raw", "SentinURl DataSet.csv")
     try:
         if os.path.exists(dataset_path):
             df = pd.read_csv(dataset_path)
@@ -961,7 +960,7 @@ with tab_stats:
         st.write("### 🤖 Automated Retraining Logs")
         st.write("Monitor the results of the background nightly model retraining to see if the AI successfully deployed new weights.")
         
-        log_path = os.path.join(current_dir, "retrain_log.txt")
+        log_path = os.path.join(PROJECT_ROOT, "retrain_log.txt")
         if os.path.exists(log_path):
             with open(log_path, "r", encoding="utf-8") as f:
                 log_data = f.read()
@@ -993,8 +992,8 @@ with tab_report:
                 # Normalization
                 final_url = report_url.strip()
                 
-                # Append to Merged_Ultimate_Dataset.csv
-                dataset_path = os.path.join(current_dir, "Merged_Ultimate_Dataset.csv")
+                # Append to SentinURl DataSet.csv
+                dataset_path = os.path.join(PROJECT_ROOT, "data", "raw", "SentinURl DataSet.csv")
                 
                 try:
                     import csv
