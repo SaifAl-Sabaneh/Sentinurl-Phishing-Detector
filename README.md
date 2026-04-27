@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/assets/media/sentinurl_enhanced.png" alt="SentinURL Logo" width="60%"/>
+</p>
+
 # SentinURL: AI-Driven Phishing Detection & Risk Intelligence
 
 **Authors**
