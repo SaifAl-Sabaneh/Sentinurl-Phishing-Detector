@@ -8,7 +8,7 @@
 
 - Dr\. Hussam Barham
 
-**__Course:** 307498 – Graduation Project__
+**Course:** 307498 – Graduation Project__
 
 __Second Semester, 2025/2026__
 
