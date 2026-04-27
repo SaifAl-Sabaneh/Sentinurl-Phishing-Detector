@@ -13,7 +13,7 @@
 
 Second Semester, 2025/2026
 
-**__Date __**
+**Date **
 
 March 13, 2026 
 
