@@ -1,18 +1,18 @@
-__SentinURL: Dual\-Stage Artificial Intelligence for Semantic Phishing Neutralization\.__
+**__SentinURL: Dual\-Stage Artificial Intelligence for Semantic Phishing Neutralization\.__**
 
-__Authors__
+**__Authors__**
 
-__Saif Al\-__<a id="_Int_7cdlJTy5"></a>__Sabaneh__
+- __Saif Al\-__<a id="_Int_7cdlJTy5"></a>__Sabaneh__
 
-__Supervised by__
+**__Supervised by__**
 
-Dr\. Hussam Barham
+- Dr\. Hussam Barham
 
-__Course: 307498 – Graduation Project__
+**__Course:** 307498 – Graduation Project__
 
-__First Semester, 2025/2027__
+__Second Semester, 2025/2026__
 
-__Date __
+**__Date __**
 
 March 13, 2026 
 
