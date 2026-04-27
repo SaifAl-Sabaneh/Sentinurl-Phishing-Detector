@@ -3,11 +3,14 @@
 **Authors**
 - Saif Al-Sabaneh, 202330014
 
-**Supervised by:** Dr.Husam Barham
+**Supervised by:**
+- Dr.Husam Barham
 
-**Course:** 307498 – Graduation Project
+**Course:** 
+- 307498 – Graduation Project
 
-**Semester:** First Semester, 2025/2026
+**Semester:**
+- Second Semester, 2025/2026
 
 **Date:** 
 
