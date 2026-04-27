@@ -1,18 +1,60 @@
-# 01. Business Intelligence Project Description and Objectives
+__SentinURL: Dual\-Stage Artificial Intelligence for Semantic Phishing Neutralization\.__
 
-## What is your project about?
-SentinURL is an enterprise-grade threat intelligence engine that leverages a multi-stage Machine Learning architecture to neutralize zero-day phishing and malware campaigns in real-time. It intercepts malicious requests at the browser edge using a Manifest V3 Chrome Extension and provides an exhaustive Business Intelligence command center for SOC analysts.
+__Authors__
 
-## What industry or business domain does it address?
-SentinURL operates at the intersection of **Cybersecurity** and **Business Intelligence**. It caters to IT Security teams, Security Operations Centers (SOCs), and corporate environments requiring robust data protection against targeted phishing and Quishing (QR Phishing) attacks.
+__Saif Al\-__<a id="_Int_7cdlJTy5"></a>__Sabaneh__
 
-## How will it help the industry/business?
-Phishing attacks are responsible for the vast majority of corporate data breaches. SentinURL minimizes organizational risk by:
-1. **Blocking Zero-Day Threats:** Operating beyond traditional blacklist boundaries by evaluating lexical and structural components.
-2. **Eliminating Business Friction:** Using a robust fail-safe mechanism and reputation-aware absolute overrides to guarantee zero false positives on known business infrastructure.
-3. **Providing Actionable Intelligence:** Translating complex AI decisions into explainable visualizations for non-technical stakeholders.
+__Supervised by__
 
-## What specific business problems are you solving?
-1. **The Black-Box Problem:** Traditional AI security tools lack transparency. SentinURL incorporates Explainable AI (XAI) to show exactly *why* a domain was blocked.
-2. **False Positives:** High-entropy yet benign domains (like AWS buckets or CDNs) are often incorrectly flagged. SentinURL resolves this through its Fusion Master Controller.
-3. **Analyst Fatigue:** Security analysts are overwhelmed by raw logs. The BI dashboard allows for bulk triage, timeline analysis, and one-click PDF reporting.
+Dr\. Hussam Barham
+
+__Course: 307498 – Graduation Project__
+
+__First Semester, 2025/2027__
+
+__Date __
+
+March 13, 2026 
+
+![Group 8, Grouped object](assets/media/image_5.png)
+
+# <a id="_Toc1119813556"></a><a id="_Toc140429635"></a><a id="_Toc828735313"></a><a id="_Toc226733462"></a>__Abstract__
+
+The system was named __SentinURL__—a portmanteau of the words '__Sentinel__' and '__URL__'\. Like a digital sentinel, the core design philosophy of this project is to stand watch as an intelligent, automated guard, continuously analyzing Uniform Resource Locators to intercept zero\-day malware campaigns\. __SentinURL __is an advanced, multi\-layered machine learning architecture designed to proactively detect and mitigate zero\-day phishing infrastructure in real\-time\. The system implementation departs from traditional, reactive blocklists by engineering a dynamic, ensembled predictive pipeline\.__ Stage 1__ utilizes a __Term Frequency\-Inverse Document Frequency \(TF\-IDF\) Vectorizer paired with Logistic Regression__ to analyze lexical anomalies and the structural natural language intent of the target URL__ \[R13\]\.__ Concurrently, __Stage 2__ deploys a deep Histogram\-based Gradient Boosting model to evaluate deep heuristic features, explicitly calculating character entropy, vowel\-to\-consonant ratios, and deep subdomain nesting __\[R8\], \[R11\]__\. To eliminate the false\-positive <a id="_Int_HYibtqin"></a>limitations native to isolated machine learning, these probabilistic outputs are routed through a custom Dynamic Fusion Rules Engine\. This Master Controller actively queries authoritative online telemetry—evaluating live TLS certificates and Google Safe Browsing registries __\[R19\]__ — while strictly enforcing a machine\-learning supremacy constraint\. This ensures the AI model's structural zero\-day predictions actively override blind spots in traditional Google registries and compromised institutional domains\.
+
+The final evaluation of the __SentinURL __engine demonstrated exceptional enterprise\-grade efficacy across an explicit, real\-world zero\-day holdout dataset\. Operating as a standalone, offline mathematical architecture, the pure Machine Learning pipeline established an exceptionally reliable __99\.96%__ detection baseline\. Crucially, when seamlessly integrated with the real\-time API telemetry and the advanced Dynamic Fusion Rules Engine, the system achieved a verified predictive accuracy of __99\.96%__ across a 100,000\-URL holdout evaluation set, with a __99\.78% True Positive catch rate__ and a False Positive Rate of just __0\.04%__\. __\[R4\], \[R7\]__\. This entire backend architecture was successfully deployed via a highly scalable, multi\-threaded <a id="_Int_UQvMuuZT"></a>Streamlit Business Intelligence dashboard, enabling Security Operations analysts to execute instantaneous bulk CSV triage through a seamless Web UI\. These execution metrics definitively prove that bridging raw predictive machine learning with live, deterministic network telemetry provides an infinitely more robust, scalable, and operationally safe defense mechanism against rapidly mutating cyber threats\.
+
+# <a id="_Toc572627574"></a><a id="_Toc1332436245"></a><a id="_Toc1457075537"></a><a id="_Toc226733463"></a>__Acknowledgment__
+
+I would like to express my sincere gratitude to everyone who contributed to the completion of this graduation project\.
+
+<a id="_Int_mUKYoZRS"></a>First and foremost, I would like to extend my deepest appreciation and special thanks to my supervisor for their exceptional guidance, continuous support, and genuine dedication throughout this project\. Their commitment, encouragement, and willingness to stand by me at every stage made a meaningful difference in my academic journey\. Their valuable insights regarding feature engineering strategies, model selection rationale, and deployment architecture were instrumental in shaping this work and ensuring its successful completion\. Their expertise in data analytics and intelligent systems architecture was instrumental in elevating this project from a raw classification algorithm into a highly scalable, data\-driven threat detection dashboard\.
+
+I am also deeply grateful to the faculty members of the Department of Business Intelligence and Data Analytics for their academic guidance, support, and insightful feedback which enriched the quality of this project\. Special recognition goes to the Machine Learning <a id="_Int_B6tf7Bxu"></a>course instructors who provided the foundational knowledge in statistical modeling, ensemble methods, and hyperparameter tuning that became the backbone of this implementation\.
+
+I would like to express my heartfelt gratitude to my family for their endless love, patience, and unwavering belief in me\. Your support has been my greatest source of strength and motivation throughout this journey, especially during the challenging debugging sessions and late\-night optimization runs\.
+
+Finally, I extend my sincere thanks to the open\-source community, particularly the maintainers of __scikit\-learn,__ __XGBoost__, __Streamlit__, __Tableau__, and the threat intelligence providers \(PhishTank, OpenPhish, URLhaus\) who make their data freely available for academic research\. Your contributions to democratizing machine learning tools, data analytics, and cybersecurity telemetry have made projects like this possible\.
+
+# <a id="_Toc392527840"></a><a id="_Toc978943560"></a><a id="_Toc496626820"></a><a id="_Toc226733464"></a>__Business Intelligence Project Description and Objectives__
+
+__SentinURL __is an__ __advanced Multi\-Layer Phishing Detection System, a comprehensive cybersecurity intelligence solution designed to actively detect, classify, and mitigate malicious web threats in real time\. The core objective of the project is to solve the pervasive problem of zero\-day phishing attacks by moving away from traditional, reactive blocklists and instead implementing a predictive, proactive Machine Learning \(ML\) architecture\.__ \[R15\]__
+
+__The system achieves this by employing a sophisticated, multi\-stage detection pipeline:__  
+__ 1\. Stage 1 \(Lexical Analysis\):__ Utilizes Natural Language Processing \(TF\-IDF\) and Logistic Regression to analyze the structural anomalies of the URL string itself __\[R13\], \[R14\]__\.  
+__ 2\. Stage 2 \(Heuristic Feature Extraction\):__ Deploys a highly accurate Histogram\-based Gradient Boosting \(CatBoost/Random Forest\) model to evaluate complex web features, such as domain age, SSL certificate validity, and deep\-page HTML content indicators \(e\.g\., hidden credential forms\) __\[R8\], \[R9\]__\.  
+__ 3\. Dynamic Verification Layer: __Actively fuses predictions with live external intelligence grids, including Google Safe Browsing APIs, live WHOIS registries, and Geographic Server Mapping \(Geo\-IP\) to cross\-reference the physical hosting locations of suspicious domains__ \[R19\]__\.  
+The final objective was the engineering of a professional\-grade, interactive Business Intelligence dashboard \(built via Streamlit\) that translates these complex ML probabilistic outputs into actionable, human\-readable intelligence for security analysts\. It features live global statistics, CSV bulk\-processing capabilities, QR Quishing, Report Threat, and interactive 3D threat\-mapping\.  
+   
+__Target Industry__  
+This project operates heavily within the Cybersecurity and Threat Intelligence industry, specifically focusing on Information Security \(InfoSec\), Enterprise Risk Management, and Web Gateway Infrastructure\. Additionally, by incorporating live telemetry monitoring, the system bridges __Business Intelligence \(BI\) and Data Analytics__, transforming raw malware detection into actionable, executive\-level reporting\.
+
+__Industry Impact and Value Proposition__  
+The cybersecurity industry is currently struggling with the rapid automation of phishing campaigns, wherein malicious actors spin up thousands of deceptive URLs daily\.__ \[R1\], \[R2\]__\. Traditional signature\-based defenses \(like static blocklists\) are ineffective because they only block threats after a victim has already been compromised, and the URL has been reported\.__ \[R15\]__
+
+  
+__ SentinURL provides significant value to the industry through the following mechanisms:__  
+__ \- Zero\-Day Detection: __By relying on mathematical ML models rather than static lists, the system can instantly identify and block a phishing website the exact second it goes live on the internet, based purely on its structural and behavioral characteristics\.  
+__ \- Automated Threat Triage: __For Security Operations Center \(SOC\) analysts, manually investigating suspicious URLs is a massive drain on human capital\. The system’s batch\-processing capability and interactive Streamlit reporting dashboard automate the investigation triage, instantly providing the analyst with Extracted ML Features, Server Locations, and a definitive Risk Score \(0\-100%\)\.  
+__ \- False\-Positive Mitigation:__ In enterprise environments, falsely blocking a legitimate trusted domain \(like a banking portal or internal HR site\) disrupts business operations severely\. This project introduces a "Fail\-Safe Fusion Layer" that cross\-references high\-risk AI scores against established domain age and trusted TLS certificates, ensuring high accuracy while protecting legitimate business traffic\.
+

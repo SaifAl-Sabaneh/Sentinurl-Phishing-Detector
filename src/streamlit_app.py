@@ -12,15 +12,15 @@ import requests
 import base64
 from streamlit_lottie import st_lottie
 from datetime import datetime
+# Setup paths before custom imports
+SRC_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SRC_DIR)
+sys.path.insert(0, SRC_DIR)
+
 from translations import TRANSLATIONS
 from pdf_generator import generate_pdf_report
 from qr_decoder import extract_url_from_qr
 from history_logger import log_scan, get_history_df, HISTORY_FILE, get_last_error
-
-# Add current directory to path
-SRC_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.dirname(SRC_DIR)
-sys.path.insert(0, SRC_DIR)
 
 # Suppress backend model loading prints to keep the terminal clean
 import sys, os
