@@ -11,11 +11,12 @@
 **Course:** 
 - 307498 – Graduation Project
 
-Second Semester, 2025/2026
+- Second Semester, 2025/2026
 
-**Date **
+Date
+- April 28 , 2026
 
-March 13, 2026 
+- March 13, 2026 
 
 ![Group 8, Grouped object](assets/media/image_5.png)
 
