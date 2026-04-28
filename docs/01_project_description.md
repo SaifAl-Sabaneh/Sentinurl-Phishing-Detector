@@ -16,8 +16,6 @@
 Date
 - April 28 , 2026
 
-- March 13, 2026 
-
 ![Group 8, Grouped object](assets/media/image_5.png)
 
 # <a id="_Toc1119813556"></a><a id="_Toc140429635"></a><a id="_Toc828735313"></a><a id="_Toc226733462"></a>__Abstract__
