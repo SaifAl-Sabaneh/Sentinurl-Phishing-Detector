@@ -14,7 +14,7 @@ SentinURL is actively maintained at its current version.
 We take the security of SentinURL seriously. If you believe you have found a security vulnerability, please do NOT open a GitHub issue. Instead, please report it via one of the following methods:
 
 1.  **Direct Contact:** Reach out to Saif Al-Sabaneh via LinkedIn or GitHub direct messaging.
-2.  **Email:** [saifasabaneh@gmail.com] (Placeholder - update as needed)
+2.  **Email:** [saifalsabaneh@gmail.com] (Placeholder - update as needed)
 
 When reporting, please include:
 - A description of the vulnerability.
