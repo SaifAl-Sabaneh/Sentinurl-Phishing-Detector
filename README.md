@@ -10,7 +10,7 @@
 **Supervised by:**
 - Dr.Husam Barham
 
-** University Of Petra ** 
+**University Of Petra** 
 
 **Course:** 
 - 307498 – Graduation Project
