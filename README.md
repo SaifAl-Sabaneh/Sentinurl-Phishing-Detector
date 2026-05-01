@@ -1,13 +1,9 @@
-<p align="center">
-  <img src="docs/assets/media/sentinurl_enhanced.png" alt="SentinURL Logo" width="60%"/>
-</p>
-
 # SentinURL: AI-Driven Phishing Detection & Risk Intelligence
 
 **Authors**
 - Saif Al-Sabaneh, 202330014
 
-**Supervised by:**
+**Supervised by:** 
 - Dr.Husam Barham
 
 **University:**
@@ -16,7 +12,7 @@
 **Course:** 
 - 307498 – Graduation Project
 
-**Semester:**
+**Semester:** 
 - Second Semester, 2025/2026
 
 **Date:** 
@@ -33,21 +29,32 @@ The evaluation of SentinURL demonstrates highly effective threat detection, achi
 ---
 
 ## Project Documentation
-All detailed academic documentation for this graduation project is maintained in the `docs/` directory:
+All detailed academic documentation for this graduation project is maintained as a single comprehensive guide in the `docs/` directory.
 
-* [01. Project Description](docs/01_project_description.md)
-* [02. Data Research](docs/02_data_research.md)
-* [03. Data Analysis](docs/03_data_analysis.md)
-* [04. Dashboard Design](docs/04_dashboard_design.md)
-* [05. Advanced Analytics](docs/05_advanced_analytics.md)
-* [06. Deployment](docs/06_deployment.md)
+### [SentinURL Comprehensive Documentation](docs/SentinURL_Documentation.md)
+* [Abstract](docs/SentinURL_Documentation.md#abstract)
+* [Acknowledgment](docs/SentinURL_Documentation.md#acknowledgment)
+* [Business Intelligence Project Description and Objectives](docs/SentinURL_Documentation.md#business-intelligence-project-description-and-objectives)
+* [Data Research and Acquiring Effort](docs/SentinURL_Documentation.md#data-research-and-acquiring-effort)
+* [Links to raw data](docs/SentinURL_Documentation.md#links-to-raw-data)
+* [Data Description and Understandings](docs/SentinURL_Documentation.md#data-description-and-understandings)
+* [Data Primary Cleaning and Transformation](docs/SentinURL_Documentation.md#data-primary-cleaning-and-transformation)
+* [Data Visualization and Insights](docs/SentinURL_Documentation.md#data-visualization-and-insights)
+* [Advanced Analytics and AI Modeling](docs/SentinURL_Documentation.md#advanced-analytics-and-ai-modeling)
+* [Tools Research and Selection Effort](docs/SentinURL_Documentation.md#tools-research-and-selection-effort)
+* [Project Deployment Effort – Use Case](docs/SentinURL_Documentation.md#project-deployment-effort--use-case)
+* [Core Algorithms and Code Architecture](docs/SentinURL_Documentation.md#core-algorithms-and-code-architecture)
+* [Results](docs/SentinURL_Documentation.md#results)
+* [References](docs/SentinURL_Documentation.md#references)
+
+### Additional Resources
 * [Setup Instructions](docs/SETUP.md)
 * [Evaluation Criteria](docs/EVALUATION_CRITERIA.md)
 
 ---
 
 ## 🚀 Performance & Intelligence
-*   **Verified Global Accuracy:** **99.55%** (validated against 12,000+ live URLHaus zero-day threats).
+*   **Verified Global Accuracy:** **99.55%** (validated against 12,000+ Daily live URLHaus zero-day threats).
 *   **Ultra-Low Latency:** < 4ms evaluation time via a optimized Stage 1 NLP engine.
 *   **Edge Protection:** Real-time interception via a **Google Chrome Extension (MV3)**.
 *   **Quishing Defense:** Integrated QR-code decoding and scanning pipeline.
