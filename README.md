@@ -1,5 +1,9 @@
 # SentinURL: AI-Driven Phishing Detection & Risk Intelligence
 
+<p align="center">
+  <img src="docs/assets/media/sentinurl_enhanced.png" alt="SentinURL Logo" width="300"/>
+</p>
+
 **Authors**
 - Saif Al-Sabaneh, 202330014
 
