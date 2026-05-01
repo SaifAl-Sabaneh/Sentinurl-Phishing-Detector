@@ -1,23 +1,3 @@
-**__SentinURL: Dual\-Stage Artificial Intelligence for Semantic Phishing Neutralization\.__**
-
-**__Authors__**
-
-- __Saif Al\-__<a id="_Int_7cdlJTy5"></a>__Sabaneh__
-
-**__Supervised by__**
-
-- Dr\. Hussam Barham
-
-**Course:** 
-- 307498 – Graduation Project
-
-- Second Semester, 2025/2026
-
-Date
-- April 28 , 2026
-
-![Group 8, Grouped object](assets/media/image_5.png)
-
 # <a id="_Toc1119813556"></a><a id="_Toc140429635"></a><a id="_Toc828735313"></a><a id="_Toc226733462"></a>__Abstract__
 
 The system was named __SentinURL__—a portmanteau of the words '__Sentinel__' and '__URL__'\. Like a digital sentinel, the core design philosophy of this project is to stand watch as an intelligent, automated guard, continuously analyzing Uniform Resource Locators to intercept zero\-day malware campaigns\. __SentinURL __is an advanced, multi\-layered machine learning architecture designed to proactively detect and mitigate zero\-day phishing infrastructure in real\-time\. The system implementation departs from traditional, reactive blocklists by engineering a dynamic, ensembled predictive pipeline\.__ Stage 1__ utilizes a __Term Frequency\-Inverse Document Frequency \(TF\-IDF\) Vectorizer paired with Logistic Regression__ to analyze lexical anomalies and the structural natural language intent of the target URL__ \[R13\]\.__ Concurrently, __Stage 2__ deploys a deep Histogram\-based Gradient Boosting model to evaluate deep heuristic features, explicitly calculating character entropy, vowel\-to\-consonant ratios, and deep subdomain nesting __\[R8\], \[R11\]__\. To eliminate the false\-positive <a id="_Int_HYibtqin"></a>limitations native to isolated machine learning, these probabilistic outputs are routed through a custom Dynamic Fusion Rules Engine\. This Master Controller actively queries authoritative online telemetry—evaluating live TLS certificates and Google Safe Browsing registries __\[R19\]__ — while strictly enforcing a machine\-learning supremacy constraint\. This ensures the AI model's structural zero\-day predictions actively override blind spots in traditional Google registries and compromised institutional domains\.
