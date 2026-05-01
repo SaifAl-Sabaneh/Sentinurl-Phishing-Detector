@@ -56,6 +56,11 @@ All detailed academic documentation for this graduation project is maintained as
 * [Setup Instructions](docs/SETUP.md)
 * [Evaluation Criteria](docs/EVALUATION_CRITERIA.md)
 
+## 💾 Project Datasets
+Due to GitHub's file size limitations, the complete datasets used to train the SentinURL models are hosted securely on Google Drive. 
+* **Raw URL Dataset:** [data/raw/README.md](data/raw/README.md) (Contains the raw, un-extracted malicious and benign URLs)
+* **Processed ML Dataset:** [data/processed/README.md](data/processed/README.md) (Contains the fully structured 110+ mathematical features utilized for training)
+
 ---
 
 ## 🚀 Performance & Intelligence
