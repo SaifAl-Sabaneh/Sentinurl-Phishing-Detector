@@ -13,10 +13,11 @@ warnings.filterwarnings('ignore')
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from enhanced_original import url_features, fuse_evidence, get_host, safe_urlparse
 from sentinurl import (
-    check_typosquat_advanced, check_cloud_payload, 
-    check_cms_vulnerabilities, check_malware_signatures, 
-    check_finance_phish_paths
+    check_typosquat_advanced, check_cloud_payload,
+    check_cms_vulnerabilities, check_malware_signatures,
+    check_finance_phish_paths, check_fake_image_payload
 )
+
 
 # ==========================================
 # 1. DATA GENERATION & ACQUISITION
@@ -174,7 +175,8 @@ def run_continuous_test(batch_size=50000):
             
         # 1. Adversarial Hardening Layers (Layer 2.5)
         reasons_list = []
-        for fn in [check_typosquat_advanced, check_cloud_payload, check_cms_vulnerabilities, check_malware_signatures, check_finance_phish_paths]:
+        for fn in [check_typosquat_advanced, check_cloud_payload, check_cms_vulnerabilities, check_malware_signatures, check_finance_phish_paths, check_fake_image_payload]:
+
             res = fn(u)
             if res:
                 p_ml = max(p_ml, res[1])

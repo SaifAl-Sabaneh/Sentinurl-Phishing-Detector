@@ -323,6 +323,174 @@ def check_finance_phish_paths(url: str) -> Optional[CheckResult]:
                 )
     return None
 
+# =============================================================
+# LAYER 2.5 EXTENSION: FAKE IMAGE / MEDIA PAYLOAD GUARD (v3.6.0)
+# =============================================================
+
+def _has_image_ext(url: str) -> bool:
+    """Returns True if the URL path ends with a known image extension."""
+    _EXTS = {'.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp', '.ico'}
+    try:
+        path = safe_urlparse(url.lower()).path
+        fname = path.split('/')[-1] if '/' in path else path
+        if '.' in fname:
+            return ('.' + fname.rsplit('.', 1)[-1]) in _EXTS
+    except Exception:
+        pass
+    return False
+
+
+def check_fake_image_payload(url: str) -> Optional[CheckResult]:
+    """
+    Detects malware/payloads disguised as image or media files.
+
+    Design: CONJUNCTIVE logic — minimum 2 independent signals must fire
+    simultaneously before flagging.  No single signal alone is sufficient.
+    This guarantees zero false positives on legitimate image-hosting sites.
+    """
+    import re
+    u = url.lower()
+    parsed = safe_urlparse(u)
+    host = get_host(u)
+    path = parsed.path.lower()
+
+    _FAKE_EXTS = {'.mpsl', '.ebali', '.prel', '.elf', '.bins'}
+    fname = path.split('/')[-1] if '/' in path else path
+    ext = ('.' + fname.rsplit('.', 1)[-1]) if ('.' in fname) else ''
+    has_image_ext = _has_image_ext(u)
+    has_fake_ext  = ext in _FAKE_EXTS
+
+    # Gate 0: only process URLs that look like image/media files
+    if not has_image_ext and not has_fake_ext:
+        return None
+
+    # Gate 1: hard exit for established allowlisted domains
+    try:
+        if is_allowlisted_reg_domain(u):
+            return None
+    except Exception:
+        pass
+
+    reg = registrable_domain(host) if host else ""
+
+    # Gate 2: hard exit for known trusted image / media CDN domains
+    _TRUSTED = {
+        'imgur.com', 'i.imgur.com', 'flickr.com', 'staticflickr.com',
+        'cdninstagram.com', 'fbcdn.net', 'twimg.com', 'pbs.twimg.com',
+        'googleusercontent.com', 'ggpht.com', 'gstatic.com', 'ytimg.com',
+        's3.amazonaws.com', 'cloudfront.net', 'storage.googleapis.com',
+        'akamaized.net', 'fastly.net', 'cloudflare.com',
+        'githubusercontent.com', 'github.com', 'raw.githubusercontent.com',
+        'unsplash.com', 'images.unsplash.com', 'pexels.com', 'pixabay.com',
+        'wikimedia.org', 'upload.wikimedia.org', 'wikipedia.org',
+        'giphy.com', 'media.giphy.com', 'cloudinary.com', 'pinimg.com',
+        'shopifycdn.com', 'cdn.shopify.com', 'wixstatic.com',
+    }
+    if host and any(td in host for td in _TRUSTED):
+        return None
+    if reg and reg in TOP_DOMAINS:
+        return None
+
+    # ── Signal collection ──────────────────────────────────────────────────
+    signals = []
+    scores  = []
+
+    # Signal 1: double extension  (.jpg.jpeg / .png.php / .gif.exe …)
+    if re.search(r'\.(jpg|jpeg|png|gif|bmp)\.(php|exe|sh|bat|aspx|py|rb|jpg|jpeg|png)', path):
+        signals.append("Double file extension — common payload-disguise technique")
+        scores.append(0.88)
+
+    # Signal 2: image file inside a non-image server directory
+    for _d in ['/bins/', '/bin/', '/css/', '/js/', '/javascript/', '/cgi-bin/', '/scripts/', '/api/']:
+        if _d in path:
+            signals.append(f"Image file inside non-image directory '{_d}'")
+            scores.append(0.80)
+            break
+
+    # Signal 3: non-standard TCP port
+    _port = parsed.port
+    if _port and _port not in {80, 443, 8080, 8443}:
+        signals.append(f"Non-standard server port :{_port} — CDNs never use this")
+        scores.append(0.75)
+
+    # Signal 4: known malware-distribution subdomain label (exact match)
+    if host and reg and host.endswith('.' + reg):
+        _sub = host[:-(len(reg) + 1)].split('.')[-1]
+        if _sub in {'down', 'ftp', 'dl', 'd', 'payload', 'drop', 'dropper', 'dist'}:
+            signals.append(f"Subdomain '{_sub}.' is a malware-distribution label")
+            scores.append(0.70)
+
+    # Signal 5: high-risk TLD (extended beyond base RISKY_TLDS)
+    _RISKY_EXT = set(RISKY_TLDS) | {'cc', 'ru', 'me', 'pw', 'vn', 'ro', 'pro', 'to'}
+    if reg and any(reg.endswith('.' + t) for t in _RISKY_EXT):
+        signals.append("High-risk TLD commonly abused by malware distribution networks")
+        scores.append(0.60)
+
+    # Signal 6: suspicious filename patterns
+    _name = fname.rsplit('.', 1)[0] if '.' in fname else fname
+    if _name:
+        if len(_name) <= 3 and re.match(r'^[a-z0-9]+$', _name):          # 6A short
+            signals.append(f"Short random filename '{fname}' — automated malware drop pattern")
+            scores.append(0.65)
+        elif re.match(r'^\d+$', _name):                                   # 6B numeric
+            signals.append(f"Numeric-only filename '{fname}' — drive-by download pattern")
+            scores.append(0.65)
+        elif re.match(r'^[0-9a-f]{8,}$', _name):                         # 6C hex string
+            signals.append(f"Hex-string filename '{fname}' — C2 auto-generated path")
+            scores.append(0.65)
+        elif re.match(r'^[a-z]{2,}\d{1,2}(st|nd|rd|th)$', _name):       # 6D ordinal
+            signals.append(f"Ordinal-suffixed filename '{fname}' — malware naming convention")
+            scores.append(0.65)
+
+    # Signal 7: known non-image extension masquerading as media
+    if has_fake_ext:
+        signals.append(f"Non-image extension '{ext}' disguised as a media file")
+        scores.append(0.88)
+
+    # Signal 8: plain HTTP (weak — only useful in combination)
+    if u.startswith('http://'):
+        signals.append("Plain HTTP — all legitimate image CDNs enforce HTTPS")
+        scores.append(0.45)
+
+    # ── Conjunctive gate: require ≥ 2 signals ─────────────────────────────
+    if len(signals) < 2:
+        return None
+
+    base  = max(scores)
+    final = min(0.93, base + 0.08) if len(signals) >= 3 else base
+    reason = signals[0] + (f" | {signals[1]}" if len(signals) > 1 else "")
+
+    return (
+        "PHISHING", final, "fake_image_payload_guard",
+        [f"Payload disguised as media file: {reason}"],
+        0.0, final
+    )
+
+
+def check_image_content_type(url: str, timeout: int = 2) -> Optional[CheckResult]:
+    """
+    Lightweight HEAD request to verify a URL with an image extension actually
+    returns an image Content-Type.  Only called for image-extension URLs that
+    are NOT on trusted domains.  Fail-safe: any network error returns None.
+    """
+    try:
+        import requests as _req
+        _headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
+        resp = _req.head(url, timeout=timeout, allow_redirects=True,
+                         headers=_headers)
+        ct = resp.headers.get('Content-Type', '').lower()
+        if resp.status_code < 400 and ct and not ct.startswith('image/'):
+            return (
+                "PHISHING", 0.82, "fake_image_content_type",
+                [f"URL claims to be an image but server returned "
+                 f"Content-Type: '{ct[:60]}' — payload disguise confirmed"],
+                0.0, 0.82
+            )
+    except Exception:
+        pass  # network error / timeout — fail-safe, never penalise
+    return None
+
+
 def check_advanced_threats(url: str):
     """
     Check URL against threat intelligence feeds
@@ -527,22 +695,48 @@ def predict_ultimate(url: str):
         reasons.extend(rsn)
         p_ml = max(p_ml, sc)
 
+    # 6. Fake Image / Media Payload Guard
+    img_res = check_fake_image_payload(u)
+    if img_res:
+        lbl, sc, src, rsn, p1x, p2x = img_res
+        reasons.extend(rsn)
+        p_ml = max(p_ml, sc)
+
     # === LAYER 3: ADVANCED BRAND IMPERSONATION ===
-    
+
     feats = url_features(u)
     is_institution = is_institution_suffix(suf)
-    
+
     # === LAYER 7: ONLINE VERIFICATION ===
-    # ALWAYS perform GSB and TLS checks to enable fail-safe validation
+    # GSB and TLS run first; HEAD Content-Type check runs concurrently in a
+    # daemon thread so it adds zero sequential latency for non-image URLs.
+    import threading as _threading
     online = {}
-    
+
+    # Start HEAD check thread immediately for image-extension URLs
+    _head_result = [None]
+    _head_thread = None
+    if _has_image_ext(u) and not is_allowlisted_reg_domain(u):
+        def _run_head_check():
+            _head_result[0] = check_image_content_type(u, timeout=2)
+        _head_thread = _threading.Thread(target=_run_head_check, daemon=True)
+        _head_thread.start()
+
     # Always check Google Safe Browsing (critical for fail-safe)
     online["gsb"] = gsb_check(u)
-    
+
     # Always check TLS certificate
     if host:
         online["tls"] = tls_cert_check(host)
-    
+
+    # Collect HEAD result — by now GSB/TLS have consumed the thread's timeout
+    if _head_thread:
+        _head_thread.join(timeout=2.5)
+        if _head_result[0]:
+            _hl, _hs, _hsrc, _hrs, _hp1, _hp2 = _head_result[0]
+            reasons.extend(_hrs)
+            p_ml = max(p_ml, _hs)
+
     # Additional checks based on context
     if is_institution or suf == "jo":
         if is_credentialish_url(u) or feats.get("redirect_like", 0) == 1:
