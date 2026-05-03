@@ -267,20 +267,22 @@ def check_malware_signatures(url: str) -> Optional[CheckResult]:
             )
 
     # 4. High-Entropy Random Path Guard (C2 / Automated Tool check)
+    #    Bug-fix v3.6.1: lowered path threshold >=8 (was >10) and segment
+    #    threshold >5 (was >8) to catch short obfuscated paths like /Vqd0D5/
     path = safe_urlparse(u).path
-    if len(path) > 10 and not any(ext in path for ext in [".js", ".css", ".png", ".jpg", ".html", ".aspx", ".php"]):
-        # Check for high character diversity in short path segments to catch C2 Botnets
-        segments = [s for s in path.split('/') if len(s) > 8]
+    if len(path) >= 8 and not any(ext in path for ext in [".js", ".css", ".png", ".jpg", ".html", ".aspx", ".php"]):
+        # Check for high character diversity in path segments to catch C2 Botnets
+        segments = [s for s in path.split('/') if len(s) > 5]
         for seg in segments:
             # Simple entropy proxy: ratio of unique characters to length
             unique_chars = len(set(seg))
             if unique_chars / len(seg) > 0.70:
                 host = get_host(u)
                 reg = registrable_domain(host) if host else ""
-                
+
                 # Check for reputable cloud/PaaS domains that use high-entropy auto-generated IDs
                 reputable_cloud = any(cloud in reg for cloud in ["render.com", "github.com", "githubusercontent.com", "amazonaws.com", "google.com", "vercel.app", "netlify.app", "azurewebsites.net"])
-                
+
                 if reputable_cloud:
                     if DEBUG_MODE: print(f"[DEBUG] High Entropy Path on Reputable Cloud: {seg}")
                     return (
@@ -288,7 +290,7 @@ def check_malware_signatures(url: str) -> Optional[CheckResult]:
                         [f"Automated path detected on reputable cloud platform ({reg}). Moderated risk applied."],
                         0.0, 0.35
                     )
-                
+
                 if DEBUG_MODE: print(f"[DEBUG] High Entropy Path: {seg}")
                 return (
                     "PHISHING", 0.88, "high_entropy_path_guard",
@@ -355,13 +357,17 @@ def check_fake_image_payload(url: str) -> Optional[CheckResult]:
     path = parsed.path.lower()
 
     _FAKE_EXTS = {'.mpsl', '.ebali', '.prel', '.elf', '.bins'}
+    # Suspicious non-web-media extensions that appear in malware server contexts
+    _SUSPICIOUS_FILE_EXTS = {'.txt', '.dat', '.bin', '.cfg', '.tmp', '.db'}
     fname = path.split('/')[-1] if '/' in path else path
     ext = ('.' + fname.rsplit('.', 1)[-1]) if ('.' in fname) else ''
     has_image_ext = _has_image_ext(u)
     has_fake_ext  = ext in _FAKE_EXTS
+    has_susp_file_ext = ext in _SUSPICIOUS_FILE_EXTS
 
-    # Gate 0: only process URLs that look like image/media files
-    if not has_image_ext and not has_fake_ext:
+    # Gate 0: only process URLs that look like image/media files OR suspicious file extensions
+    # For suspicious file extensions (.txt, .bin etc.) we require a HIGHER signal bar (3+)
+    if not has_image_ext and not has_fake_ext and not has_susp_file_ext:
         return None
 
     # Gate 1: hard exit for established allowlisted domains
@@ -452,8 +458,12 @@ def check_fake_image_payload(url: str) -> Optional[CheckResult]:
         signals.append("Plain HTTP — all legitimate image CDNs enforce HTTPS")
         scores.append(0.45)
 
-    # ── Conjunctive gate: require ≥ 2 signals ─────────────────────────────
-    if len(signals) < 2:
+    # ── Conjunctive gate ───────────────────────────────────────────────────
+    # For suspicious file extensions (.txt/.bin/.dat), require 3 signals to
+    # prevent false positives on legitimate file download servers.
+    # For image/fake extensions, the standard 2-signal gate applies.
+    _min_signals = 3 if (has_susp_file_ext and not has_image_ext and not has_fake_ext) else 2
+    if len(signals) < _min_signals:
         return None
 
     base  = max(scores)
@@ -489,6 +499,138 @@ def check_image_content_type(url: str, timeout: int = 2) -> Optional[CheckResult
     except Exception:
         pass  # network error / timeout — fail-safe, never penalise
     return None
+
+
+def check_random_php_webshell(url: str) -> Optional[CheckResult]:
+    """
+    Detects malware webshells and payload droppers disguised as PHP files
+    with random English-word filenames (e.g. wash.php, chimney.php).
+
+    Pattern: Attackers name webshells after innocent-sounding dictionary words
+    to avoid keyword-based detection. No legitimate web application names its
+    files 'decapitate.php', 'semitrailer.php', or 'philanthropic.php'.
+
+    Design: CONJUNCTIVE — minimum 2 signals required. The whitelist of ~130
+    functional web PHP names prevents false positives on real applications.
+    Trusted domain hard exit prevents any impact on known-good sites.
+    """
+    import re
+    u = url.lower()
+    parsed = safe_urlparse(u)
+    host = get_host(u)
+    path = parsed.path.lower()
+
+    # Gate 0: must end in .php
+    if not path.endswith('.php'):
+        return None
+
+    # Gate 1: hard exit for trusted domains
+    try:
+        if is_allowlisted_reg_domain(u):
+            return None
+    except Exception:
+        pass
+
+    reg = registrable_domain(host) if host else ""
+    if reg and reg in TOP_DOMAINS:
+        return None
+
+    # Gate 2: extract the PHP filename (without extension)
+    fname = path.split('/')[-1] if '/' in path else path
+    php_name = fname[:-4] if fname.endswith('.php') else fname  # strip .php
+
+    # Gate 3: must be purely alphabetic (no digits — distinguishes from
+    # auto-generated names like file2023.php or page_1.php)
+    if not php_name or not re.match(r'^[a-z]+$', php_name) or len(php_name) < 3:
+        return None
+
+    # Whitelist of ~130 functional web PHP terms — these are safe even on unknown domains
+    _WEB_FUNCTIONAL = {
+        'index', 'login', 'register', 'logout', 'signup', 'signin', 'admin',
+        'api', 'upload', 'download', 'config', 'auth', 'checkout', 'cart',
+        'search', 'product', 'user', 'profile', 'dashboard', 'contact',
+        'about', 'home', 'main', 'test', 'debug', 'install', 'update',
+        'setup', 'cron', 'feed', 'rss', 'sitemap', 'payment', 'order',
+        'shop', 'store', 'category', 'tag', 'post', 'page', 'comment',
+        'gallery', 'media', 'file', 'form', 'submit', 'process', 'handler',
+        'ajax', 'callback', 'webhook', 'redirect', 'proxy', 'session',
+        'token', 'verify', 'confirm', 'reset', 'password', 'email', 'mail',
+        'send', 'receive', 'export', 'import', 'backup', 'restore', 'sync',
+        'init', 'start', 'stop', 'run', 'check', 'validate', 'parse',
+        'convert', 'encode', 'decode', 'encrypt', 'decrypt', 'hash', 'sign',
+        'generate', 'create', 'read', 'write', 'delete', 'edit', 'list',
+        'view', 'show', 'hide', 'print', 'report', 'log', 'track', 'monitor',
+        'status', 'health', 'ping', 'info', 'help', 'docs', 'version',
+        'error', 'notfound', 'forbidden', 'maintenance', 'landing', 'splash',
+        'welcome', 'thanks', 'success', 'failed', 'cancel', 'complete',
+        'finish', 'close', 'open', 'load', 'save', 'apply', 'subscribe',
+        'unsubscribe', 'activate', 'deactivate', 'enable', 'disable',
+        'manage', 'control', 'settings', 'options', 'preferences', 'account',
+        'billing', 'invoice', 'receipt', 'refund', 'ticket', 'support',
+        'chat', 'message', 'notify', 'alert', 'share', 'invite', 'refer',
+        'affiliate', 'partner', 'vendor', 'client', 'customer', 'member',
+        'guest', 'public', 'private', 'secure', 'safe', 'data', 'cache',
+        'queue', 'task', 'job', 'worker', 'service', 'server', 'client',
+        'connect', 'disconnect', 'refresh', 'reload', 'clear', 'flush',
+        'search', 'filter', 'sort', 'paginate', 'count', 'total', 'stats',
+        'analytics', 'metrics', 'chart', 'graph', 'table', 'grid', 'map',
+        'news', 'blog', 'article', 'event', 'calendar', 'schedule', 'book',
+        'reserve', 'register', 'enroll', 'apply', 'request', 'approve',
+        'reject', 'review', 'rate', 'vote', 'like', 'follow', 'block',
+        'report', 'flag', 'scan', 'detect', 'protect', 'guard', 'shield',
+    }
+
+    if php_name in _WEB_FUNCTIONAL:
+        return None  # legitimate functional PHP name — hard exit
+
+    # === Signal collection ===
+    signals = []
+    scores  = []
+
+    # Signal 1: filename is a non-web English word (primary signal)
+    # We already know it's alphabetic, not in the functional whitelist, >= 3 chars
+    signals.append(f"PHP file '{fname}' has a non-functional random English name — webshell naming pattern")
+    scores.append(0.68)
+
+    # Signal 2: plain HTTP (not HTTPS)
+    if u.startswith('http://'):
+        signals.append("Plain HTTP — legitimate web applications enforce HTTPS")
+        scores.append(0.50)
+
+    # Signal 3: high-risk or uncommon TLD
+    _RISKY_EXT = set(RISKY_TLDS) | {'cc', 'ru', 'club', 'rs', 'in', 'vn', 'ro', 'pro', 'to', 'pw', 'me', 'xyz', 'top'}
+    if reg and any(reg.endswith('.' + t) for t in _RISKY_EXT):
+        signals.append(f"High-risk or uncommon TLD — commonly exploited for malware hosting")
+        scores.append(0.55)
+
+    # Signal 4: URL is a bare domain/filename with no meaningful path depth
+    # (e.g. muledo.com/donkey.php vs. site.com/app/modules/donkey.php)
+    path_depth = len([s for s in path.split('/') if s and s != fname])
+    if path_depth == 0:
+        signals.append("PHP webshell at root path with no directory structure")
+        scores.append(0.45)
+
+    # Signal 5: filename length suggests a random word (4-12 chars is the webshell sweet spot)
+    if 4 <= len(php_name) <= 14:
+        signals.append(f"Filename length ({len(php_name)} chars) matches webshell random-word pattern")
+        scores.append(0.30)
+
+    # === Conjunctive gate: minimum 2 signals ===
+    # Signal 1 always fires (non-functional name), so we need at least 1 more
+    if len(signals) < 2:
+        return None
+
+    base  = max(scores)
+    final = min(0.90, base + 0.10) if len(signals) >= 3 else base
+    reason = f"{signals[0]}"
+    if len(signals) > 1:
+        reason += f" | {signals[1]}"
+
+    return (
+        "PHISHING", final, "random_php_webshell_guard",
+        [f"Probable PHP webshell / payload dropper: {reason}"],
+        0.0, final
+    )
 
 
 def check_advanced_threats(url: str):
@@ -699,6 +841,13 @@ def predict_ultimate(url: str):
     img_res = check_fake_image_payload(u)
     if img_res:
         lbl, sc, src, rsn, p1x, p2x = img_res
+        reasons.extend(rsn)
+        p_ml = max(p_ml, sc)
+
+    # 7. Random PHP Webshell Guard
+    php_res = check_random_php_webshell(u)
+    if php_res:
+        lbl, sc, src, rsn, p1x, p2x = php_res
         reasons.extend(rsn)
         p_ml = max(p_ml, sc)
 

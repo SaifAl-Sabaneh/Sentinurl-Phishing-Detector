@@ -15,8 +15,10 @@ from enhanced_original import url_features, fuse_evidence, get_host, safe_urlpar
 from sentinurl import (
     check_typosquat_advanced, check_cloud_payload,
     check_cms_vulnerabilities, check_malware_signatures,
-    check_finance_phish_paths, check_fake_image_payload
+    check_finance_phish_paths, check_fake_image_payload,
+    check_random_php_webshell
 )
+
 
 
 # ==========================================
@@ -175,7 +177,7 @@ def run_continuous_test(batch_size=50000):
             
         # 1. Adversarial Hardening Layers (Layer 2.5)
         reasons_list = []
-        for fn in [check_typosquat_advanced, check_cloud_payload, check_cms_vulnerabilities, check_malware_signatures, check_finance_phish_paths, check_fake_image_payload]:
+        for fn in [check_typosquat_advanced, check_cloud_payload, check_cms_vulnerabilities, check_malware_signatures, check_finance_phish_paths, check_fake_image_payload, check_random_php_webshell]:
 
             res = fn(u)
             if res:
