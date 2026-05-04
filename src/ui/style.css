@@ -1,0 +1,79 @@
+:root, .dark-theme {
+    --color-bg: #080A10;
+    --color-sidebar: #0D111A;
+    --color-card: #131926;
+    --color-border: #1E293B;
+    --color-text: #F3F4F6;
+}
+
+.light-theme {
+    --color-bg: #F3F4F6;
+    --color-sidebar: #FFFFFF;
+    --color-card: #FFFFFF;
+    --color-border: #E5E7EB;
+    --color-text: #111827;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Nav Button Active State */
+.nav-btn.active {
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.15) 0%, transparent 100%);
+    border-left: 4px solid #3B82F6;
+    color: var(--color-text);
+}
+.nav-btn:not(.active) {
+    color: var(--color-text);
+    border-left: 4px solid transparent;
+}
+
+/* Status Gradients for Verdict Box */
+.status-safe {
+    background: linear-gradient(135deg, #062C1E 0%, #080A10 100%);
+    border-color: #10B981 !important;
+    box-shadow: inset 0 0 50px rgba(16, 185, 129, 0.1), 0 10px 30px rgba(16, 185, 129, 0.05) !important;
+}
+.status-phish {
+    background: linear-gradient(135deg, #3E1212 0%, #080A10 100%);
+    border-color: #EF4444 !important;
+    box-shadow: inset 0 0 50px rgba(239, 68, 68, 0.1), 0 10px 30px rgba(239, 68, 68, 0.05) !important;
+}
+.status-susp {
+    background: linear-gradient(135deg, #3B2605 0%, #080A10 100%);
+    border-color: #F59E0B !important;
+    box-shadow: inset 0 0 50px rgba(245, 158, 11, 0.1), 0 10px 30px rgba(245, 158, 11, 0.05) !important;
+}
+
+/* Text Colors */
+.text-safe { color: #10B981; }
+.text-phish { color: #EF4444; }
+.text-susp { color: #F59E0B; }
+
+/* Radar Animation */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+    animation: spin 2s linear infinite;
+}
+
+/* Metric Card Hover Glows */
+.metric-card:hover {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+    transform: translateY(-2px);
+}

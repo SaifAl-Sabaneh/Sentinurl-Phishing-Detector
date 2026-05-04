@@ -1,0 +1,81 @@
+# Jordanian Trusted Domains - Allowlist
+# Add these to BASE_ALLOW to prevent false positives
+
+# Government Portals
+jordan.gov.jo
+sanad.gov.jo
+pm.gov.jo
+
+# Municipalities (All 12)
+amman.jo
+zarqa.jo
+irbid.jo
+aqaba.jo
+madaba.jo
+salt.jo
+jerash.jo
+ajloun.jo
+karak.jo
+tafilah.jo
+maan.jo
+mafraq.jo
+
+# Ministries
+moi.gov.jo
+mof.gov.jo
+moe.gov.jo
+mohe.gov.jo
+moh.gov.jo
+mota.gov.jo
+mit.gov.jo
+mosd.gov.jo
+
+# Public Services
+sssd.gov.jo
+nitc.gov.jo
+gid.gov.jo
+cbj.gov.jo
+jed.gov.jo
+
+# Universities
+ju.edu.jo
+just.edu.jo
+uop.edu.jo
+hu.edu.jo
+zu.edu.jo
+mut.edu.jo
+ahu.edu.jo
+bau.edu.jo
+psut.edu.jo
+gju.edu.jo
+
+# Banks
+ahli.com
+arabbank.jo
+cabjo.com
+jkb.com
+sgbj.com
+ubsi.com.jo
+boj.com.jo
+investbank.jo
+
+# Utilities
+jepco.com.jo
+nepco.com.jo
+waj.gov.jo
+rta.jo
+
+# Telecom
+orange.jo
+zain.jo
+umniah.com
+
+# Major Companies
+rj.com
+jett.com.jo
+qafco.jo
+
+# News/Media
+jordantimes.com
+ammonnews.net
+sarayanews.com

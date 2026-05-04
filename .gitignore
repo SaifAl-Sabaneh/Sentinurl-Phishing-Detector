@@ -60,3 +60,6 @@ retrain_log.txt
 
 # Brain Scratch
 scratch/
+*.exe
+!src/ui/index.html
+!Sentin Application/src/ui/index.html

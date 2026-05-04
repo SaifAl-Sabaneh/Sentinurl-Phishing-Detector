@@ -89,9 +89,16 @@ The system includes a professional **Streamlit Command Center** designed for SOC
 *   **Executive Reporting:** One-click PDF generation for C-suite risk assessment.
 
 ## 🛠️ Deployment & Orchestration
+*   **Standalone Desktop Executable (Sentin Application):** A fully bundled, zero-dependency Windows desktop application built with `pywebview` and TailwindCSS, offering an ultra-premium, multi-lingual "Ultimate Enterprise" user experience without needing external browsers.
 *   **Cloud API (Render):** Scalable REST API backend for multi-client protection.
 *   **Chrome Extension:** Manifest V3 compliant real-time edge protection.
 *   **Continuous Stress Test:** Automated daily health-monitoring and dataset refinement.
+
+## 🚧 Challenges Faced During Development
+*   **Performance Bottlenecks:** Fusing the dual-stage architecture (NLP and HGB) to run seamlessly within a single web-rendered native desktop application required migrating from CustomTkinter to a high-speed `pywebview` bridge.
+*   **Aesthetic and UI Parity:** Matching the premium feel of commercial tools (e.g., CrowdStrike) required integrating custom Tailwind CSS variables for dynamic Dark/Light theme switching and building a fully isolated JavaScript-to-Python communication channel.
+*   **Global History Persistence:** Engineering a lightweight offline storage mechanism that accurately logs and restores analytical history across sessions without requiring a heavy SQL backend.
+*   **Multi-Lingual Engine:** Implementing an instantaneous, real-time Right-to-Left (RTL) Arabic translation engine into the DOM without refreshing the underlying Python execution environment.
 
 ## 📥 Getting Started
 ```bash
