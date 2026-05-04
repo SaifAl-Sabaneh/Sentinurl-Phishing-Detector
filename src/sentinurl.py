@@ -634,19 +634,6 @@ def check_random_php_webshell(url: str) -> Optional[CheckResult]:
 
 
 def check_date_encoded_phishing_path(url: str) -> Optional[CheckResult]:
-    """
-    Check 8 — Date-Encoded Phishing Kit Path Guard
-
-    Phishing kits commonly organize their credential-harvesting payloads in
-    date-stamped directories (e.g. /042019/, /03-2019/, /01_2020/) combined
-    with trust-implying folder names (support, trust, secure, verify, En, DE).
-
-    This structural pattern is a reliable phishing kit fingerprint — no
-    legitimate web application organises content this way.
-
-    Design: CONJUNCTIVE — date segment alone never flags (some CDN URLs use
-    dates). Requires date + trust/support context on an unknown domain.
-    """
     import re
     u = url.lower()
     parsed = safe_urlparse(u)
@@ -892,7 +879,199 @@ def check_arabizi_phishing(url: str) -> Optional[CheckResult]:
     return None
 
 
+def check_idn_homoglyph(url: str) -> Optional[CheckResult]:
+    """
+    Check 11 — IDN Homograph / Punycode Impersonation Guard
+
+    Attackers register domains using Unicode characters that are visually
+    identical to ASCII characters to impersonate trusted brands:
+        аpple.com  (Cyrillic а, U+0430)  displays as  apple.com
+        раypal.com (Cyrillic р, U+0440)  displays as  paypal.com
+    These domains are encoded as punycode (xn--) in DNS.
+
+    Design: Single-signal definitive flag — if a decoded/normalised domain
+    matches a protected brand but the raw domain does NOT, it is by definition
+    an impersonation. No conjunctive gate needed.
+    """
+    host = get_host(url)
+    if not host:
+        return None
+    try:
+        if is_allowlisted_reg_domain(url):
+            return None
+    except Exception:
+        pass
+    reg = registrable_domain(host) if host else ''
+    if not reg:
+        return None
+
+    # Step 1: Decode punycode if present
+    decoded_reg = reg
+    if 'xn--' in reg.lower():
+        try:
+            decoded_reg = reg.encode('ascii').decode('idna')
+        except (UnicodeError, UnicodeDecodeError):
+            pass
+
+    # Step 2: Normalise confusable Unicode chars to ASCII (Unicode confusables.txt)
+    _CONFUSABLE = {
+        '\u0430': 'a', '\u0435': 'e', '\u043e': 'o', '\u0440': 'p',
+        '\u0441': 'c', '\u0445': 'x', '\u0456': 'i', '\u0443': 'u',
+        '\u0421': 'c', '\u0410': 'a',
+        '\u03b1': 'a', '\u03bf': 'o', '\u03c1': 'p', '\u03bd': 'v',
+        '\u03b7': 'n', '\u03c5': 'u', '\u03b5': 'e',
+        '\u0578': 'o',
+    }
+    normalised = ''.join(_CONFUSABLE.get(ch, ch) for ch in decoded_reg.lower())
+
+    # Step 3: Protected brand list
+    _PROTECTED = {
+        'paypal.com', 'apple.com', 'google.com', 'microsoft.com',
+        'amazon.com', 'facebook.com', 'instagram.com', 'twitter.com',
+        'netflix.com', 'linkedin.com', 'dropbox.com', 'github.com',
+        'yahoo.com', 'outlook.com', 'icloud.com', 'youtube.com',
+        'whatsapp.com', 'snapchat.com', 'telegram.org', 'discord.com',
+        'tiktok.com', 'twitch.tv', 'spotify.com', 'adobe.com',
+        'chase.com', 'wellsfargo.com', 'citibank.com', 'bankofamerica.com',
+        'barclays.co.uk', 'hsbc.com', 'visa.com', 'mastercard.com',
+        'dhl.com', 'fedex.com', 'ups.com', 'usps.com',
+        'ebay.com', 'alibaba.com', 'shopify.com', 'walmart.com',
+        'steam.com', 'steampowered.com', 'epicgames.com',
+        'aramex.com', 'zain.com', 'orange.com', 'cbj.gov.jo',
+    }
+
+    if normalised in _PROTECTED and normalised != reg.lower():
+        return (
+            'PHISHING', 0.97, 'idn_homoglyph_guard',
+            [f'IDN homograph attack: "{reg}" visually impersonates '
+             f'"{normalised}" using Unicode lookalike characters (Cyrillic/Greek)'],
+            0.0, 0.97
+        )
+
+    # Step 4: Raw Unicode domain (not punycode-encoded)
+    if any(ord(ch) > 127 for ch in host):
+        normalised_host = ''.join(_CONFUSABLE.get(ch, ch) for ch in host.lower())
+        norm_reg = registrable_domain(normalised_host) or normalised_host
+        if norm_reg in _PROTECTED and norm_reg != reg.lower():
+            return (
+                'PHISHING', 0.97, 'idn_homoglyph_guard',
+                [f'Unicode homograph attack: domain impersonates "{norm_reg}" '
+                 f'using visually identical characters'],
+                0.0, 0.97
+            )
+
+    return None
+
+
+def check_turkish_persian_phishing(url: str) -> Optional[CheckResult]:
+    """
+    Check 12 — Turkish & Persian/Farsi Transliteration Phishing Guard
+
+    Extends the Arabizi concept to Turkish (diacritics dropped: ş→s, ğ→g,
+    ü→u, ö→o) and Persian/Farsi (Romanised phonetically: vorod=login,
+    ramz=password, pardakht=payment).
+
+    Design: CONJUNCTIVE — 1 high-risk + 1 any, or 2+ high-risk required.
+    Trusted domain hard exit applies.
+    """
+    import re
+    u = url.lower()
+    parsed = safe_urlparse(u)
+    host = get_host(u) or ''
+    path = parsed.path.lower()
+    full = host + path
+
+    try:
+        if is_allowlisted_reg_domain(u):
+            return None
+    except Exception:
+        pass
+    reg = registrable_domain(host) if host else ''
+    if reg and reg in TOP_DOMAINS:
+        return None
+
+    _TR_HIGH = [
+        (r'giri[sş]',          'giriş (Turkish: login)',            0.75),
+        (r'giris',             'giriş (Turkish: login)',            0.75),
+        (r'[sş]ifre',         'şifre (Turkish: password)',         0.75),
+        (r'sifre',             'şifre (Turkish: password)',         0.75),
+        (r'hesab[im]?',        'hesabım (Turkish: my account)',     0.72),
+        (r'hesap',             'hesap (Turkish: account)',          0.72),
+        (r'kayd?ol',           'kaydol (Turkish: register)',        0.72),
+        (r'kayit',             'kayıt (Turkish: registration)',     0.72),
+        (r'do[gğ]rulama',      'doğrulama (Turkish: verification)', 0.72),
+        (r'dogrulama',         'doğrulama (Turkish: verification)', 0.72),
+        (r'[oö]deme',          'ödeme (Turkish: payment)',          0.75),
+        (r'odeme',             'ödeme (Turkish: payment)',          0.75),
+        (r'banka',             'banka (Turkish: bank)',             0.68),
+        (r'kredi.?kart',       'kredi kartı (Turkish: credit card)',0.80),
+        (r'aktivasyon',        'aktivasyon (Turkish: activation)',  0.72),
+        (r'g[uü]ncelle',       'güncelle (Turkish: update)',        0.68),
+        (r'guncelle',          'güncelle (Turkish: update)',        0.68),
+    ]
+
+    _FA_HIGH = [
+        (r'vor[o0]+d',         'ورود (Persian: login/entry)',        0.75),
+        (r'var[o0]+[o0]d',     'ورود (Persian: login/entry)',        0.75),
+        (r'khor[o0]+j',        'خروج (Persian: logout)',             0.70),
+        (r'ramz',              'رمز (Persian: password/code)',       0.75),
+        (r'pardakht',          'پرداخت (Persian: payment)',          0.78),
+        (r'sabt.?e?.?nam',     'ثبت‌نام (Persian: registration)',   0.75),
+        (r'sabtenam',          'ثبت‌نام (Persian: registration)',   0.75),
+        (r'tasdi[gq]',         'تصدیق (Persian: verification)',      0.72),
+        (r'kart.?bank',        'کارت بانک (Persian: bank card)',     0.80),
+        (r'bank.?meli',        'بانک ملی (Persian: national bank)',  0.85),
+        (r'mellat',            'ملت (Persian: major bank name)',     0.78),
+        (r'tejarat',           'تجارت (Persian: commerce/bank)',     0.75),
+        (r'mobail',            'موبایل (Persian: mobile)',           0.65),
+    ]
+
+    _MEDIUM = [
+        (r'musteri',           'müşteri (Turkish: customer)',       0.60),
+        (r'profil',            'profil (Turkish: profile)',         0.55),
+        (r'sepet',             'sepet (Turkish: shopping cart)',    0.58),
+        (r'fatura',            'fatura (Turkish/Persian: invoice)', 0.62),
+        (r'hesab',             'hesab (Persian: account)',          0.62),
+        (r'daneshgah',         'دانشگاه (Persian: university)',     0.58),
+    ]
+
+    matched_high, matched_medium, top_score = [], [], 0.0
+
+    for pat, meaning, sc in _TR_HIGH + _FA_HIGH:
+        if re.search(pat, full):
+            matched_high.append((meaning, sc))
+            top_score = max(top_score, sc)
+
+    for pat, meaning, sc in _MEDIUM:
+        if re.search(pat, full):
+            matched_medium.append((meaning, sc))
+            top_score = max(top_score, sc)
+
+    total = len(matched_high) + len(matched_medium)
+
+    if len(matched_high) >= 1 and total >= 2:
+        final = min(0.92, top_score + 0.08 * (total - 1))
+        terms = [m for m, _ in matched_high] + [m for m, _ in matched_medium]
+        return (
+            'PHISHING', final, 'turkish_persian_phishing_guard',
+            [f'Turkish/Persian transliteration phishing: {" | ".join(terms[:3])}'],
+            0.0, final
+        )
+
+    if len(matched_high) >= 2:
+        final = min(0.92, top_score + 0.07)
+        return (
+            'PHISHING', final, 'turkish_persian_phishing_guard',
+            [f'Multiple Turkish/Persian phishing terms: '
+             f'{" | ".join(m for m, _ in matched_high[:3])}'],
+            0.0, final
+        )
+
+    return None
+
+
 def check_advanced_threats(url: str):
+
     """
     Check URL against threat intelligence feeds
     Returns: (is_threat, feeds, details)
@@ -1131,6 +1310,19 @@ def predict_ultimate(url: str):
         reasons.extend(rsn)
         p_ml = max(p_ml, sc)
 
+    # 11. IDN Homograph / Punycode Impersonation Guard
+    idn_res = check_idn_homoglyph(u)
+    if idn_res:
+        lbl, sc, src, rsn, p1x, p2x = idn_res
+        reasons.extend(rsn)
+        p_ml = max(p_ml, sc)
+
+    # 12. Turkish & Persian/Farsi Transliteration Phishing Guard
+    trfa_res = check_turkish_persian_phishing(u)
+    if trfa_res:
+        lbl, sc, src, rsn, p1x, p2x = trfa_res
+        reasons.extend(rsn)
+        p_ml = max(p_ml, sc)
 
     # === LAYER 3: ADVANCED BRAND IMPERSONATION ===
 
