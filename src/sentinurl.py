@@ -633,6 +633,265 @@ def check_random_php_webshell(url: str) -> Optional[CheckResult]:
     )
 
 
+def check_date_encoded_phishing_path(url: str) -> Optional[CheckResult]:
+    """
+    Check 8 — Date-Encoded Phishing Kit Path Guard
+
+    Phishing kits commonly organize their credential-harvesting payloads in
+    date-stamped directories (e.g. /042019/, /03-2019/, /01_2020/) combined
+    with trust-implying folder names (support, trust, secure, verify, En, DE).
+
+    This structural pattern is a reliable phishing kit fingerprint — no
+    legitimate web application organises content this way.
+
+    Design: CONJUNCTIVE — date segment alone never flags (some CDN URLs use
+    dates). Requires date + trust/support context on an unknown domain.
+    """
+    import re
+    u = url.lower()
+    parsed = safe_urlparse(u)
+    host = get_host(u)
+    path = parsed.path.lower()
+
+    # Gate 0: no path to analyse
+    if not path or path == '/':
+        return None
+
+    # Gate 1: hard exit for trusted domains
+    try:
+        if is_allowlisted_reg_domain(u):
+            return None
+    except Exception:
+        pass
+    reg = registrable_domain(host) if host else ''
+    if reg and reg in TOP_DOMAINS:
+        return None
+
+    # Signal A: date-formatted path segment
+    # Matches /042019/, /03-2019/, /03_2019/, /2019-03/, /04.2019/
+    _DATE_PAT = re.compile(
+        r'/(\d{2}[-_.]?\d{4}|\d{4}[-_.]?\d{2})/'
+    )
+    has_date = bool(_DATE_PAT.search(path))
+    if not has_date:
+        return None  # fast exit — no date means no flag regardless
+
+    # Signal B: trust/support/language context words in the same path
+    _TRUST_WORDS = {
+        'support', 'trust', 'secure', 'security', 'update', 'verify',
+        'verification', 'login', 'signin', 'account', 'billing', 'invoice',
+        'payment', 'bank', 'file', 'files', 'document', 'docs',
+        # Language-code folders used by phishing kits to serve localised lures
+        '/en/', '/en_', '_en/', '/de/', '/fr/', '/ar/', '/es/', '/pt/',
+        '/en-us/', '/en-gb/',
+    }
+    has_trust_ctx = any(w in path for w in _TRUST_WORDS)
+    if not has_trust_ctx:
+        return None  # date alone is insufficient — need context
+
+    # Both signals fired — conjunctive gate passed
+    return (
+        'PHISHING', 0.82, 'date_encoded_phishing_kit_guard',
+        [f'Date-stamped phishing kit directory structure detected in path: {path[:80]}'],
+        0.0, 0.82
+    )
+
+
+def check_trailing_dot_anomaly(url: str) -> Optional[CheckResult]:
+    """
+    Check 9 — Trailing Dot / Truncated Extension Anomaly Guard
+
+    No legitimate URL ever ends with a bare trailing period and no extension.
+    This pattern appears in malware distribution URLs where the file is a
+    binary with a hex-hash name and the trailing dot is a deliberate attempt
+    to confuse MIME-type detection:
+        e.g. file.uhsea.com/2508/9e3363f017c60726bf610a2a472040144T.
+
+    Risk: virtually ZERO false positive — this is structurally impossible on
+    any normal web server/CDN. No hard exit or conjunctive gate needed here;
+    a single confirmed signal is definitive.
+    """
+    import re
+    u = url.lower().rstrip('?#')  # strip query/fragment but keep path
+
+    # Gate: path must end with a dot and nothing after it
+    parsed = safe_urlparse(u)
+    path = parsed.path.rstrip('/')
+    if not path.endswith('.'):
+        return None
+
+    # The filename before the trailing dot must look like a hash or numeric ID
+    # (long alphanumeric, >= 8 chars) — this rules out the rare edge case of
+    # a URL with a trailing dot that is actually a DNS absolute-form artefact
+    fname = path.split('/')[-1]          # e.g. '9e3363f017c60726bf610a2a472040144T.'
+    stem = fname.rstrip('.')             # strip the trailing dot(s)
+    if len(stem) < 8:
+        return None
+    # stem must be hex-like or purely alphanumeric (no hyphens/underscores)
+    if not re.match(r'^[a-f0-9A-F]+$', stem) and not re.match(r'^[a-zA-Z0-9]+$', stem):
+        return None
+
+    # Hard exit for trusted domains (safety net — should never be needed)
+    try:
+        if is_allowlisted_reg_domain(u):
+            return None
+    except Exception:
+        pass
+
+    return (
+        'PHISHING', 0.88, 'trailing_dot_anomaly_guard',
+        [f'Malware distribution fingerprint: hex-hash filename with bare trailing dot — '
+         f'no legitimate URL has this structure (stem: {stem[:32]})'],
+        0.0, 0.88
+    )
+
+
+def check_arabizi_phishing(url: str) -> Optional[CheckResult]:
+    """
+    Check 10 — Arabizi / Franco-Arabic Transliteration Phishing Guard
+
+    'Arabizi' is the practice of writing Arabic words using Latin characters
+    and digits (e.g. 'tasjeel' = تسجيل = registration/login).
+
+    Attackers targeting Arabic-speaking users (Jordan, Saudi Arabia, UAE,
+    Egypt, Palestine) embed transliterated Arabic authentication, account,
+    and banking words in their phishing URLs. The ML models — trained on
+    international English/ASCII URLs — are completely blind to this technique.
+
+    Number substitutions handled (Arabizi convention):
+        3 = ع (ayn)     7 = ح (ha)     5 = خ (kha)
+        2 = ء (hamza)   9 = ص (sad)    6 = ط (ta)
+
+    Design: CONJUNCTIVE — a single term never flags alone unless it is a
+    high-value government service name. Trusted domain hard exit ensures
+    legitimate Arab banks/telecoms (already in BASE_ALLOW) are never touched.
+    """
+    import re
+    u = url.lower()
+    parsed = safe_urlparse(u)
+    host = get_host(u) or ''
+    path = parsed.path.lower()
+    full_searchable = host + path     # search both domain and path
+
+    # Gate 0: hard exit for trusted/allowlisted domains
+    try:
+        if is_allowlisted_reg_domain(u):
+            return None
+    except Exception:
+        pass
+    reg = registrable_domain(host) if host else ''
+    if reg and reg in TOP_DOMAINS:
+        return None
+
+    # ── HIGH-RISK TERMS (authentication / account / payment) ──────────────
+    # Each tuple: (regex_pattern, arabic_meaning, risk_score)
+    _HIGH_RISK = [
+        # Authentication / Login
+        (r'tasj[ei]+l',         'تسجيل (registration/login)',   0.75),
+        (r'da[kx][h]?[o0][o0]l','دخول (login/entry)',           0.75),
+        (r'd5[o0][o0]l',        'دخول (login/entry)',           0.75),
+        (r'taf[e3][e3]?l',      'تفعيل (activation)',           0.72),
+        (r'ta3r[ie]f',          'تعريف (identification)',        0.72),
+        (r'tawth[ie]+q',        'توثيق (authentication)',        0.80),
+        (r'tawth[ie]+k',        'توثيق (authentication)',        0.80),
+        # Account / Password
+        (r'h[e3]?[sz]a+b',      'حساب (account)',               0.75),
+        (r'7[e]?[sz]a+b',       'حساب (account)',               0.75),
+        (r'kal[ei]m[ae]t',      'كلمة (word/password)',         0.70),
+        (r'mor[o0]+r',          'مرور (pass/traffic)',          0.70),
+        (r'haw[iy]+[ae]',       'هوية (identity/ID)',           0.78),
+        (r'bit[aâ]q[ae]',       'بطاقة (card)',                  0.78),
+        (r'bat[aâ]k[ae]',       'بطاقة (card)',                  0.78),
+        # Payment / Banking
+        (r's[ae]d[ae]d',        'سداد (payment)',               0.78),
+        (r'ta7w[ie]+l',         'تحويل (transfer)',             0.78),
+        (r'ta[h]?w[ie]+l',      'تحويل (transfer)',             0.75),
+        (r'ras[ie]+d',          'رصيد (balance)',               0.72),
+        (r'ma[sz]r[ae]f',       'مصرف (bank)',                  0.75),
+        (r'ma[sz]rif',          'مصرف (bank)',                  0.75),
+    ]
+
+    # ── CRITICAL GOVERNMENT SERVICE NAMES (single term = flag) ────────────
+    # These are impersonation of specific high-value government portals.
+    # One confirmed match on an unknown domain = sufficient signal alone.
+    _GOVT_CRITICAL = [
+        (r'ab[sz]h[ae]r',       'أبشر (Saudi gov portal)',      0.90),
+        (r'nafa[dt][h]?',       'نفاذ (Saudi national ID)',     0.90),
+        (r'en[jg][ae]z',        'إنجاز (Saudi gov service)',    0.88),
+        (r'in[jg][ae]z',        'إنجاز (Saudi gov service)',    0.88),
+        (r'hukum[ae]?',         'حكومة (government)',           0.85),
+        (r'elm[o0]uw[a]?t[e3]n','المواطن (citizen portal)',     0.88),
+    ]
+
+    # ── MEDIUM-RISK TERMS (context-dependent — need 2 to flag) ────────────
+    _MEDIUM_RISK = [
+        (r'jaw+[ae]l',          'جوال (mobile)',                0.60),
+        (r'wa[t]?an[iy]',       'وطني (national)',              0.58),
+        (r'ahl[iy]+[ae]?h?',    'أهلية (eligibility/national)', 0.58),
+        (r'taj?d[ie]+d',        'تجديد (renewal)',              0.62),
+        (r'ta[qk]d[ie]+m',      'تقديم (application/submit)',   0.62),
+        (r'b[ae]r[ie]d',        'بريد (email/mail)',            0.60),
+        (r'mak?t[o0]+b',        'مكتوب (mail service)',         0.60),
+        (r'z[ae][iy]n',         'زين (telecom brand)',          0.58),
+        (r'[o0][o0]r[ei]d[o0]+','أوريدو (telecom brand)',       0.58),
+    ]
+
+    matched_high   = []
+    matched_govt   = []
+    matched_medium = []
+    top_score      = 0.0
+
+    for pat, meaning, sc in _HIGH_RISK:
+        if re.search(pat, full_searchable):
+            matched_high.append((meaning, sc))
+            top_score = max(top_score, sc)
+
+    for pat, meaning, sc in _GOVT_CRITICAL:
+        if re.search(pat, full_searchable):
+            matched_govt.append((meaning, sc))
+            top_score = max(top_score, sc)
+
+    for pat, meaning, sc in _MEDIUM_RISK:
+        if re.search(pat, full_searchable):
+            matched_medium.append((meaning, sc))
+            top_score = max(top_score, sc)
+
+    # ── Conjunctive decision logic ─────────────────────────────────────────
+    # Government service name alone → always flag (high-value impersonation)
+    if matched_govt:
+        term, sc = matched_govt[0]
+        final = min(0.95, sc + (0.05 if len(matched_govt) > 1 else 0.0))
+        return (
+            'PHISHING', final, 'arabizi_govt_impersonation_guard',
+            [f'Arabizi government service impersonation detected: {term}'],
+            0.0, final
+        )
+
+    # 1 high-risk term + 1 any other term → flag
+    total_high_medium = len(matched_high) + len(matched_medium)
+    if len(matched_high) >= 1 and total_high_medium >= 2:
+        final = min(0.92, top_score + 0.08 * (total_high_medium - 1))
+        all_terms = [m for m, _ in matched_high] + [m for m, _ in matched_medium]
+        return (
+            'PHISHING', final, 'arabizi_phishing_guard',
+            [f'Arabizi (Arabic in Latin chars) phishing terms detected: '
+             f'{" | ".join(all_terms[:3])}'],
+            0.0, final
+        )
+
+    # 2+ high-risk terms alone → flag
+    if len(matched_high) >= 2:
+        final = min(0.92, top_score + 0.07)
+        all_terms = [m for m, _ in matched_high]
+        return (
+            'PHISHING', final, 'arabizi_phishing_guard',
+            [f'Multiple Arabizi phishing terms detected: {" | ".join(all_terms[:3])}'],
+            0.0, final
+        )
+
+    return None
+
+
 def check_advanced_threats(url: str):
     """
     Check URL against threat intelligence feeds
@@ -850,6 +1109,28 @@ def predict_ultimate(url: str):
         lbl, sc, src, rsn, p1x, p2x = php_res
         reasons.extend(rsn)
         p_ml = max(p_ml, sc)
+
+    # 8. Date-Encoded Phishing Kit Path Guard
+    date_res = check_date_encoded_phishing_path(u)
+    if date_res:
+        lbl, sc, src, rsn, p1x, p2x = date_res
+        reasons.extend(rsn)
+        p_ml = max(p_ml, sc)
+
+    # 9. Trailing Dot / Hex Filename Anomaly Guard
+    dot_res = check_trailing_dot_anomaly(u)
+    if dot_res:
+        lbl, sc, src, rsn, p1x, p2x = dot_res
+        reasons.extend(rsn)
+        p_ml = max(p_ml, sc)
+
+    # 10. Arabizi / Franco-Arabic Transliteration Phishing Guard
+    arabizi_res = check_arabizi_phishing(u)
+    if arabizi_res:
+        lbl, sc, src, rsn, p1x, p2x = arabizi_res
+        reasons.extend(rsn)
+        p_ml = max(p_ml, sc)
+
 
     # === LAYER 3: ADVANCED BRAND IMPERSONATION ===
 

@@ -16,8 +16,10 @@ from sentinurl import (
     check_typosquat_advanced, check_cloud_payload,
     check_cms_vulnerabilities, check_malware_signatures,
     check_finance_phish_paths, check_fake_image_payload,
-    check_random_php_webshell
+    check_random_php_webshell, check_date_encoded_phishing_path,
+    check_trailing_dot_anomaly, check_arabizi_phishing
 )
+
 
 
 
@@ -177,7 +179,8 @@ def run_continuous_test(batch_size=50000):
             
         # 1. Adversarial Hardening Layers (Layer 2.5)
         reasons_list = []
-        for fn in [check_typosquat_advanced, check_cloud_payload, check_cms_vulnerabilities, check_malware_signatures, check_finance_phish_paths, check_fake_image_payload, check_random_php_webshell]:
+        for fn in [check_typosquat_advanced, check_cloud_payload, check_cms_vulnerabilities, check_malware_signatures, check_finance_phish_paths, check_fake_image_payload, check_random_php_webshell, check_date_encoded_phishing_path, check_trailing_dot_anomaly, check_arabizi_phishing]:
+
 
             res = fn(u)
             if res:
