@@ -76,8 +76,8 @@ ENGINE_VERSION = "2.2.3-protect-enhanced"
 # =========================================================
 import sys
 if hasattr(sys, '_MEIPASS'):
-    BASE_DIR = sys._MEIPASS
-    WRITE_DIR = os.path.dirname(sys.executable)
+    BASE_DIR = os.path.dirname(sys.executable)
+    WRITE_DIR = BASE_DIR
 else:
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     WRITE_DIR = BASE_DIR

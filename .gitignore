@@ -63,3 +63,4 @@ scratch/
 *.exe
 !src/ui/index.html
 !Sentin Application/src/ui/index.html
+build/
